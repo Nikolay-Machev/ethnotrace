@@ -1,0 +1,27 @@
+{
+  "baseline_version": "1.0",
+  "case_count": 20,
+  "development_checks": {
+    "macro_recall_at_5_for_seeded_links": 0.6666666666666666,
+    "mean_reciprocal_rank_for_seeded_links": 0.4083333333333334,
+    "query_count": 6,
+    "scientific_name_taxon_agreement": 1.0,
+    "species_gate_membership_agreement": 1.0,
+    "warning": "Seeded expectations use curated names/links and test implemented structure. These are not independently reviewed relevance or scientific accuracy scores."
+  },
+  "independent_review": {
+    "adjudicated_cases": 0,
+    "comparison_accuracy": null,
+    "complete_retrieval_query_count": 0,
+    "macro_recall_at_5": null,
+    "status": "no_independent_gold_available"
+  },
+  "index_documents": 59,
+  "input_sha256": {
+    "data/review/adjudicated.jsonl": "18e8938f414b4d301bfa853c9800d5d92898914201c9eed7fbcd6df99c7eac46",
+    "data/review/review_cases.jsonl": "cb61a1a6579757a3d973fe62ad8350f4639190dfcb85bd79882e070d5dea0fa3",
+    "data/review/reviewer_a.jsonl": "63c6ffcd23e6ee1d5296f7abedcd47f5c00e203a4f1707d15a865930a52b4508",
+    "data/review/reviewer_b.jsonl": "63c6ffcd23e6ee1d5296f7abedcd47f5c00e203a4f1707d15a865930a52b4508"
+  },
+  "scope": "development set, not held-out; known source/programme blocks retained"
+}

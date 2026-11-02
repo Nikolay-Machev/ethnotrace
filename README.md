@@ -25,7 +25,9 @@ The intended output is a cited comparison showing what was tested, what differs 
 
 ## Current implementation
 
-This repository currently contains a versioned dataset import and an offline preprocessing pipeline. Retrieval, an interactive comparison interface and model evaluation are planned work, not completed features.
+This repository contains a versioned dataset import, offline preprocessing, a scientific-name-based retrieval baseline and 20 source-linked comparison packets. Retrieval returns citations and explains explicit mismatches. Development checks run automatically; independent review and an interactive interface remain to be completed.
+
+See the [retrieval methods and results](docs/baseline.md), [comparison index](docs/review_cases.md) and [review workflow](docs/review_workflow.md).
 
 | Collection | Count | Meaning |
 | --- | ---: | --- |
@@ -55,6 +57,9 @@ Python 3.10 or newer is required. The pipeline uses the standard library and nee
 
 ```bash
 python scripts/preprocess.py
+python scripts/build_review_set.py
+python scripts/retrieve.py --claim T011 --limit 5
+python scripts/evaluate.py
 python -m unittest discover -s tests -v
 ```
 
