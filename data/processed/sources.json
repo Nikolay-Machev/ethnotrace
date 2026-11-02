@@ -1,0 +1,284 @@
+{
+  "normalized": {
+    "dataset_version": "0.8",
+    "retrieval_resources": [],
+    "scope": "canadian_diabetes",
+    "sources": [
+      {
+        "accessed_on": "2026-10-29",
+        "attribution": "Marjorie Nadeau; Alphare (2005). Account: Émiliana Hince, Frampton, 1974, Fonds Christine Audet, via France Bélanger et al., p.236.",
+        "import_scope": "One factual summary and short quotation; La médecine, PDF page 43, footnote 70",
+        "licence": "Unknown; no open reuse licence verified",
+        "licence_url": null,
+        "original_format": "63-page PDF regional-history educational publication",
+        "source_id": "ISBN:2-9808110-2-5",
+        "source_key": "beauce-2005",
+        "source_url": "https://bv.cdeacf.ca/RA_PDF/76500.pdf",
+        "title": "La Beauce : éveil à notre culture régionale"
+      },
+      {
+        "accessed_on": "2026-10-29",
+        "attribution": "Collectif de personnes âgées du Centre d’alphabétisation Moi, j’apprends, Rockland (1994); contributors in St-Albert and Embrun, Ontario.",
+        "import_scope": "One factual summary and short excerpt; printed p.23 / PDF page 23",
+        "licence": "All rights reserved; no open reuse licence",
+        "licence_url": null,
+        "original_format": "59-page PDF community-authored folk-remedy collection",
+        "source_id": "CDEACF:RA_PDF/6327; Remèdes anciens (1994)",
+        "source_key": "remedes-anciens-1994",
+        "source_url": "https://bv.cdeacf.ca/RA_PDF/6327.pdf",
+        "title": "Remèdes anciens"
+      },
+      {
+        "accessed_on": "2026-10-31",
+        "attribution": "Harbilas D; Vallerand D; Brault A; Saleem A; Arnason JT; Musallam L; Haddad PS. Larix laricina, an Antidiabetic Alternative Treatment from the Cree of Northern Quebec Pharmacopoeia, Decreases Glycemia and Improves Insulin Sensitivity In Vivo. Evidence-based complementary and alternative medicine : eCAM. 2012;2012:296432. doi:10.1155/2012/296432. PMID:22888363.",
+        "import_scope": "Traditional-use context reported by investigators; selected experimental methods/results, not the entire article",
+        "licence": "Creative Commons Attribution; version as linked in article permissions",
+        "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+        "original_format": "Peer-reviewed journal full-text XML from Europe PMC",
+        "source_id": "PMID:22888363",
+        "source_key": "pmid-22888363",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3408811/",
+        "title": "Larix laricina, an Antidiabetic Alternative Treatment from the Cree of Northern Quebec Pharmacopoeia, Decreases Glycemia and Improves Insulin Sensitivity In Vivo."
+      },
+      {
+        "accessed_on": "2026-10-31",
+        "attribution": "Harris CS; Asim M; Saleem A; Haddad PS; Arnason JT; Bennett SA. Characterizing the cytoprotective activity of Sarracenia purpurea L., a medicinal plant that inhibits glucotoxicity in PC12 cells. BMC complementary and alternative medicine. 2012;12:245. doi:10.1186/1472-6882-12-245. PMID:23216659.",
+        "import_scope": "Traditional-use context reported by investigators; selected experimental methods/results, not the entire article",
+        "licence": "Creative Commons Attribution; version as linked in article permissions",
+        "licence_url": "http://creativecommons.org/licenses/by/2.0",
+        "original_format": "Peer-reviewed journal full-text XML from Europe PMC",
+        "source_id": "PMID:23216659",
+        "source_key": "pmid-23216659",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3556504/",
+        "title": "Characterizing the cytoprotective activity of Sarracenia purpurea L., a medicinal plant that inhibits glucotoxicity in PC12 cells."
+      },
+      {
+        "accessed_on": "2026-10-31",
+        "attribution": "Vianna R; Brault A; Martineau LC; Couture R; Arnason JT; Haddad PS. In Vivo Anti-Diabetic Activity of the Ethanolic Crude Extract of Sorbus decora C.K.Schneid. (Rosacea): A Medicinal Plant Used by Canadian James Bay Cree Nations to Treat Symptoms Related to Diabetes. Evidence-based complementary and alternative medicine : eCAM. 2011;2011:237941. doi:10.1093/ecam/nep158. PMID:19887507.",
+        "import_scope": "Traditional-use context reported by investigators; selected experimental methods/results, not the entire article",
+        "licence": "Creative Commons Attribution; version as linked in article permissions",
+        "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+        "original_format": "Peer-reviewed journal full-text XML from Europe PMC",
+        "source_id": "PMID:19887507",
+        "source_key": "pmid-19887507",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3163474/",
+        "title": "In Vivo Anti-Diabetic Activity of the Ethanolic Crude Extract of Sorbus decora C.K.Schneid. (Rosacea): A Medicinal Plant Used by Canadian James Bay Cree Nations to Treat Symptoms Related to Diabetes."
+      },
+      {
+        "accessed_on": "2026-10-31",
+        "attribution": "Harbilas D; Vallerand D; Brault A; Saleem A; Arnason JT; Musallam L; Haddad PS. Populus balsamifera Extract and Its Active Component Salicortin Reduce Obesity and Attenuate Insulin Resistance in a Diet-Induced Obese Mouse Model. Evidence-based complementary and alternative medicine : eCAM. 2013;2013:172537. doi:10.1155/2013/172537. PMID:23781256.",
+        "import_scope": "Traditional-use context reported by investigators; selected experimental methods/results, not the entire article",
+        "licence": "Creative Commons Attribution; version as linked in article permissions",
+        "licence_url": null,
+        "original_format": "Peer-reviewed journal full-text XML from Europe PMC",
+        "source_id": "PMID:23781256",
+        "source_key": "pmid-23781256",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3678421/",
+        "title": "Populus balsamifera Extract and Its Active Component Salicortin Reduce Obesity and Attenuate Insulin Resistance in a Diet-Induced Obese Mouse Model."
+      },
+      {
+        "accessed_on": "2026-10-31",
+        "attribution": "Eid HM; Ouchfoun M; Brault A; Vallerand D; Musallam L; Arnason JT; Haddad PS. Lingonberry (Vaccinium vitis-idaea L.) Exhibits Antidiabetic Activities in a Mouse Model of Diet-Induced Obesity. Evidence-based complementary and alternative medicine : eCAM. 2014;2014:645812. doi:10.1155/2014/645812. PMID:25013446.",
+        "import_scope": "Traditional-use context reported by investigators; selected experimental methods/results, not the entire article",
+        "licence": "Creative Commons Attribution; version as linked in article permissions",
+        "licence_url": null,
+        "original_format": "Peer-reviewed journal full-text XML from Europe PMC",
+        "source_id": "PMID:25013446",
+        "source_key": "pmid-25013446",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4072050/",
+        "title": "Lingonberry (Vaccinium vitis-idaea L.) Exhibits Antidiabetic Activities in a Mouse Model of Diet-Induced Obesity."
+      },
+      {
+        "accessed_on": "2026-10-31",
+        "attribution": "Shang N; Saleem A; Musallam L; Walshe-Roussel B; Badawi A; Cuerrier A; Arnason JT; Haddad PS. Novel Approach to Identify Potential Bioactive Plant Metabolites: Pharmacological and Metabolomics Analyses of Ethanol and Hot Water Extracts of Several Canadian Medicinal Plants of the Cree of Eeyou Istchee. PloS one. 2015;10(8):e0135721. doi:10.1371/journal.pone.0135721. PMID:26263160.",
+        "import_scope": "Traditional-use context reported by investigators; selected experimental methods/results, not the entire article",
+        "licence": "Creative Commons Attribution; version as linked in article permissions",
+        "licence_url": null,
+        "original_format": "Peer-reviewed journal full-text XML from Europe PMC",
+        "source_id": "PMID:26263160",
+        "source_key": "pmid-26263160",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4532419/",
+        "title": "Novel Approach to Identify Potential Bioactive Plant Metabolites: Pharmacological and Metabolomics Analyses of Ethanol and Hot Water Extracts of Several Canadian Medicinal Plants of the Cree of Eeyou Istchee."
+      },
+      {
+        "accessed_on": "2026-10-31",
+        "attribution": "Gwich’in Social & Cultural Institute. Blueberry. Cites Alestine Andre, Nan t’aih nakwits’inahtsìh (The Land Gives Us Strength), 2006.",
+        "import_scope": "Two distinct preparation/use records from the As medicine passage; underlying 2006 book not directly inspected",
+        "licence": "Copyright Gwich’in Social and Cultural Institute, 2016; no open reuse licence verified",
+        "licence_url": null,
+        "original_format": "Community-published plant webpage",
+        "source_id": "GSCI:plants/blueberry",
+        "source_key": "gwichin-blueberry",
+        "source_url": "https://gwichin.ca/plants/blueberry",
+        "title": "Blueberry"
+      },
+      {
+        "accessed_on": "2026-10-31",
+        "attribution": "Theresa Thorne, kwa’mutsun; Hul’q’umi’num’ Language & Culture Society, Plants in the Hul’q’umi’num’ World. Botanical profile: https://plants.hwulmuhwqun.ca/plant/sqwuqwtsus-red-huckleberry/",
+        "import_scope": "Diabetes account only; eye-remedy root statement is not assigned to diabetes",
+        "licence": "Copyright 2023 Plants in the Hul’q’umi’num’ World; no open text reuse licence verified",
+        "licence_url": null,
+        "original_format": "Named-speaker bilingual community webpage with linked botanical profile",
+        "source_id": "HLCS:Theresa-Thorne-red-huckleberry",
+        "source_key": "hwulmuhw-red-huckleberry",
+        "source_url": "https://plants.hwulmuhwqun.ca/stories/theresa-thorne-from-kwamutsun-shares-some-information-on-red-huckleberry/",
+        "title": "Theresa Thorne from kwa’mutsun shares some information on red huckleberry"
+      },
+      {
+        "accessed_on": "2026-11-01",
+        "attribution": "Duke, James A. (2016). Dr. Duke's Phytochemical and Ethnobotanical Databases. Ag Data Commons. Dataset. https://doi.org/10.15482/USDA.ADC/1239279",
+        "import_scope": "One Canadian diabetes-use row from ETHNOBOT.csv; source row retained separately",
+        "licence": "CC0 1.0 (archive dataset); Indigenous knowledge provenance and underlying publications retain separate considerations",
+        "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "original_format": "ZIP archive containing relational CSV database tables",
+        "source_id": "doi:10.15482/USDA.ADC/1239279",
+        "source_key": "usda-duke-archive",
+        "source_url": "https://agdatacommons.nal.usda.gov/articles/dataset/Dr_Duke_s_Phytochemical_and_Ethnobotanical_Databases/24660351",
+        "title": "Dr. Duke's Phytochemical and Ethnobotanical Databases"
+      }
+    ]
+  },
+  "provenance": {
+    "input_path": "imports/dataset/data/sources.json",
+    "source_commit": "b4ab9fe0dbafb4a9d97dfcd1cc9b0bf4947d1062"
+  },
+  "raw": {
+    "dataset_version": "0.8",
+    "retrieval_resources": [],
+    "scope": "canadian_diabetes",
+    "sources": [
+      {
+        "accessed_on": "2026-10-29",
+        "attribution": "Marjorie Nadeau; Alphare (2005). Account: Émiliana Hince, Frampton, 1974, Fonds Christine Audet, via France Bélanger et al., p.236.",
+        "import_scope": "One factual summary and short quotation; La médecine, PDF page 43, footnote 70",
+        "licence": "Unknown; no open reuse licence verified",
+        "licence_url": null,
+        "original_format": "63-page PDF regional-history educational publication",
+        "source_id": "ISBN:2-9808110-2-5",
+        "source_key": "beauce-2005",
+        "source_url": "https://bv.cdeacf.ca/RA_PDF/76500.pdf",
+        "title": "La Beauce : éveil à notre culture régionale"
+      },
+      {
+        "accessed_on": "2026-10-29",
+        "attribution": "Collectif de personnes âgées du Centre d’alphabétisation Moi, j’apprends, Rockland (1994); contributors in St-Albert and Embrun, Ontario.",
+        "import_scope": "One factual summary and short excerpt; printed p.23 / PDF page 23",
+        "licence": "All rights reserved; no open reuse licence",
+        "licence_url": null,
+        "original_format": "59-page PDF community-authored folk-remedy collection",
+        "source_id": "CDEACF:RA_PDF/6327; Remèdes anciens (1994)",
+        "source_key": "remedes-anciens-1994",
+        "source_url": "https://bv.cdeacf.ca/RA_PDF/6327.pdf",
+        "title": "Remèdes anciens"
+      },
+      {
+        "accessed_on": "2026-10-31",
+        "attribution": "Harbilas D; Vallerand D; Brault A; Saleem A; Arnason JT; Musallam L; Haddad PS. Larix laricina, an Antidiabetic Alternative Treatment from the Cree of Northern Quebec Pharmacopoeia, Decreases Glycemia and Improves Insulin Sensitivity In Vivo. Evidence-based complementary and alternative medicine : eCAM. 2012;2012:296432. doi:10.1155/2012/296432. PMID:22888363.",
+        "import_scope": "Traditional-use context reported by investigators; selected experimental methods/results, not the entire article",
+        "licence": "Creative Commons Attribution; version as linked in article permissions",
+        "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+        "original_format": "Peer-reviewed journal full-text XML from Europe PMC",
+        "source_id": "PMID:22888363",
+        "source_key": "pmid-22888363",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3408811/",
+        "title": "Larix laricina, an Antidiabetic Alternative Treatment from the Cree of Northern Quebec Pharmacopoeia, Decreases Glycemia and Improves Insulin Sensitivity In Vivo."
+      },
+      {
+        "accessed_on": "2026-10-31",
+        "attribution": "Harris CS; Asim M; Saleem A; Haddad PS; Arnason JT; Bennett SA. Characterizing the cytoprotective activity of Sarracenia purpurea L., a medicinal plant that inhibits glucotoxicity in PC12 cells. BMC complementary and alternative medicine. 2012;12:245. doi:10.1186/1472-6882-12-245. PMID:23216659.",
+        "import_scope": "Traditional-use context reported by investigators; selected experimental methods/results, not the entire article",
+        "licence": "Creative Commons Attribution; version as linked in article permissions",
+        "licence_url": "http://creativecommons.org/licenses/by/2.0",
+        "original_format": "Peer-reviewed journal full-text XML from Europe PMC",
+        "source_id": "PMID:23216659",
+        "source_key": "pmid-23216659",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3556504/",
+        "title": "Characterizing the cytoprotective activity of Sarracenia purpurea L., a medicinal plant that inhibits glucotoxicity in PC12 cells."
+      },
+      {
+        "accessed_on": "2026-10-31",
+        "attribution": "Vianna R; Brault A; Martineau LC; Couture R; Arnason JT; Haddad PS. In Vivo Anti-Diabetic Activity of the Ethanolic Crude Extract of Sorbus decora C.K.Schneid. (Rosacea): A Medicinal Plant Used by Canadian James Bay Cree Nations to Treat Symptoms Related to Diabetes. Evidence-based complementary and alternative medicine : eCAM. 2011;2011:237941. doi:10.1093/ecam/nep158. PMID:19887507.",
+        "import_scope": "Traditional-use context reported by investigators; selected experimental methods/results, not the entire article",
+        "licence": "Creative Commons Attribution; version as linked in article permissions",
+        "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+        "original_format": "Peer-reviewed journal full-text XML from Europe PMC",
+        "source_id": "PMID:19887507",
+        "source_key": "pmid-19887507",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3163474/",
+        "title": "In Vivo Anti-Diabetic Activity of the Ethanolic Crude Extract of Sorbus decora C.K.Schneid. (Rosacea): A Medicinal Plant Used by Canadian James Bay Cree Nations to Treat Symptoms Related to Diabetes."
+      },
+      {
+        "accessed_on": "2026-10-31",
+        "attribution": "Harbilas D; Vallerand D; Brault A; Saleem A; Arnason JT; Musallam L; Haddad PS. Populus balsamifera Extract and Its Active Component Salicortin Reduce Obesity and Attenuate Insulin Resistance in a Diet-Induced Obese Mouse Model. Evidence-based complementary and alternative medicine : eCAM. 2013;2013:172537. doi:10.1155/2013/172537. PMID:23781256.",
+        "import_scope": "Traditional-use context reported by investigators; selected experimental methods/results, not the entire article",
+        "licence": "Creative Commons Attribution; version as linked in article permissions",
+        "licence_url": null,
+        "original_format": "Peer-reviewed journal full-text XML from Europe PMC",
+        "source_id": "PMID:23781256",
+        "source_key": "pmid-23781256",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3678421/",
+        "title": "Populus balsamifera Extract and Its Active Component Salicortin Reduce Obesity and Attenuate Insulin Resistance in a Diet-Induced Obese Mouse Model."
+      },
+      {
+        "accessed_on": "2026-10-31",
+        "attribution": "Eid HM; Ouchfoun M; Brault A; Vallerand D; Musallam L; Arnason JT; Haddad PS. Lingonberry (Vaccinium vitis-idaea L.) Exhibits Antidiabetic Activities in a Mouse Model of Diet-Induced Obesity. Evidence-based complementary and alternative medicine : eCAM. 2014;2014:645812. doi:10.1155/2014/645812. PMID:25013446.",
+        "import_scope": "Traditional-use context reported by investigators; selected experimental methods/results, not the entire article",
+        "licence": "Creative Commons Attribution; version as linked in article permissions",
+        "licence_url": null,
+        "original_format": "Peer-reviewed journal full-text XML from Europe PMC",
+        "source_id": "PMID:25013446",
+        "source_key": "pmid-25013446",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4072050/",
+        "title": "Lingonberry (Vaccinium vitis-idaea L.) Exhibits Antidiabetic Activities in a Mouse Model of Diet-Induced Obesity."
+      },
+      {
+        "accessed_on": "2026-10-31",
+        "attribution": "Shang N; Saleem A; Musallam L; Walshe-Roussel B; Badawi A; Cuerrier A; Arnason JT; Haddad PS. Novel Approach to Identify Potential Bioactive Plant Metabolites: Pharmacological and Metabolomics Analyses of Ethanol and Hot Water Extracts of Several Canadian Medicinal Plants of the Cree of Eeyou Istchee. PloS one. 2015;10(8):e0135721. doi:10.1371/journal.pone.0135721. PMID:26263160.",
+        "import_scope": "Traditional-use context reported by investigators; selected experimental methods/results, not the entire article",
+        "licence": "Creative Commons Attribution; version as linked in article permissions",
+        "licence_url": null,
+        "original_format": "Peer-reviewed journal full-text XML from Europe PMC",
+        "source_id": "PMID:26263160",
+        "source_key": "pmid-26263160",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4532419/",
+        "title": "Novel Approach to Identify Potential Bioactive Plant Metabolites: Pharmacological and Metabolomics Analyses of Ethanol and Hot Water Extracts of Several Canadian Medicinal Plants of the Cree of Eeyou Istchee."
+      },
+      {
+        "accessed_on": "2026-10-31",
+        "attribution": "Gwich’in Social & Cultural Institute. Blueberry. Cites Alestine Andre, Nan t’aih nakwits’inahtsìh (The Land Gives Us Strength), 2006.",
+        "import_scope": "Two distinct preparation/use records from the As medicine passage; underlying 2006 book not directly inspected",
+        "licence": "Copyright Gwich’in Social and Cultural Institute, 2016; no open reuse licence verified",
+        "licence_url": null,
+        "original_format": "Community-published plant webpage",
+        "source_id": "GSCI:plants/blueberry",
+        "source_key": "gwichin-blueberry",
+        "source_url": "https://gwichin.ca/plants/blueberry",
+        "title": "Blueberry"
+      },
+      {
+        "accessed_on": "2026-10-31",
+        "attribution": "Theresa Thorne, kwa’mutsun; Hul’q’umi’num’ Language & Culture Society, Plants in the Hul’q’umi’num’ World. Botanical profile: https://plants.hwulmuhwqun.ca/plant/sqwuqwtsus-red-huckleberry/",
+        "import_scope": "Diabetes account only; eye-remedy root statement is not assigned to diabetes",
+        "licence": "Copyright 2023 Plants in the Hul’q’umi’num’ World; no open text reuse licence verified",
+        "licence_url": null,
+        "original_format": "Named-speaker bilingual community webpage with linked botanical profile",
+        "source_id": "HLCS:Theresa-Thorne-red-huckleberry",
+        "source_key": "hwulmuhw-red-huckleberry",
+        "source_url": "https://plants.hwulmuhwqun.ca/stories/theresa-thorne-from-kwamutsun-shares-some-information-on-red-huckleberry/",
+        "title": "Theresa Thorne from kwa’mutsun shares some information on red huckleberry"
+      },
+      {
+        "accessed_on": "2026-11-01",
+        "attribution": "Duke, James A. (2016). Dr. Duke's Phytochemical and Ethnobotanical Databases. Ag Data Commons. Dataset. https://doi.org/10.15482/USDA.ADC/1239279",
+        "import_scope": "One Canadian diabetes-use row from ETHNOBOT.csv; source row retained separately",
+        "licence": "CC0 1.0 (archive dataset); Indigenous knowledge provenance and underlying publications retain separate considerations",
+        "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "original_format": "ZIP archive containing relational CSV database tables",
+        "source_id": "doi:10.15482/USDA.ADC/1239279",
+        "source_key": "usda-duke-archive",
+        "source_url": "https://agdatacommons.nal.usda.gov/articles/dataset/Dr_Duke_s_Phytochemical_and_Ethnobotanical_Databases/24660351",
+        "title": "Dr. Duke's Phytochemical and Ethnobotanical Databases"
+      }
+    ]
+  }
+}

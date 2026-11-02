@@ -1,0 +1,23 @@
+# Source leads
+
+Citations and inspection status are listed in [References](references.md). These leads have not contributed records to the active dataset.
+
+| Source | Attribution and geography | Relevant material | Status and limits |
+| --- | --- | --- | --- |
+| [Plants used by the Cree Nation of Eeyou Istchee for the treatment of diabetes](https://pubmed.ncbi.nlm.nih.gov/16297584/) | Eeyou Istchee Cree, Quebec | Ethnobotanical survey identifying potentially antidiabetic species through traditional-use knowledge | Publication identified. Inspect full study and its attribution/reuse conditions before extracting records. |
+| [Gwich'in Social & Cultural Institute: Blueberry](https://gwichin.ca/plants/blueberry) | Gwich'in; source provides Gwichya and Teetł'it names | Names Vaccinium uliginosum and describes berries and plant teas in relation to diabetes; cites Alestine Andre's 2006 work | Page inspected. Diabetes reference is explicit. Preparation details for the diabetes passage must be kept separate from the page's cold-remedy passage. Copyright notice present; open reuse licence not verified. |
+| [Theresa Thorne from kwa'mutsun on red huckleberry](https://plants.hwulmuhwqun.ca/stories/theresa-thorne-from-kwamutsun-shares-some-information-on-red-huckleberry/) | Named speaker from kwa'mutsun; Hul'q'umi'num' Language & Culture Society, British Columbia | Bilingual account explicitly mentions diabetes in connection with red huckleberry | Page inspected. Botanical species, diabetes-specific plant part and preparation are not established in this passage. Do not assign the roots mentioned for eye problems to the diabetes use. Open reuse licence not verified. |
+| [Mi'kmaw Resource Guide excerpt hosted by Cape Breton University](https://www.cbu.ca/indigenous-initiatives/lnu-resource-centre/mikmaq-resource-guide/mikmaw-language-spirituality-medicine-mikmaw-tloti/) | Mi'kmaw Resource Guide 2007; collaborating Mi'kmaw organizations identified on page | Golden Thread entry explicitly includes diabetes; Ground Juniper entry describes a sugar-level claim | Page inspected. Common/local names need taxonomic verification. Keep preparation and indication links specific to each entry. Copyright attributed to Eastern Woodland Publishing; open reuse licence not verified. |
+| [Traditional Metis Medicines and Healing](https://www.metismuseum.ca/media/document.php/14667.Traditional%20Metis%20Medicines.pdf) | Métis resource hosted by the Virtual Museum of Métis History and Culture | PDF page 21 (printed slide headed Diabetes) describes balsam poplar, aspen, blueberry/yarrow and other combinations | Diabetes slide inspected. Several records concern mixtures. Common names and exact community/location require further verification. Métis records belong to the Indigenous category, not the settler category. Open reuse licence not verified. |
+| [Contemporary use of bark for medicine by two Salishan native elders](https://pubmed.ncbi.nlm.nih.gov/2345461/) | Southeast Vancouver Island, British Columbia | Abstract identifies diabetes among reported bark uses | Publication identified. Plant-specific diabetes attribution requires full text; abstract-level mention alone is insufficient for a species record. |
+| [Anti-diabetic properties of the Canadian lowbush blueberry](https://pubmed.ncbi.nlm.nih.gov/16979328/) | Canadian research; Vaccinium angustifolium | Experimental research lead; abstract describes the plant as a natural health product recommended for diabetes in Canada | Not evidence of settler traditional use. Vaccinium angustifolium must not be substituted for the Gwich'in source's Vaccinium uliginosum. |
+| [Antidiabetic compounds from Sarracenia purpurea](https://pubs.acs.org/doi/10.1021/np3001317) | Research associated with Eeyou Istchee Cree knowledge | Laboratory work on plant-derived compounds and glucose-related cellular outcomes | Experimental lead. Cell outcomes must remain distinct from human diabetes outcomes. |
+
+Settler records from Beauce and eastern Ontario have been imported. Other entries in this file remain leads. Anglo-Canadian, Acadian and Inuit-specific qualifying records have not yet been verified.
+
+Public availability does not establish an open licence or unrestricted permission to republish traditional knowledge. The table records source locations and brief discovery summaries; record-level extraction still requires documenting attribution and access/reuse conditions.
+
+
+## Acadian source
+
+[Marielle Cormier Boudreau, Médecine traditionnelle en Acadie](https://editionsfrancophonie.com/livres/medecine-traditionnelle-en-acadie/): print-only publisher listing, 2003 edition, 290 pages, ISBN 2-923016-31-9. No accessible diabetes entry verified; no data imported.

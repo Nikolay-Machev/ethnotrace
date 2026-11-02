@@ -1,0 +1,27 @@
+{
+  "version": "0.7",
+  "unit": "distinct_publication",
+  "total": 51,
+  "counts": {
+    "insufficient_evidence": 8,
+    "mixed_evidence": 16,
+    "not_directly_comparable": 10,
+    "support": 12,
+    "no_detected_effect": 5
+  },
+  "requested_minimum": 5,
+  "minimum_met_at_study_screening_level": true,
+  "verified_claim_pair_counts": {
+    "insufficient_evidence": 0,
+    "mixed_evidence": 0,
+    "not_directly_comparable": 0,
+    "support": 0,
+    "no_detected_effect": 0
+  },
+  "training_ready_count": 0,
+  "new_study_ids": [
+    "P26024297",
+    "P31136659"
+  ],
+  "note": "Question-specific publication screening only. Larix changed from support to mixed after full-text protocol separation. New extracted pairs are reported separately."
+}

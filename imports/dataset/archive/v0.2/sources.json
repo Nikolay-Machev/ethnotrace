@@ -1,0 +1,123 @@
+{
+  "dataset_version": "0.2",
+  "sources": [
+    {
+      "source_key": "italy-2022",
+      "title": "Ethnobotanical Review and Dataset Compiling on Wild and Cultivated Plants Traditionally Used as Medicinal Remedies in Italy",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9370752/",
+      "source_id": "PMC9370752; DOI:10.3390/plants11152041",
+      "licence": "CC-BY-4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "original_format": "Article prose (JATS XML / HTML); linked supplementary ZIP",
+      "import_scope": "Selected article passages; supplementary Table S1 NOT imported",
+      "attribution": "Monari, Ferri, Salinitro and Tassoni (2022)",
+      "accessed_on": "2026-10-25"
+    },
+    {
+      "source_key": "ema-peppermint",
+      "title": "Menthae piperitae folium — summary for the public",
+      "source_url": "https://www.ema.europa.eu/en/medicines/herbal/menthae-piperitae-folium",
+      "source_id": "EMA/60946/2020",
+      "licence": "EMA attribution-required reuse",
+      "licence_url": "https://www.ema.europa.eu/en/about-us/about-website/legal-notice",
+      "original_format": "HTML public summary with linked PDF monograph",
+      "import_scope": "Selected public-summary passages, not full monograph",
+      "attribution": "European Medicines Agency",
+      "accessed_on": "2026-10-25"
+    },
+    {
+      "source_key": "ema-chamomile",
+      "title": "Matricariae flos — summary for the public",
+      "source_url": "https://www.ema.europa.eu/en/medicines/herbal/matricariae-flos",
+      "source_id": "EMA:Matricariae-flos",
+      "licence": "EMA attribution-required reuse",
+      "licence_url": "https://www.ema.europa.eu/en/about-us/about-website/legal-notice",
+      "original_format": "HTML public summary with linked PDF monograph",
+      "import_scope": "Selected public-summary passages, not full monograph",
+      "attribution": "European Medicines Agency",
+      "accessed_on": "2026-10-25"
+    },
+    {
+      "source_key": "chamomile-2015",
+      "title": "Antidiarrhoeal, antisecretory and antispasmodic activities of Matricaria chamomilla are mediated predominantly through K(+)-channels activation",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4410481/",
+      "source_id": "PMID:25886126; PMCID:PMC4410481",
+      "licence": "CC-BY-4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "original_format": "Research article JATS XML; structured abstract",
+      "import_scope": "Methods and abstract inspected through Europe PMC official API",
+      "attribution": "Mehmood and colleagues (2015); see source for full authors",
+      "accessed_on": "2026-10-25"
+    },
+    {
+      "source_key": "chamomile-2014",
+      "title": "Antidiarrheal and antioxidant activities of chamomile (Matricaria recutita L.) decoction extract in rats",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/24463157/",
+      "source_id": "PMID:24463157",
+      "licence": "Unknown; no open reuse licence verified",
+      "licence_url": null,
+      "original_format": "Bibliographic record and structured abstract via Europe PMC core JSON",
+      "import_scope": "Factual paraphrase and short excerpt only; full abstract NOT redistributed",
+      "attribution": "See PMID:24463157 for authors and citation",
+      "accessed_on": "2026-10-25"
+    },
+    {
+      "source_key": "peppermint-2020",
+      "title": "Efficacy and Safety of Peppermint Oil in a Randomized, Double-Blind Trial of Patients With Irritable Bowel Syndrome",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/31470006/",
+      "source_id": "PMID:31470006; DOI:10.1053/j.gastro.2019.08.026",
+      "licence": "Unknown; no open reuse licence verified",
+      "licence_url": null,
+      "original_format": "Bibliographic record and structured abstract via Europe PMC core JSON",
+      "import_scope": "Factual paraphrase and short excerpt only; full abstract NOT redistributed",
+      "attribution": "Weerts and colleagues (2020)",
+      "accessed_on": "2026-10-25"
+    },
+    {
+      "source_key": "mixture-2004",
+      "title": "Treatment of functional dyspepsia with a herbal preparation. A double-blind, randomized, placebo-controlled, multicenter trial",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/14755152/",
+      "source_id": "PMID:14755152; DOI:10.1159/000076546",
+      "licence": "Unknown; no open reuse licence verified",
+      "licence_url": null,
+      "original_format": "Bibliographic record and structured abstract via Europe PMC core JSON",
+      "import_scope": "Factual paraphrase and short excerpt only; full abstract NOT redistributed",
+      "attribution": "Madisch, Holtmann, Mayr, Vinson and Hotz (2004)",
+      "accessed_on": "2026-10-25"
+    },
+    {
+      "source_key": "beauce-2005",
+      "title": "La Beauce : éveil à notre culture régionale",
+      "source_url": "https://bv.cdeacf.ca/RA_PDF/76500.pdf",
+      "source_id": "ISBN:2-9808110-2-5",
+      "licence": "Unknown; no open reuse licence verified",
+      "original_format": "63-page PDF regional-history educational publication",
+      "attribution": "Marjorie Nadeau; Alphare (2005). Account: Émiliana Hince, Frampton, 1974, Fonds Christine Audet, via France Bélanger et al., p.236.",
+      "import_scope": "One factual summary and short quotation; La médecine, PDF page 43, footnote 70",
+      "licence_url": null,
+      "accessed_on": "2026-10-29"
+    },
+    {
+      "source_key": "remedes-anciens-1994",
+      "title": "Remèdes anciens",
+      "source_url": "https://bv.cdeacf.ca/RA_PDF/6327.pdf",
+      "source_id": "CDEACF:RA_PDF/6327; Remèdes anciens (1994)",
+      "licence": "All rights reserved; no open reuse licence",
+      "original_format": "59-page PDF community-authored folk-remedy collection",
+      "attribution": "Collectif de personnes âgées du Centre d’alphabétisation Moi, j’apprends, Rockland (1994); contributors in St-Albert and Embrun, Ontario.",
+      "import_scope": "One factual summary and short excerpt; printed p.23 / PDF page 23",
+      "licence_url": null,
+      "accessed_on": "2026-10-29"
+    }
+  ],
+  "retrieval_resources": [
+    {
+      "source_key": "europe-pmc-api",
+      "source_url": "https://europepmc.org/RestfulWebService",
+      "role": "Retrieval service, not an additional study or traditional-use record",
+      "original_format": "REST core JSON and JATS XML",
+      "licence": "Service access does not override individual article rights",
+      "query": "EXT_ID:24463157 OR EXT_ID:31470006 OR EXT_ID:14755152 OR EXT_ID:25886126"
+    }
+  ]
+}

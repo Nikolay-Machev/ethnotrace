@@ -1,0 +1,206 @@
+{
+  "counts": {
+    "catalogue_imported_source_rows": 1,
+    "catalogue_literature_leads": 2,
+    "catalogue_resource_screening": 93,
+    "claim_study_pair_assessments": 102,
+    "experimental_records": 12,
+    "extracted_claim_study_pairs": 12,
+    "papers": 51,
+    "study_reviews": 51,
+    "taxon_crosswalk": 8,
+    "traditional_records": 12
+  },
+  "evaluation_groups": 21,
+  "exact_duplicate_candidates": [],
+  "issues": [
+    {
+      "field": "plant_part",
+      "issue": "not_established",
+      "record_id": "E001",
+      "table": "experimental_records"
+    },
+    {
+      "field": "plant_part",
+      "issue": "not_established",
+      "record_id": "E002",
+      "table": "experimental_records"
+    },
+    {
+      "field": "species",
+      "issue": "not_established",
+      "record_id": "T005",
+      "table": "traditional_records"
+    },
+    {
+      "field": "administration_route",
+      "issue": "not_established",
+      "record_id": "T005",
+      "table": "traditional_records"
+    },
+    {
+      "field": "species",
+      "issue": "not_established",
+      "record_id": "T006",
+      "table": "traditional_records"
+    },
+    {
+      "field": "plant_part",
+      "issue": "unmapped_preserved",
+      "record_id": "T006",
+      "table": "traditional_records"
+    },
+    {
+      "field": "plant_part",
+      "issue": "not_established",
+      "record_id": "T007",
+      "table": "traditional_records"
+    },
+    {
+      "field": "preparation",
+      "issue": "not_established",
+      "record_id": "T007",
+      "table": "traditional_records"
+    },
+    {
+      "field": "administration_route",
+      "issue": "not_established",
+      "record_id": "T007",
+      "table": "traditional_records"
+    },
+    {
+      "field": "preparation",
+      "issue": "not_established",
+      "record_id": "T008",
+      "table": "traditional_records"
+    },
+    {
+      "field": "administration_route",
+      "issue": "not_established",
+      "record_id": "T008",
+      "table": "traditional_records"
+    },
+    {
+      "field": "plant_part",
+      "issue": "not_established",
+      "record_id": "T009",
+      "table": "traditional_records"
+    },
+    {
+      "field": "preparation",
+      "issue": "not_established",
+      "record_id": "T009",
+      "table": "traditional_records"
+    },
+    {
+      "field": "administration_route",
+      "issue": "not_established",
+      "record_id": "T009",
+      "table": "traditional_records"
+    },
+    {
+      "field": "plant_part",
+      "issue": "not_established",
+      "record_id": "T010",
+      "table": "traditional_records"
+    },
+    {
+      "field": "preparation",
+      "issue": "not_established",
+      "record_id": "T010",
+      "table": "traditional_records"
+    },
+    {
+      "field": "administration_route",
+      "issue": "not_established",
+      "record_id": "T010",
+      "table": "traditional_records"
+    },
+    {
+      "field": "preparation",
+      "issue": "not_established",
+      "record_id": "T011",
+      "table": "traditional_records"
+    },
+    {
+      "field": "administration_route",
+      "issue": "not_established",
+      "record_id": "T011",
+      "table": "traditional_records"
+    },
+    {
+      "field": "plant_part",
+      "issue": "not_established",
+      "record_id": "T012",
+      "table": "traditional_records"
+    },
+    {
+      "field": "preparation",
+      "issue": "not_established",
+      "record_id": "T012",
+      "table": "traditional_records"
+    },
+    {
+      "field": "administration_route",
+      "issue": "not_established",
+      "record_id": "T012",
+      "table": "traditional_records"
+    },
+    {
+      "field": "plant_part",
+      "issue": "not_established",
+      "record_id": "T015",
+      "table": "traditional_records"
+    },
+    {
+      "field": "preparation",
+      "issue": "not_established",
+      "record_id": "T015",
+      "table": "traditional_records"
+    },
+    {
+      "field": "administration_route",
+      "issue": "not_established",
+      "record_id": "T015",
+      "table": "traditional_records"
+    },
+    {
+      "field": "plant_part",
+      "issue": "not_established",
+      "record_id": "T016",
+      "table": "traditional_records"
+    },
+    {
+      "field": "preparation",
+      "issue": "not_established",
+      "record_id": "T016",
+      "table": "traditional_records"
+    },
+    {
+      "field": "administration_route",
+      "issue": "not_established",
+      "record_id": "T016",
+      "table": "traditional_records"
+    }
+  ],
+  "json_documents_processed": 6,
+  "limits": [
+    "No human review is manufactured.",
+    "No missing species or preparation is imputed.",
+    "No automatic train/test split; cross-publication cohort identity remains unresolved.",
+    "Curator summaries, labels and rationales remain separate from source passages; no model input export is created.",
+    "Archive v0.2 is preserved as provenance and excluded from active preprocessing."
+  ],
+  "missing_or_unmapped_counts": {
+    "experimental_records.plant_part: not_established": 2,
+    "traditional_records.administration_route: not_established": 9,
+    "traditional_records.plant_part: not_established": 6,
+    "traditional_records.plant_part: unmapped_preserved": 1,
+    "traditional_records.preparation: not_established": 8,
+    "traditional_records.species: not_established": 2
+  },
+  "pipeline_version": "1.0",
+  "reference_entries": 74,
+  "source_commit": "b4ab9fe0dbafb4a9d97dfcd1cc9b0bf4947d1062",
+  "training_eligible_records": 0
+}

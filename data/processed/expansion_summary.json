@@ -1,0 +1,32 @@
+{
+  "normalized": {
+    "experimental_publications": 6,
+    "experimental_units": 12,
+    "identified_species": 9,
+    "independently_reviewed_pairs": 0,
+    "note": "Taxon alignment is source-checked; preparation and symptom comparability are partial. No original ethnobotanical interviews were newly accessed.",
+    "taxon_aligned_extracted_pairs": 12,
+    "therapeutically_equivalent_verified_pairs": 0,
+    "traditional_records": 12,
+    "traditional_records_with_unresolved_species": 2,
+    "training_eligible_pairs": 0,
+    "version": "0.8"
+  },
+  "provenance": {
+    "input_path": "imports/dataset/data/expansion_summary.json",
+    "source_commit": "b4ab9fe0dbafb4a9d97dfcd1cc9b0bf4947d1062"
+  },
+  "raw": {
+    "experimental_publications": 6,
+    "experimental_units": 12,
+    "identified_species": 9,
+    "independently_reviewed_pairs": 0,
+    "note": "Taxon alignment is source-checked; preparation and symptom comparability are partial. No original ethnobotanical interviews were newly accessed.",
+    "taxon_aligned_extracted_pairs": 12,
+    "therapeutically_equivalent_verified_pairs": 0,
+    "traditional_records": 12,
+    "traditional_records_with_unresolved_species": 2,
+    "training_eligible_pairs": 0,
+    "version": "0.8"
+  }
+}

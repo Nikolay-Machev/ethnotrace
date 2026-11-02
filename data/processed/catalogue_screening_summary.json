@@ -1,0 +1,78 @@
+{
+  "normalized": {
+    "active_publication_catalogue_unchanged": 51,
+    "catalogue_html_sha256": "cd6b341fdcb48c4bec882cbc697466fcb524639bffbc38aed1969e3d84f60641",
+    "catalogue_resource_entries_screened": 93,
+    "catalogue_txt_sha256": "3927769afa5e267e115e95715bd3e08b23a07d1d6a7dafaff9e727687b534c5b",
+    "catalogue_url": "https://docs.google.com/document/d/1L2xsq3sRqN9DHZddiZPLAbu8cP5s-Fx5/edit",
+    "dataset_version": "0.8",
+    "duke_chemical_context_rows_not_imported": 67,
+    "duke_diabetes_or_glyc_activity_rows": 263,
+    "duke_ethnobot_rows_scanned": 82873,
+    "duke_explicit_canadian_hits": 1,
+    "duke_filter": "ACTIVITY contains diabet or glyc (case insensitive), then COUNTRY contains canad",
+    "duke_reference_trace": "Eb25: 82 has no exact REFERENCES.csv lookup; possible publication candidates were not substituted for a verified original",
+    "experimental_records_unchanged": 12,
+    "naeb_status": "HTTP 503; no content imported",
+    "new_literature_leads": 2,
+    "new_traditional_records": [
+      "T016"
+    ],
+    "retrieved_on": "2026-11-01",
+    "scientific_name_crosswalk_records": 8,
+    "screening_counts": {
+      "defer_access_or_licence": 7,
+      "defer_images_geography_conservation": 10,
+      "optional_chemistry_context": 9,
+      "optional_safety_or_regulatory_context": 8,
+      "outside_current_cultural_or_text_scope": 15,
+      "potential_historical_source": 10,
+      "relevant_but_access_blocked": 1,
+      "relevant_literature_or_trial_discovery": 2,
+      "supporting_standard_not_evidence": 16,
+      "supporting_taxonomy": 10,
+      "tool_not_dataset": 2,
+      "used_for_import_or_enrichment": 3
+    }
+  },
+  "provenance": {
+    "input_path": "imports/dataset/data/catalogue_screening_summary.json",
+    "source_commit": "b4ab9fe0dbafb4a9d97dfcd1cc9b0bf4947d1062"
+  },
+  "raw": {
+    "active_publication_catalogue_unchanged": 51,
+    "catalogue_html_sha256": "cd6b341fdcb48c4bec882cbc697466fcb524639bffbc38aed1969e3d84f60641",
+    "catalogue_resource_entries_screened": 93,
+    "catalogue_txt_sha256": "3927769afa5e267e115e95715bd3e08b23a07d1d6a7dafaff9e727687b534c5b",
+    "catalogue_url": "https://docs.google.com/document/d/1L2xsq3sRqN9DHZddiZPLAbu8cP5s-Fx5/edit",
+    "dataset_version": "0.8",
+    "duke_chemical_context_rows_not_imported": 67,
+    "duke_diabetes_or_glyc_activity_rows": 263,
+    "duke_ethnobot_rows_scanned": 82873,
+    "duke_explicit_canadian_hits": 1,
+    "duke_filter": "ACTIVITY contains diabet or glyc (case insensitive), then COUNTRY contains canad",
+    "duke_reference_trace": "Eb25: 82 has no exact REFERENCES.csv lookup; possible publication candidates were not substituted for a verified original",
+    "experimental_records_unchanged": 12,
+    "naeb_status": "HTTP 503; no content imported",
+    "new_literature_leads": 2,
+    "new_traditional_records": [
+      "T016"
+    ],
+    "retrieved_on": "2026-11-01",
+    "scientific_name_crosswalk_records": 8,
+    "screening_counts": {
+      "defer_access_or_licence": 7,
+      "defer_images_geography_conservation": 10,
+      "optional_chemistry_context": 9,
+      "optional_safety_or_regulatory_context": 8,
+      "outside_current_cultural_or_text_scope": 15,
+      "potential_historical_source": 10,
+      "relevant_but_access_blocked": 1,
+      "relevant_literature_or_trial_discovery": 2,
+      "supporting_standard_not_evidence": 16,
+      "supporting_taxonomy": 10,
+      "tool_not_dataset": 2,
+      "used_for_import_or_enrichment": 3
+    }
+  }
+}

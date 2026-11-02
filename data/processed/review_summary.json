@@ -1,0 +1,34 @@
+{
+  "normalized": {
+    "accessed_on": "2026-10-31",
+    "candidate_pairs": 10,
+    "independently_reviewed_publications": 0,
+    "pair_assessments": 102,
+    "review_depth": "newly retrieved indexed abstracts and metadata; no complete full-text review",
+    "reviewed_publications": 51,
+    "reviewer": "same assistant; not an independent reviewer",
+    "scope_note": "Historical v0.6 all-publication review and 102-combination audit against T005/T006 only. Current extracted records and links are summarised in expansion_summary.json.",
+    "source_provider": "Europe PMC MED core API",
+    "source_query": "SRC:MED AND EXT_ID:(batch of existing PMIDs)",
+    "training_eligible_pairs": 0,
+    "verified_pairs": 0
+  },
+  "provenance": {
+    "input_path": "imports/dataset/data/review_summary.json",
+    "source_commit": "b4ab9fe0dbafb4a9d97dfcd1cc9b0bf4947d1062"
+  },
+  "raw": {
+    "accessed_on": "2026-10-31",
+    "candidate_pairs": 10,
+    "independently_reviewed_publications": 0,
+    "pair_assessments": 102,
+    "review_depth": "newly retrieved indexed abstracts and metadata; no complete full-text review",
+    "reviewed_publications": 51,
+    "reviewer": "same assistant; not an independent reviewer",
+    "scope_note": "Historical v0.6 all-publication review and 102-combination audit against T005/T006 only. Current extracted records and links are summarised in expansion_summary.json.",
+    "source_provider": "Europe PMC MED core API",
+    "source_query": "SRC:MED AND EXT_ID:(batch of existing PMIDs)",
+    "training_eligible_pairs": 0,
+    "verified_pairs": 0
+  }
+}

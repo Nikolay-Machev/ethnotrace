@@ -1,0 +1,60 @@
+{
+  "normalized": {
+    "counts": {
+      "insufficient_evidence": 8,
+      "mixed_evidence": 16,
+      "no_detected_effect": 5,
+      "not_directly_comparable": 10,
+      "support": 12
+    },
+    "minimum_met_at_study_screening_level": true,
+    "new_study_ids": [
+      "P26024297",
+      "P31136659"
+    ],
+    "note": "Question-specific publication screening only. Larix changed from support to mixed after full-text protocol separation. New extracted pairs are reported separately.",
+    "requested_minimum": 5,
+    "total": 51,
+    "training_ready_count": 0,
+    "unit": "distinct_publication",
+    "verified_claim_pair_counts": {
+      "insufficient_evidence": 0,
+      "mixed_evidence": 0,
+      "no_detected_effect": 0,
+      "not_directly_comparable": 0,
+      "support": 0
+    },
+    "version": "0.7"
+  },
+  "provenance": {
+    "input_path": "imports/dataset/data/classification_summary.json",
+    "source_commit": "b4ab9fe0dbafb4a9d97dfcd1cc9b0bf4947d1062"
+  },
+  "raw": {
+    "counts": {
+      "insufficient_evidence": 8,
+      "mixed_evidence": 16,
+      "no_detected_effect": 5,
+      "not_directly_comparable": 10,
+      "support": 12
+    },
+    "minimum_met_at_study_screening_level": true,
+    "new_study_ids": [
+      "P26024297",
+      "P31136659"
+    ],
+    "note": "Question-specific publication screening only. Larix changed from support to mixed after full-text protocol separation. New extracted pairs are reported separately.",
+    "requested_minimum": 5,
+    "total": 51,
+    "training_ready_count": 0,
+    "unit": "distinct_publication",
+    "verified_claim_pair_counts": {
+      "insufficient_evidence": 0,
+      "mixed_evidence": 0,
+      "no_detected_effect": 0,
+      "not_directly_comparable": 0,
+      "support": 0
+    },
+    "version": "0.7"
+  }
+}

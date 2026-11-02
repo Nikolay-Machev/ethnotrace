@@ -1,0 +1,218 @@
+{
+  "version": "1.0",
+  "part_aliases": {
+    "leaf": [
+      "leaf"
+    ],
+    "leaves": [
+      "leaf"
+    ],
+    "root": [
+      "root"
+    ],
+    "roots": [
+      "root"
+    ],
+    "berry": [
+      "berry"
+    ],
+    "berries": [
+      "berry"
+    ],
+    "bark": [
+      "bark"
+    ],
+    "inner bark": [
+      "inner_bark"
+    ],
+    "branch": [
+      "branch"
+    ],
+    "branches": [
+      "branch"
+    ],
+    "stem": [
+      "stem"
+    ],
+    "stems": [
+      "stem"
+    ],
+    "fruit": [
+      "fruit"
+    ],
+    "whole plant": [
+      "whole_plant"
+    ],
+    "stems and leaves": [
+      "stem",
+      "leaf"
+    ],
+    "leaf and root": [
+      "leaf",
+      "root"
+    ],
+    "root, stem, leaf and fruit": [
+      "root",
+      "stem",
+      "leaf",
+      "fruit"
+    ],
+    "leaf, stem, root and fruit": [
+      "leaf",
+      "stem",
+      "root",
+      "fruit"
+    ],
+    "leaf and stem": [
+      "leaf",
+      "stem"
+    ],
+    "needle, bark and cone": [
+      "needle",
+      "bark",
+      "cone"
+    ],
+    "leaf and bark": [
+      "leaf",
+      "bark"
+    ]
+  },
+  "result_direction_aliases": {
+    "support": "favourable_effect",
+    "no_detected_effect": "no_detected_effect",
+    "mixed_evidence": "condition_dependent"
+  },
+  "experimental_exposures": {
+    "E001": {
+      "dose_values": [
+        125,
+        250
+      ],
+      "dose_unit": "mg/kg",
+      "duration_value": 8,
+      "duration_unit": "week",
+      "regimen": "prevention_from_high_fat_diet_onset",
+      "route": "oral_diet",
+      "protocol_group": "P22888363:prevention"
+    },
+    "E002": {
+      "dose_values": [
+        125,
+        250
+      ],
+      "dose_unit": "mg/kg",
+      "duration_value": 8,
+      "duration_unit": "week",
+      "regimen": "treatment_after_8_weeks_high_fat_diet",
+      "route": "oral_diet",
+      "protocol_group": "P22888363:treatment"
+    },
+    "E003": {
+      "duration_value": 96,
+      "duration_unit": "hour",
+      "route": "cell_culture",
+      "protocol_group": "P23216659:glucotoxicity"
+    },
+    "E004": {
+      "duration_value": 96,
+      "duration_unit": "hour",
+      "route": "cell_culture",
+      "protocol_group": "P23216659:glucotoxicity"
+    },
+    "E005": {
+      "dose_values": [
+        200
+      ],
+      "dose_unit": "mg/kg/day",
+      "dose_qualifier": "approximate",
+      "duration_value": 7,
+      "duration_unit": "day",
+      "route": "oral_diet",
+      "protocol_group": "P19887507:KK-Ay"
+    },
+    "E006": {
+      "dose_values": [
+        125
+      ],
+      "dose_unit": "mg/kg",
+      "duration_value": 8,
+      "duration_unit": "week",
+      "route": "oral_diet",
+      "protocol_group": "P23781256:extract_treatment",
+      "shared_arm_group": "P23781256:125mgkg"
+    },
+    "E007": {
+      "dose_values": [
+        125
+      ],
+      "dose_unit": "mg/kg",
+      "duration_value": 8,
+      "duration_unit": "week",
+      "route": "oral_diet",
+      "protocol_group": "P23781256:extract_treatment",
+      "shared_arm_group": "P23781256:125mgkg",
+      "exposure_inherited_from": "E006"
+    },
+    "E008": {
+      "dose_values": [
+        250
+      ],
+      "dose_unit": "mg/kg/day",
+      "duration_value": 8,
+      "duration_unit": "week",
+      "route": "oral_diet",
+      "protocol_group": "P25013446:extract_treatment"
+    },
+    "E009": {
+      "dose_values": [
+        500
+      ],
+      "dose_unit": "mg/kg/day",
+      "duration_value": 8,
+      "duration_unit": "week",
+      "route": "oral_diet",
+      "protocol_group": "P25013446:extract_treatment"
+    },
+    "E010": {
+      "concentration_values": [
+        75
+      ],
+      "concentration_unit": "ug/mL",
+      "duration_value": 18,
+      "duration_unit": "hour",
+      "route": "cell_culture",
+      "protocol_group": "P26263160:C2C12"
+    },
+    "E011": {
+      "concentration_values": [
+        200
+      ],
+      "concentration_unit": "ug/mL",
+      "duration_value": 18,
+      "duration_unit": "hour",
+      "route": "cell_culture",
+      "protocol_group": "P26263160:C2C12"
+    },
+    "E012": {
+      "concentration_values": [
+        200
+      ],
+      "concentration_unit": "ug/mL",
+      "duration_value": 18,
+      "duration_unit": "hour",
+      "route": "cell_culture",
+      "protocol_group": "P26263160:C2C12"
+    }
+  },
+  "endpoint_aliases": {
+    "glycaemic auc, prevention": "blood_glucose_auc",
+    "glycaemic auc, treatment": "blood_glucose_auc",
+    "glycaemic auc": "blood_glucose_auc",
+    "viable cell number under glucose toxicity": "cell_viability_high_glucose",
+    "cell survival under glucose toxicity": "cell_viability_high_glucose",
+    "serial blood glucose": "blood_glucose_serial",
+    "terminal insulin": "insulin_terminal",
+    "terminal glucose": "blood_glucose_terminal",
+    "glucose uptake": "glucose_uptake"
+  }
+}

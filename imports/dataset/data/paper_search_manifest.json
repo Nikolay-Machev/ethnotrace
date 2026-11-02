@@ -1,0 +1,116 @@
+{
+  "accessed_on": "2026-10-30",
+  "provider": "Europe PMC REST API",
+  "endpoint": "https://www.ebi.ac.uk/europepmc/webservices/rest/search",
+  "parameters": {
+    "format": "json",
+    "resultType": "core",
+    "pageSize": 100
+  },
+  "searches": [
+    {
+      "search_id": "cree",
+      "query": "(Cree OR \"Eeyou Istchee\" OR \"James Bay\") AND (diabet* OR glucose OR glycem* OR insulin) AND (plant* OR extract* OR medicinal)",
+      "hit_count": 1440,
+      "returned_count": 100,
+      "error": null
+    },
+    {
+      "search_id": "western",
+      "query": "(\"Oplopanax horridus\" OR \"devil's club\") AND (diabet* OR glucose OR hypoglyc*)",
+      "hit_count": 54,
+      "returned_count": 54,
+      "error": null
+    },
+    {
+      "search_id": "blueberry",
+      "query": "(\"Vaccinium angustifolium\" OR \"Vaccinium uliginosum\" OR \"Vaccinium parvifolium\") AND (diabet* OR glucose OR insulin)",
+      "hit_count": 535,
+      "returned_count": 100,
+      "error": null
+    },
+    {
+      "search_id": "sumac",
+      "query": "\"Rhus typhina\" AND (diabet* OR glucose OR insulin OR glycem*)",
+      "hit_count": 66,
+      "returned_count": 66,
+      "error": null
+    },
+    {
+      "search_id": "canadian",
+      "query": "(Canada OR Canadian) AND (ethnobotan* OR \"traditional medicine\") AND (diabet* OR hypoglyc*)",
+      "hit_count": 2727,
+      "returned_count": 100,
+      "error": null
+    },
+    {
+      "search_id": "poplar",
+      "query": "(\"Populus balsamifera\" OR \"Picea mariana\" OR \"Larix laricina\" OR \"Rhododendron groenlandicum\") AND (diabet* OR glucose OR insulin)",
+      "hit_count": 351,
+      "returned_count": 100,
+      "error": null
+    },
+    {
+      "search_id": "focused_cree",
+      "query": "(TITLE_ABS:\"Cree\" OR TITLE_ABS:\"Eeyou Istchee\" OR TITLE_ABS:\"James Bay\") AND (TITLE_ABS:diabet* OR TITLE_ABS:glucose OR TITLE_ABS:insulin) AND (TITLE_ABS:plant* OR TITLE_ABS:extract* OR TITLE_ABS:pharmacopeia)",
+      "hit_count": 36,
+      "returned_count": 36,
+      "error": null
+    },
+    {
+      "search_id": "focused_west",
+      "query": "(TITLE_ABS:\"Oplopanax horridus\" OR TITLE_ABS:\"devil's club\" OR TITLE_ABS:Gitksan OR TITLE_ABS:Salishan) AND (TITLE_ABS:diabet* OR TITLE_ABS:glucose OR TITLE_ABS:hypoglyc* OR TITLE_ABS:medicinal)",
+      "hit_count": 20,
+      "returned_count": 20,
+      "error": null
+    },
+    {
+      "search_id": "focused_ids",
+      "query": "EXT_ID:(16297584 OR 2345461 OR 16979328 OR 22235232 OR 18066122 OR 20804840)",
+      "hit_count": 6,
+      "returned_count": 6,
+      "error": null
+    },
+    {
+      "search_id": "focused_blue",
+      "query": "TITLE:\"Vaccinium angustifolium\" AND (TITLE_ABS:diabet* OR TITLE_ABS:glucose OR TITLE_ABS:insulin)",
+      "hit_count": 9,
+      "returned_count": 9,
+      "error": null
+    },
+    {
+      "search_id": "focused_sumac",
+      "query": "TITLE:\"Rhus typhina\" AND (TITLE_ABS:diabet* OR TITLE_ABS:glucose OR TITLE_ABS:insulin)",
+      "hit_count": 9,
+      "returned_count": 9,
+      "error": null
+    }
+  ],
+  "unique_retrieved_records": 541,
+  "included_publications": 51,
+  "complete_systematic_review": false,
+  "notes": [
+    "Broad searches were capped at the first 100 returned records; targeted title/abstract searches were added to recover directly relevant older literature.",
+    "The union is a discovery pool, not a fully adjudicated exclusion set. Not all returned records received abstract review.",
+    "No full abstracts or article PDFs are redistributed. Search results change over time.",
+    "English scientific indexing predominates. French-language historical and community-led sources require separate searches.",
+    "Traditional-use provenance is Canadian; experiments may be from any country. No new settler ethnobotanical paper was verified in this batch."
+  ],
+  "initial_search_union_count": 541,
+  "retrieval_count_scope": "unique_retrieved_records describes the original discovery union only; supplemental search overlap was not recomputed",
+  "supplemental_searches": [
+    {
+      "accessed_on": "2026-10-31",
+      "query": "DOI:10.1093/ajcn/nqy380 OR EXT_ID:26024297",
+      "provider": "Europe PMC core API; PubMed and PMC primary-source checks",
+      "selected_pmids": [
+        "26024297",
+        "31136659"
+      ],
+      "purpose": "Additional blueberry clinical studies with no detected improvement in specified insulin-sensitivity/resistance outcomes",
+      "scope_limit": "Contextual blueberry fruit interventions; no Canadian traditional attribution or exact botanical match to T005 established",
+      "correction_pmid": "31667509",
+      "correction_counted_as_study": false
+    }
+  ]
+}
