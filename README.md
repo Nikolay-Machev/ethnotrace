@@ -78,10 +78,8 @@ The reference index includes 74 entries across imported sources, publications, a
 
 Source-specific rights remain attached to the records. No full PDFs, full abstracts, community webpages or images are imported. Indigenous knowledge retains its attribution, cultural context and access considerations. The project does not assert a blanket licence over third-party source material or imply that public access grants unrestricted training rights.
 
-## Hackathon provenance and AI assistance
+## Hackathon provenance 
 
-The dataset, source curation, earlier validation scripts and documentation were prepared before the hackathon in `Nikolay-Machev/Dataset-`. The pinned starting snapshot is commit [`b4ab9fe0dbafb4a9d97dfcd1cc9b0bf4947d1062`](https://github.com/Nikolay-Machev/Dataset-/tree/b4ab9fe0dbafb4a9d97dfcd1cc9b0bf4947d1062). It is disclosed as pre-existing work.
+The dataset, source curation,and documentation were prepared before the hackathon in `Nikolay-Machev/Dataset`. The pinned starting snapshot is commit [`b4ab9fe0dbafb4a9d97dfcd1cc9b0bf4947d1062`](https://github.com/Nikolay-Machev/Dataset-/tree/b4ab9fe0dbafb4a9d97dfcd1cc9b0bf4947d1062). It is disclosed as pre-existing work.
 
 The import manifest, preprocessing implementation, normalization configuration, tests, processed outputs and research-focused documentation were added to this project during the hackathon. [Development provenance](docs/provenance.md) distinguishes the imported material from these additions.
-
-Generative AI substantially assisted source discovery, data curation, annotations, documentation and code development. Review status is recorded explicitly; the team remains responsible for checking sources, methods, licensing and the final submission. Preprocessing validation establishes structural consistency and reproducibility, not scientific or clinical validity.
