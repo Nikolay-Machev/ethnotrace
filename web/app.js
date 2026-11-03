@@ -1,6 +1,7 @@
 'use strict';
 const data=window.ETHNOTRACE_DATA;
 let activeEvidenceIds=null;
+let activeGapDimension=null;
 const $=id=>document.getElementById(id);
 const esc=value=>String(value??'Unknown').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const text=value=>esc(Array.isArray(value)?value.join(', '):value||'Unknown');
@@ -15,6 +16,7 @@ function render(){
  const selected=data.claims.find(c=>c.id===$('claim').value),t=selected.claim;
  $('account').innerHTML=`<div class="eyebrow">DOCUMENTED USE</div><h3>${text(t.species)}</h3><p>${text(t.original_use_description)}</p><p class="small"><strong>Attribution</strong><br>${text(t.community_or_nation)}</p><details><summary>Traditional source & passage</summary>${source({citation:t.citation,url:t.source_url,supporting_passage:t.supporting_passage,locator:t.passage_locator,licence:t.licence})}</details>`;
  const all=selected.results,shown=all.filter(r=>(!$('extracted').checked||r.evidence_level==='selected_full_text_experimental_unit')&&(!activeEvidenceIds||activeEvidenceIds.includes(r.evidence_id)));
+ renderGaps(selected);
  $('count').textContent=`${shown.length} shown · ${all.length} same-species candidates`;
  const renderCard=r=>{
  const s=r.study,c=r.comparison,isExtracted=r.evidence_level==='selected_full_text_experimental_unit';
@@ -40,7 +42,7 @@ function reviewSummary(account){
  }
  return Object.entries(counts).map(([n,total])=>`${n} human ${n==='1'?'review':'reviews'}`).join(' · ')||'No human comparison reviews recorded';
 }
-function resetDrilldown(){activeEvidenceIds=null;$('drilldown').hidden=true;}
+function resetDrilldown(){activeEvidenceIds=null;activeGapDimension=null;$('drilldown').hidden=true;}
 function renderAtlas(){
  const query=$('atlas-search').value.toLowerCase(),setting=$('atlas-setting').value;
  const accounts=data.claims.filter(c=>`${c.id} ${c.name} ${c.claim.community_or_nation||''} ${c.claim.original_use_description||''}`.toLowerCase().includes(query)&&(!$('atlas-missing').checked||!c.claim.preparation)&&(!setting||c.atlas.dimensions.setting[setting]));
@@ -58,7 +60,7 @@ $('atlas-body').addEventListener('click',event=>{
  const button=event.target.closest('button[data-account]');if(!button)return;
  const c=data.claims.find(c=>c.id===button.dataset.account);$('claim').value=c.id;
  resetDrilldown();
- if(button.dataset.dimension){const d=button.dataset.dimension,b=c.atlas.dimensions[d][button.dataset.bucket];activeEvidenceIds=b.evidence_ids;$('extracted').checked=true;$('drilldown-label').textContent=`${c.name} · ${dimensionNames[d]}: ${bucketLabel(c,d,button.dataset.bucket,b.label)} · ${b.evidence_ids.length} experimental units`;$('drilldown').hidden=false;}
+ if(button.dataset.dimension){activeGapDimension=button.dataset.dimension;const d=button.dataset.dimension,b=c.atlas.dimensions[d][button.dataset.bucket];activeEvidenceIds=b.evidence_ids;$('extracted').checked=true;$('drilldown-label').textContent=`${c.name} · ${dimensionNames[d]}: ${bucketLabel(c,d,button.dataset.bucket,b.label)} · ${b.evidence_ids.length} experimental units`;$('drilldown').hidden=false;}
  else {$('extracted').checked=c.atlas.experimental_units>0;}
  render();$('explorer').scrollIntoView({behavior:'smooth',block:'start'});$('claim').focus({preventScroll:true});
 });
@@ -66,3 +68,8 @@ $('clear-drilldown').addEventListener('click',()=>{resetDrilldown();render();});
 for(const id of ['atlas-search','atlas-setting','atlas-missing'])$(id).addEventListener(id==='atlas-search'?'input':'change',renderAtlas);
 $('claim').addEventListener('change',()=>{resetDrilldown();render();});$('extracted').addEventListener('change',render);render();renderAtlas();
 
+
+function renderGaps(account){
+ const notes=account.targeted_extractions||[];
+ $('gaps').innerHTML=`<h3>Research gaps & next steps</h3><p class="small">Based on this indexed collection. Missing record fields do not establish missing information in the original source.</p>${(account.gaps||[]).map(g=>`<details ${({preparation:['traditional_preparation','experimental_preparation'],outcome:['outcome_unresolved','outcome_difference'],part:['part_difference'],setting:['setting'],species:['identity']}[activeGapDimension]||[]).includes(g.kind)?'open':''}><summary>${esc(g.title)}</summary><p>${esc(g.reason)}</p><p><strong>Next step:</strong> ${esc(g.next_step)}</p><p class="small">Traditional account: ${esc(account.id)} · ${link(account.claim.source_url,'Traditional source')}</p>${g.evidence_ids.map(id=>{const r=account.results.find(r=>r.evidence_id===id);return `<p class="small">${esc(id)}: ${link(r.source.url,r.source.citation)}</p>`;}).join('')}</details>`).join('')}${notes.length?`<h3>Targeted source extractions</h3><p class="small">Assistant extractions awaiting human verification. Context notes are separate from the atlas experiment counts.</p>${notes.map(n=>`<details><summary>${esc(n.extraction_id)} · ${n.extraction_depth==='partial_indexed_sections'?'Partial extraction':'Methods and table inspected'} · ${esc(n.endpoint)}</summary><p>${esc(n.gap_relevance)}</p><p>${esc(n.reported_use_or_outcome)}</p><p><strong>Preparation:</strong> ${text(n.preparation)}</p><p><strong>Setting:</strong> ${human(n.study_setting)}</p>${source({citation:n.citation,url:n.source_url,supporting_passage:n.supporting_passage,locator:n.passage_locator,licence:n.licence})}<p><strong>Limitations:</strong> ${esc(n.limitations)}</p></details>`).join('')}`:''}`;
+}

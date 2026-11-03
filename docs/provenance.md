@@ -23,3 +23,7 @@ Added the deterministic retrieval and comparison baseline, 20 source-linked revi
 ## Evidence atlas extension
 
 The account-level atlas, deterministic aggregation, drill-down filters, tests and updated research framing were developed during the hackathon with substantial AI assistance. They reuse the pinned sources and comparison rules. They add no new source verification or independent human review. Semantic retrieval remains unimplemented.
+
+## Gap and review preparation extension
+
+An AI assistant implemented gap explanations and prepared source-linked relevance review packets during the hackathon. The assistant inspected the publisher PDF methods and Table 2 for DOI 10.18433/J35W27; the source checksum and locators are retained in TX001, with no PDF redistribution. DOI 10.1155/2013/189819 was only partially inspected through indexed full-text sections; TX002 records the access limitations. No new human verification, comparison review, or adjudication was asserted. Existing source and review records remain intact.

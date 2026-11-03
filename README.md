@@ -124,3 +124,11 @@ See the [retrieval error report](docs/retrieval_error_report.md), [candidate rel
 ## Optional semantic retrieval
 
 Semantic retrieval remains future work. It would rank source passages alongside the lexical baseline and return evidence IDs through the same export boundary. It would not assign outcome equivalence or change comparison rules. We will consider it after candidate relevance review, only if a measured retrieval problem and available time justify it. Compare systems on fixed candidate sets with source-group-aware evaluation; report development results as development results.
+
+## Gap explanations and targeted extraction
+
+The explorer now explains each account's missing record details, unresolved outcome relationships, part differences and extraction backlog, with source links and concrete next steps. Opening an atlas preparation or outcome cell expands the corresponding gap explanation. These describe the indexed collection, not the absence of research worldwide.
+
+[Targeted extraction notes](data/curated/targeted_extractions.jsonl) supplement the pinned dataset without modifying it. TX001 records methods and chemical-composition results from the pitcher-plant water/ethanol comparison (Cieniak et al., 2015; DOI 10.18433/J35W27). TX002 is a partial indexed-section extraction of hepatic enzyme findings (Nachar et al., 2013; DOI 10.1155/2013/189819); access limitations and unverified fields are explicit. These contextual notes do not increase the 12 indexed experimental units and do not inherit human review.
+
+The [remaining review instructions](docs/next_reviews.md) link the source packets and editable fields. A [33-candidate relevance packet](docs/retrieval_review_packet.md) preserves the documented account, attribution, source excerpts and locators. Human relevance decisions and the second comparison review remain to be entered. Run `python scripts/prepare_relevance_review.py` to refresh the packet and `python scripts/review_progress.py` to validate completion fields. Existing human answers are preserved on regeneration. Semantic retrieval remains disabled.

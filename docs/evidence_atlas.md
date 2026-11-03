@@ -44,3 +44,9 @@ The 25 Python tests pass, including atlas checks for preserving part differences
 ## Display wording and navigation
 
 The account column stays visible during horizontal scrolling, with a visible scrolling hint. Missing traditional preparation is described as absent from the record; this does not assert absence from the original source. Unresolved outcome alignment is labelled as an unresolved use–outcome relationship. Review counts report how many people have reviewed each comparison, without repeated pending-review notices. Underlying review records and completion status are unchanged.
+
+## Gap explanations
+
+`scripts/gaps.py` derives explanations and next actions from the same indexed results. Empty preparation fields are labelled `not_recorded_source_status_unresolved`; they are never automatically labelled absent from the source. Literature leads use `not_yet_extracted`. Outcome relationships are distinct from missing extraction fields. Every evidence ID in an explanation resolves to a candidate with a source citation. Selecting a preparation, outcome, part or setting bucket expands related explanations.
+
+Source notes from `data/curated/targeted_extractions.jsonl` are displayed separately, with extraction depth, citations, locators, rights and limitations. The complete methods/table inspection of TX001 and partial indexed-section inspection of TX002 are not human verification, new clinical findings, or automatically validated traditional recipes. They are excluded from atlas experimental counts and the frozen development comparisons.

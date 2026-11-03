@@ -42,8 +42,10 @@ def analyze():
     existing={(r['claim_id'],r['evidence_id']):r for r in rows(p)} if p.exists() else {}
     for r in queue:
         prev=existing.get((r['claim_id'],r['evidence_id']),{})
-        for field in ('human_retrieval_relevant','human_rationale','human_review_status'):
+        for field in ('human_retrieval_relevant','human_rationale','human_review_status','human_reviewer_id','source_checked','traditional_context','experimental_context','targeted_extraction_id'):
             if field in prev:r[field]=prev[field]
+        if prev.get('annotation_method')=='assistant_targeted_source_inspection_not_human_review':
+            for field in ('annotation_method','provisional_retrieval_relevant','rationale'): r[field]=prev[field]
     p.write_text(''.join(json.dumps(r,ensure_ascii=False)+'\n' for r in queue))
     print(json.dumps({'metrics':metrics,'relevance_candidates':len(queue)}))
 if __name__=='__main__':analyze()
