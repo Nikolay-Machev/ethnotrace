@@ -38,7 +38,7 @@ function reviewSummary(account){
  for(const r of account.results){
   if(r.evidence_level==='selected_full_text_experimental_unit'&&r.human_comparison_reviews>0)counts[r.human_comparison_reviews]=(counts[r.human_comparison_reviews]||0)+1;
  }
- return Object.entries(counts).map(([n,total])=>`${total} ${total===1?'comparison':'comparisons'} reviewed by ${n==='1'?'one person':`${n} people`}`).join(' · ')||'No human comparison reviews recorded';
+ return Object.entries(counts).map(([n,total])=>`${n} human ${n==='1'?'review':'reviews'}`).join(' · ')||'No human comparison reviews recorded';
 }
 function resetDrilldown(){activeEvidenceIds=null;$('drilldown').hidden=true;}
 function renderAtlas(){
