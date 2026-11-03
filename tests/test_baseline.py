@@ -59,6 +59,23 @@ class BaselineTests(unittest.TestCase):
         self.assertIsNone(report['independent_review']['comparison_accuracy'])
         self.assertIsNone(report['independent_review']['macro_recall_at_5'])
 
+    def test_assisted_review_is_not_independent_accuracy(self):
+        report, _ = evaluate()
+        self.assertEqual(report['review_progress']['a']['comparison_completed_cases'], 20)
+        self.assertEqual(report['review_progress']['a']['assisted_comparison_cases'], 20)
+        self.assertEqual(report['review_progress']['b']['comparison_pending_cases'], 20)
+        self.assertIsNone(report['experimental_findings_evaluation']['accuracy'])
+        self.assertIsNone(report['independent_review']['comparison_accuracy'])
+
+    def test_reviewer_files_share_schema_and_preserve_verifications(self):
+        a, b = [[json.loads(s) for s in (ROOT / f'data/review/reviewer_{slot}.jsonl').read_text().splitlines()] for slot in ('a', 'b')]
+        for first, second in zip(a, b):
+            self.assertEqual(set(first), set(second))
+            self.assertTrue(first['extraction_verified'])
+            self.assertTrue(second['extraction_verified'])
+            self.assertEqual(first['pair_label'], first['claim_comparability']['label'])
+            self.assertIsNone(second['pair_label'])
+
     def test_false_adjudication_is_rejected(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

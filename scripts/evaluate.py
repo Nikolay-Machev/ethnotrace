@@ -47,7 +47,8 @@ def evaluate(root=ROOT):
                 and ar['reviewer_id'] != cr['reviewer_id'] and r['reviewer_a'] == ar['reviewer_id'] and r['reviewer_b'] == cr['reviewer_id']
                 and r['pair_label'] in LABELS and type(r['retrieval_relevant']) is bool and r['rationale'] and r['source_locators']
                 and ar.get('rationale') and cr.get('rationale') and ar.get('source_locators') and cr.get('source_locators')
-                and ar.get('pair_label') in LABELS and cr.get('pair_label') in LABELS and r.get('disagreement') is not None):
+                and ar.get('pair_label') in LABELS and cr.get('pair_label') in LABELS and r.get('disagreement') is not None
+                and all(x.get('comparison_review_provenance', {}).get('independent_blinded_annotation') is True for x in (ar, cr))):
             raise ValueError('Adjudicated case lacks independent review provenance: ' + r['case_id'])
         accepted.append(r)
     by_case = {r['case_id']: r for r in predictions}
@@ -62,7 +63,27 @@ def evaluate(root=ROOT):
         positive = {by_case[r['case_id']]['evidence_id'] for r in judged if r['retrieval_relevant']}
         if set(ranked) <= judged_ids and positive:
             gold_recall.append(len(set(ranked[:5]) & positive) / len(positive))
-    report = {'baseline_version': VERSION, 'case_count': len(cases), 'index_documents': len(b.documents),
+    review_progress = {}
+    for key, records in (('a', ar_rows), ('b', cr_rows)):
+        completed = [r for r in records if r.get('comparison_review_status') == 'completed']
+        for r in records:
+            if r.get('schema_version') != 2:
+                raise ValueError('Expected review schema version 2')
+            if r.get('pair_label') != r.get('claim_comparability', {}).get('label'):
+                raise ValueError('Conflicting comparability labels: ' + r['case_id'])
+        agreement = sum(by_case[r['case_id']]['comparison']['status'] == r['pair_label'] for r in completed)
+        review_progress[key] = {
+            'extraction_verified_cases': sum(r.get('extraction_verified') is True for r in records),
+            'comparison_completed_cases': len(completed),
+            'comparison_pending_cases': len(records) - len(completed),
+            'assisted_comparison_cases': sum(r.get('comparison_review_provenance', {}).get('independent_blinded_annotation') is False for r in completed),
+            'baseline_label_agreement': agreement / len(completed) if completed else None,
+            'warning': 'Reviewer agreement is not held-out accuracy; assisted confirmations are not independent gold.',
+            'experimental_finding_label_reviews': sum(r.get('experimental_findings_review_status') == 'completed' for r in records)}
+    report = {'review_progress': review_progress,
+              'experimental_findings_evaluation': {'status': 'no_separate_result_direction_gold', 'accuracy': None,
+                  'note': 'Extraction verification is recorded separately. Finding directions are source-derived metadata, not model predictions evaluated against independent labels.'},
+              'baseline_version' : VERSION, 'case_count': len(cases), 'index_documents': len(b.documents),
               'scope': 'development set, not held-out; known source/programme blocks retained',
               'development_checks': {'scientific_name_taxon_agreement': sum(structural_taxon) / len(structural_taxon),
                                      'species_gate_membership_agreement': sum(membership) / len(membership),

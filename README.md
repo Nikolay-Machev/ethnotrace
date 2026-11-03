@@ -108,3 +108,9 @@ python -m http.server 8000 --directory web
 ```
 
 Then open http://localhost:8000. Opening `web/index.html` directly also works. Review status reflects the build snapshot: one human comparison review complete and the second pending for the reviewed comparisons. Other retrieved entries are explicitly marked outside the review set. This interface is committed to the repository; it has not been deployed to a hosting service.
+
+## Review format and UI verification
+
+[Review schema version 2](docs/review_schema.md) separates extraction checks, comparison judgments and experimental findings. Evaluation reports assisted reviewer agreement separately from independent accuracy.
+
+The comparison renderer closes each table before rendering the findings panels. Browser checks covered all three plant selections, separate result cards, table visibility, the literature-lead filter, expandable source sections and source-link targets. Python tests cover review progress and schema consistency. After pulling an interface update, refresh the browser; JavaScript and CSS version parameters also prevent reuse of the earlier cached renderer.

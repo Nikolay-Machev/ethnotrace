@@ -52,7 +52,13 @@ def build():
     for slot in ('a', 'b'):
         path = ROOT / f'data/review/reviewer_{slot}.jsonl'
         if path.exists(): continue
-        save(path, [{'case_id': r['case_id'], 'reviewer_id': None, 'status': 'pending', 'retrieval_relevant': None,
+        save(path, [{'schema_version': 2, 'case_id': r['case_id'], 'reviewer_id': f'reviewer_{slot}', 'status': 'pending', 'retrieval_relevant': None,
+                     'extraction_verified': False, 'corrections': [], 'extraction_verification_provenance': None,
+                     'comparison_review_status': 'pending',
+                     'claim_comparability': {'label': None, 'interpretation': 'narrow_documented_traditional_use', 'rationale': None},
+                     'experimental_findings': {'result_direction': None, 'reported_result': None, 'study_setting': None, 'endpoint': None, 'source_id': None, 'source_url': None, 'passage_locator': None},
+                     'experimental_findings_review_status': 'pending',
+                     'comparison_review_provenance': {'method': None, 'confirmation': None, 'independent_blinded_annotation': None, 'partner_comparison_review': None},
                      'pair_label': None, 'taxon': None, 'plant_part': None, 'solvent': None, 'outcome': None,
                      'rationale': None, 'source_locators': [], 'reviewed_on': None} for r in cases])
     print(f'Built {len(cases)} review packets. Existing reviewer/adjudication files were not overwritten.')
