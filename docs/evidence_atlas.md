@@ -40,3 +40,7 @@ Evaluate candidate relevance separately from comparability and result direction.
 ## Verification
 
 The 25 Python tests pass, including atlas checks for preserving part differences, excluding leads from finding counts, retaining unresolved accounts, separating units from publications, and keeping comparison summaries independent of ranking scores. JavaScript syntax validation and `node tests/test_web.cjs` pass. The latter checks the renderer and event handlers with a mock DOM, including filtering, drill-down, clearing and empty states; it is not a browser layout check. Live browser verification of this atlas revision could not be completed because the preview browser was unavailable; local interaction checks remain necessary.
+
+## Display wording and navigation
+
+The account column stays visible during horizontal scrolling, with a visible scrolling hint. Missing traditional preparation is described as absent from the record; this does not assert absence from the original source. Unresolved outcome alignment is labelled as an unresolved use–outcome relationship. Review counts report how many people have reviewed each comparison, without repeated pending-review notices. Underlying review records and completion status are unchanged.
