@@ -21,11 +21,18 @@ A research tool that retrieves experimental evidence for a documented plant-use 
 - Experimental setting, exposure, comparator and measured outcome.
 - Result direction, uncertainty and relevance to the traditional account.
 
-The intended output is a cited comparison showing what was tested, what differs and what remains unknown. It is not a remedy recommendation or a clinical validation service.
+The output separates two questions:
+
+| Component | What it reports |
+| --- | --- |
+| Claim comparability | Which species, parts, preparations and outcomes match, differ or remain unknown, interpreting the documented traditional use narrowly. |
+| Experimental findings | What effect the experiment detected, including null or mixed findings, within its stated setting, endpoint and exposure. |
+
+A positive experimental finding does not automatically support the traditional claim. Both components retain citations and source passages. The tool is not a remedy recommendation or a clinical validation service.
 
 ## Current implementation
 
-This repository contains a versioned dataset import, offline preprocessing, a scientific-name-based retrieval baseline and 20 source-linked comparison packets. Retrieval returns citations and explains explicit mismatches. Development checks run automatically; independent review and an interactive interface remain to be completed.
+This repository contains a versioned dataset import, offline preprocessing, a scientific-name-based retrieval baseline and 20 source-linked comparison packets. Retrieval returns citations and explains explicit mismatches. Development checks run automatically. Both reviewers have reported verifying the extractions. Reviewer A has confirmed the 20 comparison judgments after seeing the assistant's reasoning; partner comparison judgments and an interactive interface remain outstanding.
 
 See the [retrieval methods and results](docs/baseline.md), [comparison index](docs/review_cases.md) and [review workflow](docs/review_workflow.md).
 
@@ -37,7 +44,7 @@ See the [retrieval methods and results](docs/baseline.md), [comparison index](do
 | Extracted claim–study links | 12 | Same-species links with separate preparation and outcome limitations |
 | Additional literature leads | 2 | Abstract-screened leads awaiting experimental extraction |
 
-Several records share a publication or traditional account. These counts must not be added together or interpreted as independent studies. No current claim–study pair has completed independent review or been marked ready for supervised training.
+Several records share a publication or traditional account. These counts must not be added together or interpreted as independent studies. Extraction verification is recorded separately from comparison review. No pair has completed independent two-reviewer comparison adjudication or been marked ready for supervised training.
 
 ## Data and preprocessing
 

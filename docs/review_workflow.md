@@ -30,3 +30,11 @@ All current cases are development cases. Source and programme group identifiers 
 The 20 packets do not judge every bibliographic retrieval candidate. Independent retrieval recall remains unavailable until all candidates for an evaluated query have relevance judgments. Add source-checked cases for those candidates before claiming complete retrieval evaluation. Do not fill label quotas with unsupported judgments.
 
 Rebuilding the packets does not overwrite existing reviewer forms. Keep completed reviews under version control. Source rights and attribution remain those of the underlying records.
+
+## Separate comparability and findings
+
+The project now treats claim comparability and experimental findings as separate outputs, rather than a five-class training target. Traditional uses are interpreted narrowly. The baseline already retains `experimental_result_direction` separately from its comparison `status`; reviewer A now records explicit `claim_comparability` and `experimental_findings` objects, with findings linked to the original experimental source. Existing `pair_label` values are retained for compatibility.
+
+Reviewer A confirmed all 20 assistant-proposed comparison judgments: 10 `insufficient_evidence` and 10 `not_directly_comparable`. This confirmation followed exposure to the assistant's judgments and is recorded as assisted review, not blinded independent annotation. Both reviewers' extraction confirmations do not imply partner agreement on comparison labels. Adjudication remains pending.
+
+Use these cases for development evaluation, not fine-tuning. The eight constructed species mismatches are challenge cases, not a representative sample of natural retrieval results. Positive, null and condition-dependent experimental findings remain visible even when the traditional claim cannot be directly assessed. Do not reinterpret nonspecific historical symptoms as glucose-regulation claims to create positive labels.
