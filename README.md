@@ -114,3 +114,9 @@ Then open http://localhost:8000. Opening `web/index.html` directly also works. R
 [Review schema version 2](docs/review_schema.md) separates extraction checks, comparison judgments and experimental findings. Evaluation reports assisted reviewer agreement separately from independent accuracy.
 
 The comparison renderer closes each table before rendering the findings panels. Browser checks covered all three plant selections, separate result cards, table visibility, the literature-lead filter, expandable source sections and source-link targets. Python tests cover review progress and schema consistency. After pulling an interface update, refresh the browser; JavaScript and CSS version parameters also prevent reuse of the earlier cached renderer.
+
+## Retrieval development
+
+Baseline 1.1 scores extracted units using their endpoint or parent-paper title, addressing the unequal text coverage of version 1.0. Seeded-link macro recall at five increased from 0.667 to 0.917 across six development queries; this is not held-out scientific accuracy. Extracted experiments and literature leads are displayed in separate groups, with baseline order retained inside each group.
+
+See the [retrieval error report](docs/retrieval_error_report.md), [candidate relevance queue](data/review/retrieval_relevance.jsonl) and [planned evidence-gap atlas](docs/evidence_atlas_plan.md). Run `python scripts/analyze_retrieval.py` to reproduce the ranking comparison. Human candidate relevance review and reviewer B's comparison judgments remain pending.

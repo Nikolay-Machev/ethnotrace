@@ -5,7 +5,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = '1.0'
+VERSION = '1.1'
 
 def rows(path):
     return [json.loads(s) for s in path.read_text(encoding='utf-8').splitlines() if s.strip()]
@@ -19,6 +19,7 @@ class Baseline:
         self.claims = {r['id']: r for r in rows(base / 'traditional_records.jsonl')}
         self.experiments = {r['id']: r for r in rows(base / 'experimental_records.jsonl')}
         self.sources = {s['source_key']: s for s in json.loads((base / 'sources.json').read_text())['raw']['sources']}
+        self.paper_titles = {r['id']: r['raw'].get('title', '') for r in rows(base / 'papers.jsonl')}
         self.documents = dict(self.experiments)
         extracted = {r['raw']['paper_id'] for r in self.experiments.values()}
         for r in rows(base / 'papers.jsonl'):
@@ -64,8 +65,8 @@ class Baseline:
         solvent = {'shared_solvent_only': 1, 'different_solvents': -1, 'unknown': 0}[comparison['solvent']]
         query = tokenise(claim['raw'].get('original_use_description'))
         # Only endpoint/title relevance is used, never curator labels, rationales or result direction.
-        target = tokenise(evidence['raw'].get('endpoint') or evidence['raw'].get('title'))
-        lexical = len(query & target) / len(query | target) if query | target else 0
+        targets = [tokenise(evidence['raw'].get('endpoint')), tokenise(evidence['raw'].get('title') or self.paper_titles.get(evidence['raw'].get('paper_id'), ''))]
+        lexical = max((len(query & target) / len(query | target) if query | target else 0) for target in targets)
         return {'total': 10 + parts + solvent + lexical, 'taxon': 10, 'parts': parts, 'solvent': solvent, 'lexical': lexical}
 
     def present(self, claim, evidence, score=None):

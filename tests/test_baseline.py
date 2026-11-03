@@ -96,6 +96,14 @@ class BaselineTests(unittest.TestCase):
                 self.assertNotIn('result_direction', p[key])
             self.assertEqual(p['split'], 'development_only')
 
+    def test_extracted_units_use_parent_title_without_result_leakage(self):
+        claim = self.b.claims['T007']
+        evidence = self.b.experiments['E002']
+        original = self.b.score(claim, evidence)
+        self.assertGreater(original['lexical'], 0)
+        self.b.paper_titles[evidence['raw']['paper_id']] = ''
+        self.assertEqual(self.b.score(claim, evidence)['lexical'], 0)
+
     def test_deterministic_ranking_and_invalid_input(self):
         self.assertEqual(self.b.retrieve('T011'), self.b.retrieve('T011'))
         with self.assertRaises(ValueError): self.b.retrieve('unknown')
