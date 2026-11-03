@@ -9,3 +9,5 @@
 .atlas-scroll{scroll-padding-left:270px}
 .atlas .scroll-hint{font-size:13px;font-weight:600;color:var(--green);margin-bottom:8px}
 @media(max-width:600px){.atlas-table th:first-child{width:150px}.atlas-scroll{scroll-padding-left:160px}}
+
+#export-report{padding:10px;border:1px solid var(--green);border-radius:5px;background:var(--green);color:white;font:inherit;cursor:pointer;width:100%}

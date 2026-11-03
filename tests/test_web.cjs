@@ -2,7 +2,7 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
 const root=path.resolve(__dirname,'..');
 const nodes={};
-for(const id of ['gaps','claim','account','extracted','count','results','atlas-search','atlas-setting','atlas-missing','atlas-count','atlas-body','drilldown','drilldown-label','clear-drilldown','explorer'])nodes[id]={value:'',checked:false,hidden:true,innerHTML:'',textContent:'',events:{},addEventListener(k,f){this.events[k]=f},scrollIntoView(){},focus(){}};
+for(const id of ['export-report','gaps','claim','account','extracted','count','results','atlas-search','atlas-setting','atlas-missing','atlas-count','atlas-body','drilldown','drilldown-label','clear-drilldown','explorer'])nodes[id]={value:'',checked:false,hidden:true,innerHTML:'',textContent:'',events:{},addEventListener(k,f){this.events[k]=f},scrollIntoView(){},focus(){}};
 nodes.claim.value='T011';nodes.extracted.checked=true;
 const ctx=vm.createContext({window:{},document:{getElementById:id=>nodes[id]},URL});
 vm.runInContext(fs.readFileSync(path.join(root,'web/data.js'),'utf8'),ctx);

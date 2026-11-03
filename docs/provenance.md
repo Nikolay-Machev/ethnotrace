@@ -27,3 +27,7 @@ The account-level atlas, deterministic aggregation, drill-down filters, tests an
 ## Gap and review preparation extension
 
 An AI assistant implemented gap explanations and prepared source-linked relevance review packets during the hackathon. The assistant inspected the publisher PDF methods and Table 2 for DOI 10.18433/J35W27; the source checksum and locators are retained in TX001, with no PDF redistribution. DOI 10.1155/2013/189819 was only partially inspected through indexed full-text sections; TX002 records the access limitations. No new human verification, comparison review, or adjudication was asserted. Existing source and review records remain intact.
+
+## Evaluation and report export
+
+AI-assisted implementation added an offline evaluation page and local Markdown evidence-report export. The page uses current review progress and seeded development checks while retaining the earlier baseline-comparison run as a labelled historical result. No new human decisions, independent metrics or clinical validation were added. Reports retain source rights, citations, gaps and review provenance.

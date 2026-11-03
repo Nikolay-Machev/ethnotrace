@@ -132,3 +132,18 @@ The explorer now explains each account's missing record details, unresolved outc
 [Targeted extraction notes](data/curated/targeted_extractions.jsonl) supplement the pinned dataset without modifying it. TX001 records methods and chemical-composition results from the pitcher-plant water/ethanol comparison (Cieniak et al., 2015; DOI 10.18433/J35W27). TX002 is a partial indexed-section extraction of hepatic enzyme findings (Nachar et al., 2013; DOI 10.1155/2013/189819); access limitations and unverified fields are explicit. These contextual notes do not increase the 12 indexed experimental units and do not inherit human review.
 
 The [remaining review instructions](docs/next_reviews.md) link the source packets and editable fields. A [33-candidate relevance packet](docs/retrieval_review_packet.md) preserves the documented account, attribution, source excerpts and locators. Human relevance decisions and the second comparison review remain to be entered. Run `python scripts/prepare_relevance_review.py` to refresh the packet and `python scripts/review_progress.py` to validate completion fields. Existing human answers are preserved on regeneration. Semantic retrieval remains disabled.
+
+## Evaluation page and evidence reports
+
+Open `web/evaluation.html` through the Evaluation results link in the app. It shows current seeded-link development checks, the recorded baseline 1.0/1.1 comparison, review coverage, ranking misses and limitations. Unavailable independent metrics display as unavailable, never zero. The baseline comparison is a recorded development run; it is not recomputed by this page.
+
+Rebuild after review changes:
+
+```bash
+python scripts/build_demo.py
+python scripts/build_evaluation.py
+```
+
+The account selector includes **Download cited report (.md)**. The browser creates a Markdown file locally containing the whole account's evidence, including leads, source passages, citations, rights, comparison reasons, human review provenance, gaps and targeted extraction limitations. Atlas and experiment-display filters do not narrow the export. No source text is sent to an external service. Source rights still apply to any further redistribution.
+
+Validation: `node tests/test_reports.cjs` checks citation retention across all 12 accounts and distinguishes unavailable evaluation metrics from zero. Download formatting and event logic are implemented; live browser download verification remains outstanding. Semantic retrieval is the next optional development experiment, not an existing capability.
