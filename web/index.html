@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EthnoTrace · Evidence atlas</title><link rel="stylesheet" href="style.css?v=8"><script defer src="data.js"></script><script defer src="report.js"></script><script defer src="app.js?v=8"></script></head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EthnoTrace · Evidence atlas</title><link rel="stylesheet" href="style.css?v=9"><script defer src="data.js"></script><script defer src="report.js"></script><script defer src="app.js?v=9"></script></head>
 <body>
 <header><a class="brand" href="index.html">EthnoTrace<span> / Evidence atlas</span></a><a href="evaluation.html">Evaluation results</a></header>
 <main>
@@ -18,7 +18,7 @@
 </section>
 <div id="drilldown" class="drilldown" hidden><span id="drilldown-label"></span> <button id="clear-drilldown" type="button">Show all evidence for this account</button></div>
 <section class="workspace" id="explorer"><aside><label for="claim">Traditional account</label><select id="claim"></select><button id="export-report" type="button">Download cited report (.md)</button><p class="small">Exports all evidence for the selected account, including literature leads.</p><div id="account"></div><div class="source-note">Scope follows the documented use. Symptoms are not retrospectively treated as a diabetes diagnosis.</div></aside>
-<div class="evidence"><div class="toolbar"><div><h2>Experimental evidence</h2><p id="count" aria-live="polite"></p></div><label class="filter"><input id="extracted" type="checkbox" checked> Extracted experiments only</label></div><p class="hint">Results are grouped by extraction status, then ordered by species, plant part, solvent and text overlap. Rank indicates relevance, not efficacy or study quality.</p><section id="gaps" aria-label="Research gaps and next steps"></section><div id="results"></div></div></section>
+<div class="evidence"><div class="toolbar"><div><h2>Experimental evidence</h2><p id="count" aria-live="polite"></p></div><label class="filter"><input id="extracted" type="checkbox" checked> Extracted experiments only</label></div><label for="ranking">Ranking method</label><select id="ranking"><option value="lexical">Lexical baseline (default)</option></select><p class="small" id="ranking-note"></p><p class="hint">Results are grouped by extraction status, then ordered by the selected ranker within each group. Evaluation uses the full, ungrouped ranking. Rank indicates relevance, not efficacy or study quality.</p><section id="gaps" aria-label="Research gaps and next steps"></section><div id="results"></div></div></section>
 <footer>EthnoTrace · EthnoHack 2026 <span>Preclinical findings do not establish treatment effects in people.</span></footer>
 </main>
 </body></html>

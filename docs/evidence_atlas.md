@@ -31,11 +31,11 @@ Citations, excerpts, passage locations, source rights and limitations remain acc
 
 ## Retrieval extension boundary
 
-The export identifies the retrieval provider and version. Current provider: lexical baseline; semantic retrieval disabled. The aggregator consumes returned evidence records, not retrieval scores, and uses the same comparisons as the explorer. Changing candidate ordering must not change dimension judgments.
+The export identifies the retrieval provider and version. Default provider: lexical baseline; semantic and hybrid challengers are available through the ranking selector. The aggregator consumes returned evidence records, not retrieval scores, and uses the same comparisons as the explorer. Changing candidate ordering must not change dimension judgments.
 
 If justified by reviewed retrieval errors and time, a semantic challenger can rank passages and return evidence IDs and scores to this boundary. Keep the scientific-name gate explicit, retain the lexical baseline, record the model and corpus versions, and avoid sending restricted source material to external services. Semantic similarity must never imply preparation or medical endpoint equivalence.
 
-Evaluate candidate relevance separately from comparability and result direction. Use reviewed relevance judgments, fixed candidate pools and source-group-aware evaluation. The existing small connected development set does not support an independent generalization claim. No model has been trained or added by the atlas work.
+Evaluate candidate relevance separately from comparability and result direction. Use reviewed relevance judgments, fixed candidate pools and source-group-aware evaluation. The existing small connected development set does not support an independent generalization claim. No model was trained for the atlas. A later pretrained semantic challenger is documented in [semantic retrieval methods](semantic_retrieval.md).
 
 ## Verification
 

@@ -18,3 +18,9 @@ assert.match(element.innerHTML,/Human relevance judgments: 0 \/ 33/);
 assert.match(element.innerHTML,/E004/);
 assert.match(element.innerHTML,/0.917/);
 console.log('All 12 account reports retain citations; evaluation preserves unavailable metrics and ranking misses.');
+
+const semanticReport=evidenceReport(data.claims.find(a=>a.id==='T011'),data,'semantic');
+assert.match(semanticReport,/Selected ranker: semantic/);
+assert.match(semanticReport,/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/);
+assert.match(element.innerHTML,/Semantic retrieval experiment/);
+assert.match(element.innerHTML,/0.658/);

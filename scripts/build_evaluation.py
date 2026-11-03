@@ -2,12 +2,13 @@
 import json,hashlib
 from evaluate import evaluate
 from review_progress import report
+from evaluate_semantic import evaluate as semantic_evaluation
 from retrieve import ROOT
 
 def build():
     current,_=evaluate()
     historical=json.loads((ROOT/'data/evaluation/retrieval_comparison.json').read_text())
-    value={'current':current,'review':report(),'ranking_comparison':historical,
+    value={'semantic_comparison':semantic_evaluation(),'current':current,'review':report(),'ranking_comparison':historical,
            'limitations':['All comparisons are development cases, not a held-out test set.',
            'Seeded-link recall measures recovery of known links, not all relevant literature.',
            'Reviewer A confirmed assistant-proposed judgments; agreement is not independent accuracy.',

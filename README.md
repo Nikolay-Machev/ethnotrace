@@ -121,9 +121,11 @@ Baseline 1.1 scores extracted units using their endpoint or parent-paper title, 
 
 See the [retrieval error report](docs/retrieval_error_report.md), [candidate relevance queue](data/review/retrieval_relevance.jsonl) and [evidence atlas methods](docs/evidence_atlas.md). Run `python scripts/analyze_retrieval.py` to reproduce the ranking comparison. Human candidate relevance review and reviewer B's comparison judgments remain pending.
 
-## Optional semantic retrieval
+## Semantic retrieval experiment
 
-Semantic retrieval remains future work. It would rank source passages alongside the lexical baseline and return evidence IDs through the same export boundary. It would not assign outcome equivalence or change comparison rules. We will consider it after candidate relevance review, only if a measured retrieval problem and available time justify it. Compare systems on fixed candidate sets with source-group-aware evaluation; report development results as development results.
+The app offers lexical, semantic and hybrid ranking modes. The pretrained MiniLM challenger runs locally during snapshot generation; the browser uses committed rankings and needs no ML dependencies or API keys. Lexical remains the default. All methods use the same species-matched candidates and comparison rules. See [methods, results and reproduction commands](docs/semantic_retrieval.md).
+
+On the six seeded development queries, recall@5 is 0.917 for all three methods; MRR is 0.561 lexical, 0.658 semantic and 0.631 hybrid. Human-reviewed retrieval metrics remain unavailable until complete relevance judgments are entered. These are development results, not a demonstrated improvement in general scientific relevance.
 
 ## Gap explanations and targeted extraction
 
@@ -131,7 +133,7 @@ The explorer now explains each account's missing record details, unresolved outc
 
 [Targeted extraction notes](data/curated/targeted_extractions.jsonl) supplement the pinned dataset without modifying it. TX001 records methods and chemical-composition results from the pitcher-plant water/ethanol comparison (Cieniak et al., 2015; DOI 10.18433/J35W27). TX002 is a partial indexed-section extraction of hepatic enzyme findings (Nachar et al., 2013; DOI 10.1155/2013/189819); access limitations and unverified fields are explicit. These contextual notes do not increase the 12 indexed experimental units and do not inherit human review.
 
-The [remaining review instructions](docs/next_reviews.md) link the source packets and editable fields. A [33-candidate relevance packet](docs/retrieval_review_packet.md) preserves the documented account, attribution, source excerpts and locators. Human relevance decisions and the second comparison review remain to be entered. Run `python scripts/prepare_relevance_review.py` to refresh the packet and `python scripts/review_progress.py` to validate completion fields. Existing human answers are preserved on regeneration. Semantic retrieval remains disabled.
+The [remaining review instructions](docs/next_reviews.md) link the source packets and editable fields. A [33-candidate relevance packet](docs/retrieval_review_packet.md) preserves the documented account, attribution, source excerpts and locators. Human relevance decisions and the second comparison review remain to be entered. Run `python scripts/prepare_relevance_review.py` to refresh the packet and `python scripts/review_progress.py` to validate completion fields. Existing human answers are preserved on regeneration. Semantic and hybrid rankers are available as experimental alternatives; lexical remains the default.
 
 ## Evaluation page and evidence reports
 
@@ -146,4 +148,4 @@ python scripts/build_evaluation.py
 
 The account selector includes **Download cited report (.md)**. The browser creates a Markdown file locally containing the whole account's evidence, including leads, source passages, citations, rights, comparison reasons, human review provenance, gaps and targeted extraction limitations. Atlas and experiment-display filters do not narrow the export. No source text is sent to an external service. Source rights still apply to any further redistribution.
 
-Validation: `node tests/test_reports.cjs` checks citation retention across all 12 accounts and distinguishes unavailable evaluation metrics from zero. Download formatting and event logic are implemented; live browser download verification remains outstanding. Semantic retrieval is the next optional development experiment, not an existing capability.
+Validation: `node tests/test_reports.cjs` checks citation retention across all 12 accounts and distinguishes unavailable evaluation metrics from zero. Download formatting and event logic are implemented; live browser download verification remains outstanding. The evaluation page also shows the semantic experiment and its review limitations.

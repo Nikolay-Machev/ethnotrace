@@ -1,9 +1,13 @@
 'use strict';
 // Pure formatter: exports the whole selected account, regardless of display filters.
-function evidenceReport(account,metadata){
+function evidenceReport(account,metadata,method='lexical'){
  const fmt=v=>v===null||v===undefined||v===''?'Unknown':Array.isArray(v)?v.join(', '):String(v);
  const lines=[`# EthnoTrace evidence report: ${account.name} (${account.id})`,'',
   `Retrieval baseline: ${metadata.baseline_version}`,
+  `Selected ranker: ${method}`,
+  `Semantic model: ${metadata.retrieval_provider?.semantic_model||'Not enabled'}`,
+  `Model revision: ${metadata.retrieval_provider?.semantic_revision||'Not enabled'}`,
+  `Ranking input snapshot: ${metadata.retrieval_provider?.input_sha256||'Not available'}`,
   'Scope: all indexed candidates for this account, including literature leads. Display filters do not restrict this export.',
   'Research prototype. Findings and claim comparability are separate. Missing indexed evidence does not imply absence of published research. No clinical efficacy conclusion is made.',''];
  const field=(k,v)=>lines.push(`**${k}:** ${fmt(v)}`,'');
@@ -11,7 +15,9 @@ function evidenceReport(account,metadata){
  const t=account.claim;lines.push('## Traditional account','');
  for(const k of ['species','original_plant_name','plant_part','preparation','original_use_description','community_or_nation','location','knowledge_tradition'])field(k,t[k]);cite(t);
  lines.push('## Evidence comparisons','');
- for(const r of account.results){lines.push(`### ${r.evidence_id}: ${r.title}`,'');field('Record type',r.evidence_level);field('Paper ID',r.paper_id);
+ const order=account.rankings?.[method];
+ const results=order?[...account.results].sort((a,b)=>order.indexOf(a.evidence_id)-order.indexOf(b.evidence_id)):account.results;
+ for(const r of results){lines.push(`### ${r.evidence_id}: ${r.title}`,'');field('Record type',r.evidence_level);field('Paper ID',r.paper_id);
   for(const [k,v] of Object.entries(r.study))field(k,v);
   field('Experimental finding',r.evidence_level==='selected_full_text_experimental_unit'?r.comparison.experimental_result_direction:'Not extracted');
   field('Automated claim comparability',r.comparison.status);

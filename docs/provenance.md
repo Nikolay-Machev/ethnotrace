@@ -31,3 +31,7 @@ An AI assistant implemented gap explanations and prepared source-linked relevanc
 ## Evaluation and report export
 
 AI-assisted implementation added an offline evaluation page and local Markdown evidence-report export. The page uses current review progress and seeded development checks while retaining the earlier baseline-comparison run as a labelled historical result. No new human decisions, independent metrics or clinical validation were added. Reports retain source rights, citations, gaps and review provenance.
+
+## Pretrained semantic retrieval experiment
+
+AI-assisted implementation added local pretrained MiniLM inference, semantic and reciprocal-rank-fusion challengers, immutable model-version provenance, candidate-set safeguards, development evaluation and a ranking selector. Model weights are pre-existing Apache-2.0 material from Sentence Transformers; no fine-tuning occurred. Inference used only documented-use text and paper-title/endpoint fields, never review labels or curator result-direction fields. All comparison rules and human-review records were preserved. The observed seeded development results are not independent scientific validation.
