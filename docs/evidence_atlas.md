@@ -1,0 +1,42 @@
+# Evidence atlas
+
+## Research question
+
+How closely do experimental studies test documented Canadian traditional plant uses associated with blood-glucose regulation and diabetes-related symptoms, and where does the indexed evidence leave gaps in comparability or documentation?
+
+The atlas summarizes the collection; the explorer explains individual comparisons. Each row is a traditional-use account with its original indication and attribution. Accounts sharing a species remain separate. Canadian coverage is selective, not nationally representative.
+
+## Generation and interpretation
+
+`python scripts/build_demo.py` retrieves all same-species candidates for each account, uses the existing comparator, and calls `scripts/atlas.py` to group extracted experimental units by dimension. The generated `web/data.js` includes evidence IDs in each bucket so that a cell opens exactly the underlying comparisons. Literature leads are counted separately and excluded from experimental summaries.
+
+| Dimension | Current rule |
+| --- | --- |
+| Species | Reported species overlap, difference or unresolved identity. Natural retrieval requires a shared scientific species; synthetic mismatched review cases are excluded. |
+| Plant part | Overlap, difference or unknown using the baseline mappings. Overlap does not establish preparation equivalence. |
+| Preparation | Equivalence remains unknown under the current comparator. Shared solvent alone cannot establish similarity. |
+| Outcome | Explicit endpoint difference where the narrow rule applies; otherwise alignment remains unestablished. No symptom-to-disease inference. |
+| Study setting | Setting recorded for the extracted experiment. |
+| Experimental finding | Recorded favourable, null or condition-dependent result, independent of claim comparability. |
+
+Counts are experimental units, not independent studies. Unique publication counts are shown separately per account; neither should be summed across accounts as independent evidence. Conflicting or different results retain separate buckets. A missing indexed experiment means none in this collection. An unresolved plant name blocks species retrieval and is shown explicitly.
+
+Dimension summaries are automated. Recorded human judgments apply to the overall pair and are displayed separately with provenance. A human pair review does not verify every matrix cell. Reviewer A's existing confirmation was assisted; reviewer B's comparison review remains pending. This change does not alter review decisions or source records.
+
+## Interaction
+
+Search account names, IDs, attribution and use text. The setting filter selects accounts with at least one experiment in that setting; cells retain all evidence for the selected accounts. The missing-preparation filter selects accounts whose traditional preparation is absent. Selecting a cell filters the explorer to its experimental units; clearing the drill-down restores the account's extracted results. Selecting an account with only literature leads exposes those leads.
+
+Citations, excerpts, passage locations, source rights and limitations remain accessible in the existing source disclosures. Missing information remains unknown.
+
+## Retrieval extension boundary
+
+The export identifies the retrieval provider and version. Current provider: lexical baseline; semantic retrieval disabled. The aggregator consumes returned evidence records, not retrieval scores, and uses the same comparisons as the explorer. Changing candidate ordering must not change dimension judgments.
+
+If justified by reviewed retrieval errors and time, a semantic challenger can rank passages and return evidence IDs and scores to this boundary. Keep the scientific-name gate explicit, retain the lexical baseline, record the model and corpus versions, and avoid sending restricted source material to external services. Semantic similarity must never imply preparation or medical endpoint equivalence.
+
+Evaluate candidate relevance separately from comparability and result direction. Use reviewed relevance judgments, fixed candidate pools and source-group-aware evaluation. The existing small connected development set does not support an independent generalization claim. No model has been trained or added by the atlas work.
+
+## Verification
+
+The 25 Python tests pass, including atlas checks for preserving part differences, excluding leads from finding counts, retaining unresolved accounts, separating units from publications, and keeping comparison summaries independent of ranking scores. JavaScript syntax validation and `node tests/test_web.cjs` pass. The latter checks the renderer and event handlers with a mock DOM, including filtering, drill-down, clearing and empty states; it is not a browser layout check. Live browser verification of this atlas revision could not be completed because the preview browser was unavailable; local interaction checks remain necessary.

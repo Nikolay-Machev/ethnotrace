@@ -19,3 +19,7 @@ An AI assistant substantially contributed to the earlier dataset discovery and c
 ## Retrieval and review preparation — 2 November 2026
 
 Added the deterministic retrieval and comparison baseline, 20 source-linked review packets, separate reviewer and adjudication forms, evaluation scripts and nine baseline tests. Twelve packets preserve existing extracted links; eight deliberately pair different-species records to test mismatch handling. No new experiments or traditional accounts were invented. AI assisted with these additions. Human source review remains pending, and development checks are not independent scientific validation.
+
+## Evidence atlas extension
+
+The account-level atlas, deterministic aggregation, drill-down filters, tests and updated research framing were developed during the hackathon with substantial AI assistance. They reuse the pinned sources and comparison rules. They add no new source verification or independent human review. Semantic retrieval remains unimplemented.

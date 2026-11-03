@@ -1,12 +1,21 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EthnoTrace · Evidence explorer</title><link rel="stylesheet" href="style.css?v=2"><script defer src="data.js"></script><script defer src="app.js?v=4"></script></head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EthnoTrace · Evidence atlas</title><link rel="stylesheet" href="style.css?v=5"><script defer src="data.js"></script><script defer src="app.js?v=5"></script></head>
 <body>
-<header><a class="brand" href="index.html">EthnoTrace<span> / Evidence explorer</span></a><span class="tag">RESEARCH PROTOTYPE</span></header>
+<header><a class="brand" href="index.html">EthnoTrace<span> / Evidence atlas</span></a><span class="tag">RESEARCH PROTOTYPE</span></header>
 <main>
-<section class="intro"><div class="eyebrow">CANADIAN TRADITIONAL KNOWLEDGE · BLOOD-GLUCOSE RESEARCH</div><h1>Same plant.<br>How close is the evidence?</h1><p>Trace a documented traditional use to experimental research. See what was tested, what was found, and what remains unknown.</p></section>
+<section class="intro"><div class="eyebrow">CANADIAN TRADITIONAL KNOWLEDGE · BLOOD-GLUCOSE RESEARCH</div><h1>Same plant.<br>How close is the evidence?</h1><p>Explore how closely experimental studies test documented Canadian traditional plant uses associated with blood-glucose regulation and diabetes-related symptoms, and where the indexed evidence leaves gaps in comparability or documentation.</p></section>
 <div class="review"><span class="dot"></span><div><strong>One human comparison review complete · second pending</strong><p>Both reviewers reported verifying the extracted review packets. Comparison labels confirmed by reviewer A after seeing assistant judgments; not independent adjudication.</p></div></div>
-<section class="workspace"><aside><label for="claim">Traditional account</label><select id="claim"></select><div id="account"></div><div class="source-note">Scope follows the documented use. Symptoms are not retrospectively treated as a diabetes diagnosis.</div></aside>
+<section class="atlas" aria-labelledby="atlas-title">
+<div class="toolbar"><div><div class="eyebrow">EVIDENCE COVERAGE</div><h2 id="atlas-title">How closely was the documented use tested?</h2></div></div>
+<p>Each row is a distinct traditional-use account. Cells summarize indexed extracted experiments, not all published research. Counts refer to experimental units; several may share a paper.</p>
+<div class="atlas-controls"><label>Find an account<input id="atlas-search" type="search" placeholder="Plant, community or account ID"></label><label>Study setting<select id="atlas-setting"><option value="">All settings</option><option value="animal_in_vivo">Animal studies</option><option value="in_vitro">Cell / laboratory studies</option></select></label><label class="filter"><input type="checkbox" id="atlas-missing"> Missing traditional preparation</label></div>
+<p class="small" id="atlas-count" aria-live="polite"></p>
+<p class="small">Dimension summaries are automated. “Pair review” indicates an overall human judgment, not separate validation of every cell. Same-species retrieval limits which comparisons appear here.</p>
+<div class="atlas-scroll" tabindex="0" role="region" aria-label="Evidence atlas matrix"><table class="atlas-table"><thead><tr><th>Traditional account</th><th>Species</th><th>Plant part</th><th>Preparation</th><th>Outcome</th><th>Study setting</th><th>Experimental finding</th></tr></thead><tbody id="atlas-body"></tbody></table></div>
+</section>
+<div id="drilldown" class="drilldown" hidden><span id="drilldown-label"></span> <button id="clear-drilldown" type="button">Show all evidence for this account</button></div>
+<section class="workspace" id="explorer"><aside><label for="claim">Traditional account</label><select id="claim"></select><div id="account"></div><div class="source-note">Scope follows the documented use. Symptoms are not retrospectively treated as a diabetes diagnosis.</div></aside>
 <div class="evidence"><div class="toolbar"><div><h2>Experimental evidence</h2><p id="count" aria-live="polite"></p></div><label class="filter"><input id="extracted" type="checkbox" checked> Extracted experiments only</label></div><p class="hint">Results are grouped by extraction status, then ordered by species, plant part, solvent and text overlap. Rank indicates relevance, not efficacy or study quality.</p><div id="results"></div></div></section>
 <footer>EthnoTrace · EthnoHack 2026 <span>Preclinical findings do not establish treatment effects in people.</span></footer>
 </main>
