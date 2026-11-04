@@ -12,7 +12,7 @@ The atlas compares species, plant part, preparation and outcome for each documen
 | --- | --- |
 | Traditional accounts | 12 Canadian accounts; nine identified species and two unresolved plant names |
 | Experimental evidence | 12 extracted units from six publications; 51 publications indexed |
-| Human retrieval relevance | All 33 pairs reviewed: 22 useful, eight context only, three unresolved. T008, T009 and T012 have complete decisions. |
+| Human retrieval relevance | All 33 pairs reviewed: 22 useful, eight context only, one provisionally useful, two unresolved. Provisional judgments are excluded from confirmed relevance metrics. T008, T009 and T012 have complete decisions. |
 | Ranking | Lexical, semantic and hybrid. On three completely judged accounts, macro recall@5 was 0.833 lexical, 0.833 semantic and 0.917 hybrid. Lexical remains the default. |
 
 ## Demo

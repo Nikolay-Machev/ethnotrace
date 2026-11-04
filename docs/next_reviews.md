@@ -44,6 +44,6 @@ Nikolay Machev source-checked all six candidates after seeing the assistant scre
 
 ## Remaining batch, 4 November 2026
 
-All 27 remaining pairs have reviewer submissions. Three need additional evidence before a decision: T007/P18066122 (species-specific part or preparation comparison?), T010/P20301057 (poplar outcomes or direct preparation comparison in the target article?), and T011/P19526043 (lingonberry-specific arm, material and outcome?). Preserve source depth: some checks used summaries or secondary material rather than the candidate paper itself. E012 compares experimental solvents; the traditional T011 preparation remains undocumented. No finding in a human rationale changes an experimental extraction automatically.
+All 27 remaining pairs have reviewer submissions. T010/P20301057 is provisionally useful under the reviewer’s adipogenesis scope reading, based on assistant-reported primary findings and a reviewer-read secondary chapter. It is excluded from confirmed relevance metrics. T007/P18066122 and T011/P19526043 remain unresolved because species-specific tables were inaccessible.
 
-[Primary-abstract follow-up for the three unresolved pairs](relevance_followup.md) provides additional evidence for review, without changing the human judgments.
+See [source follow-up and reviewer decisions](relevance_followup.md) for source depths and remaining questions. Experimental extractions and claim-comparability labels are unchanged.

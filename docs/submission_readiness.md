@@ -15,4 +15,4 @@ Checked 4 November 2026 against the repository and submission guidelines supplie
 | Devpost page | **Not verified.** Fill in the title, track, problem, methods, technologies, data sources, results, team members, impact and future work; include the final repository URL. |
 | Pitch and slides | **Not verified.** Supply a pitch video of at most 10 minutes and slides of at most 10 slides. Test that judges can open all three links (repo, video and deck) without special permissions. |
 
-Keep the three unresolved relevance pairs visible as research limits. They are not missing hackathon deliverables.
+Keep the two unresolved relevance pairs and one provisional relevance decision visible as research limits. They are not missing hackathon deliverables.
