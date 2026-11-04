@@ -45,3 +45,5 @@ Nikolay Machev source-checked all six candidates after seeing the assistant scre
 ## Remaining batch, 4 November 2026
 
 All 27 remaining pairs have reviewer submissions. Three need additional evidence before a decision: T007/P18066122 (species-specific part or preparation comparison?), T010/P20301057 (poplar outcomes or direct preparation comparison in the target article?), and T011/P19526043 (lingonberry-specific arm, material and outcome?). Preserve source depth: some checks used summaries or secondary material rather than the candidate paper itself. E012 compares experimental solvents; the traditional T011 preparation remains undocumented. No finding in a human rationale changes an experimental extraction automatically.
+
+[Primary-abstract follow-up for the three unresolved pairs](relevance_followup.md) provides additional evidence for review, without changing the human judgments.

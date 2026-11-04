@@ -9,6 +9,8 @@
 | How to review evidence | [Comparison workflow](review_workflow.md), [schema](review_schema.md), [case index](review_cases.md), [27-pair human worksheet](human_relevance_worksheet.md), [candidate review packet](retrieval_review_packet.md), [human review instructions](next_reviews.md), [assistant screening pass](retrieval_screen_notes.md) |
 | Historical plan | [Original atlas plan (archived)](archive/evidence_atlas_plan.md) |
 
+[Submission readiness and remaining owner actions](submission_readiness.md)
+
 ## Rebuilding
 
 From the repository root, run `python3 scripts/rebuild.py`. Use `--check` for a read-only byte comparison with a clean rebuild. The command stages inputs in a temporary directory, rebuilds processed records, evaluation reports, the review packet, both browser data files and the T008 example report, then copies back only changed generated outputs. Human and assistant review files, the pinned import and semantic ranking cache are inputs. They are never copied back. T008 is a worked example; the browser can export any selected account.
