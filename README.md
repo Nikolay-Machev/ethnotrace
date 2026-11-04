@@ -8,8 +8,8 @@ The atlas compares species, plant part, preparation and outcome for each documen
 | --- | --- |
 | Traditional accounts | 12 Canadian accounts; nine identified species and two unresolved plant names |
 | Experimental evidence | 12 extracted units from six publications; 51 publications indexed |
-| Human retrieval relevance | **Pitcher plant (T008) complete: 6 of 33 candidate decisions.** Four useful; two retained as safety context. The other 27 await review. |
-| Ranking | Lexical, semantic and hybrid. All three recovered three of four useful T008 candidates in their top five. Lexical remains the default. |
+| Human retrieval relevance | All 33 pairs reviewed: 22 useful, eight context only, three unresolved. T008, T009 and T012 have complete decisions. |
+| Ranking | Lexical, semantic and hybrid. On three completely judged accounts, macro recall@5 was 0.833 lexical, 0.833 semantic and 0.917 hybrid. Lexical remains the default. |
 
 ## Run locally
 
@@ -32,6 +32,6 @@ python3 scripts/rebuild.py --check
 
 The Canadian scope applies to the accounts; experimental studies may come from anywhere. The collection is selective. Missing indexed evidence does not establish that no study exists. Preserve the original symptom descriptions, attribution and source-specific rights.
 
-The six-query benchmark measures recovery of seeded links. Ten of twelve links share a publication across the account and experiment. Only T008 has complete human relevance judgments, made after seeing the assistant screen. These development results establish neither general retrieval accuracy nor clinical efficacy.
+The six-query benchmark measures recovery of seeded links. Ten of twelve links share a publication across the account and experiment. Human relevance metrics cover only the three fully judged accounts. The reviews were made with access to assistant screening and include abstract and secondary-source judgments. These development results establish neither general retrieval accuracy nor clinical efficacy.
 
 [Documentation and build history](docs/README.md) · [Sources and licences](docs/rights.md) · [Hackathon provenance and AI disclosure](docs/provenance.md)

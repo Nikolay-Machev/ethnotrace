@@ -305,18 +305,18 @@
     }
   ],
   "human_reviewed_development": {
-    "complete_query_count": 1,
+    "complete_query_count": 3,
     "metrics": {
       "lexical": {
-        "recall_at_5": 0.75,
-        "reciprocal_rank": 1.0
+        "recall_at_5": 0.8333333333333334,
+        "reciprocal_rank": 0.6666666666666666
       },
       "semantic": {
-        "recall_at_5": 0.75,
-        "reciprocal_rank": 0.5
+        "recall_at_5": 0.8333333333333334,
+        "reciprocal_rank": 0.8333333333333334
       },
       "hybrid": {
-        "recall_at_5": 0.75,
+        "recall_at_5": 0.9166666666666666,
         "reciprocal_rank": 1.0
       }
     },
@@ -334,6 +334,40 @@
           },
           "hybrid": {
             "recall_at_5": 0.75,
+            "reciprocal_rank": 1.0
+          }
+        }
+      },
+      {
+        "claim_id": "T009",
+        "methods": {
+          "lexical": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 0.5
+          },
+          "semantic": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0
+          },
+          "hybrid": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0
+          }
+        }
+      },
+      {
+        "claim_id": "T012",
+        "methods": {
+          "lexical": {
+            "recall_at_5": 0.75,
+            "reciprocal_rank": 0.5
+          },
+          "semantic": {
+            "recall_at_5": 0.75,
+            "reciprocal_rank": 1.0
+          },
+          "hybrid": {
+            "recall_at_5": 1.0,
             "reciprocal_rank": 1.0
           }
         }

@@ -1,6 +1,6 @@
 # Human relevance review worksheet
 
-Starting point on 4 November: 27 open candidate–account pairs in five accounts; all six T008 decisions are recorded. This is a worksheet for the 33-candidate retrieval evaluation, not a request to label all 51 publications. It contains no model ranks or proposed answers.
+Blank worksheet retained for provenance; all listed pairs have since received reviewer submissions. For current status see [review instructions](next_reviews.md). Starting point on 4 November: 27 open candidate–account pairs in five accounts; all six T008 decisions are recorded. This is a worksheet for the 33-candidate retrieval evaluation, not a request to label all 51 publications. It contains no model ranks or proposed answers.
 
 Review one account at a time. Use the documented indication as written. Mark **useful** if the study informs that use through a relevant outcome or a direct comparison of plant parts or preparations. A safety-only study that does neither remains **context only** (not retrieval-relevant). Mark **unresolved** if you cannot tell, and say what information is missing. An informative null result or mismatch can be useful. These are relevance decisions, not treatment-effect labels.
 

@@ -41,3 +41,7 @@ The first command validates relevance completion fields. The evaluator validates
 Nikolay Machev source-checked all six candidates after seeing the assistant screen. Four were useful (P26626246, P22738356, E003, E004). Two initially unresolved safety studies (P21186373, P26626249) were resolved as not retrieval-relevant to T008 under the reviewer-approved scope rule. They remain indexed as safety context. Earlier reasoning and source depths are preserved.
 
 **Rule for all accounts:** count a candidate as useful if it helps assess the documented use through a relevant outcome or a direct comparison of plant parts or preparations. A safety-only study that does neither is context; a part match alone is insufficient. Keep unresolved cases pending when the source does not permit a decision. Relevance is distinct from a finding supporting the traditional use.
+
+## Remaining batch, 4 November 2026
+
+All 27 remaining pairs have reviewer submissions. Three need additional evidence before a decision: T007/P18066122 (species-specific part or preparation comparison?), T010/P20301057 (poplar outcomes or direct preparation comparison in the target article?), and T011/P19526043 (lingonberry-specific arm, material and outcome?). Preserve source depth: some checks used summaries or secondary material rather than the candidate paper itself. E012 compares experimental solvents; the traditional T011 preparation remains undocumented. No finding in a human rationale changes an experimental extraction automatically.
