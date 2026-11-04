@@ -53,3 +53,5 @@ The six-query benchmark measures recovery of seeded links. Ten of twelve links s
 [Documentation and build history](docs/README.md) · [Sources and licences](docs/rights.md) · [Hackathon provenance and AI disclosure](docs/provenance.md)
 
 Human-reviewed lexical, semantic and hybrid results: [retrieval comparison](docs/human_retrieval_comparison.md). Only accounts with complete confirmed judgments enter these development metrics.
+
+Next experiment: [new-paper review packet](docs/generalization_review_packet.md) and [frozen pilot protocol](docs/generalization_protocol.md). Ten new candidates await review; no generalization result is claimed. The atlas now gives a checkable completion criterion for each research gap.

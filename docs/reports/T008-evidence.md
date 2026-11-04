@@ -338,6 +338,14 @@ Next step: Review relevance first, then extract the part, preparation, model, en
 
 Evidence IDs: P26626246, P22738356, P21186373, P26626249
 
+### No extracted endpoint directly tests the documented use
+
+Every extracted comparison in this collection identifies a different endpoint. Unextracted leads and other published work remain outside this conclusion.
+
+Next step: Search the verified species with the original symptom wording, then check the measured endpoint in the methods. Record the search and retain null results.
+
+Evidence IDs: E003, E004
+
 ## Targeted extraction notes
 Assistant notes, separate from experimental counts; human verification is not inferred.
 

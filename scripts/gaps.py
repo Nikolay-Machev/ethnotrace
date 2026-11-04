@@ -1,7 +1,7 @@
 """Deterministic gap explanations over the indexed records, not worldwide evidence."""
 
 
-def explain(claim, results, retrieval_status):
+def explain(claim, results, retrieval_status, relevance_reviews=None):
     extracted = [
         r
         for r in results
@@ -115,4 +115,26 @@ def explain(claim, results, retrieval_status):
             leads,
             "not_yet_extracted",
         )
+    if extracted and all(r["comparison"]["outcome"] == "different_endpoint" for r in extracted):
+        add("endpoint_coverage", "No extracted endpoint directly tests the documented use",
+            "Every extracted comparison in this collection identifies a different endpoint. Unextracted leads and other published work remain outside this conclusion.",
+            "Search the verified species with the original symptom wording, then check the measured endpoint in the methods. Record the search and retain null results.",
+            extracted, "all_extracted_endpoints_differ")
+    by_id = {r["evidence_id"]: r for r in results}
+    for review in relevance_reviews or []:
+        if review.get("human_review_status") != "pending":
+            continue
+        eid = review["evidence_id"]
+        if eid in by_id and review.get("source_checked") and review.get("human_rationale"):
+            add("source_access", "Species-specific results still need verification",
+                review["human_rationale"],
+                "Open the cited paper through an available publisher, repository or library copy. Record the species-specific part, preparation and assay row with its table or page locator. Keep the decision unresolved if these remain inaccessible.",
+                [by_id[eid]], "source_checked_but_decision_unresolved")
+    for gap in gaps:
+        gap["completion_criterion"] = {
+            "traditional_preparation": "A source-located preparation entry, or a note listing sections checked where preparation was not found.",
+            "experimental_preparation": "A source-located extraction method for each named experiment.",
+            "outcome_unresolved": "A reviewer explanation comparing the original symptom with the measured endpoint.",
+            "source_access": "Species-specific methods/results with a locator and a recorded relevance decision, or a documented access limit.",
+        }.get(gap["kind"], "A cited research note addressing this gap; retain any remaining uncertainty.")
     return gaps

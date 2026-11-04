@@ -51,3 +51,5 @@ ${q.useful_movements.map(item => `<details><summary>${escapeValue(item.evidence_
 </details>
 </section>`;
 }
+
+document.getElementById('evaluation').innerHTML += '<section class="card"><h2>Separate new-paper pilot</h2><p>Ten new papers for two existing accounts are reserved outside development evaluation. Rankings are withheld until source-based review is complete. This tests new candidates, not new plants or communities.</p><p>Run python scripts/evaluate_generalization.py to check readiness. No pilot performance is claimed here.</p><p><a href="https://github.com/Nikolay-Machev/makeathon-2026-ethnotrace-traditional-knowledge-mining/blob/main/docs/generalization_review_packet.md">Open the unranked review packet</a> · <a href="https://github.com/Nikolay-Machev/makeathon-2026-ethnotrace-traditional-knowledge-mining/blob/main/docs/generalization_protocol.md">Read the frozen protocol</a></p></section>';

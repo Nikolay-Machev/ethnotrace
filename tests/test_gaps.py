@@ -25,3 +25,15 @@ class GapTests(unittest.TestCase):
   for tid,c in b.claims.items():
    r=b.retrieve(tid,1000);ids={e['evidence_id'] for e in r['results']}
    for gap in explain(c['raw'],r['results'],r['status']):self.assertTrue(set(gap['evidence_ids'])<=ids)
+ def test_source_followup_is_cited_and_requires_a_checkable_result(self):
+  b=Baseline();r=b.retrieve('T007',1000)
+  review={'evidence_id':'P18066122','human_review_status':'pending',
+          'source_checked':True,'human_rationale':'Species-specific tables inaccessible.'}
+  g=explain(b.claims['T007']['raw'],r['results'],r['status'],[review])
+  follow=next(x for x in g if x['kind']=='source_access')
+  self.assertEqual(follow['evidence_ids'],['P18066122'])
+  self.assertIn('locator',follow['completion_criterion'])
+ def test_unknown_alignment_does_not_assert_all_endpoints_differ(self):
+  b=Baseline();r=b.retrieve('T011',1000)
+  g=explain(b.claims['T011']['raw'],r['results'],r['status'])
+  self.assertFalse(any(x['kind']=='endpoint_coverage' for x in g))
