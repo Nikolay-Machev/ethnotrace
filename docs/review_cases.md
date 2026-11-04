@@ -2,6 +2,8 @@
 
 Read the [review instructions](review_workflow.md) before assigning labels. All 20 cases are pending independent review. The full passages, citations and locators are in [the packets](../data/review/review_cases.jsonl).
 
+Before treating packet labels or expected answers as aligned, run the [review-data consistency check](review_data_validation.md). It verifies that review packets, record IDs, structural expectations, reviewer forms and adjudications point to the same cases and source records. This does not confirm the scientific correctness of the source extractions or judgments; those require human source review.
+
 | Case | Traditional account | Experimental unit | Construction |
 | --- | --- | --- | --- |
 | RC001 | [T007](https://pmc.ncbi.nlm.nih.gov/articles/PMC3408811/) — Larix laricina | [E001](https://pmc.ncbi.nlm.nih.gov/articles/PMC3408811/) — glycaemic AUC, prevention | existing extracted link |
