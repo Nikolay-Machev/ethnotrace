@@ -36,3 +36,39 @@ class SemanticTests(unittest.TestCase):
   b=Baseline();before=b.compare(b.claims['T008'],b.experiments['E004'])
   snapshot(b,FakeEncoder(),'0'*40,{})
   self.assertEqual(before,b.compare(b.claims['T008'],b.experiments['E004']))
+
+class HumanRankingEvaluationTests(unittest.TestCase):
+ def test_precision_and_recall_use_different_denominators(self):
+  result=metrics(['a','b','c','d','e','f'],{'a','f'})
+  self.assertEqual(result['precision_at_5'],0.2)
+  self.assertEqual(result['recall_at_5'],0.5)
+  self.assertEqual(metrics(['a'],{'a'})['precision_at_5'],0.2)
+  self.assertEqual(metrics(['a'],set())['precision_at_5'],0)
+ def test_incomplete_account_is_excluded_without_shrinking_pool(self):
+  from evaluate_semantic import human_comparison
+  ranking={'T1':{m:['a','b'] for m in ('lexical','semantic','hybrid')}}
+  good=dict(human_review_status='completed',human_retrieval_relevant=True,
+            human_reviewer_id='reviewer',human_rationale='Useful',source_checked=True)
+  for status in ('pending','provisional','missing'):
+   reviews={('T1','a'):good,('T1','b'):{**good,'human_review_status':status}}
+   judged,excluded=human_comparison(ranking,reviews)
+   self.assertEqual(judged,[])
+   self.assertEqual(excluded[0]['blocking_candidates'][0]['status'],status)
+ def test_movements_preserve_useful_mismatch_and_top_five_tradeoff(self):
+  from evaluate_semantic import human_comparison
+  ranking={'T1':dict(lexical=['a','b','c','d','e','f'],
+                     semantic=['b','c','d','e','f','a'],
+                     hybrid=['a','b','c','d','f','e'])}
+  reviews={('T1',eid):dict(human_review_status='completed',
+            human_retrieval_relevant=eid in {'a','f'},human_reviewer_id='reviewer',
+            human_rationale='Informative part mismatch',source_checked=True)
+           for eid in ranking['T1']['lexical']}
+  judged,excluded=human_comparison(ranking,reviews)
+  self.assertEqual(excluded,[])
+  q=judged[0]
+  self.assertEqual(q['methods']['hybrid']['recall_at_5'],1)
+  f=next(r for r in q['useful_movements'] if r['evidence_id']=='f')
+  self.assertEqual(f['movement_vs_lexical']['semantic'],1)
+  self.assertFalse(f['top_five']['lexical'])
+  self.assertTrue(f['top_five']['semantic'])
+  self.assertEqual(f['human_rationale'],'Informative part mismatch')

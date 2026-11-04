@@ -21,3 +21,33 @@ if(ev.semantic_comparison){
  const s=ev.semantic_comparison,b=ev.random_benchmark;
  document.getElementById('evaluation').innerHTML+=`<section class="card"><h2>Semantic retrieval experiment</h2><p>${escapeValue(s.scope)}</p><p>Local pretrained model: ${escapeValue(s.model)}. No fine-tuning. Exact model revision: ${escapeValue(s.revision)}.</p><table><thead><tr><th>Method</th><th>Seeded recall@5</th><th>Seeded MRR</th></tr></thead><tbody><tr><td>Uniform random order (expected)</td><td>${number(b.recall_at_5)}</td><td>${number(b.mrr)}</td></tr>${Object.entries(s.seeded_development).map(([method,m])=>`<tr><td>${escapeValue(method)}</td><td>${number(m.recall_at_5)}</td><td>${number(m.reciprocal_rank)}</td></tr>`).join('')}</tbody></table><p>The six pools contain four to seven candidates. When a pool has at most five, any ordering recovers every seeded link at five. ${b.same_paper} of ${b.total_links} seeded links use the same publication for the traditional account and experiment. These scores do not establish an advantage over chance on new queries.</p><p>Queries with complete human relevance judgments: ${s.human_reviewed_development.complete_query_count}. This is development review, not held-out evaluation.</p><table><thead><tr><th>Method</th><th>Human-reviewed recall@5</th><th>Human-reviewed MRR</th></tr></thead><tbody>${Object.entries(s.human_reviewed_development.metrics).map(([method,m])=>`<tr><td>${escapeValue(method)}</td><td>${number(m.recall_at_5)}</td><td>${number(m.reciprocal_rank)}</td></tr>`).join('')}</tbody></table>${s.queries.map(q=>`<details><summary>${escapeValue(q.claim_id)} · compare full candidate rankings</summary>${Object.entries(q.methods).map(([method,m])=>`<p><strong>${escapeValue(method)}</strong>: ${m.ranked_ids.map(escapeValue).join(' → ')}<br>Missed seeded links at five: ${m.missed_at_5.map(escapeValue).join(', ')||'None'}</p>`).join('')}</details>`).join('')}<ul>${s.notes.map(n=>`<li>${escapeValue(n)}</li>`).join('')}</ul></section>`;
 }
+
+if (ev.semantic_comparison) {
+ const human = ev.semantic_comparison.human_reviewed_development;
+ const rows = human.queries || [];
+ const movement = value => value > 0 ? 'Up ' + value : value < 0 ? 'Down ' + Math.abs(value) : 'Unchanged';
+ document.getElementById('evaluation').innerHTML += `
+<section class="card"><h2>Human-reviewed ranking comparison</h2>
+<p>${human.complete_query_count} complete accounts · ${human.candidate_count} account–candidate pairs · ${human.useful_count} judged useful. These are assisted development judgments, not an independent test set. Relevance means useful for assessing the account, including informative mismatches.</p>
+<p>Precision@5 divides useful results by five, including empty slots when fewer than five candidates exist. Recall@5 divides useful results by all judged-useful candidates in that account’s indexed pool. Averages give each complete account equal weight.</p>
+<table><thead><tr><th>Method</th><th>Precision@5</th><th>Recall@5</th><th>MRR</th></tr></thead><tbody>
+${Object.entries(human.metrics).map(([method, m]) => `<tr><td>${escapeValue(method)}</td><td>${number(m.precision_at_5)}</td><td>${number(m.recall_at_5)}</td><td>${number(m.reciprocal_rank)}</td></tr>`).join('')}
+</tbody></table>
+<p>Small pools make top-five recall insensitive to ordering. Inspect the useful studies that enter or leave the top five below. The lexical default is unchanged; these results do not establish generalization.</p>
+${rows.map(q => `<details><summary>${escapeValue(q.claim_id)} · ${q.useful_count} useful of ${q.candidate_count} candidates</summary>
+<table><thead><tr><th>Method</th><th>Useful in top five</th><th>Precision@5</th><th>Recall@5</th><th>Useful results missed</th></tr></thead><tbody>
+${Object.entries(q.methods).map(([method, m]) => `<tr><td>${escapeValue(method)}</td><td>${m.hits_at_5}</td><td>${number(m.precision_at_5)}</td><td>${number(m.recall_at_5)}</td><td>${m.missed_at_5.map(escapeValue).join(', ') || 'None'}</td></tr>`).join('')}
+</tbody></table>
+<h3>Useful candidate movements</h3>
+${q.useful_movements.map(item => `<details><summary>${escapeValue(item.evidence_id)} · lexical #${item.ranks.lexical} → semantic #${item.ranks.semantic} → hybrid #${item.ranks.hybrid}</summary>
+<p>Semantic: ${movement(item.movement_vs_lexical.semantic)}; ${item.top_five.semantic ? 'inside' : 'outside'} top five. Hybrid: ${movement(item.movement_vs_lexical.hybrid)}; ${item.top_five.hybrid ? 'inside' : 'outside'} top five.</p>
+<p><strong>Reviewer’s reason:</strong> ${escapeValue(item.human_rationale)}</p>
+<p>${escapeValue(item.source.citation)} · ${escapeValue(item.source.url)}</p>
+<ul>${item.sources_checked.map(source => `<li>${escapeValue(source.depth)} — ${escapeValue(source.url)}</li>`).join('')}</ul>
+</details>`).join('')}</details>`).join('')}
+<details><summary>Excluded accounts and unresolved judgments</summary>
+<p>An account is excluded if any candidate lacks a confirmed relevance decision; remaining candidates are not scored as a reduced pool.</p>
+<ul>${human.excluded_queries.map(q => `<li>${escapeValue(q.claim_id)}: ${q.blocking_candidates.map(r => escapeValue(r.evidence_id) + ' (' + escapeValue(r.status) + ')').join(', ')}</li>`).join('')}</ul>
+</details>
+</section>`;
+}

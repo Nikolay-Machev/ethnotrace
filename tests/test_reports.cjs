@@ -29,3 +29,9 @@ assert.deepEqual(Array.from(sorbus.atlas.dimensions.finding.statistically_inconc
 assert.match(evidenceReport(sorbus,data),/Blood glucose trended lower over seven days in KK-Ay mice; the authors could not establish statistical significance/);
 assert.match(element.innerHTML,/Uniform random order \(expected\)<\/td><td>0\.869<\/td><td>0\.595/);
 assert.match(element.innerHTML,/10 of 12 seeded links use the same publication/);
+assert.match(element.innerHTML,/Human-reviewed ranking comparison/);
+assert.match(element.innerHTML,/3 complete accounts · 16 account–candidate pairs · 10 judged useful/);
+assert.match(element.innerHTML,/Precision@5/);
+assert.match(element.innerHTML,/P20301057 \(provisional\)/);
+assert.match(element.innerHTML,/E003 · lexical #3 → semantic #6 → hybrid #4/);
+assert.match(element.innerHTML,/hybrid<\/td><td>0\.600<\/td><td>0\.917<\/td><td>1\.000/);

@@ -8,6 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUTS = (
+    "docs/human_retrieval_comparison.md",
     "docs/retrieval_review_packet.md",
     "docs/reports/T008-evidence.md",
     "web/data.js",
