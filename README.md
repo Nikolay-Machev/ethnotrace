@@ -121,7 +121,7 @@ The comparison renderer closes each table before rendering the findings panels. 
 
 Baseline 1.1 scores extracted units using their endpoint or parent-paper title, addressing the unequal text coverage of version 1.0. Seeded-link macro recall at five increased from 0.667 to 0.917 across six development queries; this is not held-out scientific accuracy. Candidate pools hold four to seven items, so the expected scores under uniform random ordering are 0.869 recall at five and 0.595 MRR on the same queries (computed from the pool sizes and the 12 seeded links). Extracted experiments and literature leads are displayed in separate groups, with baseline order retained inside each group.
 
-See the [retrieval error report](docs/retrieval_error_report.md), [candidate relevance queue](data/review/retrieval_relevance.jsonl) and [evidence atlas methods](docs/evidence_atlas.md). Run `python scripts/analyze_retrieval.py` to reproduce the ranking comparison. Human candidate relevance review and reviewer B's comparison judgments remain pending.
+See the [retrieval error report](docs/retrieval_error_report.md), [candidate relevance queue](data/review/retrieval_relevance.jsonl) and [evidence atlas methods](docs/evidence_atlas.md). Run `python scripts/analyze_retrieval.py` to reproduce the ranking comparison. T008 has six recorded human relevance decisions; the other 27 candidates await review. Reviewer B’s comparison decisions are not recorded in the current repository snapshot.
 
 ## Semantic retrieval experiment
 

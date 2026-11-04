@@ -30,6 +30,10 @@ class Baseline:
             if r['id'] not in extracted: self.documents[r['id']] = r
         for r in rows(base / 'catalogue_literature_leads.jsonl'): self.documents[r['id']] = r
 
+    def cited_account(self, tid):
+        raw = self.claims[tid]['raw']
+        return {**raw, 'citation': raw.get('citation') or self.sources[raw['source_key']]['attribution']}
+
     def compare(self, claim, evidence):
         a, b = claim['features'], evidence['features']
         raw_a, raw_b = claim['raw'], evidence['raw']

@@ -26,7 +26,7 @@ Research prototype. Findings and claim comparability are separate. Missing index
 
 **knowledge_tradition:** indigenous
 
-**Citation:** Unknown
+**Citation:** Harris CS; Asim M; Saleem A; Haddad PS; Arnason JT; Bennett SA. Characterizing the cytoprotective activity of Sarracenia purpurea L., a medicinal plant that inhibits glucotoxicity in PC12 cells. BMC complementary and alternative medicine. 2012;12:245. doi:10.1186/1472-6882-12-245. PMID:23216659.
 
 **Source URL:** https://pmc.ncbi.nlm.nih.gov/articles/PMC3556504/
 

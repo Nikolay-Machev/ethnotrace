@@ -11,7 +11,7 @@ def prepare():
         'Decide whether each candidate helps assess the documented account, including methodological differences or null findings. Relevance is not claim support. Inspect the linked sources; if evidence is insufficient, leave the decision null and status pending.\n',
         'Enter decisions in `data/review/retrieval_relevance.jsonl`: `human_retrieval_relevant` (true/false), `human_rationale`, `human_reviewer_id`, `source_checked` (true), and `human_review_status` (completed). Do not copy assistant decisions without checking. The packets below omit assistant relevance labels.\n']
     for q in queue:
-        c=b.claims[q['claim_id']]['raw']; r=b.present(b.claims[q['claim_id']],b.documents[q['evidence_id']])
+        c=b.cited_account(q['claim_id']); r=b.present(b.claims[q['claim_id']],b.documents[q['evidence_id']])
         q['traditional_context']={k:c.get(k) for k in ('species','plant_part','preparation','original_use_description','community_or_nation','citation','source_url','supporting_passage','passage_locator')}
         q['experimental_context']=r['study']
         q.setdefault('human_reviewer_id',None);q.setdefault('source_checked',False)
