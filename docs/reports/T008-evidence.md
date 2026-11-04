@@ -1,3 +1,5 @@
+<!-- Generated, do not edit. Run python3 scripts/rebuild.py. -->
+
 # EthnoTrace evidence report: Pitcher plant (T008)
 
 Retrieval baseline: 1.1

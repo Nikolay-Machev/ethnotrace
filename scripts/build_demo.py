@@ -29,7 +29,7 @@ def build():
     data = {'retrieval_provider': {'id':'lexical_baseline', 'version':VERSION, 'semantic_enabled':bool(semantic), 'semantic_model':semantic['model'] if semantic else None, 'semantic_revision':semantic['revision'] if semantic else None, 'input_sha256':semantic['input_sha256'] if semantic else None}, 'baseline_version': VERSION, 'claims': claims, 'review_note': 'One human comparison review complete; second pending. Reviewer A confirmed the assistant-proposed labels. Both reviewers reported extraction verification for the 20 review cases; other evidence entries are not covered.'}
     target = ROOT / 'web/data.js'
     target.parent.mkdir(exist_ok=True)
-    target.write_text('window.ETHNOTRACE_DATA = ' + json.dumps(data, ensure_ascii=False).replace('<', '\\u003c') + ';\n', encoding='utf-8')
+    target.write_text('// Generated, do not edit. Run python3 scripts/rebuild.py.\nwindow.ETHNOTRACE_DATA = ' + json.dumps(data, ensure_ascii=False).replace('<', '\\u003c') + ';\n', encoding='utf-8')
     return data
 
 if __name__ == '__main__':

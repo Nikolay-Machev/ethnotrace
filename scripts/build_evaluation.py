@@ -34,6 +34,6 @@ def build():
            'No independent scientific accuracy or clinical efficacy is established.',
            'Related papers and experiments must stay grouped in future evaluation splits.'],
            'snapshot_sha256':hashlib.sha256(json.dumps(current,sort_keys=True).encode()).hexdigest()}
-    (ROOT/'web/evaluation-data.js').write_text('window.ETHNOTRACE_EVALUATION = '+json.dumps(value,ensure_ascii=False).replace('<','\\u003c')+';\n')
+    (ROOT/'web/evaluation-data.js').write_text('// Generated, do not edit. Run python3 scripts/rebuild.py.\nwindow.ETHNOTRACE_EVALUATION = '+json.dumps(value,ensure_ascii=False).replace('<','\\u003c')+';\n')
     return value
 if __name__=='__main__':build();print('Built evaluation snapshot from current review files.')

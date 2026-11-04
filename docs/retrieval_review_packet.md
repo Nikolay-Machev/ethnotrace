@@ -1,3 +1,5 @@
+<!-- Generated, do not edit. Run python3 scripts/rebuild.py. -->
+
 # Retrieval relevance review
 
 Decide whether each candidate helps assess the documented account, including methodological differences or null findings. Relevance is not claim support. Inspect the linked sources; if evidence is insufficient, leave the decision null and status pending.
