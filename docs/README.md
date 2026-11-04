@@ -6,7 +6,7 @@
 | How records are prepared | [Preprocessing](preprocessing.md), [quality findings and E005 correction](data_quality.md) |
 | What the app does | [Atlas, gaps and cited drill-down](evidence_atlas.md), [targeted source notes](../data/curated/targeted_extractions.jsonl), [example report for T008](reports/T008-evidence.md) |
 | How ranking is evaluated | [Baseline](baseline.md), [ranking errors](retrieval_error_report.md), [semantic and hybrid experiment](semantic_retrieval.md) |
-| How to review evidence | [Comparison workflow](review_workflow.md), [schema](review_schema.md), [case index](review_cases.md), [candidate review packet](retrieval_review_packet.md), [human review instructions](next_reviews.md), [assistant screening pass](retrieval_screen_notes.md) |
+| How to review evidence | [Comparison workflow](review_workflow.md), [schema](review_schema.md), [case index](review_cases.md), [27-pair human worksheet](human_relevance_worksheet.md), [candidate review packet](retrieval_review_packet.md), [human review instructions](next_reviews.md), [assistant screening pass](retrieval_screen_notes.md) |
 | Historical plan | [Original atlas plan (archived)](archive/evidence_atlas_plan.md) |
 
 ## Rebuilding
