@@ -4,8 +4,8 @@ Checked 4 November 2026 against the repository and submission guidelines supplie
 
 | Requirement | Evidence or remaining action |
 | --- | --- |
-| Public GitHub repository | Public visibility verified for Nikolay-Machev/ethnotrace. |
-| Required repository name | **Open.** The verified name is ethnotrace. The team confirmed its registered name is ethnotrace. Target name: **makeathon-2026-ethnotrace-traditional-knowledge-mining**. Rename the existing repo to retain its commit history; verify the new URL, clone instructions and references before submitting. |
+| Public GitHub repository | Public visibility verified for Nikolay-Machev/makeathon-2026-ethnotrace-traditional-knowledge-mining. |
+| Required repository name | Verified: [Nikolay-Machev/makeathon-2026-ethnotrace-traditional-knowledge-mining](https://github.com/Nikolay-Machev/makeathon-2026-ethnotrace-traditional-knowledge-mining). |
 | Team access | **Owner-reported:** Alex Karajov is already added. Accepted invitation and Write/Admin level have not been independently verified. Check the existing entry in Settings → Collaborators; no new invitation is needed if it is active with Write access. The ability to read a public repo does not establish write access. |
 | Track, problem, technology and execution | The README names Track 1, describes the research question, lists the stack and gives installation, serving and rebuild instructions. |
 | Demo or screenshot | The README includes an atlas screenshot, a repeatable T008 demo and a cited report. This covers the README presentation item; it does not replace the pitch video. |
