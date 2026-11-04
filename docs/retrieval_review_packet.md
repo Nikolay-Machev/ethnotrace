@@ -304,9 +304,9 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Candidate:** Vianna R; Brault A; Martineau LC; Couture R; Arnason JT; Haddad PS. In Vivo Anti-Diabetic Activity of the Ethanolic Crude Extract of Sorbus decora C.K.Schneid. (Rosacea): A Medicinal Plant Used by Canadian James Bay Cree Nations to Treat Symptoms Related to Diabetes. Evidence-based complementary and alternative medicine : eCAM. 2011;2011:237941. doi:10.1093/ecam/nep158. PMID:19887507. — https://pmc.ncbi.nlm.nih.gov/articles/PMC3163474/
 
-**Candidate locator:** Methods 2.7; Results 3.3; Figure 7
+**Candidate locator:** Results 3.3 and Figure 7; Discussion, paragraph on the seven-day KK-Ay experiment
 
-**Available passage:** within 4 days
+**Available passage:** data variability prevented the assignment of statistical significance to this hypoglycemic effect
 
 **Recorded endpoint:** serial blood glucose
 

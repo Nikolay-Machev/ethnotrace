@@ -16,7 +16,7 @@ Rules identify explicit species, part and solvent differences. A narrow outcome 
 
 ## Development results
 
-The 20-case development set contains 12 seeded links and eight constructed species mismatches. Scientific-name agreement and species-gate membership checks both pass for all 20 cases. Across the six seeded queries, macro recall at five is 0.667 and mean reciprocal rank is 0.408. These measure recovery of existing links, not independently verified scientific relevance. They also show that species matching alone does not reliably rank extracted evidence first.
+The 20-case development set contains 12 seeded links and eight constructed species mismatches. Scientific-name agreement and species-gate membership checks both pass for all 20 cases. Across the six seeded queries, baseline 1.1 scores macro recall at five 0.917 and mean reciprocal rank 0.561 (version 1.0 scored 0.667 and 0.408). Candidate pools hold only four to seven items, so expected scores under uniform random ordering are 0.869 and 0.595; version 1.1's recall is barely above that level and its MRR is below it. These measure recovery of existing links, not independently verified scientific relevance, and ten of the twelve seeded links pair a traditional account with an experiment from the same paper. They also show that species matching alone does not reliably rank extracted evidence first.
 
 No independently adjudicated cases are currently available. Independent comparison accuracy and retrieval recall are therefore null. The evaluator only reports independent retrieval recall for queries with complete candidate judgments. All cases remain in development; no held-out test result is claimed.
 
@@ -33,11 +33,3 @@ python -m unittest discover -s tests -v
 ```
 
 Outputs are `data/evaluation/baseline_report.json` and `baseline_predictions.jsonl`. The implementation uses Python's standard library and performs no network calls or model training.
-
-## Separate comparability and findings
-
-The project now treats claim comparability and experimental findings as separate outputs, rather than a five-class training target. Traditional uses are interpreted narrowly. The baseline already retains `experimental_result_direction` separately from its comparison `status`; reviewer A now records explicit `claim_comparability` and `experimental_findings` objects, with findings linked to the original experimental source. Existing `pair_label` values are retained for compatibility.
-
-Reviewer A confirmed all 20 assistant-proposed comparison judgments: 10 `insufficient_evidence` and 10 `not_directly_comparable`. This confirmation followed exposure to the assistant's judgments and is recorded as assisted review, not blinded independent annotation. Both reviewers' extraction confirmations do not imply partner agreement on comparison labels. Adjudication remains pending.
-
-Use these cases for development evaluation, not fine-tuning. The eight constructed species mismatches are challenge cases, not a representative sample of natural retrieval results. Positive, null and condition-dependent experimental findings remain visible even when the traditional claim cannot be directly assessed. Do not reinterpret nonspecific historical symptoms as glucose-regulation claims to create positive labels.

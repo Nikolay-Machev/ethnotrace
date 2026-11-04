@@ -80,7 +80,8 @@
   "result_direction_aliases": {
     "support": "favourable_effect",
     "no_detected_effect": "no_detected_effect",
-    "mixed_evidence": "condition_dependent"
+    "mixed_evidence": "condition_dependent",
+    "statistically_inconclusive": "statistically_inconclusive"
   },
   "experimental_exposures": {
     "E001": {
@@ -214,5 +215,28 @@
     "terminal insulin": "insulin_terminal",
     "terminal glucose": "blood_glucose_terminal",
     "glucose uptake": "glucose_uptake"
+  },
+  "audit_corrections": {
+    "experimental_records": {
+      "E005": {
+        "date": "2026-11-04",
+        "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3163474/",
+        "fields": {
+          "result_direction": "statistically_inconclusive",
+          "reported_use_or_outcome": "Blood glucose trended lower over seven days in KK-Ay mice; the authors could not establish statistical significance.",
+          "supporting_passage": "data variability prevented the assignment of statistical significance to this hypoglycemic effect",
+          "passage_locator": "Results 3.3 and Figure 7; Discussion, paragraph on the seven-day KK-Ay experiment"
+        }
+      }
+    },
+    "extracted_claim_study_pairs": {
+      "T009__E005": {
+        "date": "2026-11-04",
+        "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3163474/",
+        "fields": {
+          "study_result_label": "statistically_inconclusive"
+        }
+      }
+    }
   }
 }

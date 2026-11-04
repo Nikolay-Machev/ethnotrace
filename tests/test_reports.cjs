@@ -24,3 +24,8 @@ assert.match(semanticReport,/Selected ranker: semantic/);
 assert.match(semanticReport,/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/);
 assert.match(element.innerHTML,/Semantic retrieval experiment/);
 assert.match(element.innerHTML,/0.658/);
+const sorbus=data.claims.find(a=>a.id==='T009');
+assert.deepEqual(Array.from(sorbus.atlas.dimensions.finding.statistically_inconclusive.evidence_ids),['E005']);
+assert.match(evidenceReport(sorbus,data),/Blood glucose trended lower over seven days in KK-Ay mice; the authors could not establish statistical significance/);
+assert.match(element.innerHTML,/Uniform random order \(expected\)<\/td><td>0\.869<\/td><td>0\.595/);
+assert.match(element.innerHTML,/10 of 12 seeded links use the same publication/);

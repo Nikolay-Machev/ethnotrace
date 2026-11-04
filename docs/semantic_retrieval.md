@@ -38,11 +38,12 @@ The first inference run downloads model weights. Dataset text stays local. No AP
 
 | Ranker | Seeded-link macro recall@5 | Seeded-link MRR |
 | --- | ---: | ---: |
+| Uniform random order (expected) | 0.869 | 0.595 |
 | Lexical | 0.917 | 0.561 |
 | Semantic | 0.917 | 0.658 |
 | Hybrid | 0.917 | 0.631 |
 
-These are six existing development queries with twelve seeded links, not held-out test results or complete relevance judgments. Per-query rankings and missed links are retained in `data/evaluation/semantic_comparison.json` and shown on the evaluation page. For pitcher plant (T008), semantic retrieves E004 within five but drops E003 below five; lexical and hybrid miss E004 instead. Equal aggregate recall therefore hides a different error. The improvement in first-relevant rank is descriptive; we make no statistical superiority claim and leave lexical as the default.
+Ten of the twelve links share a publication across the account and experimental record. Short pools give high recall even under random ordering. These are six existing development queries with twelve seeded links, not held-out test results or complete relevance judgments. Per-query rankings and missed links are retained in `data/evaluation/semantic_comparison.json` and shown on the evaluation page. For pitcher plant (T008), semantic retrieves E004 within five but drops E003 below five; lexical and hybrid miss E004 instead. Equal aggregate recall therefore hides a different error. The improvement in first-relevant rank is descriptive; we make no statistical superiority claim and leave lexical as the default.
 
 No query currently has complete human relevance judgments, so human-reviewed retrieval metrics remain null. Unjudged candidates are never treated as negatives. Once the chosen candidate pools are fully reviewed, `evaluate_semantic.py` will additionally report human-reviewed development metrics. This still does not create an independent test set. Related sources and experiments must remain grouped for any future held-out study. Repeated experiments from the same publication are not independent samples; model pretraining overlap with literature is not known.
 

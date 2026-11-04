@@ -24,8 +24,9 @@
   "index_documents": 59,
   "input_sha256": {
     "data/review/adjudicated.jsonl": "18e8938f414b4d301bfa853c9800d5d92898914201c9eed7fbcd6df99c7eac46",
-    "data/review/retrieval_relevance.jsonl": "2f7e00f9971d96ad1dd1e84cd6c517b16bdc1159aa2ceb5161c8cadc6dfb6ef0",
-    "data/review/review_cases.jsonl": "cb61a1a6579757a3d973fe62ad8350f4639190dfcb85bd79882e070d5dea0fa3",
+    "data/review/assistant_relevance_screen.jsonl": "7061232d92f7d90b7943f5ab57eea7970e5896b4d57381b7775f3a515f7250c4",
+    "data/review/retrieval_relevance.jsonl": "375e719bc96bb59497ec98e6a57c40dd044e11d9186d4886e1bd476efc7e52da",
+    "data/review/review_cases.jsonl": "daf45e51eb6cf8d92b1a869509ed5316b17ed04b23c75b6e8877e3667030f938",
     "data/review/reviewer_a.jsonl": "007144519526d111cb8bf28db1adaba084ac3e56b905ef2d1b955daa116594a8",
     "data/review/reviewer_b.jsonl": "a13df177997145a0dfeba2cdef1ae278f32987585aac39ef5beb17f21d78c120"
   },

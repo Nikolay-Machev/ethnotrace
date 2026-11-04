@@ -18,6 +18,10 @@ class Baseline:
         base = root / 'data/processed'
         self.claims = {r['id']: r for r in rows(base / 'traditional_records.jsonl')}
         self.experiments = {r['id']: r for r in rows(base / 'experimental_records.jsonl')}
+        # Active records use cited corrections; processed raw and pinned imports remain historical.
+        for e in self.experiments.values():
+            if e['provenance'].get('audit_correction'):
+                e['raw'] = e['normalized']
         self.sources = {s['source_key']: s for s in json.loads((base / 'sources.json').read_text())['raw']['sources']}
         self.paper_titles = {r['id']: r['raw'].get('title', '') for r in rows(base / 'papers.jsonl')}
         self.documents = dict(self.experiments)
