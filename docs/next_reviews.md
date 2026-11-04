@@ -35,3 +35,9 @@ python scripts/build_demo.py
 ```
 
 The first command validates relevance completion fields. The evaluator validates comparison schema and retains its independent-review safeguards. No human decision or adjudication is inferred from this preparation step. Semantic ranking is available experimentally. Complete candidate relevance judgments before claiming it improves retrieval; rerun `python scripts/evaluate_semantic.py` and `python scripts/build_evaluation.py` after recording reviews.
+
+## T008 human submission, 4 November 2026
+
+Nikolay Machev source-checked all six candidates after seeing the assistant screen. Four decisions are useful (P26626246, P22738356, E003, E004). Two source-checked safety candidates (P21186373, P26626249) remain unresolved; leaning against relevance is not a negative decision. Each entry retains the reviewer's reasoning, sources and inspection depth in the relevance file. No judgment about treatment efficacy or independent blinded review follows from these entries.
+
+Before resolving the safety candidates, agree on a rule to apply consistently across accounts. One possible rule is to retain safety-only work as context when it neither measures the documented use nor directly compares a relevant plant part or preparation. This is a proposal for reviewers, not an adjudication.
