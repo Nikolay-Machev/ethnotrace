@@ -127,7 +127,7 @@ See the [retrieval error report](docs/retrieval_error_report.md), [candidate rel
 
 The app offers lexical, semantic and hybrid ranking modes. The pretrained MiniLM challenger runs locally during snapshot generation; the browser uses committed rankings and needs no ML dependencies or API keys. Lexical remains the default. All methods use the same species-matched candidates and comparison rules. See [methods, results and reproduction commands](docs/semantic_retrieval.md).
 
-On the six seeded development queries, recall@5 is 0.917 for all three methods; MRR is 0.561 lexical, 0.658 semantic and 0.631 hybrid (expected under uniform random ordering: recall@5 0.869 and MRR 0.595). Human-reviewed retrieval metrics remain unavailable until complete relevance judgments are entered. These are development results, not a demonstrated improvement in general scientific relevance.
+On the six seeded development queries, recall@5 is 0.917 for all three methods; MRR is 0.561 lexical, 0.658 semantic and 0.631 hybrid (expected under uniform random ordering: recall@5 0.869 and MRR 0.595). Human-reviewed development results are available for T008 only (all three rankers recovered three of four useful candidates at five). These are development results, not a demonstrated improvement in general scientific relevance.
 
 ## Gap explanations and targeted extraction
 

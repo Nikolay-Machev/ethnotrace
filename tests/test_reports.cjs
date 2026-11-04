@@ -14,7 +14,7 @@ const element={innerHTML:''};const evalctx=vm.createContext({window:{},document:
 vm.runInContext(fs.readFileSync(path.join(root,'web/evaluation-data.js'),'utf8'),evalctx);
 vm.runInContext(fs.readFileSync(path.join(root,'web/evaluation.js'),'utf8'),evalctx);
 assert.match(element.innerHTML,/Independent comparison accuracy<\/td><td>Not available/);
-assert.match(element.innerHTML,/Human relevance judgments: 4 \/ 33/);
+assert.match(element.innerHTML,/Human relevance judgments: 6 \/ 33/);
 assert.match(element.innerHTML,/E004/);
 assert.match(element.innerHTML,/0.917/);
 console.log('All 12 account reports retain citations; evaluation preserves unavailable metrics and ranking misses.');

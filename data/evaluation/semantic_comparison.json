@@ -305,22 +305,40 @@
     }
   ],
   "human_reviewed_development": {
-    "complete_query_count": 0,
+    "complete_query_count": 1,
     "metrics": {
       "lexical": {
-        "recall_at_5": null,
-        "reciprocal_rank": null
+        "recall_at_5": 0.75,
+        "reciprocal_rank": 1.0
       },
       "semantic": {
-        "recall_at_5": null,
-        "reciprocal_rank": null
+        "recall_at_5": 0.75,
+        "reciprocal_rank": 0.5
       },
       "hybrid": {
-        "recall_at_5": null,
-        "reciprocal_rank": null
+        "recall_at_5": 0.75,
+        "reciprocal_rank": 1.0
       }
     },
-    "queries": []
+    "queries": [
+      {
+        "claim_id": "T008",
+        "methods": {
+          "lexical": {
+            "recall_at_5": 0.75,
+            "reciprocal_rank": 1.0
+          },
+          "semantic": {
+            "recall_at_5": 0.75,
+            "reciprocal_rank": 0.5
+          },
+          "hybrid": {
+            "recall_at_5": 0.75,
+            "reciprocal_rank": 1.0
+          }
+        }
+      }
+    ]
   },
   "notes": [
     "Unjudged candidates are not negatives.",

@@ -38,6 +38,6 @@ The first command validates relevance completion fields. The evaluator validates
 
 ## T008 human submission, 4 November 2026
 
-Nikolay Machev source-checked all six candidates after seeing the assistant screen. Four decisions are useful (P26626246, P22738356, E003, E004). Two source-checked safety candidates (P21186373, P26626249) remain unresolved; leaning against relevance is not a negative decision. Each entry retains the reviewer's reasoning, sources and inspection depth in the relevance file. No judgment about treatment efficacy or independent blinded review follows from these entries.
+Nikolay Machev source-checked all six candidates after seeing the assistant screen. Four were useful (P26626246, P22738356, E003, E004). Two initially unresolved safety studies (P21186373, P26626249) were resolved as not retrieval-relevant to T008 under the reviewer-approved scope rule. They remain indexed as safety context. Earlier reasoning and source depths are preserved.
 
-Before resolving the safety candidates, agree on a rule to apply consistently across accounts. One possible rule is to retain safety-only work as context when it neither measures the documented use nor directly compares a relevant plant part or preparation. This is a proposal for reviewers, not an adjudication.
+**Rule for all accounts:** count a candidate as useful if it helps assess the documented use through a relevant outcome or a direct comparison of plant parts or preparations. A safety-only study that does neither is context; a part match alone is insufficient. Keep unresolved cases pending when the source does not permit a decision. Relevance is distinct from a finding supporting the traditional use.
