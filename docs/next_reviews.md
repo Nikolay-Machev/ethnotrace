@@ -26,6 +26,8 @@ Use the existing [comparison packets](review_cases.md) and `data/review/reviewer
 
 `data/curated/targeted_extractions.jsonl` has two source notes. TX001 is a methods/table extraction from a phytochemical comparison; check PDF pages 3 and 5. TX002 is partial indexed-section extraction; full methods, figures, dose and plant part require inspection. Neither inherits the earlier human reviews. Both remain outside the 12-unit experimental index and the frozen 20-case comparison set. They are shown as context in the app, not additional efficacy results.
 
+A reviewer submission on 5 November 2026 records that TX001 pages 3 and 5 and TX002's full methods/figures could not be directly checked. No extraction fields were verified, and corrections could not be determined. Both notes remain explicitly unverified (`human_verified: false`); do not describe them as source-verified or use them as additional efficacy results until the sources can be inspected.
+
 Run:
 
 ```bash
@@ -44,6 +46,4 @@ Nikolay Machev source-checked all six candidates after seeing the assistant scre
 
 ## Remaining batch, 4 November 2026
 
-All 27 remaining pairs have reviewer submissions. T010/P20301057 is provisionally useful under the reviewer’s adipogenesis scope reading, based on assistant-reported primary findings and a reviewer-read secondary chapter. It is excluded from confirmed relevance metrics. T007/P18066122 and T011/P19526043 remain unresolved because species-specific tables were inaccessible.
-
-See [source follow-up and reviewer decisions](relevance_followup.md) for source depths and remaining questions. Experimental extractions and claim-comparability labels are unchanged.
+All 27 remaining pairs have reviewer submissions. T010/P20301057 is provisionally useful under the reviewer’s adipogenesis scope reading, based on assistant-reported primary findings and a reviewer’s acknowledged prior pair review. T011/P19927274 remains unresolved pending accessible source text. T012/P26707751 remains unresolved pending inspection of adipogenic results. T008/P33144625, P38943782, P27174081 and P35807620 remain unreviewed after direct access failed. No source result was copied from an assistant screen into the human fields. See [source follow-up and reviewer decisions](relevance_followup.md) for source depths and remaining questions. Experimental extractions and claim-comparability labels are unchanged.
