@@ -19,6 +19,6 @@ All three rankers retrieve 3 of the 4 assistant-screened useful candidates in th
 
 ## Rebuild and browser check
 
-The semantic evaluation, evaluation page and demo were regenerated from the available main-branch inputs. At the checked revision (fe66068), reviewer B's comparison form still had 20 pending entries. The validation PR does not change the reviewer form. The reported partner submission was not incorporated or overwritten. No human-reviewed retrieval metrics are available in this snapshot.
+The semantic evaluation, evaluation page and demo were regenerated from the available main-branch inputs. At the checked revision (fe66068), Alex Karadjov's comparison form still had 20 pending entries. The validation PR does not change the reviewer form. The reported partner submission was not incorporated or overwritten. No human-reviewed retrieval metrics are available in this snapshot.
 
 Live preview: selecting Different part displayed E004 alone under lexical, semantic and hybrid, retaining the same Harris et al. source link. Clicking the source opened its PMC URL. Clicking Download cited report did not yield a confirmed browser download event. The [T008 hybrid report](reports/T008-evidence.md) was therefore generated with the app's export formatter and checked for all six candidates and the E004 source URL.
