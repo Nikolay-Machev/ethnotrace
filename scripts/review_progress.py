@@ -1,39 +1,78 @@
-"""Validate review entries and report readiness without converting assistant work to human review."""
+"""Validate reviewer-level judgments without silently adjudicating between reviewers."""
 import json
+from collections import defaultdict
 from retrieve import ROOT, rows
 
-def report():
-    candidates=rows(ROOT/'data/review/retrieval_relevance.jsonl')
-    grouped = {}
-    for record in candidates:
-        grouped.setdefault((record['claim_id'], record['evidence_id']), []).append(record)
-    unique = []
-    for key, records in grouped.items():
-        if len(records) > 1:
-            # Multiple unresolved reviewer entries are not duplicate final judgments.
-            # Refuse to combine any completed/boolean decisions without adjudication.
-            if any(r.get('human_retrieval_relevant') is not None or r.get('human_review_status') == 'completed' for r in records):
-                raise ValueError('Multiple final relevance judgments require adjudication: '+str(key))
-            q = dict(next((r for r in records if r.get('human_review_status') == 'provisional'), records[0]))
-            q['source_checked'] = any(r.get('source_checked') is True for r in records)
-            unique.append(q)
+
+def grouped_review_records(records):
+    """Return one conservative evaluation record per pair and reviewer diagnostics.
+
+    Identical completed labels are reported as concordant submissions, not
+    independently adjudicated gold. Missing or unfinished companion reviews
+    block a pair from complete-query retrieval metrics.
+    """
+    grouped = defaultdict(list)
+    for record in records:
+        grouped[(record['claim_id'], record['evidence_id'])].append(record)
+
+    unique = {}
+    counts = {'concordant_completed_pairs': 0, 'discordant_completed_pairs': 0,
+              'pairs_awaiting_review': 0, 'provisional_pairs': 0}
+    for key, submissions in grouped.items():
+        names = [r.get('human_reviewer_id') for r in submissions if r.get('human_reviewer_id')]
+        if len(names) != len(set(names)):
+            raise ValueError('Duplicate reviewer for relevance pair: ' + str(key))
+        for r in submissions:
+            if r.get('human_review_status') == 'completed':
+                if not (type(r.get('human_retrieval_relevant')) is bool
+                        and r.get('human_rationale') and r.get('human_reviewer_id')
+                        and r.get('source_checked') is True):
+                    raise ValueError('Completed relevance review requires decision, rationale, reviewer and source check: ' + str(key))
+        finals = [r for r in submissions if r.get('human_review_status') == 'completed']
+        values = {r['human_retrieval_relevant'] for r in finals}
+        if len(values) > 1:
+            counts['discordant_completed_pairs'] += 1
+            raise ValueError('Multiple conflicting final relevance judgments require adjudication: ' + str(key))
+        if finals and len(finals) == len(submissions):
+            chosen = dict(finals[0])
+            counts['concordant_completed_pairs'] += 1
         else:
-            unique.append(records[0])
-    submission_count = len(candidates)
-    candidates = unique
-    seen=set(); complete=0
-    for q in candidates:
-        key=(q['claim_id'],q['evidence_id'])
-        if key in seen: raise ValueError('Duplicate relevance judgment: '+str(key))
-        seen.add(key)
-        if q['human_review_status']=='completed':
-            if not (type(q['human_retrieval_relevant']) is bool and q.get('human_rationale') and q.get('human_reviewer_id') and q.get('source_checked') is True):
-                raise ValueError('Completed relevance review requires decision, rationale, reviewer and source check: '+str(key))
-            complete+=1
-    reviewers={key:rows(ROOT/f'data/review/reviewer_{key}.jsonl') for key in ('a','b')}
-    return {'relevance_candidates':len(candidates),'review_submission_count':submission_count,'human_relevance_completed':complete,
-            'human_relevance_provisional':sum(q.get('human_review_status')=='provisional' for q in candidates),
-            'source_checked_unresolved':sum(q.get('source_checked') is True and q.get('human_retrieval_relevant') is None and q.get('human_review_status')!='provisional' for q in candidates),
-            'comparison_reviews':{k:sum(r.get('comparison_review_status')=='completed' for r in rs) for k,rs in reviewers.items()},
-            'note':'Reported counts are not independent scientific accuracy. Do not start a semantic retrieval performance comparison until the chosen queries have complete human relevance judgments.'}
-if __name__=='__main__':print(json.dumps(report(),indent=2))
+            chosen = dict(next((r for r in submissions if r.get('human_review_status') == 'provisional'),
+                               next((r for r in submissions if r.get('human_review_status') in ('unresolved', 'pending')),
+                                    submissions[0])))
+            chosen['human_retrieval_relevant'] = None
+            if any(r.get('human_review_status') == 'provisional' for r in submissions):
+                chosen['human_review_status'] = 'provisional'
+                counts['provisional_pairs'] += 1
+            else:
+                chosen['human_review_status'] = 'unresolved' if any(
+                    r.get('human_review_status') == 'unresolved' for r in submissions) else 'pending'
+                counts['pairs_awaiting_review'] += 1
+            chosen['source_checked'] = any(r.get('source_checked') is True for r in submissions)
+        unique[key] = chosen
+    return unique, counts
+
+
+def report():
+    submissions = rows(ROOT / 'data/review/retrieval_relevance.jsonl')
+    pairs, diagnostics = grouped_review_records(submissions)
+    records = list(pairs.values())
+    reviewers = {key: rows(ROOT / f'data/review/reviewer_{key}.jsonl') for key in ('a', 'b')}
+    return {
+        'relevance_candidates': len(records),
+        'review_submission_count': len(submissions),
+        'human_relevance_completed': sum(r.get('human_review_status') == 'completed' for r in records),
+        'human_relevance_provisional': sum(r.get('human_review_status') == 'provisional' for r in records),
+        'source_checked_unresolved': sum(
+            r.get('source_checked') is True and r.get('human_retrieval_relevant') is None
+            and r.get('human_review_status') != 'provisional' for r in records),
+        'reviewer_reconciliation': diagnostics,
+        'comparison_reviews': {
+            key: sum(r.get('comparison_review_status') == 'completed' for r in entries)
+            for key, entries in reviewers.items()},
+        'note': 'Matching reviewer submissions are not adjudicated gold. No independent scientific accuracy is claimed.'
+    }
+
+
+if __name__ == '__main__':
+    print(json.dumps(report(), indent=2))
