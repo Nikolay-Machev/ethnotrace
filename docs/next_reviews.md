@@ -28,6 +28,10 @@ Use the existing [comparison packets](review_cases.md) and `data/review/reviewer
 
 A reviewer submission on 5 November 2026 records that TX001 pages 3 and 5 and TX002's full methods/figures could not be directly checked. No extraction fields were verified, and corrections could not be determined. Both notes remain explicitly unverified (`human_verified: false`); do not describe them as source-verified or use them as additional efficacy results until the sources can be inspected.
 
+## Human retrieval submissions received 5 November 2026
+
+The 27 case-level decisions supplied by Nikolay Machev are preserved in `data/review/retrieval_relevance_human_submissions.jsonl`, including rationale, checked-source notes, and assistant-screen exposure declarations. This is a submission ledger, not yet imported into the canonical 33-candidate queue: entries based only on summaries/secondary sources retain those access limitations, and three cases remain unresolved (T007/P18066122, T010/P20301057, T011/P19526043). Do not use the ledger as a completed retrieval evaluation until its decisions are reconciled into the canonical review file and validation is rerun. Reviews were not blind because assistant-screen exposure was reported for many cases.
+
 Run:
 
 ```bash
