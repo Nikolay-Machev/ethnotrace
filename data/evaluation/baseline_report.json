@@ -24,13 +24,13 @@
   "index_documents": 59,
   "review_progress": {
     "a": {
-      "assisted_comparison_cases": 0,
-      "baseline_label_agreement": null,
-      "comparison_completed_cases": 0,
-      "comparison_pending_cases": 20,
+      "assisted_comparison_cases": 20,
+      "baseline_label_agreement": 1.0,
+      "comparison_completed_cases": 20,
+      "comparison_pending_cases": 0,
       "experimental_finding_label_reviews": 0,
-      "extraction_verified_cases": 0,
-      "warning": "Reviewer A entries are currently pending. Historical assisted confirmations are not independent gold."
+      "extraction_verified_cases": 20,
+      "warning": "Reviewer A's completed comparisons followed exposure to assistant judgments; this is assisted confirmation, not independent or blinded gold."
     },
     "b": {
       "assisted_comparison_cases": 0,
@@ -39,9 +39,9 @@
       "comparison_pending_cases": 20,
       "experimental_finding_label_reviews": 0,
       "extraction_verified_cases": 0,
-      "warning": "Reviewer B entries are currently pending; no source-checked decisions are recorded."
+      "warning": "Reviewer B comparison and extraction review entries are pending."
     }
   },
   "scope": "development set, not held-out; known source/programme blocks retained",
-  "review_data_note": "Review counts synchronized to the current pending reviewer files. The historical assisted review set remains available in earlier commits, but it is not used as independent source gold while the active files remain pending."
+  "review_data_note": "No cases are adjudicated. Reviewer A's assisted confirmations are retained as development review only; Reviewer B's pending entries are not interpreted as decisions. This report's review-progress section is synchronized to the active review files; rerun python3 scripts/rebuild.py to regenerate all outputs and current input hashes."
 }
