@@ -122,7 +122,7 @@ def explain(claim, results, retrieval_status, relevance_reviews=None):
             extracted, "all_extracted_endpoints_differ")
     by_id = {r["evidence_id"]: r for r in results}
     for review in relevance_reviews or []:
-        if review.get("human_review_status") != "pending":
+        if review.get("human_review_status") not in ("pending", "unresolved"):
             continue
         eid = review["evidence_id"]
         if eid in by_id and review.get("source_checked") and review.get("human_rationale"):

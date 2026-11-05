@@ -25,3 +25,22 @@ class ReviewProgressTests(unittest.TestCase):
    self.assertEqual(result['human_relevance_completed'],0)
    self.assertEqual(result['human_relevance_provisional'],1)
    self.assertEqual(result['source_checked_unresolved'],0)
+ def test_separate_unresolved_reviewers_count_as_one_pair(self):
+  with tempfile.TemporaryDirectory() as d:
+   root=Path(d)
+   entry=dict(claim_id='T007',evidence_id='P18066122',human_review_status='pending',human_retrieval_relevant=None,source_checked=True)
+   self.fixture(root,entry)
+   with (root/'data/review/retrieval_relevance.jsonl').open('a') as f:f.write(json.dumps({**entry,'human_review_status':'unresolved','human_reviewer_id':'second'})+'\n')
+   with patch.object(review_progress,'ROOT',root):
+    result=review_progress.report()
+   self.assertEqual(result['relevance_candidates'],1)
+   self.assertEqual(result['review_submission_count'],2)
+   self.assertEqual(result['source_checked_unresolved'],1)
+ def test_multiple_final_judgments_require_adjudication(self):
+  with tempfile.TemporaryDirectory() as d:
+   root=Path(d)
+   entry=dict(claim_id='T007',evidence_id='P18066122',human_review_status='completed',human_retrieval_relevant=True,source_checked=True,human_reviewer_id='first',human_rationale='Checked')
+   self.fixture(root,entry)
+   with (root/'data/review/retrieval_relevance.jsonl').open('a') as f:f.write(json.dumps({**entry,'human_retrieval_relevant':False,'human_reviewer_id':'second'})+'\n')
+   with patch.object(review_progress,'ROOT',root):
+    with self.assertRaisesRegex(ValueError,'require adjudication'):review_progress.report()

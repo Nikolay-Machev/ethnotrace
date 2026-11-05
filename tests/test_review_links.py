@@ -29,7 +29,7 @@ class ReviewLinkValidationTests(unittest.TestCase):
         with temporary:
             path = root / 'data/review/review_cases.jsonl'
             records = [json.loads(line) for line in path.read_text().splitlines()]
-            records[0]['evidence']['record_id'] = 'E002'
+            records[0]['experiment']['record_id'] = 'E002'
             path.write_text(''.join(json.dumps(record) + '\n' for record in records))
             with self.assertRaisesRegex(ValueError, 'experimental packet does not match'):
                 validate(root)

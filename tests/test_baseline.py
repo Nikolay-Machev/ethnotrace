@@ -60,21 +60,30 @@ class BaselineTests(unittest.TestCase):
         self.assertIsNone(report['independent_review']['macro_recall_at_5'])
 
     def test_assisted_review_is_not_independent_accuracy(self):
-        report, _ = evaluate()
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            shutil.copytree(ROOT / 'data', root / 'data')
+            path = root / 'data/review/reviewer_a.jsonl'
+            records = [json.loads(line) for line in path.read_text().splitlines()]
+            for r in records:
+                r['comparison_review_status'] = 'completed'
+                r['pair_label'] = r['claim_comparability']['label'] = 'insufficient_evidence'
+                r['comparison_review_provenance']['independent_blinded_annotation'] = False
+            path.write_text(''.join(json.dumps(r)+'\n' for r in records))
+            report, _ = evaluate(root)
         self.assertEqual(report['review_progress']['a']['comparison_completed_cases'], 20)
         self.assertEqual(report['review_progress']['a']['assisted_comparison_cases'], 20)
-        self.assertEqual(report['review_progress']['b']['comparison_pending_cases'], 20)
         self.assertIsNone(report['experimental_findings_evaluation']['accuracy'])
         self.assertIsNone(report['independent_review']['comparison_accuracy'])
 
-    def test_reviewer_files_share_schema_and_preserve_verifications(self):
-        a, b = [[json.loads(s) for s in (ROOT / f'data/review/reviewer_{slot}.jsonl').read_text().splitlines()] for slot in ('a', 'b')]
-        for first, second in zip(a, b):
-            self.assertEqual(set(first), set(second))
-            self.assertTrue(first['extraction_verified'])
-            self.assertTrue(second['extraction_verified'])
-            self.assertEqual(first['pair_label'], first['claim_comparability']['label'])
-            self.assertIsNone(second['pair_label'])
+    def test_reviewer_files_preserve_separate_labels_and_verification(self):
+        for slot in ('a', 'b'):
+            records = [json.loads(line) for line in (ROOT / f'data/review/reviewer_{slot}.jsonl').read_text().splitlines()]
+            self.assertEqual(len({r['case_id'] for r in records}), 20)
+            for record in records:
+                self.assertEqual(record['schema_version'], 2)
+                self.assertIsInstance(record['extraction_verified'], bool)
+                self.assertEqual(record['pair_label'], record['claim_comparability']['label'])
 
     def test_false_adjudication_is_rejected(self):
         with tempfile.TemporaryDirectory() as tmp:

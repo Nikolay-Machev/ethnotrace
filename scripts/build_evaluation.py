@@ -30,7 +30,7 @@ def build():
     value={'random_benchmark':benchmark(sem) if sem else None,'semantic_comparison':sem,'current':current,'review':report(),'ranking_comparison':historical,
            'limitations':['All comparisons are development cases, not a held-out test set.',
            'Seeded-link recall measures recovery of known links, not all relevant literature.',
-           'Reviewer A confirmed assistant-proposed judgments; agreement is not independent accuracy.',
+           'Earlier development review included assistant-proposed judgments; current review counts are reported separately.',
            'No independent scientific accuracy or clinical efficacy is established.',
            'Related papers and experiments must stay grouped in future evaluation splits.'],
            'snapshot_sha256':hashlib.sha256(json.dumps(current,sort_keys=True).encode()).hexdigest()}

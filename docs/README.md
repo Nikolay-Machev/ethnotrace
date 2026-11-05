@@ -18,3 +18,5 @@ From the repository root, run `python3 scripts/rebuild.py`. Use `--check` for a 
 The cached semantic rankings are produced by a separate model run. If inputs to the model change, follow [the pinned-model reproduction instructions](semantic_retrieval.md) first. The regular rebuild checks the cache fingerprint and does not download weights.
 
 Run `python3 -m unittest discover -s tests`, `node tests/test_web.cjs` and `node tests/test_reports.cjs` for validation. The Python suite includes the generated-file freshness check.
+
+[Product verification — 5 November 2026](product_audit.md): retrieval evaluation, pilot status, actionable gaps and browser workflow checks.

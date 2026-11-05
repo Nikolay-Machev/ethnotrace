@@ -31,7 +31,7 @@ function render(){
  };
  const experiments=shown.filter(r=>r.evidence_level==='selected_full_text_experimental_unit');
  const leads=shown.filter(r=>r.evidence_level!=='selected_full_text_experimental_unit');
- $('results').innerHTML=(experiments.length?`<section aria-label="Extracted experiments"><h3>Extracted experiments · ${experiments.length}</h3>${experiments.map(renderCard).join('')}</section>`:'<p class="empty">No indexed extracted experiments in this view. This does not establish that no research exists.</p>')+(leads.length?`<section aria-label="Literature leads"><h3>Literature leads · ${leads.length}</h3><p class="hint">Candidates for further source extraction. Grouping reflects record completeness, not scientific quality. Baseline order is preserved within each group.</p>${leads.map(renderCard).join('')}</section>`:'');
+ $('results').innerHTML=(experiments.length?`<section aria-label="Extracted experiments"><h3>Extracted experiments · ${experiments.length}</h3>${experiments.map(renderCard).join('')}</section>`:'<p class="empty">No indexed extracted experiments in this view. This does not establish that no research exists.</p>')+(leads.length?`<section aria-label="Literature leads"><h3>Literature leads · ${leads.length}</h3><p class="hint">Candidates for further source extraction. Grouping reflects record completeness, not scientific quality. The selected ranking is preserved within each group.</p>${leads.map(renderCard).join('')}</section>`:'');
 }
 
 const dimensionNames={species:'Species',part:'Plant part',preparation:'Preparation',outcome:'Outcome',setting:'Study setting',finding:'Experimental finding'};

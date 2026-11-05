@@ -11,3 +11,14 @@
 @media(max-width:600px){.atlas-table th:first-child{width:150px}.atlas-scroll{scroll-padding-left:160px}}
 
 #export-report{padding:10px;border:1px solid var(--green);border-radius:5px;background:var(--green);color:white;font:inherit;cursor:pointer;width:100%}
+
+/* Keep long citations and controls within the page; the atlas alone scrolls. */
+.evidence, .workspace > *, .atlas-controls > label {min-width:0}
+.card, #gaps, aside {overflow-wrap:anywhere}
+.atlas-controls input[type=search] {min-width:0;width:100%;max-width:100%}
+@media(max-width:600px){
+  .atlas-controls {align-items:stretch}
+  .atlas-controls > label {width:100%}
+  header {flex-wrap:wrap}
+  #ranking {max-width:100%}
+}

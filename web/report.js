@@ -27,7 +27,7 @@ function evidenceReport(account,metadata,method='lexical'){
  }
  if(!account.results.length)lines.push('No indexed candidates. Retrieval status: '+account.retrieval_status,'');
  lines.push('## Gaps and next steps','');
- for(const g of account.gaps||[]){lines.push(`### ${g.title}`,'',g.reason,'',`Next step: ${g.next_step}`,'',`Evidence IDs: ${g.evidence_ids.join(', ')||'None'}`,'');}
+ for(const g of account.gaps||[]){lines.push(`### ${g.title}`,'',g.reason,'',`Next step: ${g.next_step}`,'',`Record when checked: ${g.completion_criterion || "Record a cited finding and any remaining uncertainty."}`,'',`Evidence IDs: ${g.evidence_ids.join(', ')||'None'}`,'');}
  lines.push('## Targeted extraction notes','Assistant notes, separate from experimental counts; human verification is not inferred.','');
  for(const n of account.targeted_extractions||[]){lines.push(`### ${n.extraction_id}`,'');field('Extraction depth',n.extraction_depth);field('Finding',n.reported_use_or_outcome);field('Preparation',n.preparation);field('Limitations',n.limitations);cite(n);}
  return lines.join('\n');

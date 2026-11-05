@@ -54,4 +54,6 @@ The six-query benchmark measures recovery of seeded links. Ten of twelve links s
 
 Human-reviewed lexical, semantic and hybrid results: [retrieval comparison](docs/human_retrieval_comparison.md). Only accounts with complete confirmed judgments enter these development metrics.
 
-Next experiment: [new-paper review packet](docs/generalization_review_packet.md) and [frozen pilot protocol](docs/generalization_protocol.md). Ten new candidates await review; no generalization result is claimed. The atlas now gives a checkable completion criterion for each research gap.
+Next experiment: [new-paper review packet](docs/generalization_review_packet.md) and [frozen pilot protocol](docs/generalization_protocol.md). All ten new candidates currently have unresolved reviews; no generalization result is claimed. The atlas now gives a checkable completion criterion for each research gap.
+
+[Product verification and remaining review work](docs/product_audit.md) covers browser checks, source-link availability and current review provenance.

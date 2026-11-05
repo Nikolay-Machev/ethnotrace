@@ -194,11 +194,9 @@ Research prototype. Findings and claim comparability are separate. Missing index
 
 **Reasons:** Preparation equivalence is not established by this baseline., Neuronal-cell survival does not test the reported slow-healing infection use., Preclinical results do not establish clinical efficacy in people.
 
-**Human comparison review count:** 1
+**Human comparison review count:** 0
 
-**Extraction verification count:** 2
-
-**Reviewer a:** not_directly_comparable; reviewer_confirmation_after_assistant_judgments
+**Extraction verification count:** 0
 
 **Citation:** Harris CS; Asim M; Saleem A; Haddad PS; Arnason JT; Bennett SA. Characterizing the cytoprotective activity of Sarracenia purpurea L., a medicinal plant that inhibits glucotoxicity in PC12 cells. BMC complementary and alternative medicine. 2012;12:245. doi:10.1186/1472-6882-12-245. PMID:23216659.
 
@@ -280,11 +278,9 @@ Research prototype. Findings and claim comparability are separate. Missing index
 
 **Reasons:** The mapped plant parts do not overlap., Preparation equivalence is not established by this baseline., Neuronal-cell survival does not test the reported slow-healing infection use., Preclinical results do not establish clinical efficacy in people.
 
-**Human comparison review count:** 1
+**Human comparison review count:** 0
 
-**Extraction verification count:** 2
-
-**Reviewer a:** not_directly_comparable; reviewer_confirmation_after_assistant_judgments
+**Extraction verification count:** 0
 
 **Citation:** Harris CS; Asim M; Saleem A; Haddad PS; Arnason JT; Bennett SA. Characterizing the cytoprotective activity of Sarracenia purpurea L., a medicinal plant that inhibits glucotoxicity in PC12 cells. BMC complementary and alternative medicine. 2012;12:245. doi:10.1186/1472-6882-12-245. PMID:23216659.
 
@@ -304,6 +300,8 @@ The preparation field is empty. We have not established whether the original sou
 
 Next step: Check the traditional source and record the recipe, locator and attribution if documented. Otherwise record which source sections were checked.
 
+Record when checked: A source-located preparation entry, or a note listing sections checked where preparation was not found.
+
 Evidence IDs: E003, E004
 
 ### A different outcome was tested
@@ -311,6 +309,8 @@ Evidence IDs: E003, E004
 The comparator identifies an endpoint different from the documented use. This can be informative without testing that claim.
 
 Next step: Inspect the cited endpoint and look for indexed studies that directly measure the documented use.
+
+Record when checked: A cited research note addressing this gap; retain any remaining uncertainty.
 
 Evidence IDs: E003, E004
 
@@ -320,6 +320,8 @@ The mapped plant parts do not overlap.
 
 Next step: Keep these results separate; check for evidence using the documented plant part.
 
+Record when checked: A cited research note addressing this gap; retain any remaining uncertainty.
+
 Evidence IDs: E004
 
 ### Indexed extracted evidence is preclinical
@@ -327,6 +329,8 @@ Evidence IDs: E004
 The extracted units shown here use cells or animals. This statement does not cover unextracted papers or all published research.
 
 Next step: Check existing leads for human evidence before expanding the search. Do not infer clinical effects from these experiments.
+
+Record when checked: A cited research note addressing this gap; retain any remaining uncertainty.
 
 Evidence IDs: E003, E004
 
@@ -336,6 +340,8 @@ Bibliographic or abstract records have not been converted into source-checked ex
 
 Next step: Review relevance first, then extract the part, preparation, model, endpoint and limitations from accessible full text.
 
+Record when checked: A cited research note addressing this gap; retain any remaining uncertainty.
+
 Evidence IDs: P26626246, P22738356, P21186373, P26626249
 
 ### No extracted endpoint directly tests the documented use
@@ -343,6 +349,8 @@ Evidence IDs: P26626246, P22738356, P21186373, P26626249
 Every extracted comparison in this collection identifies a different endpoint. Unextracted leads and other published work remain outside this conclusion.
 
 Next step: Search the verified species with the original symptom wording, then check the measured endpoint in the methods. Record the search and retain null results.
+
+Record when checked: A cited research note addressing this gap; retain any remaining uncertainty.
 
 Evidence IDs: E003, E004
 
