@@ -39,13 +39,27 @@ def analyze():
     out=ROOT/'data/evaluation';(out/'retrieval_comparison.json').write_text(json.dumps(report,indent=2)+'\n')
     # Never overwrite later human judgments.
     p=ROOT/'data/review/retrieval_relevance.jsonl'
-    existing={(r['claim_id'],r['evidence_id']):r for r in rows(p)} if p.exists() else {}
+    existing = defaultdict(list)
+    if p.exists():
+        for record in rows(p):
+            existing[(record['claim_id'], record['evidence_id'])].append(record)
+    updated_queue = []
     for r in queue:
-        prev=existing.get((r['claim_id'],r['evidence_id']),{})
-        for field in ('human_retrieval_relevant','human_rationale','human_review_status','human_reviewer_id','human_review_details','source_checked','traditional_context','experimental_context','targeted_extraction_id'):
-            if field in prev:r[field]=prev[field]
-        if prev.get('annotation_method')=='assistant_targeted_source_inspection_not_human_review':
-            for field in ('annotation_method','provisional_retrieval_relevant','rationale'): r[field]=prev[field]
-    p.write_text(''.join(json.dumps(r,ensure_ascii=False)+'\n' for r in queue))
+        prior_reviews = existing.get((r['claim_id'], r['evidence_id']), [])
+        if not prior_reviews:
+            updated_queue.append(r)
+            continue
+        for prev in prior_reviews:
+            merged = dict(r)
+            for field in ('human_retrieval_relevant', 'human_rationale', 'human_review_status',
+                          'human_reviewer_id', 'human_review_details', 'source_checked',
+                          'traditional_context', 'experimental_context', 'targeted_extraction_id'):
+                if field in prev:
+                    merged[field] = prev[field]
+            if prev.get('annotation_method') == 'assistant_targeted_source_inspection_not_human_review':
+                for field in ('annotation_method', 'provisional_retrieval_relevant', 'rationale'):
+                    merged[field] = prev[field]
+            updated_queue.append(merged)
+    p.write_text(''.join(json.dumps(r, ensure_ascii=False)+'\n' for r in updated_queue))
     print(json.dumps({'metrics':metrics,'relevance_candidates':len(queue)}))
 if __name__=='__main__':analyze()

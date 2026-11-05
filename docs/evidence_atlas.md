@@ -21,7 +21,7 @@ The atlas summarizes the collection; the explorer explains individual comparison
 
 Counts are experimental units, not independent studies. Unique publication counts are shown separately per account; neither should be summed across accounts as independent evidence. Conflicting or different results retain separate buckets. A missing indexed experiment means none in this collection. An unresolved plant name blocks species retrieval and is shown explicitly.
 
-Dimension summaries are automated. Recorded human judgments apply to the overall pair and are displayed separately with provenance. A human pair review does not verify every matrix cell. Reviewer A's existing confirmation was assisted; reviewer B's comparison review remains pending. This change does not alter review decisions or source records.
+Dimension summaries are automated. Recorded human judgments apply to the overall pair and are displayed separately with provenance. A human pair review does not verify every matrix cell. Reviewer A's existing confirmation was assisted; Alex Karadjov's comparison review remains pending. This change does not alter review decisions or source records.
 
 ## Interaction
 

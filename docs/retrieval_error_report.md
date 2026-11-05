@@ -27,6 +27,6 @@ The UI separates extracted experiments and literature leads and preserves baseli
 
 T008 has six completed human relevance decisions (four useful, two retained as safety context); the remaining 27 pairs have now been inspected, with 24 confirmed decisions, one provisionally useful decision and two unresolved. The provisional poplar decision is excluded from confirmed relevance metrics. Review whether each entry helps assess the account, separately from whether it supports the claim. Record a boolean in `human_retrieval_relevant`, a reason in `human_rationale`, and completion in `human_review_status`. This queue is a review artifact; independent retrieval metrics remain unavailable until completed judgments are integrated into evaluation. The script preserves human fields on rerun.
 
-Reviewer B's comparison judgments remain pending. No agreement or adjudication was fabricated.
+Alex Karadjov's comparison judgments remain pending. No agreement or adjudication was fabricated.
 
 Reproduce with `python scripts/analyze_retrieval.py`. Full ranks are in `data/evaluation/retrieval_comparison.json`.
