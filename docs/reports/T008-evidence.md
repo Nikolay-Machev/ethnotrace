@@ -196,7 +196,7 @@ Research prototype. Findings and claim comparability are separate. Missing index
 
 **Human comparison review count:** 0
 
-**Extraction verification count:** 0
+**Extraction verification count:** 1
 
 **Citation:** Harris CS; Asim M; Saleem A; Haddad PS; Arnason JT; Bennett SA. Characterizing the cytoprotective activity of Sarracenia purpurea L., a medicinal plant that inhibits glucotoxicity in PC12 cells. BMC complementary and alternative medicine. 2012;12:245. doi:10.1186/1472-6882-12-245. PMID:23216659.
 
@@ -280,7 +280,7 @@ Research prototype. Findings and claim comparability are separate. Missing index
 
 **Human comparison review count:** 0
 
-**Extraction verification count:** 0
+**Extraction verification count:** 1
 
 **Citation:** Harris CS; Asim M; Saleem A; Haddad PS; Arnason JT; Bennett SA. Characterizing the cytoprotective activity of Sarracenia purpurea L., a medicinal plant that inhibits glucotoxicity in PC12 cells. BMC complementary and alternative medicine. 2012;12:245. doi:10.1186/1472-6882-12-245. PMID:23216659.
 
@@ -353,6 +353,26 @@ Next step: Search the verified species with the original symptom wording, then c
 Record when checked: A cited research note addressing this gap; retain any remaining uncertainty.
 
 Evidence IDs: E003, E004
+
+### Species-specific results still need verification
+
+It tests ethanolic extracts of 17 Cree plants for CYP3A4 inactivation and reports pitcher plant as a potent inactivator with testosterone, so it adds a drug-interaction outcome unrelated to infection healing, with no preparation comparison and the plant part (leaf, but only per a 2008 thesis table, …
+
+Next step: Open the cited paper through an available publisher, repository or library copy. Record the species-specific part, preparation and assay row with its table or page locator. Keep the decision unresolved if these remain inaccessible.
+
+Record when checked: Species-specific methods/results with a locator and a recorded relevance decision, or a documented access limit.
+
+Evidence IDs: P21186373
+
+### Species-specific results still need verification
+
+Its ethanolic leaf extract (leaf per the Methods; no water extract tested) and morroniside are profiled by gene-expression microarray in intestinal cells, so it matches the documented part but is limited to ethanol and a safety or transcription outcome unrelated to infection healing; whether a safet…
+
+Next step: Open the cited paper through an available publisher, repository or library copy. Record the species-specific part, preparation and assay row with its table or page locator. Keep the decision unresolved if these remain inaccessible.
+
+Record when checked: Species-specific methods/results with a locator and a recorded relevance decision, or a documented access limit.
+
+Evidence IDs: P26626249
 
 ## Targeted extraction notes
 Assistant notes, separate from experimental counts; human verification is not inferred.

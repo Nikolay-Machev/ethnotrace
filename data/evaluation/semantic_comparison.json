@@ -326,9 +326,9 @@
     }
   ],
   "human_reviewed_development": {
-    "complete_query_count": 3,
-    "candidate_count": 16,
-    "useful_count": 10,
+    "complete_query_count": 2,
+    "candidate_count": 10,
+    "useful_count": 6,
     "excluded_queries": [
       {
         "claim_id": "T007",
@@ -336,7 +336,21 @@
         "blocking_candidates": [
           {
             "evidence_id": "P18066122",
-            "status": "pending"
+            "status": "unresolved"
+          }
+        ]
+      },
+      {
+        "claim_id": "T008",
+        "candidate_count": 6,
+        "blocking_candidates": [
+          {
+            "evidence_id": "P21186373",
+            "status": "unresolved"
+          },
+          {
+            "evidence_id": "P26626249",
+            "status": "unresolved"
           }
         ]
       },
@@ -356,7 +370,7 @@
         "blocking_candidates": [
           {
             "evidence_id": "P19526043",
-            "status": "pending"
+            "status": "unresolved"
           }
         ]
       },
@@ -397,212 +411,22 @@
     },
     "metrics": {
       "lexical": {
-        "precision_at_5": 0.5333333333333333,
-        "recall_at_5": 0.8333333333333334,
-        "reciprocal_rank": 0.6666666666666666
+        "precision_at_5": 0.5,
+        "recall_at_5": 0.875,
+        "reciprocal_rank": 0.5
       },
       "semantic": {
-        "precision_at_5": 0.5333333333333333,
-        "recall_at_5": 0.8333333333333334,
-        "reciprocal_rank": 0.8333333333333334
+        "precision_at_5": 0.5,
+        "recall_at_5": 0.875,
+        "reciprocal_rank": 1.0
       },
       "hybrid": {
-        "precision_at_5": 0.6,
-        "recall_at_5": 0.9166666666666666,
+        "precision_at_5": 0.6000000000000001,
+        "recall_at_5": 1.0,
         "reciprocal_rank": 1.0
       }
     },
     "queries": [
-      {
-        "claim_id": "T008",
-        "candidate_count": 6,
-        "useful_count": 4,
-        "relevant_ids": [
-          "E003",
-          "E004",
-          "P22738356",
-          "P26626246"
-        ],
-        "methods": {
-          "lexical": {
-            "precision_at_5": 0.6,
-            "recall_at_5": 0.75,
-            "reciprocal_rank": 1.0,
-            "ranked_ids": [
-              "P26626246",
-              "P22738356",
-              "E003",
-              "P21186373",
-              "P26626249",
-              "E004"
-            ],
-            "hits_at_5": 3,
-            "missed_at_5": [
-              "E004"
-            ]
-          },
-          "semantic": {
-            "precision_at_5": 0.6,
-            "recall_at_5": 0.75,
-            "reciprocal_rank": 0.5,
-            "ranked_ids": [
-              "P21186373",
-              "P22738356",
-              "P26626246",
-              "P26626249",
-              "E004",
-              "E003"
-            ],
-            "hits_at_5": 3,
-            "missed_at_5": [
-              "E003"
-            ]
-          },
-          "hybrid": {
-            "precision_at_5": 0.6,
-            "recall_at_5": 0.75,
-            "reciprocal_rank": 1.0,
-            "ranked_ids": [
-              "P26626246",
-              "P22738356",
-              "P21186373",
-              "E003",
-              "P26626249",
-              "E004"
-            ],
-            "hits_at_5": 3,
-            "missed_at_5": [
-              "E004"
-            ]
-          }
-        },
-        "useful_movements": [
-          {
-            "evidence_id": "E003",
-            "ranks": {
-              "lexical": 3,
-              "semantic": 6,
-              "hybrid": 4
-            },
-            "movement_vs_lexical": {
-              "semantic": -3,
-              "hybrid": -1
-            },
-            "top_five": {
-              "lexical": true,
-              "semantic": false,
-              "hybrid": true
-            },
-            "human_rationale": "Its 80% ethanol leaf extract matches the documented part, and its PC12 cell result under 150 mM glucose (protection up to 30 micrograms/mL, none at 100) measures cell survival rather than slow-healing infection, so it helps compare part (match) and outcome (mismatch).",
-            "source": {
-              "citation": "Harris CS; Asim M; Saleem A; Haddad PS; Arnason JT; Bennett SA. Characterizing the cytoprotective activity of Sarracenia purpurea L., a medicinal plant that inhibits glucotoxicity in PC12 cells. BMC complementary and alternative medicine. 2012;12:245. doi:10.1186/1472-6882-12-245. PMID:23216659.",
-              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3556504/",
-              "supporting_passage": "up to 30",
-              "locator": "Methods Cell culture/viability; Results; Figure 1",
-              "licence": "Creative Commons Attribution; version as linked in article permissions"
-            },
-            "sources_checked": [
-              {
-                "url": "https://link.springer.com/content/pdf/10.1186/1472-6882-12-245.pdf",
-                "depth": "full text: Background, Methods, Results, Figure 1"
-              }
-            ]
-          },
-          {
-            "evidence_id": "E004",
-            "ranks": {
-              "lexical": 6,
-              "semantic": 5,
-              "hybrid": 6
-            },
-            "movement_vs_lexical": {
-              "semantic": 1,
-              "hybrid": 0
-            },
-            "top_five": {
-              "lexical": false,
-              "semantic": true,
-              "hybrid": false
-            },
-            "human_rationale": "Its root extract had no appreciable protective effect at low concentrations and worsened cell loss near its IC50 (56 micrograms/mL), which exposes a plant-part mismatch with the documented leaf use and makes the leaf-versus-root contrast informative.",
-            "source": {
-              "citation": "Harris CS; Asim M; Saleem A; Haddad PS; Arnason JT; Bennett SA. Characterizing the cytoprotective activity of Sarracenia purpurea L., a medicinal plant that inhibits glucotoxicity in PC12 cells. BMC complementary and alternative medicine. 2012;12:245. doi:10.1186/1472-6882-12-245. PMID:23216659.",
-              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3556504/",
-              "supporting_passage": "root had no appreciable effect",
-              "locator": "Methods; Results; Figure 1",
-              "licence": "Creative Commons Attribution; version as linked in article permissions"
-            },
-            "sources_checked": [
-              {
-                "url": "https://link.springer.com/content/pdf/10.1186/1472-6882-12-245.pdf",
-                "depth": "full text: Methods, Results, Figure 1"
-              }
-            ]
-          },
-          {
-            "evidence_id": "P22738356",
-            "ranks": {
-              "lexical": 2,
-              "semantic": 2,
-              "hybrid": 2
-            },
-            "movement_vs_lexical": {
-              "semantic": 0,
-              "hybrid": 0
-            },
-            "top_five": {
-              "lexical": true,
-              "semantic": true,
-              "hybrid": true
-            },
-            "human_rationale": "It tests a leaf extract and then fractions and eleven isolated compounds in muscle and liver cells (glucose uptake, glucose-6-phosphatase), so it helps compare the documented leaf part and an extract-versus-isolated-compound gap, while its outcomes are cellular glucose handling, not slow-healing infection, and the abstract does not state the extraction solvent.",
-            "source": {
-              "citation": "Muhammad A; Guerrero-Analco JA; Martineau LC; Musallam L; Madiraju P; Nachar A; Saleem A; Haddad PS; Arnason JT. Antidiabetic compounds from Sarracenia purpurea used traditionally by the Eeyou Istchee Cree First Nation. Journal of natural products. 2012;75(7):1284-1288. doi:10.1021/np3001317. PMID:22738356.",
-              "url": "https://pubmed.ncbi.nlm.nih.gov/22738356/",
-              "supporting_passage": "Through ethnobotanical surveys, the CIHR Team in Aboriginal Antidiabetic Medicines identified 17 boreal forest plants stemming from the pharmacopeia of",
-              "locator": "Indexed abstract; exact excerpt anchor",
-              "licence": "Article reuse licence not verified"
-            },
-            "sources_checked": [
-              {
-                "url": "https://core.ac.uk/works/49920640",
-                "depth": "abstract only"
-              }
-            ]
-          },
-          {
-            "evidence_id": "P26626246",
-            "ranks": {
-              "lexical": 1,
-              "semantic": 3,
-              "hybrid": 1
-            },
-            "movement_vs_lexical": {
-              "semantic": -2,
-              "hybrid": 0
-            },
-            "top_five": {
-              "lexical": true,
-              "semantic": true,
-              "hybrid": true
-            },
-            "human_rationale": "It compares the boiling-water leaf decoction the authors describe as traditional with an 80% ethanol leaf extract chemically (phenolics and morroniside similar; betulinic and ursolic acids about 107 and 93 times higher in ethanol), so it helps compare preparation for the documented leaf, but it measures no infection-healing or glucose outcome.",
-            "source": {
-              "citation": "Cieniak C; Walshe-Roussel B; Liu R; Muhammad A; Saleem A; Haddad PS; Cuerrier A; Foster BC; Arnason JT. Phytochemical Comparison of the Water and Ethanol Leaf Extracts of the Cree medicinal plant, Sarracenia purpurea L. (Sarraceniaceae). Journal of pharmacy & pharmaceutical sciences : a publication of the Canadian Society for Pharmaceutical Sciences, Societe canadienne des sciences pharmaceutiques. 2015;18(4):484-493. doi:10.18433/j35w27. PMID:26626246.",
-              "url": "https://pubmed.ncbi.nlm.nih.gov/26626246/",
-              "supporting_passage": "this study, the phytochemistry of both extracts of the leaves was compared and quantified.MethodsTwo S. purpurea leaf extracts were prepared,",
-              "locator": "Indexed abstract; exact excerpt anchor",
-              "licence": "Article reuse licence not verified"
-            },
-            "sources_checked": [
-              {
-                "url": "https://journals.library.ualberta.ca/jpps/index.php/JPPS/article/view/25093",
-                "depth": "abstract only"
-              }
-            ]
-          }
-        ]
-      },
       {
         "claim_id": "T009",
         "candidate_count": 4,
@@ -669,7 +493,7 @@
               "semantic": true,
               "hybrid": true
             },
-            "human_rationale": "Its ethanolic Sorbus decora extract in food (about 200 mg/kg/day, 7 days, KK-Ay mice, n=6) shows a serial blood-glucose change with no significance assigned in the figure, so it gives an in vivo glucose outcome whose strength is weak and differs from the abstract's claim and from the paper's significant STZ and insulin-resistant rat arms; the part and traditional preparation are not compared.",
+            "human_rationale": "Its ethanolic Sorbus decora extract in food (about 200 mg/kg/day, 7 days, KK-Ay mice, n=6) shows a serial blood-glucose change with no significance assigned in the figure, so it gives an in vivo glucose outcome whose strength is weak and differs from the abstract's claim and from the paper's signifi\u2026",
             "source": {
               "citation": "Vianna R; Brault A; Martineau LC; Couture R; Arnason JT; Haddad PS. In Vivo Anti-Diabetic Activity of the Ethanolic Crude Extract of Sorbus decora C.K.Schneid. (Rosacea): A Medicinal Plant Used by Canadian James Bay Cree Nations to Treat Symptoms Related to Diabetes. Evidence-based complementary and alternative medicine : eCAM. 2011;2011:237941. doi:10.1093/ecam/nep158. PMID:19887507.",
               "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3163474/",
@@ -826,7 +650,7 @@
               "semantic": true,
               "hybrid": true
             },
-            "human_rationale": "This paper helps compare the documented antidiabetic use against direct in vivo outcomes (fasting blood glucose, oral glucose tolerance, plasma insulin, and Akt/GLUT4 signaling) in obese insulin-resistant mice given Rhododendron groenlandicum extract at three doses, though I could not confirm the plant part or solvent.",
+            "human_rationale": "This paper helps compare the documented antidiabetic use against direct in vivo outcomes (fasting blood glucose, oral glucose tolerance, plasma insulin, and Akt/GLUT4 signaling) in obese insulin-resistant mice given Rhododendron groenlandicum extract at three doses, though I could not confirm the pl\u2026",
             "source": {
               "citation": "Ouchfoun M; Eid HM; Musallam L; Brault A; Li S; Vallerand D; Arnason JT; Haddad PS. Labrador tea (Rhododendron groenlandicum) attenuates insulin resistance in a diet-induced obesity mouse model. European journal of nutrition. 2016;55(3):941-954. doi:10.1007/s00394-015-0908-z. PMID:25916863.",
               "url": "https://pubmed.ncbi.nlm.nih.gov/25916863/",
@@ -857,7 +681,7 @@
               "semantic": false,
               "hybrid": true
             },
-            "human_rationale": "This paper compares how the adipogenic activity (glitazone-like, 3T3-L1 cell assay) of ethanol extracts of Rhododendron groenlandicum leaves varies across wild populations and with quercetin content, so it compares collection sites rather than plant parts or preparations and measures no glucose or insulin outcome. I count adipogenesis as a relevant antidiabetic-mechanism outcome, consistently with P22542642 and P26707751.",
+            "human_rationale": "This paper compares how the adipogenic activity (glitazone-like, 3T3-L1 cell assay) of ethanol extracts of Rhododendron groenlandicum leaves varies across wild populations and with quercetin content, so it compares collection sites rather than plant parts or preparations and measures no glucose or i\u2026",
             "source": {
               "citation": "Rapinski M; Musallam L; Arnason JT; Haddad P; Cuerrier A. Adipogenic Activity of Wild Populations of Rhododendron groenlandicum, a Medicinal Shrub from the James Bay Cree Traditional Pharmacopeia. Evidence-based complementary and alternative medicine : eCAM. 2015;2015:492458. doi:10.1155/2015/492458. PMID:26508979.",
               "url": "https://pubmed.ncbi.nlm.nih.gov/26508979/",
@@ -875,8 +699,9 @@
                 "depth": "truncated abstract snippet only"
               },
               {
-                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4609817",
-                "depth": "not read; blocked by a bot check on both URL forms tried"
+                "url": null,
+                "depth": null,
+                "supplied_source_text": "https://pm\u2026"
               }
             ]
           },
