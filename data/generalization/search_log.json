@@ -1,0 +1,14 @@
+{
+  "searched_on": "2026-11-04",
+  "purpose": "Discover previously unindexed bibliographic candidates; no relevance labels or rankings assigned.",
+  "queries": [
+    "Vaccinium vitis idaea lingonberry randomized postprandial glucose trial 2021 2023",
+    "Sarracenia purpurea antiviral antibacterial study 2022 2024",
+    "lingonberry fermented juice oral Candida clinical study pubmed",
+    "\"Postprandial glycaemic response to berry nectars\" doi",
+    "\"Anticancer and Antioxidant Activities\" \"1668\" authors"
+  ],
+  "selection": "Ten primary-publication records found in search, species-linked in indexed titles or abstracts, absent by ID/title/available DOI from existing indexed papers. Purposive convenience sample; results were not systematically exhausted. Publication metadata only, no full texts imported.",
+  "access": "Indexed primary abstracts and titles were available. Some direct PubMed/PMC/publisher opens returned bot checks or errors; reader access can differ. No full-text verification is claimed.",
+  "limitations": "The same authors or study programmes may recur. Participant/experiment overlap has not been comprehensively verified. This is not a study-group-independent held-out corpus."
+}

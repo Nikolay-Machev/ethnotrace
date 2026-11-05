@@ -22,7 +22,7 @@ Added the deterministic retrieval and comparison baseline, 20 source-linked revi
 
 ## Evidence atlas extension
 
-The account-level atlas, deterministic aggregation, drill-down filters, tests and updated research framing were developed during the hackathon with substantial AI assistance. They reuse the pinned sources and comparison rules. They add no new source verification or independent human review. Semantic retrieval remains unimplemented.
+The account-level atlas, deterministic aggregation, drill-down filters, tests and updated research framing were developed during the hackathon with substantial AI assistance. They reuse the pinned sources and comparison rules. They add no new source verification or independent human review. Semantic retrieval was not part of this extension; it is described in the later semantic retrieval section.
 
 ## Gap and review preparation extension
 
@@ -35,3 +35,7 @@ AI-assisted implementation added an offline evaluation page and local Markdown e
 ## Pretrained semantic retrieval experiment
 
 AI-assisted implementation added local pretrained MiniLM inference, semantic and reciprocal-rank-fusion challengers, immutable model-version provenance, candidate-set safeguards, development evaluation and a ranking selector. Model weights are pre-existing Apache-2.0 material from Sentence Transformers; no fine-tuning occurred. Inference used only documented-use text and paper-title/endpoint fields, never review labels or curator result-direction fields. All comparison rules and human-review records were preserved. The observed seeded development results are not independent scientific validation.
+
+## Audit follow-up — 4 November 2026
+
+A source-checked correction distinguishes the observed E005 trend from statistical evidence in the KK-Ay experiment. The original import and historical reviews were preserved. The evaluation page now computes uniform random-order expectations from the six actual pools and reports shared-publication links. Neither the audit nor these benchmarks create independent relevance judgments.

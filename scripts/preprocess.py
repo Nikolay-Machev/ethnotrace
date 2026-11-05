@@ -173,6 +173,9 @@ def run(root=ROOT, output=None):
             seen_ids.add(rid)
             norm = normalize(raw)
             if norm.get('doi'): norm['doi'] = norm['doi'].lower().removeprefix('https://doi.org/')
+            correction = config.get("audit_corrections", {}).get(name, {}).get(rid)
+            if correction:
+                norm.update(correction["fields"])
             f = features(norm, config)
             citation_refs = []
             if name in ('traditional_records', 'experimental_records'):
@@ -193,6 +196,7 @@ def run(root=ROOT, output=None):
             group = group_ids.get(rid) or group_ids.get(raw.get('paper_id'))
             out.append({'id': rid, 'raw': raw, 'normalized': norm, 'features': f,
                         'provenance': {'input_path': 'imports/dataset/data/' + name + '.jsonl', 'source_commit': manifest['source_commit'],
+                                       **({'audit_correction': correction} if correction else {}),
                                        'row_sha256': digest(raw), 'pipeline_version': PIPELINE_VERSION, 'citation_refs': sorted(set(citation_refs))},
                         'evaluation_group_id': group})
         for fingerprint, ids in fingerprints.items():

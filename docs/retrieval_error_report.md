@@ -7,7 +7,7 @@ Six development queries have 12 seeded experimental links. These links are usefu
 | Macro recall at 5, seeded links | 0.667 | 0.917 |
 | Mean reciprocal rank, seeded links | 0.408 | 0.561 |
 
-These figures describe the combined ranked list before UI grouping. They are not clinical accuracy, held-out performance or proof of better relevance across all papers. The change was selected after inspecting this development set.
+These figures describe the combined ranked list before UI grouping. They are not clinical accuracy, held-out performance or proof of better relevance across all papers. The change was selected after inspecting this development set. Candidate pools hold four to seven items, so the expected scores under uniform random ordering of the same pools are macro recall at five 0.869 and MRR 0.595; version 1.1's MRR of 0.561 is below that level.
 
 ## Failure analysis
 
@@ -23,9 +23,9 @@ E004 remains outside the top five. Its part mismatch is explicitly explained. Re
 
 The UI separates extracted experiments and literature leads and preserves baseline order inside each group. This is a completeness grouping, not a scientific quality hierarchy. It must not be reported as an improvement in the combined ranking metric.
 
-`data/review/retrieval_relevance.jsonl` covers all 33 same-species candidates across the six queries, with citations and source URLs. The 12 extracted candidates have provisional assistant judgments of useful evidence, including null findings and mismatches. The 21 literature leads remain undecided pending source assessment. No new full-text review is claimed.
+`data/review/retrieval_relevance.jsonl` covers all 33 same-species candidates across the six queries, with citations and source URLs. The 12 extracted candidates and two publications that received targeted source inspection (P23864882, P26626246) have provisional assistant judgments of useful evidence, including null findings and mismatches. The other 19 publications remain undecided pending source assessment. A separate assistant screen of all 33 pairs is in `data/review/assistant_relevance_screen.jsonl` (see `retrieval_screen_notes.md`). No new full-text review is claimed.
 
-Human relevance judgments remain pending for all candidates. Review whether each entry helps assess the account, separately from whether it supports the claim. Record a boolean in `human_retrieval_relevant`, a reason in `human_rationale`, and completion in `human_review_status`. This queue is a review artifact; independent retrieval metrics remain unavailable until completed judgments are integrated into evaluation. The script preserves human fields on rerun.
+T008 has six completed human relevance decisions (four useful, two retained as safety context); the remaining 27 pairs have now been inspected, with 24 confirmed decisions, one provisionally useful decision and two unresolved. The provisional poplar decision is excluded from confirmed relevance metrics. Review whether each entry helps assess the account, separately from whether it supports the claim. Record a boolean in `human_retrieval_relevant`, a reason in `human_rationale`, and completion in `human_review_status`. This queue is a review artifact; independent retrieval metrics remain unavailable until completed judgments are integrated into evaluation. The script preserves human fields on rerun.
 
 Reviewer B's comparison judgments remain pending. No agreement or adjudication was fabricated.
 

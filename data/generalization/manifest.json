@@ -1,0 +1,25 @@
+{
+  "pilot_id": "new-papers-v1",
+  "frozen_on": "2026-11-04",
+  "baseline_commit": "35b7af666b8a653bf397774c6647e1116d9e2b91",
+  "scope": "New-paper candidate transfer on two existing accounts; not new-account generalization.",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "rrf_k": 60,
+  "sha256": {
+    "scripts/retrieve.py": "1c1c363bb05b534b122ed445705bd87c11ae0da3a13442e789bdcb8065dd731d",
+    "scripts/semantic_retrieval.py": "abe7b3501a762f42ca77983b41d831ad2526bd38d232b8a9266fed9219fdd744",
+    "scripts/evaluate_semantic.py": "32cbb21bf95d9718f333ecace6b8019ed6d44292281a97bf438c0ecdd52a95f5",
+    "scripts/evaluate_generalization.py": "a3c4ac09294419f64daf50c510a369a7791dc8e7cb05607f6e570c7cf354cec7",
+    "data/generalization/candidates.jsonl": "cdea8abca1814936e7087f4a36409843068fe6bc0ae061097ccb324d375c3f18",
+    "data/generalization/accounts.json": "cbadb21596fb9e36bf3cb1751dc178e4c177b0dd31178c8022b76c0086c2d5c2",
+    "docs/generalization_protocol.md": "c9666250a601b705e5be70dc61792e8ce5656291e7060b47c153261b8522b804",
+    "docs/generalization_review_packet.md": "d6109953209663e24ccfaf4249e9f802acdb1a0ad1e91264c1d5698c8778d8b7"
+  },
+  "limitations": [
+    "Assistant-selected convenience sample; related programmes and study groups may overlap.",
+    "Two accounts, ten papers; no population-level generalization claim.",
+    "No ranks or labels supplied to reviewer; exposure declaration required.",
+    "Title-only bibliographic features; no tuning after review."
+  ]
+}

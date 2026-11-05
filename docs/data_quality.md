@@ -33,3 +33,9 @@ No exact duplicate candidates were found under the documented record fingerprint
 The two unidentified settler species remain null. Eight traditional preparation fields remain null, six traditional plant-part fields remain null, and one plant-part description remains unmapped. No missing values have been imputed.
 
 The existing scientific-review limits remain: incomplete full-text extraction, unresolved traditional preparation/outcome alignment, and no completed independent review. Human review and rights checks are not replaced by preprocessing.
+
+## Known issues from the 3 November 2026 data review
+
+- **E005 corrected on 4 November 2026.** The [Vianna et al. paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC3163474/) describes a downward trend in the seven-day KK-Ay mouse experiment; its Discussion explicitly says significance could not be established. The active E005 finding and T009/E005 study-result field now read `statistically_inconclusive`. This is neither evidence of a demonstrated benefit nor proof of no effect. `config/normalization.json` records the date, source and override; the original import, processed raw fields, historical reviewer answers and traditional claim remain intact.
+- **Pinned data dictionary.** `imports/dataset/docs/data_dictionary.md` is left unchanged to preserve its checksum. Two statements are outdated: `language` is `fr` for two records and `en` for ten, and `full_text_reviewed: false` for every paper does not reflect the six papers with selected full-text extractions.
+- **Leads linked to T013 and T014.** CL12843638 and CL39426763 are linked because their records name *Vaccinium uliginosum*. The 2024 paper's title calls *V. uliginosum* "lingonberry", a common name usually applied to *V. vitis-idaea*, and its source material has not been checked, so that species match is unverified.

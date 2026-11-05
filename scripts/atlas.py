@@ -18,7 +18,7 @@ def summarize(results):
         dimensions[dimension]=buckets
     for dimension in ('setting','finding'):
         buckets={}
-        labels={'animal_in_vivo':'Animal study','in_vitro':'Cell / laboratory study','human_clinical':'Human study', 'favourable_effect':'Favourable finding','no_detected_effect':'No detected effect','condition_dependent':'Condition-dependent'}
+        labels={'animal_in_vivo':'Animal study','in_vitro':'Cell / laboratory study','human_clinical':'Human study', 'favourable_effect':'Favourable finding','no_detected_effect':'No detected effect','condition_dependent':'Condition-dependent','statistically_inconclusive':'Statistically inconclusive'}
         for r in experiments:
             value=(r['study'].get('study_setting') if dimension=='setting' else r['comparison'].get('experimental_result_direction')) or 'unknown'
             if isinstance(value,list): value=', '.join(value)

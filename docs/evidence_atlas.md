@@ -39,7 +39,7 @@ Evaluate candidate relevance separately from comparability and result direction.
 
 ## Verification
 
-The 25 Python tests pass, including atlas checks for preserving part differences, excluding leads from finding counts, retaining unresolved accounts, separating units from publications, and keeping comparison summaries independent of ranking scores. JavaScript syntax validation and `node tests/test_web.cjs` pass. The latter checks the renderer and event handlers with a mock DOM, including filtering, drill-down, clearing and empty states; it is not a browser layout check. Live browser verification of this atlas revision could not be completed because the preview browser was unavailable; local interaction checks remain necessary.
+Python tests pass, including atlas checks for preserving part differences, excluding leads from finding counts, retaining unresolved accounts, separating units from publications, and keeping comparison summaries independent of ranking scores. JavaScript syntax validation and `node tests/test_web.cjs` pass. The latter checks the renderer and event handlers with a mock DOM, including filtering, drill-down, clearing and empty states; it is not a browser layout check. In a subsequent live check, “Different part” opened E004 under all three rankers and its citation opened the intended PMC URL. The browser download event remains unconfirmed.
 
 ## Display wording and navigation
 

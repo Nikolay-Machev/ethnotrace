@@ -1,3 +1,5 @@
+<!-- Generated, do not edit. Run python3 scripts/rebuild.py. -->
+
 # Retrieval relevance review
 
 Decide whether each candidate helps assess the documented account, including methodological differences or null findings. Relevance is not claim support. Inspect the linked sources; if evidence is insufficient, leave the decision null and status pending.
@@ -10,7 +12,7 @@ Enter decisions in `data/review/retrieval_relevance.jsonl`: `human_retrieval_rel
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC3408811/
+**Traditional source:** Harbilas D; Vallerand D; Brault A; Saleem A; Arnason JT; Musallam L; Haddad PS. Larix laricina, an Antidiabetic Alternative Treatment from the Cree of Northern Quebec Pharmacopoeia, Decreases Glycemia and Improves Insulin Sensitivity In Vivo. Evidence-based complementary and alternative medicine : eCAM. 2012;2012:296432. doi:10.1155/2012/296432. PMID:22888363. — https://pmc.ncbi.nlm.nih.gov/articles/PMC3408811/
 
 **Traditional locator:** Introduction; survey and Larix identification paragraph
 
@@ -32,7 +34,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC3408811/
+**Traditional source:** Harbilas D; Vallerand D; Brault A; Saleem A; Arnason JT; Musallam L; Haddad PS. Larix laricina, an Antidiabetic Alternative Treatment from the Cree of Northern Quebec Pharmacopoeia, Decreases Glycemia and Improves Insulin Sensitivity In Vivo. Evidence-based complementary and alternative medicine : eCAM. 2012;2012:296432. doi:10.1155/2012/296432. PMID:22888363. — https://pmc.ncbi.nlm.nih.gov/articles/PMC3408811/
 
 **Traditional locator:** Introduction; survey and Larix identification paragraph
 
@@ -54,7 +56,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC3408811/
+**Traditional source:** Harbilas D; Vallerand D; Brault A; Saleem A; Arnason JT; Musallam L; Haddad PS. Larix laricina, an Antidiabetic Alternative Treatment from the Cree of Northern Quebec Pharmacopoeia, Decreases Glycemia and Improves Insulin Sensitivity In Vivo. Evidence-based complementary and alternative medicine : eCAM. 2012;2012:296432. doi:10.1155/2012/296432. PMID:22888363. — https://pmc.ncbi.nlm.nih.gov/articles/PMC3408811/
 
 **Traditional locator:** Introduction; survey and Larix identification paragraph
 
@@ -76,7 +78,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC3408811/
+**Traditional source:** Harbilas D; Vallerand D; Brault A; Saleem A; Arnason JT; Musallam L; Haddad PS. Larix laricina, an Antidiabetic Alternative Treatment from the Cree of Northern Quebec Pharmacopoeia, Decreases Glycemia and Improves Insulin Sensitivity In Vivo. Evidence-based complementary and alternative medicine : eCAM. 2012;2012:296432. doi:10.1155/2012/296432. PMID:22888363. — https://pmc.ncbi.nlm.nih.gov/articles/PMC3408811/
 
 **Traditional locator:** Introduction; survey and Larix identification paragraph
 
@@ -98,7 +100,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC3408811/
+**Traditional source:** Harbilas D; Vallerand D; Brault A; Saleem A; Arnason JT; Musallam L; Haddad PS. Larix laricina, an Antidiabetic Alternative Treatment from the Cree of Northern Quebec Pharmacopoeia, Decreases Glycemia and Improves Insulin Sensitivity In Vivo. Evidence-based complementary and alternative medicine : eCAM. 2012;2012:296432. doi:10.1155/2012/296432. PMID:22888363. — https://pmc.ncbi.nlm.nih.gov/articles/PMC3408811/
 
 **Traditional locator:** Introduction; survey and Larix identification paragraph
 
@@ -120,7 +122,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC3408811/
+**Traditional source:** Harbilas D; Vallerand D; Brault A; Saleem A; Arnason JT; Musallam L; Haddad PS. Larix laricina, an Antidiabetic Alternative Treatment from the Cree of Northern Quebec Pharmacopoeia, Decreases Glycemia and Improves Insulin Sensitivity In Vivo. Evidence-based complementary and alternative medicine : eCAM. 2012;2012:296432. doi:10.1155/2012/296432. PMID:22888363. — https://pmc.ncbi.nlm.nih.gov/articles/PMC3408811/
 
 **Traditional locator:** Introduction; survey and Larix identification paragraph
 
@@ -142,7 +144,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC3556504/
+**Traditional source:** Harris CS; Asim M; Saleem A; Haddad PS; Arnason JT; Bennett SA. Characterizing the cytoprotective activity of Sarracenia purpurea L., a medicinal plant that inhibits glucotoxicity in PC12 cells. BMC complementary and alternative medicine. 2012;12:245. doi:10.1186/1472-6882-12-245. PMID:23216659. — https://pmc.ncbi.nlm.nih.gov/articles/PMC3556504/
 
 **Traditional locator:** Background; first paragraph
 
@@ -164,7 +166,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC3556504/
+**Traditional source:** Harris CS; Asim M; Saleem A; Haddad PS; Arnason JT; Bennett SA. Characterizing the cytoprotective activity of Sarracenia purpurea L., a medicinal plant that inhibits glucotoxicity in PC12 cells. BMC complementary and alternative medicine. 2012;12:245. doi:10.1186/1472-6882-12-245. PMID:23216659. — https://pmc.ncbi.nlm.nih.gov/articles/PMC3556504/
 
 **Traditional locator:** Background; first paragraph
 
@@ -186,7 +188,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC3556504/
+**Traditional source:** Harris CS; Asim M; Saleem A; Haddad PS; Arnason JT; Bennett SA. Characterizing the cytoprotective activity of Sarracenia purpurea L., a medicinal plant that inhibits glucotoxicity in PC12 cells. BMC complementary and alternative medicine. 2012;12:245. doi:10.1186/1472-6882-12-245. PMID:23216659. — https://pmc.ncbi.nlm.nih.gov/articles/PMC3556504/
 
 **Traditional locator:** Background; first paragraph
 
@@ -208,7 +210,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC3556504/
+**Traditional source:** Harris CS; Asim M; Saleem A; Haddad PS; Arnason JT; Bennett SA. Characterizing the cytoprotective activity of Sarracenia purpurea L., a medicinal plant that inhibits glucotoxicity in PC12 cells. BMC complementary and alternative medicine. 2012;12:245. doi:10.1186/1472-6882-12-245. PMID:23216659. — https://pmc.ncbi.nlm.nih.gov/articles/PMC3556504/
 
 **Traditional locator:** Background; first paragraph
 
@@ -230,7 +232,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC3556504/
+**Traditional source:** Harris CS; Asim M; Saleem A; Haddad PS; Arnason JT; Bennett SA. Characterizing the cytoprotective activity of Sarracenia purpurea L., a medicinal plant that inhibits glucotoxicity in PC12 cells. BMC complementary and alternative medicine. 2012;12:245. doi:10.1186/1472-6882-12-245. PMID:23216659. — https://pmc.ncbi.nlm.nih.gov/articles/PMC3556504/
 
 **Traditional locator:** Background; first paragraph
 
@@ -252,7 +254,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC3556504/
+**Traditional source:** Harris CS; Asim M; Saleem A; Haddad PS; Arnason JT; Bennett SA. Characterizing the cytoprotective activity of Sarracenia purpurea L., a medicinal plant that inhibits glucotoxicity in PC12 cells. BMC complementary and alternative medicine. 2012;12:245. doi:10.1186/1472-6882-12-245. PMID:23216659. — https://pmc.ncbi.nlm.nih.gov/articles/PMC3556504/
 
 **Traditional locator:** Background; first paragraph
 
@@ -274,7 +276,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC3163474/
+**Traditional source:** Vianna R; Brault A; Martineau LC; Couture R; Arnason JT; Haddad PS. In Vivo Anti-Diabetic Activity of the Ethanolic Crude Extract of Sorbus decora C.K.Schneid. (Rosacea): A Medicinal Plant Used by Canadian James Bay Cree Nations to Treat Symptoms Related to Diabetes. Evidence-based complementary and alternative medicine : eCAM. 2011;2011:237941. doi:10.1093/ecam/nep158. PMID:19887507. — https://pmc.ncbi.nlm.nih.gov/articles/PMC3163474/
 
 **Traditional locator:** Introduction; plant-selection context and Sorbus identification
 
@@ -296,7 +298,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC3163474/
+**Traditional source:** Vianna R; Brault A; Martineau LC; Couture R; Arnason JT; Haddad PS. In Vivo Anti-Diabetic Activity of the Ethanolic Crude Extract of Sorbus decora C.K.Schneid. (Rosacea): A Medicinal Plant Used by Canadian James Bay Cree Nations to Treat Symptoms Related to Diabetes. Evidence-based complementary and alternative medicine : eCAM. 2011;2011:237941. doi:10.1093/ecam/nep158. PMID:19887507. — https://pmc.ncbi.nlm.nih.gov/articles/PMC3163474/
 
 **Traditional locator:** Introduction; plant-selection context and Sorbus identification
 
@@ -304,9 +306,9 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Candidate:** Vianna R; Brault A; Martineau LC; Couture R; Arnason JT; Haddad PS. In Vivo Anti-Diabetic Activity of the Ethanolic Crude Extract of Sorbus decora C.K.Schneid. (Rosacea): A Medicinal Plant Used by Canadian James Bay Cree Nations to Treat Symptoms Related to Diabetes. Evidence-based complementary and alternative medicine : eCAM. 2011;2011:237941. doi:10.1093/ecam/nep158. PMID:19887507. — https://pmc.ncbi.nlm.nih.gov/articles/PMC3163474/
 
-**Candidate locator:** Methods 2.7; Results 3.3; Figure 7
+**Candidate locator:** Results 3.3 and Figure 7; Discussion, paragraph on the seven-day KK-Ay experiment
 
-**Available passage:** within 4 days
+**Available passage:** data variability prevented the assignment of statistical significance to this hypoglycemic effect
 
 **Recorded endpoint:** serial blood glucose
 
@@ -318,7 +320,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC3163474/
+**Traditional source:** Vianna R; Brault A; Martineau LC; Couture R; Arnason JT; Haddad PS. In Vivo Anti-Diabetic Activity of the Ethanolic Crude Extract of Sorbus decora C.K.Schneid. (Rosacea): A Medicinal Plant Used by Canadian James Bay Cree Nations to Treat Symptoms Related to Diabetes. Evidence-based complementary and alternative medicine : eCAM. 2011;2011:237941. doi:10.1093/ecam/nep158. PMID:19887507. — https://pmc.ncbi.nlm.nih.gov/articles/PMC3163474/
 
 **Traditional locator:** Introduction; plant-selection context and Sorbus identification
 
@@ -340,7 +342,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC3163474/
+**Traditional source:** Vianna R; Brault A; Martineau LC; Couture R; Arnason JT; Haddad PS. In Vivo Anti-Diabetic Activity of the Ethanolic Crude Extract of Sorbus decora C.K.Schneid. (Rosacea): A Medicinal Plant Used by Canadian James Bay Cree Nations to Treat Symptoms Related to Diabetes. Evidence-based complementary and alternative medicine : eCAM. 2011;2011:237941. doi:10.1093/ecam/nep158. PMID:19887507. — https://pmc.ncbi.nlm.nih.gov/articles/PMC3163474/
 
 **Traditional locator:** Introduction; plant-selection context and Sorbus identification
 
@@ -362,7 +364,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC3678421/
+**Traditional source:** Harbilas D; Vallerand D; Brault A; Saleem A; Arnason JT; Musallam L; Haddad PS. Populus balsamifera Extract and Its Active Component Salicortin Reduce Obesity and Attenuate Insulin Resistance in a Diet-Induced Obese Mouse Model. Evidence-based complementary and alternative medicine : eCAM. 2013;2013:172537. doi:10.1155/2013/172537. PMID:23781256. — https://pmc.ncbi.nlm.nih.gov/articles/PMC3678421/
 
 **Traditional locator:** Introduction; paragraph beginning In Canada
 
@@ -384,7 +386,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC3678421/
+**Traditional source:** Harbilas D; Vallerand D; Brault A; Saleem A; Arnason JT; Musallam L; Haddad PS. Populus balsamifera Extract and Its Active Component Salicortin Reduce Obesity and Attenuate Insulin Resistance in a Diet-Induced Obese Mouse Model. Evidence-based complementary and alternative medicine : eCAM. 2013;2013:172537. doi:10.1155/2013/172537. PMID:23781256. — https://pmc.ncbi.nlm.nih.gov/articles/PMC3678421/
 
 **Traditional locator:** Introduction; paragraph beginning In Canada
 
@@ -406,7 +408,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC3678421/
+**Traditional source:** Harbilas D; Vallerand D; Brault A; Saleem A; Arnason JT; Musallam L; Haddad PS. Populus balsamifera Extract and Its Active Component Salicortin Reduce Obesity and Attenuate Insulin Resistance in a Diet-Induced Obese Mouse Model. Evidence-based complementary and alternative medicine : eCAM. 2013;2013:172537. doi:10.1155/2013/172537. PMID:23781256. — https://pmc.ncbi.nlm.nih.gov/articles/PMC3678421/
 
 **Traditional locator:** Introduction; paragraph beginning In Canada
 
@@ -428,7 +430,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC3678421/
+**Traditional source:** Harbilas D; Vallerand D; Brault A; Saleem A; Arnason JT; Musallam L; Haddad PS. Populus balsamifera Extract and Its Active Component Salicortin Reduce Obesity and Attenuate Insulin Resistance in a Diet-Induced Obese Mouse Model. Evidence-based complementary and alternative medicine : eCAM. 2013;2013:172537. doi:10.1155/2013/172537. PMID:23781256. — https://pmc.ncbi.nlm.nih.gov/articles/PMC3678421/
 
 **Traditional locator:** Introduction; paragraph beginning In Canada
 
@@ -450,7 +452,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC4072050/
+**Traditional source:** Eid HM; Ouchfoun M; Brault A; Vallerand D; Musallam L; Arnason JT; Haddad PS. Lingonberry (Vaccinium vitis-idaea L.) Exhibits Antidiabetic Activities in a Mouse Model of Diet-Induced Obesity. Evidence-based complementary and alternative medicine : eCAM. 2014;2014:645812. doi:10.1155/2014/645812. PMID:25013446. — https://pmc.ncbi.nlm.nih.gov/articles/PMC4072050/
 
 **Traditional locator:** Introduction; lingonberry traditional-use paragraph
 
@@ -472,7 +474,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC4072050/
+**Traditional source:** Eid HM; Ouchfoun M; Brault A; Vallerand D; Musallam L; Arnason JT; Haddad PS. Lingonberry (Vaccinium vitis-idaea L.) Exhibits Antidiabetic Activities in a Mouse Model of Diet-Induced Obesity. Evidence-based complementary and alternative medicine : eCAM. 2014;2014:645812. doi:10.1155/2014/645812. PMID:25013446. — https://pmc.ncbi.nlm.nih.gov/articles/PMC4072050/
 
 **Traditional locator:** Introduction; lingonberry traditional-use paragraph
 
@@ -494,7 +496,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC4072050/
+**Traditional source:** Eid HM; Ouchfoun M; Brault A; Vallerand D; Musallam L; Arnason JT; Haddad PS. Lingonberry (Vaccinium vitis-idaea L.) Exhibits Antidiabetic Activities in a Mouse Model of Diet-Induced Obesity. Evidence-based complementary and alternative medicine : eCAM. 2014;2014:645812. doi:10.1155/2014/645812. PMID:25013446. — https://pmc.ncbi.nlm.nih.gov/articles/PMC4072050/
 
 **Traditional locator:** Introduction; lingonberry traditional-use paragraph
 
@@ -516,7 +518,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC4072050/
+**Traditional source:** Eid HM; Ouchfoun M; Brault A; Vallerand D; Musallam L; Arnason JT; Haddad PS. Lingonberry (Vaccinium vitis-idaea L.) Exhibits Antidiabetic Activities in a Mouse Model of Diet-Induced Obesity. Evidence-based complementary and alternative medicine : eCAM. 2014;2014:645812. doi:10.1155/2014/645812. PMID:25013446. — https://pmc.ncbi.nlm.nih.gov/articles/PMC4072050/
 
 **Traditional locator:** Introduction; lingonberry traditional-use paragraph
 
@@ -538,7 +540,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC4072050/
+**Traditional source:** Eid HM; Ouchfoun M; Brault A; Vallerand D; Musallam L; Arnason JT; Haddad PS. Lingonberry (Vaccinium vitis-idaea L.) Exhibits Antidiabetic Activities in a Mouse Model of Diet-Induced Obesity. Evidence-based complementary and alternative medicine : eCAM. 2014;2014:645812. doi:10.1155/2014/645812. PMID:25013446. — https://pmc.ncbi.nlm.nih.gov/articles/PMC4072050/
 
 **Traditional locator:** Introduction; lingonberry traditional-use paragraph
 
@@ -560,7 +562,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC4072050/
+**Traditional source:** Eid HM; Ouchfoun M; Brault A; Vallerand D; Musallam L; Arnason JT; Haddad PS. Lingonberry (Vaccinium vitis-idaea L.) Exhibits Antidiabetic Activities in a Mouse Model of Diet-Induced Obesity. Evidence-based complementary and alternative medicine : eCAM. 2014;2014:645812. doi:10.1155/2014/645812. PMID:25013446. — https://pmc.ncbi.nlm.nih.gov/articles/PMC4072050/
 
 **Traditional locator:** Introduction; lingonberry traditional-use paragraph
 
@@ -582,7 +584,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC4072050/
+**Traditional source:** Eid HM; Ouchfoun M; Brault A; Vallerand D; Musallam L; Arnason JT; Haddad PS. Lingonberry (Vaccinium vitis-idaea L.) Exhibits Antidiabetic Activities in a Mouse Model of Diet-Induced Obesity. Evidence-based complementary and alternative medicine : eCAM. 2014;2014:645812. doi:10.1155/2014/645812. PMID:25013446. — https://pmc.ncbi.nlm.nih.gov/articles/PMC4072050/
 
 **Traditional locator:** Introduction; lingonberry traditional-use paragraph
 
@@ -604,7 +606,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC4532419/
+**Traditional source:** Shang N; Saleem A; Musallam L; Walshe-Roussel B; Badawi A; Cuerrier A; Arnason JT; Haddad PS. Novel Approach to Identify Potential Bioactive Plant Metabolites: Pharmacological and Metabolomics Analyses of Ethanol and Hot Water Extracts of Several Canadian Medicinal Plants of the Cree of Eeyou Istchee. PloS one. 2015;10(8):e0135721. doi:10.1371/journal.pone.0135721. PMID:26263160. — https://pmc.ncbi.nlm.nih.gov/articles/PMC4532419/
 
 **Traditional locator:** Introduction final paragraph; Methods Table 1 identifies species
 
@@ -626,7 +628,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC4532419/
+**Traditional source:** Shang N; Saleem A; Musallam L; Walshe-Roussel B; Badawi A; Cuerrier A; Arnason JT; Haddad PS. Novel Approach to Identify Potential Bioactive Plant Metabolites: Pharmacological and Metabolomics Analyses of Ethanol and Hot Water Extracts of Several Canadian Medicinal Plants of the Cree of Eeyou Istchee. PloS one. 2015;10(8):e0135721. doi:10.1371/journal.pone.0135721. PMID:26263160. — https://pmc.ncbi.nlm.nih.gov/articles/PMC4532419/
 
 **Traditional locator:** Introduction final paragraph; Methods Table 1 identifies species
 
@@ -648,7 +650,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC4532419/
+**Traditional source:** Shang N; Saleem A; Musallam L; Walshe-Roussel B; Badawi A; Cuerrier A; Arnason JT; Haddad PS. Novel Approach to Identify Potential Bioactive Plant Metabolites: Pharmacological and Metabolomics Analyses of Ethanol and Hot Water Extracts of Several Canadian Medicinal Plants of the Cree of Eeyou Istchee. PloS one. 2015;10(8):e0135721. doi:10.1371/journal.pone.0135721. PMID:26263160. — https://pmc.ncbi.nlm.nih.gov/articles/PMC4532419/
 
 **Traditional locator:** Introduction final paragraph; Methods Table 1 identifies species
 
@@ -670,7 +672,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC4532419/
+**Traditional source:** Shang N; Saleem A; Musallam L; Walshe-Roussel B; Badawi A; Cuerrier A; Arnason JT; Haddad PS. Novel Approach to Identify Potential Bioactive Plant Metabolites: Pharmacological and Metabolomics Analyses of Ethanol and Hot Water Extracts of Several Canadian Medicinal Plants of the Cree of Eeyou Istchee. PloS one. 2015;10(8):e0135721. doi:10.1371/journal.pone.0135721. PMID:26263160. — https://pmc.ncbi.nlm.nih.gov/articles/PMC4532419/
 
 **Traditional locator:** Introduction final paragraph; Methods Table 1 identifies species
 
@@ -692,7 +694,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC4532419/
+**Traditional source:** Shang N; Saleem A; Musallam L; Walshe-Roussel B; Badawi A; Cuerrier A; Arnason JT; Haddad PS. Novel Approach to Identify Potential Bioactive Plant Metabolites: Pharmacological and Metabolomics Analyses of Ethanol and Hot Water Extracts of Several Canadian Medicinal Plants of the Cree of Eeyou Istchee. PloS one. 2015;10(8):e0135721. doi:10.1371/journal.pone.0135721. PMID:26263160. — https://pmc.ncbi.nlm.nih.gov/articles/PMC4532419/
 
 **Traditional locator:** Introduction final paragraph; Methods Table 1 identifies species
 
@@ -714,7 +716,7 @@ Record useful / not useful / unresolved and a source-based reason.
 
 **Attribution:** Cree of Eeyou Istchee; specific community/informant not assigned to this account
 
-**Traditional source:** None — https://pmc.ncbi.nlm.nih.gov/articles/PMC4532419/
+**Traditional source:** Shang N; Saleem A; Musallam L; Walshe-Roussel B; Badawi A; Cuerrier A; Arnason JT; Haddad PS. Novel Approach to Identify Potential Bioactive Plant Metabolites: Pharmacological and Metabolomics Analyses of Ethanol and Hot Water Extracts of Several Canadian Medicinal Plants of the Cree of Eeyou Istchee. PloS one. 2015;10(8):e0135721. doi:10.1371/journal.pone.0135721. PMID:26263160. — https://pmc.ncbi.nlm.nih.gov/articles/PMC4532419/
 
 **Traditional locator:** Introduction final paragraph; Methods Table 1 identifies species
 

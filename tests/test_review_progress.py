@@ -17,3 +17,11 @@ class ReviewProgressTests(unittest.TestCase):
    root=Path(d);self.fixture(root,dict(claim_id='T008',evidence_id='P26626246',human_review_status='completed',human_retrieval_relevant=True,human_rationale='Copied answer'))
    with patch.object(review_progress,'ROOT',root):
     with self.assertRaises(ValueError):review_progress.report()
+ def test_provisional_decision_is_separate_from_confirmed_and_unresolved(self):
+  with tempfile.TemporaryDirectory() as d:
+   root=Path(d);self.fixture(root,dict(claim_id='T010',evidence_id='P20301057',human_review_status='provisional',human_retrieval_relevant=None,human_provisional_retrieval_relevant=True,source_checked=True))
+   with patch.object(review_progress,'ROOT',root):
+    result=review_progress.report()
+   self.assertEqual(result['human_relevance_completed'],0)
+   self.assertEqual(result['human_relevance_provisional'],1)
+   self.assertEqual(result['source_checked_unresolved'],0)

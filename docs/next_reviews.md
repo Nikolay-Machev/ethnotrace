@@ -35,3 +35,15 @@ python scripts/build_demo.py
 ```
 
 The first command validates relevance completion fields. The evaluator validates comparison schema and retains its independent-review safeguards. No human decision or adjudication is inferred from this preparation step. Semantic ranking is available experimentally. Complete candidate relevance judgments before claiming it improves retrieval; rerun `python scripts/evaluate_semantic.py` and `python scripts/build_evaluation.py` after recording reviews.
+
+## T008 human submission, 4 November 2026
+
+Nikolay Machev source-checked all six candidates after seeing the assistant screen. Four were useful (P26626246, P22738356, E003, E004). Two initially unresolved safety studies (P21186373, P26626249) were resolved as not retrieval-relevant to T008 under the reviewer-approved scope rule. They remain indexed as safety context. Earlier reasoning and source depths are preserved.
+
+**Rule for all accounts:** count a candidate as useful if it helps assess the documented use through a relevant outcome or a direct comparison of plant parts or preparations. A safety-only study that does neither is context; a part match alone is insufficient. Keep unresolved cases pending when the source does not permit a decision. Relevance is distinct from a finding supporting the traditional use.
+
+## Remaining batch, 4 November 2026
+
+All 27 remaining pairs have reviewer submissions. T010/P20301057 is provisionally useful under the reviewer’s adipogenesis scope reading, based on assistant-reported primary findings and a reviewer-read secondary chapter. It is excluded from confirmed relevance metrics. T007/P18066122 and T011/P19526043 remain unresolved because species-specific tables were inaccessible.
+
+See [source follow-up and reviewer decisions](relevance_followup.md) for source depths and remaining questions. Experimental extractions and claim-comparability labels are unchanged.

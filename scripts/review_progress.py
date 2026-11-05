@@ -15,6 +15,8 @@ def report():
             complete+=1
     reviewers={key:rows(ROOT/f'data/review/reviewer_{key}.jsonl') for key in ('a','b')}
     return {'relevance_candidates':len(candidates),'human_relevance_completed':complete,
+            'human_relevance_provisional':sum(q.get('human_review_status')=='provisional' for q in candidates),
+            'source_checked_unresolved':sum(q.get('source_checked') is True and q.get('human_retrieval_relevant') is None and q.get('human_review_status')!='provisional' for q in candidates),
             'comparison_reviews':{k:sum(r.get('comparison_review_status')=='completed' for r in rs) for k,rs in reviewers.items()},
             'note':'Reported counts are not independent scientific accuracy. Do not start a semantic retrieval performance comparison until the chosen queries have complete human relevance judgments.'}
 if __name__=='__main__':print(json.dumps(report(),indent=2))

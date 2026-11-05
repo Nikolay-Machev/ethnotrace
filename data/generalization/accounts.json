@@ -1,0 +1,226 @@
+{
+  "T008": {
+    "evaluation_group_id": "Gf42303fb23ec",
+    "features": {
+      "administration_route": null,
+      "claim_comparability": null,
+      "eligibility_reason": "No independently reviewed training pairs are present in the source snapshot.",
+      "endpoint": null,
+      "ethanol_percent_explicit": null,
+      "experimental_result_direction": null,
+      "exposure": null,
+      "exposure_basis": null,
+      "extraction_solvents_explicit": null,
+      "part_mapping_status": "mapped",
+      "plant_parts": [
+        "leaf"
+      ],
+      "scientific_names": [
+        "Sarracenia purpurea"
+      ],
+      "study_screening_category": null,
+      "study_settings": [
+        "documented_folk_use"
+      ],
+      "training_eligible": false
+    },
+    "id": "T008",
+    "normalized": {
+      "access_or_reuse_conditions": "Creative Commons Attribution; version as linked in article permissions; preserve community attribution and source context.",
+      "accessed_on": "2026-10-31",
+      "account_type": "researcher_report_of_traditional_use",
+      "administration_route": null,
+      "community_or_nation": "Cree of Eeyou Istchee; specific community/informant not assigned to this account",
+      "curation_method": "AI-assisted source-based extraction; paraphrase unless supporting quotation marked",
+      "dataset_scope": "canadian_diabetes",
+      "diabetes_relevance": "symptom_associated",
+      "historical_period": "Source publication period; original age of practice not established",
+      "knowledge_holder": null,
+      "knowledge_tradition": "indigenous",
+      "language": "en",
+      "licence": "Creative Commons Attribution; version as linked in article permissions",
+      "location": "Eastern James Bay, northern Quebec, Canada",
+      "notes": "Original community term and leaf part are explicit. The cited ethnobotanical source is not directly inspected here. Neuronal cytoprotection does not test infection healing.",
+      "original_plant_name": [
+        "aygadash"
+      ],
+      "original_use_description": "Cree leaf preparations are reported for diabetes-associated symptoms, particularly slow-healing infections.",
+      "original_use_description_type": "paraphrase",
+      "passage_locator": "Background; first paragraph",
+      "plant_part": "leaves",
+      "preparation": null,
+      "record_id": "T008",
+      "relevance_rationale": "Source connects this account to diabetes; exact symptom and diagnostic history are retained only where stated. Symptom-associated use is not a historical diagnosis.",
+      "reported_use_or_outcome": "Cree leaf preparations are reported for diabetes-associated symptoms, particularly slow-healing infections.",
+      "review_status": "pending_independent_review",
+      "source_id": "PMID:23216659",
+      "source_key": "pmid-23216659",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3556504/",
+      "species": [
+        "Sarracenia purpurea"
+      ],
+      "study_setting": "documented_folk_use",
+      "supporting_passage": "in particular slow healing infections",
+      "underlying_ethnobotanical_source_reviewed": false
+    },
+    "provenance": {
+      "citation_refs": [
+        "source:pmid-23216659"
+      ],
+      "input_path": "imports/dataset/data/traditional_records.jsonl",
+      "pipeline_version": "1.0",
+      "row_sha256": "073c6b882573e39b5c14a8fd46413c808cfc991246610acbfbc55acad0145402",
+      "source_commit": "b4ab9fe0dbafb4a9d97dfcd1cc9b0bf4947d1062"
+    },
+    "raw": {
+      "access_or_reuse_conditions": "Creative Commons Attribution; version as linked in article permissions; preserve community attribution and source context.",
+      "accessed_on": "2026-10-31",
+      "account_type": "researcher_report_of_traditional_use",
+      "administration_route": null,
+      "community_or_nation": "Cree of Eeyou Istchee; specific community/informant not assigned to this account",
+      "curation_method": "AI-assisted source-based extraction; paraphrase unless supporting quotation marked",
+      "dataset_scope": "canadian_diabetes",
+      "diabetes_relevance": "symptom_associated",
+      "historical_period": "Source publication period; original age of practice not established",
+      "knowledge_holder": null,
+      "knowledge_tradition": "indigenous",
+      "language": "en",
+      "licence": "Creative Commons Attribution; version as linked in article permissions",
+      "location": "Eastern James Bay, northern Quebec, Canada",
+      "notes": "Original community term and leaf part are explicit. The cited ethnobotanical source is not directly inspected here. Neuronal cytoprotection does not test infection healing.",
+      "original_plant_name": [
+        "aygadash"
+      ],
+      "original_use_description": "Cree leaf preparations are reported for diabetes-associated symptoms, particularly slow-healing infections.",
+      "original_use_description_type": "paraphrase",
+      "passage_locator": "Background; first paragraph",
+      "plant_part": "leaves",
+      "preparation": null,
+      "record_id": "T008",
+      "relevance_rationale": "Source connects this account to diabetes; exact symptom and diagnostic history are retained only where stated. Symptom-associated use is not a historical diagnosis.",
+      "reported_use_or_outcome": "Cree leaf preparations are reported for diabetes-associated symptoms, particularly slow-healing infections.",
+      "review_status": "pending_independent_review",
+      "source_id": "PMID:23216659",
+      "source_key": "pmid-23216659",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3556504/",
+      "species": [
+        "Sarracenia purpurea"
+      ],
+      "study_setting": "documented_folk_use",
+      "supporting_passage": "in particular slow healing infections",
+      "underlying_ethnobotanical_source_reviewed": false
+    }
+  },
+  "T011": {
+    "evaluation_group_id": "Gf42303fb23ec",
+    "features": {
+      "administration_route": null,
+      "claim_comparability": null,
+      "eligibility_reason": "No independently reviewed training pairs are present in the source snapshot.",
+      "endpoint": null,
+      "ethanol_percent_explicit": null,
+      "experimental_result_direction": null,
+      "exposure": null,
+      "exposure_basis": null,
+      "extraction_solvents_explicit": null,
+      "part_mapping_status": "mapped",
+      "plant_parts": [
+        "berry"
+      ],
+      "scientific_names": [
+        "Vaccinium vitis-idaea"
+      ],
+      "study_screening_category": null,
+      "study_settings": [
+        "documented_folk_use"
+      ],
+      "training_eligible": false
+    },
+    "id": "T011",
+    "normalized": {
+      "access_or_reuse_conditions": "Creative Commons Attribution; version as linked in article permissions; preserve community attribution and source context.",
+      "accessed_on": "2026-10-31",
+      "account_type": "researcher_report_of_traditional_use",
+      "administration_route": null,
+      "community_or_nation": "Cree of Eeyou Istchee; specific community/informant not assigned to this account",
+      "curation_method": "AI-assisted source-based extraction; paraphrase unless supporting quotation marked",
+      "dataset_scope": "canadian_diabetes",
+      "diabetes_relevance": "symptom_associated",
+      "historical_period": "Source publication period; original age of practice not established",
+      "knowledge_holder": null,
+      "knowledge_tradition": "indigenous",
+      "language": "en",
+      "licence": "Creative Commons Attribution; version as linked in article permissions",
+      "location": "Eastern James Bay, northern Quebec, Canada",
+      "notes": "Frequent urination is nonspecific. Do not relabel this as proof of a traditional diabetes diagnosis; preparation and medicinal dose remain unknown.",
+      "original_plant_name": [
+        "lingonberry"
+      ],
+      "original_use_description": "The Cree are reported to use lingonberry berries for frequent urination and other diabetes-associated symptoms.",
+      "original_use_description_type": "paraphrase",
+      "passage_locator": "Introduction; lingonberry traditional-use paragraph",
+      "plant_part": "berries",
+      "preparation": null,
+      "record_id": "T011",
+      "relevance_rationale": "Source connects this account to diabetes; exact symptom and diagnostic history are retained only where stated. Symptom-associated use is not a historical diagnosis.",
+      "reported_use_or_outcome": "The Cree are reported to use lingonberry berries for frequent urination and other diabetes-associated symptoms.",
+      "review_status": "pending_independent_review",
+      "source_id": "PMID:25013446",
+      "source_key": "pmid-25013446",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4072050/",
+      "species": [
+        "Vaccinium vitis-idaea"
+      ],
+      "study_setting": "documented_folk_use",
+      "supporting_passage": "frequent urination",
+      "underlying_ethnobotanical_source_reviewed": false
+    },
+    "provenance": {
+      "citation_refs": [
+        "source:pmid-25013446"
+      ],
+      "input_path": "imports/dataset/data/traditional_records.jsonl",
+      "pipeline_version": "1.0",
+      "row_sha256": "c47653c30a75540fb30d269cd129f5f4b57473e079fc1e597ae80ddda1dd3716",
+      "source_commit": "b4ab9fe0dbafb4a9d97dfcd1cc9b0bf4947d1062"
+    },
+    "raw": {
+      "access_or_reuse_conditions": "Creative Commons Attribution; version as linked in article permissions; preserve community attribution and source context.",
+      "accessed_on": "2026-10-31",
+      "account_type": "researcher_report_of_traditional_use",
+      "administration_route": null,
+      "community_or_nation": "Cree of Eeyou Istchee; specific community/informant not assigned to this account",
+      "curation_method": "AI-assisted source-based extraction; paraphrase unless supporting quotation marked",
+      "dataset_scope": "canadian_diabetes",
+      "diabetes_relevance": "symptom_associated",
+      "historical_period": "Source publication period; original age of practice not established",
+      "knowledge_holder": null,
+      "knowledge_tradition": "indigenous",
+      "language": "en",
+      "licence": "Creative Commons Attribution; version as linked in article permissions",
+      "location": "Eastern James Bay, northern Quebec, Canada",
+      "notes": "Frequent urination is nonspecific. Do not relabel this as proof of a traditional diabetes diagnosis; preparation and medicinal dose remain unknown.",
+      "original_plant_name": [
+        "lingonberry"
+      ],
+      "original_use_description": "The Cree are reported to use lingonberry berries for frequent urination and other diabetes-associated symptoms.",
+      "original_use_description_type": "paraphrase",
+      "passage_locator": "Introduction; lingonberry traditional-use paragraph",
+      "plant_part": "berries",
+      "preparation": null,
+      "record_id": "T011",
+      "relevance_rationale": "Source connects this account to diabetes; exact symptom and diagnostic history are retained only where stated. Symptom-associated use is not a historical diagnosis.",
+      "reported_use_or_outcome": "The Cree are reported to use lingonberry berries for frequent urination and other diabetes-associated symptoms.",
+      "review_status": "pending_independent_review",
+      "source_id": "PMID:25013446",
+      "source_key": "pmid-25013446",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4072050/",
+      "species": [
+        "Vaccinium vitis-idaea"
+      ],
+      "study_setting": "documented_folk_use",
+      "supporting_passage": "frequent urination",
+      "underlying_ethnobotanical_source_reviewed": false
+    }
+  }
+}
