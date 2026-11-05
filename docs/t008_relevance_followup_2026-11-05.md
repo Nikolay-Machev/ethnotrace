@@ -1,6 +1,6 @@
 # T008 relevance-review follow-up — 5 November 2026
 
-This addendum records a follow-up submission for T008 from reviewer `akaradjov`. It is kept separate from the canonical queue and the earlier human-submission ledger so the original entries and provenance are not overwritten. The reviewer reports these cases verified; the source depth is recorded as provided and should not be overstated.
+This addendum records a follow-up submission for T008 from reviewer **Alex Karadjov** (`Alex Karadjov`). It is kept separate from the canonical queue and the earlier human-submission ledger so the original entries and provenance are not overwritten. The reviewer reports these cases verified; the source depth is recorded as provided and should not be overstated.
 
 - **P26626246 — useful:** preparation comparison for leaf decoctions versus ethanol extract. Source reported as abstract only. The supplied rationale was cut off mid-sentence; no missing text was inferred.
 - **P22738356 — useful:** leaf extract/fraction/compound cellular glucose-handling evidence. Source reported as abstract only. The supplied rationale was cut off mid-word; no missing text was inferred.
