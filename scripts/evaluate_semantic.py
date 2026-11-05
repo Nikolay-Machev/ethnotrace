@@ -3,7 +3,6 @@
 import json
 from collections import defaultdict
 from retrieve import Baseline, ROOT, rows
-from review_progress import grouped_review_records
 from semantic_retrieval import load_snapshot
 
 METHODS = ("lexical", "semantic", "hybrid")
@@ -84,9 +83,10 @@ def evaluate():
             truth[r["traditional_record_id"]].add(r["evidence_id"])
     details = []
     judged = []
-    reviews, _ = grouped_review_records(
-        rows(ROOT / "data/review/retrieval_relevance.jsonl")
-    )
+    reviews = {
+        (r["claim_id"], r["evidence_id"]): r
+        for r in rows(ROOT / "data/review/retrieval_relevance.jsonl")
+    }
     for tid, relevant in sorted(truth.items()):
         ranked = cache["rankings"][tid]
         details.append(
