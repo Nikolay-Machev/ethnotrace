@@ -30,6 +30,8 @@ The pipeline also processed 6 JSON metadata documents and assembled 74 reference
 
 A [source-by-source audit of the 18 missing species, plant-part and preparation fields](missing_field_source_audit_2026-11-05.md) checked the cited accounts and related source publications on 5 November 2026. None of the missing values was supported strongly enough for a source-specific overwrite. Original values remain null; related laboratory plant parts and recipes were not transferred into traditional-use records.
 
+A [second source-backed audit](missing_field_source_audit_2026-11-05.md#follow-up-with-additional-source-evidence-5-november-2026) now records four Cree diabetes-use plant parts in `data/curated/missing_field_source_evidence.jsonl`: T007 inner bark, T009 inner bark with branches also recorded, T010 inner bark, and T012 leaves. These are supported at the related community-survey level and are exported as supplementary context. The original source-specific raw field counts below remain unchanged to preserve provenance and prevent rankings/reviews from silently changing. No missing species or exact historical recipe was inferred.
+
 No exact duplicate candidates were found under the documented record fingerprint. This does not establish absence of repeated testimony, overlapping cohorts or paraphrased duplication.
 
 The two unidentified settler species remain null. Eight traditional preparation fields remain null, six traditional plant-part fields remain null, and one plant-part description remains unmapped. No missing values have been imputed.
