@@ -42,3 +42,9 @@ Original paper access:
 PDF text and document structure were accessible for the two complete manuscript follow-ups, but the remote PDF screenshot service returned cache-miss errors. The reported numerical results were checked against the primary text extraction, not visual inspection of figures. The original reviewer submissions remain separate because an assistant research pass does not independently establish the reviewers' final decisions.
 
 To finalize the **two-reviewer human-relevance benchmark**, each reviewer must explicitly adopt or correct the source-backed assessments for any originally pending/provisional cases. Then update the `human_*` fields, retain original review history and assistant exposure disclosures, and rebuild. The source-based recommendations alone must never be silently counted as finalized named human judgments.
+
+## Reviewer approval, 5 November 2026
+
+Alex Karadjov explicitly approved all five source-backed dispositions and reported Nikolay Machev's approval in the same conversation. The eight previously pending, unresolved or provisional submissions were moved to `completed`, and the two previously completed Nikolay safety-only judgments were retained. Each updated review preserves its previous rationale, access limitations, source notes and assistant-exposure provenance in review history. The approval does not assert independently blinded review, new primary-source inspection by either named reviewer, or separately verified direct approval from Nikolay.
+
+The final five decisions are T007/P18066122 `true`, T008/P21186373 `false`, T008/P26626249 `false`, T010/P20301057 `true`, T011/P19526043 `true`. All 33 distinct retrieval pairs now have matching completed reviewer entries. Development retrieval metrics may be recomputed across all six accounts. These are not independent gold or clinical efficacy results.
