@@ -6,15 +6,15 @@ Both reviewer files use the same fields. The original extraction packets, source
 - `comparison_review_status` records whether the comparison judgment is complete. `status` is a compatibility alias.
 - `claim_comparability` records the label, narrow interpretation of the documented use and rationale. `pair_label` is a compatibility alias and must match its label.
 - `experimental_findings` records the result direction, endpoint, setting, reported result and source separately. An extraction confirmation does not automatically complete an independent direction-label review.
-- `experimental_findings_review_status` tracks that separate step. Current records are `extraction_verified_not_separately_labelled`.
+- `experimental_findings_review_status` tracks that separate step. Both current reviewer files have 20 `pending` entries for this separate finding-review step.
 - `comparison_review_provenance` records whether judgments were made after seeing assistant labels. Unknown independence remains null; it must not be inferred from two reviewer IDs.
-- `retrieval_relevant` is a separate relevance judgment and remains null until explicitly reviewed.
+- `retrieval_relevant` is a case-level relevance judgment when explicitly supplied. Complete-query retrieval evaluation uses `human_retrieval_relevant` in `retrieval_relevance.jsonl`; it does not infer decisions from the comparison forms.
 
-Current state at the November 5, 2026 validation: Reviewer B (Alex Karadjov) has 20 user-confirmed extraction verification entries. Reviewer A has zero extraction confirmations in the current reviewer form. Reviewer A has 20 pending case judgments; Reviewer B (Alex Karadjov) has 20 completed assisted, human-approved case judgments (6 insufficient evidence, 14 not directly comparable), with assistant-label exposure disclosed. No independently adjudicated comparison cases exist.
+Current state, checked 6 November 2026: both reviewers have 20 completed assisted comparison judgments, agreeing on 6 insufficient-evidence and 14 not-directly-comparable labels. Reviewer B (Alex Karadjov) has 20 recorded extraction confirmations; Reviewer A has none. All 20 pair labels are recorded as assisted consensus, with no independently adjudicated gold cases. These comparison records are separate from the 66 retrieval-relevance submissions for 33 candidate pairs.
 
 `evaluate.py` reports extraction coverage, comparison progress and assisted baseline-label agreement separately from independent metrics. It refuses independent adjudication without explicit independent annotation provenance from both reviewers. Experimental-finding accuracy remains null until a separate reference-label evaluation is implemented; the baseline currently returns source-derived directions rather than predicting them.
 
-Run `python scripts/evaluate.py` after review edits and `python scripts/build_demo.py` to refresh the demo snapshot. Do not change pending labels just to obtain metrics. The generator preserves existing reviews and creates version-2 forms only when missing.
+Run `python scripts/review_progress.py` and `python scripts/rebuild.py` after review edits to validate relevance records and refresh all evaluation and demo outputs. Do not change pending labels just to obtain metrics. The generator preserves existing reviews and creates version-2 forms only when missing.
 
 ## Current relevance records and history
 

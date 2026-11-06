@@ -4,6 +4,8 @@ Before evaluating or rebuilding the demo, run the structural review-link check:
 
 ```bash
 python scripts/validate_review_links.py
+python scripts/review_progress.py
+python scripts/rebuild.py --check
 python -m unittest discover -s tests -v
 ```
 

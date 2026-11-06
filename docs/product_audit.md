@@ -58,3 +58,11 @@ Python support is documented as 3.11 and 3.12, matching CI. Code and original te
 The 66 current relevance submissions are separated from their full historical snapshots. Eight approved follow-up rows had obsolete unresolved fields; these now use the approved source checks and explanations. Decisions and rationales are unchanged. The validator rejects an active unresolved reason on a completed row while permitting genuine scientific uncertainty.
 
 Development baseline 1.2 removes the plant-part mismatch penalty. E004 increases from score 8 to 10 but remains sixth. All candidate orders, and therefore retrieval metrics, remain unchanged. The browser shows part comparison separately. Frozen pilot files and scientific inputs remain unchanged.
+
+## Documentation verification — 6 November 2026
+
+Checked the current code and visual update at `885c9f0ac2e8f1c47b85c8e5cdbba6aa51a182b9`. Corrected stale relevance/comparison progress, separate finding-review status, baseline 1.2 explanations, schema guidance and rebuild instructions. Historical frozen protocol status is explicitly distinguished from current pilot results. Review rationales retain their submitted wording and source-access limitations; current completion status comes from the structured review fields.
+
+The documented clean rebuild and freshness check pass. All 77 Python tests pass on 3.11 and 3.12; both JavaScript suites pass. The real-browser workflow passes for 12 accounts, three rankers, widths 1280/768/375 and nine cited-report downloads, with no JavaScript or local HTTP errors. Review-link validation and the assisted-pilot preflight pass. Local Markdown file links and heading anchors were checked and one archived heading link was repaired.
+
+This check does not reverify every scientific passage, rerun model inference, establish external publisher availability, or verify final Devpost/video/slide submission. Source data and review records were not edited.

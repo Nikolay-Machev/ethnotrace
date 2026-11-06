@@ -17,7 +17,7 @@ The atlas summarizes the collection; the explorer explains individual comparison
 | Preparation | Equivalence remains unknown under the current comparator. Shared solvent alone cannot establish similarity. |
 | Outcome | Explicit endpoint difference where the narrow rule applies; otherwise alignment remains unestablished. No symptom-to-disease inference. |
 | Study setting | Setting recorded for the extracted experiment. |
-| Experimental finding | Recorded favourable, null or condition-dependent result, independent of claim comparability. |
+| Experimental finding | Recorded favourable, null, condition-dependent or statistically inconclusive result, independent of claim comparability. |
 
 Counts are experimental units, not independent studies. Unique publication counts are shown separately per account; neither should be summed across accounts as independent evidence. Conflicting or different results retain separate buckets. A missing indexed experiment means none in this collection. An unresolved plant name blocks species retrieval and is shown explicitly.
 
@@ -33,7 +33,7 @@ Citations, excerpts, passage locations, source rights and limitations remain acc
 
 The export identifies the retrieval provider and version. Default provider: lexical baseline; semantic and hybrid challengers are available through the ranking selector. The aggregator consumes returned evidence records, not retrieval scores, and uses the same comparisons as the explorer. Changing candidate ordering must not change dimension judgments.
 
-If justified by reviewed retrieval errors and time, a semantic challenger can rank passages and return evidence IDs and scores to this boundary. Keep the scientific-name gate explicit, retain the lexical baseline, record the model and corpus versions, and avoid sending restricted source material to external services. Semantic similarity must never imply preparation or medical endpoint equivalence.
+The implemented semantic challenger ranks documented-use text against titles and endpoints. Passage-level retrieval would be a separate future extension. Keep the scientific-name gate explicit, retain the lexical baseline, record the model and corpus versions, and avoid sending restricted source material to external services. Semantic similarity must never imply preparation or medical endpoint equivalence.
 
 Evaluate candidate relevance separately from comparability and result direction. Use reviewed relevance judgments, fixed candidate pools and source-group-aware evaluation. The existing small connected development set does not support an independent generalization claim. No model was trained for the atlas. A later pretrained semantic challenger is documented in [semantic retrieval methods](semantic_retrieval.md).
 
@@ -49,7 +49,7 @@ The account column stays visible during horizontal scrolling, with a visible scr
 
 `scripts/gaps.py` derives explanations and next actions from the same indexed results. Empty preparation fields are labelled `not_recorded_source_status_unresolved`; they are never automatically labelled absent from the source. Literature leads use `not_yet_extracted`. Outcome relationships are distinct from missing extraction fields. Every evidence ID in an explanation resolves to a candidate with a source citation. Selecting a preparation, outcome, part or setting bucket expands related explanations.
 
-Source notes from `data/curated/targeted_extractions.jsonl` are displayed separately, with extraction depth, citations, locators, rights and limitations. The complete methods/table inspection of TX001 and partial indexed-section inspection of TX002 are not human verification, new clinical findings, or automatically validated traditional recipes. They are excluded from atlas experimental counts and the frozen development comparisons.
+Source notes from `data/curated/targeted_extractions.jsonl` are displayed separately, with extraction depth, citations, locators, rights and limitations. TX001 and TX002 retain their extraction depths and recorded assisted source-verification provenance. Neither source-packet verification establishes clinical efficacy or validates a traditional recipe. They are excluded from atlas experimental counts and the frozen development comparisons.
 
 ## Supplementary source evidence
 

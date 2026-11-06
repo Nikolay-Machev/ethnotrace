@@ -2,20 +2,15 @@
 
 This note documents how to preserve uncertainty in `data/review/retrieval_relevance.jsonl`. It does not create new source judgments or change the candidate records. A candidate is not a negative merely because the source could not be inspected sufficiently.
 
-## Remaining non-confirmed decisions
+## Current decisions
 
-The existing reviewer follow-up identifies these cases as unresolved because species-specific or assay-mapped evidence was not verified from the primary source:
+All 33 candidate pairs now have completed matching assisted decisions from both reviewers (66 submissions). The earlier unresolved T007/P18066122 and T011/P19526043 decisions and provisional T010/P20301057 decision were resolved through approved source follow-ups. Their earlier states are preserved in `data/review/history/retrieval_relevance_history.jsonl`. Scientific limitations remain in the current source checks and explanations; completion does not imply independent primary-source verification.
 
-- **T007 / P18066122** — the available abstract summary did not establish the species-specific results; leave unresolved unless the relevant source table or text is checked.
-- **T011 / P19526043** — the available summary did not map assays to lingonberry; leave unresolved unless a source supports a defensible decision.
-
-**T010 / P20301057** remains **provisional**. The reviewer considered adipogenesis relevant to the scope, but the primary source was not fully checked; the decision must not be counted as confirmed.
-
-These statuses are excluded from confirmed retrieval metrics. The evaluator counts a decision as complete only when `human_review_status` is `completed`, relevance is explicitly boolean, a reviewer and rationale are recorded, and `source_checked` is true. Unresolved and provisional entries are not converted to false or treated as negatives.
+For future reviews, unresolved and provisional submissions remain excluded from complete-query metrics. They must not be converted to negatives. If either reviewer is pending, the query is excluded; conflicting completed decisions require adjudication.
 
 ## JSONL shapes
 
-Keep the original `claim_id`, `evidence_id`, rank, source metadata, and other packet fields. These are examples of status handling, not new judgments; preserve the actual existing reason and provenance when editing an entry.
+Keep `claim_id`, `evidence_id`, the named reviewer and source-check provenance. Full source and account context is resolved from indexed records; do not copy it or nested history back into the current review file. These are examples of status handling, not new judgments; preserve the actual existing reason and provenance when editing an entry.
 
 Unresolved (no defensible true/false decision):
 
@@ -48,4 +43,4 @@ Only after source inspection supports a defensible decision should an entry beco
 
 Run `python scripts/review_progress.py` and the review/evaluation tests after updating review records. Regenerate reports with `python3 scripts/rebuild.py`. Do not describe provisional or unresolved entries as completed, and do not claim independent or held-out accuracy from assisted development reviews.
 
-See [the reviewer follow-up](archive/relevance_followup.md), [remaining source reviews](archive/next_reviews.md), and [review workflow](review_workflow.md) for case context and criteria.
+See [the reviewer follow-up](archive/relevance_followup.md), [historical review instructions](archive/next_reviews.md), and [review workflow](review_workflow.md) for case context and criteria.

@@ -27,12 +27,11 @@ source .venv-semantic/bin/activate
 # pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
 pip install -r requirements-semantic.txt
 python scripts/current_semantic.py --revision 1110a243fdf4706b3f48f1d95db1a4f5529b4d41
-python scripts/evaluate_retrieval.py
-python scripts/build_demo.py
-python scripts/build_evaluation.py
+python scripts/rebuild.py
+python scripts/rebuild.py --check
 ```
 
-The first inference run downloads model weights. Dataset text stays local. No API key is required. Actual library versions, model revision, scores, input-field policy and an input fingerprint are saved in `data/evaluation/semantic_rankings.json`. No weights or embeddings are added to GitHub. Hashes cover allowed query/document text, candidate eligibility and lexical scores. Rebuilding the app rejects a stale snapshot instead of silently showing obsolete rankings. Reviewer-only changes do not require recomputing embeddings; rerun evaluation and the two page builders.
+The first inference run downloads model weights. Dataset text stays local. No API key is required. Actual library versions, model revision, scores, input-field policy and an input fingerprint are saved in `data/evaluation/semantic_rankings.json`. No weights or embeddings are added to GitHub. Hashes cover allowed query/document text, candidate eligibility and lexical scores. Rebuilding the app rejects a stale snapshot instead of silently showing obsolete rankings. Reviewer-only changes do not require recomputing embeddings; run `python scripts/rebuild.py` to refresh all dependent outputs.
 
 ## Observed development results
 

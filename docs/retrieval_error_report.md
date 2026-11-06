@@ -1,32 +1,32 @@
 # Retrieval error analysis
 
-Six development queries have 12 seeded experimental links. These links are useful for regression checks, but are not a complete independently judged relevance set. Eight constructed species mismatches are excluded from these query-level recovery metrics.
+Six development accounts have 12 seeded experimental links and 33 candidate pairs with complete matching assisted relevance judgments. Seeded-link recovery and human relevance are separate benchmarks. Eight constructed species mismatches are excluded from query-level recovery metrics.
 
-| Measure | Baseline 1.0 | Baseline 1.1 |
+| Seeded-link measure | Baseline 1.0 | Baseline 1.1 | Current 1.2 |
+| --- | ---: | ---: | ---: |
+| Macro recall@5 | 0.667 | 0.917 | 0.917 |
+| Mean reciprocal rank | 0.408 | 0.561 | 0.561 |
+
+Version 1.1 added parent-paper titles to the text available for extracted units, improving parity with literature leads. Version 1.2 removed the -2 plant-part mismatch penalty. E004 rises from score 8 to 10 but remains sixth of six for T008. Part overlap still contributes +2; the mismatch remains visible separately in the interface. Candidate order and metrics are unchanged by the 1.2 change.
+
+Under uniformly random ordering of these short pools, expected seeded recall@5 is 0.869 and MRR is 0.595. The lexical MRR remains below that expectation. These changes were inspected on development data; they are not a held-out improvement claim.
+
+## Current retrieval errors
+
+For pitcher plant, lexical and hybrid ranking miss E004 at five; semantic ranking retrieves E004 but misses E003. Equal seeded recall therefore hides different omissions. The root experiment can be useful evidence of a part mismatch without directly testing the documented leaf use.
+
+The interface groups extracted experiments and literature leads separately, retaining rank order within each group. Evaluation scores the complete ungrouped list. Display grouping is not a retrieval improvement.
+
+## Human relevance results
+
+All 33 candidate pairs have two matching completed assisted submissions: 25 useful and eight context-only pairs. No current pair remains unresolved or provisional. Source access limitations and assistant exposure remain documented; these are not independent gold labels.
+
+| Ranker | Macro precision@5 | Macro recall@5 |
 | --- | ---: | ---: |
-| Macro recall at 5, seeded links | 0.667 | 0.917 |
-| Mean reciprocal rank, seeded links | 0.408 | 0.561 |
+| Lexical | 0.667 | 0.828 |
+| Semantic | 0.733 | 0.889 |
+| Hybrid | 0.733 | 0.903 |
 
-These figures describe the combined ranked list before UI grouping. They are not clinical accuracy, held-out performance or proof of better relevance across all papers. The change was selected after inspecting this development set. Candidate pools hold four to seven items, so the expected scores under uniform random ordering of the same pools are macro recall at five 0.869 and MRR 0.595; version 1.1's MRR of 0.561 is below that level.
+See the generated [human retrieval comparison](human_retrieval_comparison.md) for per-account movements and source checks. Historical review decisions are retained separately from current records.
 
-## Failure analysis
-
-- Tamarack E002 ranked sixth: four literature titles matched contextual words, while the extracted endpoint had no token overlap. E001 ranked fifth.
-- Pitcher-plant E004 ranked sixth: roots differ from the traditional leaf account, so the plant-part penalty pushed it below other candidates. This is a useful mismatch to inspect, not necessarily a ranking mistake.
-- Labrador-tea E010 ranked sixth: five publication titles contained traditional-use context unavailable in the extracted endpoint text.
-
-Version 1.0 compared full titles for literature leads against short endpoints for extracted units. Version 1.1 uses the maximum query overlap with the endpoint or parent publication title. This gives both document types access to title context without double-counting the title and endpoint, changing species eligibility, adding a positive-result bonus or reading reviewer labels. Preparation and outcome comparability rules are unchanged.
-
-E004 remains outside the top five. Its part mismatch is explicitly explained. Recovering every seed is not sufficient reason to remove a meaningful mismatch penalty.
-
-## Presentation and relevance review
-
-The UI separates extracted experiments and literature leads and preserves baseline order inside each group. This is a completeness grouping, not a scientific quality hierarchy. It must not be reported as an improvement in the combined ranking metric.
-
-`data/review/retrieval_relevance.jsonl` covers all 33 same-species candidates across the six queries, with citations and source URLs. The 12 extracted candidates and two publications that received targeted source inspection (P23864882, P26626246) have provisional assistant judgments of useful evidence, including null findings and mismatches. The other 19 publications remain undecided pending source assessment. A separate assistant screen of all 33 pairs is in `data/review/assistant_relevance_screen.jsonl` (see `retrieval_screen_notes.md`). No new full-text review is claimed.
-
-T008 has six completed human relevance decisions (four useful, two retained as safety context); the remaining 27 pairs have now been inspected, with 24 confirmed decisions, one provisionally useful decision and two unresolved. The provisional poplar decision is excluded from confirmed relevance metrics. Review whether each entry helps assess the account, separately from whether it supports the claim. Record a boolean in `human_retrieval_relevant`, a reason in `human_rationale`, and completion in `human_review_status`. This queue is a review artifact; independent retrieval metrics remain unavailable until completed judgments are integrated into evaluation. The script preserves human fields on rerun.
-
-Alex Karadjov's comparison judgments remain pending. No agreement or adjudication was fabricated.
-
-Reproduce with `python scripts/analyze_retrieval.py`. Full ranks are in `data/evaluation/retrieval_comparison.json`.
+Reproduce the seeded comparison with `python scripts/analyze_retrieval.py`, or rebuild all current reports with `python scripts/rebuild.py`. Scores and full ranks are in `data/evaluation/retrieval_comparison.json` and `data/evaluation/semantic_comparison.json`.

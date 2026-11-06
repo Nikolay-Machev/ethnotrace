@@ -12,4 +12,4 @@
 | Evaluation and exports | Added development results, coverage, uncertainty and cited Markdown reports. The static app exports any account locally without sending its text to a service. | [Worked report](../reports/T008-evidence.md), [current web evaluation](../../web/evaluation.html) |
 | Semantic experiment and audit | Compared a local pretrained ranker and rank fusion with lexical ranking; added the uniform random benchmark and corrected the E005 interpretation. | [Semantic methods](../semantic_retrieval.md), [audit](../data_quality.md) |
 
-For an isolated preprocessing run, use `python3 scripts/preprocess.py --output /tmp/ethnotrace-processed`. To inspect retrieval for one account, use `python3 scripts/retrieve.py --claim T011 --limit 5`. For rebuilding committed outputs, use the [single rebuild command](../README.md#rebuilding).
+For an isolated preprocessing run, use `python3 scripts/preprocess.py --output /tmp/ethnotrace-processed`. To inspect retrieval for one account, use `python3 scripts/retrieve.py --claim T011 --limit 5`. For rebuilding committed outputs, use the [single rebuild command](../README.md#rebuilding-and-validation).

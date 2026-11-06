@@ -23,7 +23,7 @@ Atlas interface during development. In the current app, try **Pitcher plant · T
 
 ## Technologies, installation and keys
 
-The viewer uses HTML, CSS and plain JavaScript. Python 3.11 or 3.12 serves the static files and runs the standard-library data pipeline; Node.js is needed only to rebuild or test report exports. Optional local model inference uses Sentence Transformers, Transformers, PyTorch and NumPy; [model attribution and setup](docs/semantic_retrieval.md) are documented separately.
+The viewer uses HTML, CSS and plain JavaScript. Python 3.11 or 3.12 serves the static files and runs the standard-library data pipeline; Node.js 22 (the CI version) is needed for rebuilding and JavaScript/report tests. Optional local model inference uses Sentence Transformers, Transformers, PyTorch and NumPy; [model attribution and setup](docs/semantic_retrieval.md) are documented separately.
 
 No API keys or external inference services are required for viewing, rebuilding or testing the committed rankings. No environment file is needed. External links open the cited publications.
 
@@ -66,9 +66,9 @@ The six-query benchmark measures recovery of seeded links. Ten of twelve links s
 
 Human-reviewed lexical, semantic and hybrid results: [retrieval comparison](docs/human_retrieval_comparison.md). All six queried accounts now have complete confirmed assisted judgments and enter the development metrics.
 
-Next experiment: [new-paper review packet](docs/generalization_review_packet.md) and [frozen pilot protocol](docs/generalization_protocol.md). All ten new candidates have completed assisted approvals. The separate exploratory evaluation is shown on the evaluation page; independent blinded generalization performance remains unavailable. The atlas now gives a checkable completion criterion for each research gap.
+Completed exploratory pilot: [new-paper review packet](docs/generalization_review_packet.md) and [frozen pilot protocol](docs/generalization_protocol.md). All ten new candidates have completed assisted approvals. The separate exploratory evaluation is shown on the evaluation page; independent blinded generalization performance remains unavailable. The atlas now gives a checkable completion criterion for each research gap.
 
-[Product verification and remaining review work](docs/product_audit.md) distinguishes prior browser and JavaScript checks from the latest validated review counts, and records review provenance and verification limits.
+[Product verification and limitations](docs/product_audit.md) distinguishes prior browser and JavaScript checks from the latest validated review counts, and records review provenance and verification limits.
 
 ## Validation and reproducibility
 

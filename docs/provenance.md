@@ -1,5 +1,7 @@
 # Development provenance
 
+This is a chronological development log. Review-status statements within earlier dated phases describe that phase, not the current collection. Current status is in the [README](../README.md) and [product audit](product_audit.md).
+
 ## Pre-existing material
 
 The complete dataset repository snapshot is imported under `imports/dataset`. Source repository: `Nikolay-Machev/Dataset-`; commit: `b4ab9fe0dbafb4a9d97dfcd1cc9b0bf4947d1062`; import date: 2 November 2026.

@@ -9,6 +9,8 @@
 | Pilot | [Frozen protocol](generalization_protocol.md), [frozen review packet](generalization_review_packet.md) |
 | Submission | [Readiness](submission_readiness.md) |
 
+The pilot protocol and packet are checksum-frozen historical inputs. Their original pending-status text describes the freeze date; current assisted pilot results are in the evaluation page and README. They are preserved unchanged for reproducibility.
+
 Earlier plans, worksheets and follow-up discussions are in [archive/](archive/). They document development history; the current status is in the product audit and generated evaluation.
 
 ## Rebuilding and validation
