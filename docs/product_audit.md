@@ -19,7 +19,7 @@ TX001 and TX002 now carry Alex Karadjov's confirmed source-specific verification
 
 ## Checks performed
 
-- In the latest GitHub Actions validation-and-rebuild run, 55 Python tests, review-link checks, evaluation scripts and the generated-file freshness check passed. The prior product audit separately reported passing both JavaScript suites and browser checks. These were not rerun as part of the latest Python validation workflow.
+- In the latest GitHub Actions validation-and-rebuild run, 57 Python tests, review-link checks, evaluation scripts and the generated-file freshness check passed. The prior product audit separately reported passing both JavaScript suites and browser checks. These were not rerun as part of the latest Python validation workflow.
 - Review-link validation passed. This validates identifiers and relationships, not source accuracy.
 - The browser suite exercised all accounts and rankers at widths of 1280, 768 and 375 pixels, account search, empty results, gap drill-down, clearing the drill-down and the evaluation page.
 - Nine downloaded reports retained their citations. Switching rankers preserved the E004 part mismatch and its source.
@@ -52,5 +52,7 @@ node tests/browser_workflow.cjs
 A separately installed Chromium can be selected with `BROWSER_EXECUTABLE`; `BROWSER_ARGS` accepts a JSON array of launch arguments. Browser dependencies are only needed for this test, not for running the app.
 
 Remaining research tasks include any independent blinded adjudication needed for accuracy measurement and source review of the ten pilot candidates. Unreachable sources should remain unresolved. Reviewers should follow the frozen pilot protocol without seeing ranking positions or assistant labels.
+
+Following completion of the 33 matched retrieval pairs, the assisted six-query development evaluation reports macro recall@5 of 0.828 lexical, 0.889 semantic, and 0.903 hybrid, and precision@5 of 0.667 lexical and 0.733 for semantic and hybrid. These results are not independent held-out accuracy.
 
 Current evaluation figures are maintained in [the generated human retrieval comparison](human_retrieval_comparison.md) and `data/evaluation/baseline_report.json`. The README summarizes those results. When review inputs change, rerun `python3 scripts/rebuild.py` and update this audit.
