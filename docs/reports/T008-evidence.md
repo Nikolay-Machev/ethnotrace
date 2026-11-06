@@ -194,9 +194,11 @@ Research prototype. Findings and claim comparability are separate. Missing index
 
 **Reasons:** Preparation equivalence is not established by this baseline., Neuronal-cell survival does not test the reported slow-healing infection use., Preclinical results do not establish clinical efficacy in people.
 
-**Human comparison review count:** 1
+**Human comparison review count:** 2
 
 **Extraction verification count:** 1
+
+**Reviewer a:** not_directly_comparable; user_supplied_case_judgments_transcribed
 
 **Reviewer b:** not_directly_comparable; assistant_proposed_labels_reviewed_and_approved_by_human
 
@@ -280,9 +282,11 @@ Research prototype. Findings and claim comparability are separate. Missing index
 
 **Reasons:** The mapped plant parts do not overlap., Preparation equivalence is not established by this baseline., Neuronal-cell survival does not test the reported slow-healing infection use., Preclinical results do not establish clinical efficacy in people.
 
-**Human comparison review count:** 1
+**Human comparison review count:** 2
 
 **Extraction verification count:** 1
+
+**Reviewer a:** not_directly_comparable; user_supplied_case_judgments_transcribed
 
 **Reviewer b:** not_directly_comparable; assistant_proposed_labels_reviewed_and_approved_by_human
 
