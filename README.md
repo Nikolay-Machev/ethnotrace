@@ -13,7 +13,7 @@ The atlas compares species, plant part, preparation and outcome for each documen
 | Traditional accounts | 12 Canadian accounts; nine identified species and two unresolved plant names |
 | Experimental evidence | 12 extracted units from six publications; 51 publications indexed |
 | Human retrieval relevance | 33 candidate pairs with 66 completed named reviewer submissions. All 33 pairs have matching human-approved assisted decisions, with documented assistant exposure and partner-reported approval. These are not independent blinded adjudication. |
-| Ranking | Lexical, semantic and hybrid. All six indexed account queries now have complete assisted relevance judgments. See the generated retrieval comparison for refreshed precision, recall and ranking metrics. These are assisted development results, not independent accuracy. Lexical remains the default. |
+| Ranking | Lexical, semantic and hybrid. All six indexed account queries now have complete assisted relevance judgments. Macro recall@5: lexical 0.828, semantic 0.889, hybrid 0.903. Precision@5: lexical 0.667, semantic and hybrid 0.733. These are assisted development results, not independent accuracy. Lexical remains the default. |
 
 ## Demo
 
