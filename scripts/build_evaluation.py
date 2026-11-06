@@ -1,6 +1,7 @@
 """Build the offline evaluation page data from current reviews and seeded checks."""
 
-import json, hashlib
+import json
+import hashlib
 from math import comb, fsum
 from statistics import mean
 from evaluate import evaluate
@@ -26,18 +27,20 @@ def benchmark(semantic):
         n = len(ids)
         m = len(truth)
         recall, mrr = random_expectation(n, m)
-        queries.append(dict(claim_id=q['claim_id'], pool_size=n, seeded_links=m, recall_at_5=recall, mrr=mrr))
+        queries.append(
+            {'claim_id': q['claim_id'], 'pool_size': n, 'seeded_links': m, 'recall_at_5': recall, 'mrr': mrr}
+        )
     pairs = [r['raw'] for r in rows(ROOT / 'data/processed/extracted_claim_study_pairs.jsonl')]
-    return dict(
-        queries=queries,
-        recall_at_5=mean(q['recall_at_5'] for q in queries),
-        mrr=mean(q['mrr'] for q in queries),
-        same_paper=sum(
+    return {
+        'queries': queries,
+        'recall_at_5': mean(q['recall_at_5'] for q in queries),
+        'mrr': mean(q['mrr'] for q in queries),
+        'same_paper': sum(
             bool(p['traditional_source_url']) and p['traditional_source_url'] == p['experimental_source_url']
             for p in pairs
         ),
-        total_links=len(pairs),
-    )
+        'total_links': len(pairs),
+    }
 
 
 def pilot_summary():

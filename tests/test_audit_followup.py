@@ -1,4 +1,6 @@
-import itertools, sys, unittest
+import itertools
+import sys
+import unittest
 from pathlib import Path
 from statistics import mean
 

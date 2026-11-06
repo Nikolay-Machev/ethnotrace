@@ -8,14 +8,14 @@ def explain(claim, results, retrieval_status, relevance_reviews=None):
 
     def add(kind, title, reason, next_step, evidence, missingness=None):
         gaps.append(
-            dict(
-                kind=kind,
-                title=title,
-                reason=reason,
-                next_step=next_step,
-                evidence_ids=[r["evidence_id"] for r in evidence],
-                missingness=missingness,
-            )
+            {
+                "kind": kind,
+                "title": title,
+                "reason": reason,
+                "next_step": next_step,
+                "evidence_ids": [r["evidence_id"] for r in evidence],
+                "missingness": missingness,
+            }
         )
 
     if retrieval_status == "unresolved_species":

@@ -183,7 +183,10 @@ def write_report(result):
         "| Method | Precision@5 | Recall@5 | MRR |",
         "| --- | ---: | ---: | ---: |",
     ]
-    fmt = lambda value: "N/A" if value is None else f"{value:.3f}"
+
+    def fmt(value):
+        return "N/A" if value is None else f"{value:.3f}"
+
     for method, values in human["metrics"].items():
         lines.append(
             f"| {method} | {fmt(values['precision_at_5'])} | "
@@ -235,8 +238,7 @@ def write_report(result):
                     "",
                 ]
             )
-            for checked in item["sources_checked"]:
-                lines.append(f"- {checked['depth']}: {checked['url']}")
+            lines.extend(f"- {checked['depth']}: {checked['url']}" for checked in item["sources_checked"])
             lines.append("")
     lines.extend(
         [
