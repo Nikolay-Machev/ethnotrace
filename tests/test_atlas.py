@@ -11,7 +11,7 @@ from atlas import summarize
 class AtlasTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.data = json.loads((ROOT / 'web/data.js').read_text().split(' = ', 1)[1].rstrip(';\n'))
+        cls.data = json.loads((ROOT / 'web/data.js').read_text(encoding='utf-8').split(' = ', 1)[1].rstrip(';\n'))
         cls.accounts = {r['id']: r for r in cls.data['claims']}
 
     def test_all_accounts_including_unresolved_and_shared_species(self):

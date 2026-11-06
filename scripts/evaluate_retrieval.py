@@ -265,14 +265,16 @@ def write_report(result):
             "",
         ]
     )
-    (ROOT / "docs/human_retrieval_comparison.md").write_text("\n".join(lines))
+    (ROOT / "docs/human_retrieval_comparison.md").write_text("\n".join(lines), encoding='utf-8', newline='\n')
 
 
 if __name__ == "__main__":
     result = evaluate()
     if result is None:
         raise SystemExit("Run semantic_retrieval.py first.")
-    (ROOT / "data/evaluation/semantic_comparison.json").write_text(json.dumps(result, indent=2) + "\n")
+    (ROOT / "data/evaluation/semantic_comparison.json").write_text(
+        json.dumps(result, indent=2) + "\n", encoding='utf-8', newline='\n'
+    )
     write_report(result)
     print(
         json.dumps(

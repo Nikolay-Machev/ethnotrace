@@ -1,4 +1,4 @@
-import copy, json, sys, tempfile, unittest
+import json, sys, tempfile, unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
@@ -46,7 +46,7 @@ class SemanticTests(unittest.TestCase):
         s = snapshot(b, FakeEncoder(), '0' * 40, {})
         with tempfile.TemporaryDirectory() as d:
             p = Path(d) / 'cache.json'
-            p.write_text(json.dumps(s))
+            p.write_text(json.dumps(s), encoding='utf-8', newline='\n')
             self.assertIsNotNone(load_snapshot(b, p))
             b.claims['T011']['raw']['original_use_description'] = 'changed query'
             with self.assertRaises(ValueError):

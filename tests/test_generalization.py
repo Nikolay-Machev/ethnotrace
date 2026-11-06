@@ -22,7 +22,7 @@ class GeneralizationTests(unittest.TestCase):
         source_path = (
             Path(__file__).resolve().parents[1] / "data/generalization/assistant_source_reviews_2026-11-05.jsonl"
         )
-        researched = [json.loads(line) for line in source_path.read_text().splitlines() if line.strip()]
+        researched = [json.loads(line) for line in source_path.read_text(encoding='utf-8').splitlines() if line.strip()]
         _, candidates, reviews, ready = pilot.check()
         self.assertEqual(len(researched), 10)
         self.assertEqual(
@@ -48,8 +48,10 @@ class GeneralizationTests(unittest.TestCase):
     def test_freeze_detects_changed_input(self):
         with tempfile.TemporaryDirectory() as d:
             root = Path(d)
-            (root / "frozen").write_text("altered")
-            (root / "manifest.json").write_text(json.dumps({"sha256": {"frozen": "wrong"}}))
+            (root / "frozen").write_text("altered", encoding='utf-8', newline='\n')
+            (root / "manifest.json").write_text(
+                json.dumps({"sha256": {"frozen": "wrong"}}), encoding='utf-8', newline='\n'
+            )
             with patch.object(pilot, "ROOT", root), patch.object(pilot, "FOLDER", root):
                 with self.assertRaisesRegex(ValueError, "Frozen input changed"):
                     pilot.check()
@@ -58,8 +60,10 @@ class GeneralizationTests(unittest.TestCase):
         _, candidates, reviews, _ = pilot.check()
         with tempfile.TemporaryDirectory() as d:
             root = Path(d)
-            (root / "manifest.json").write_text(json.dumps({"sha256": {}}))
-            (root / "candidates.jsonl").write_text("".join(json.dumps(r) + "\n" for r in candidates))
+            (root / "manifest.json").write_text(json.dumps({"sha256": {}}), encoding='utf-8', newline='\n')
+            (root / "candidates.jsonl").write_text(
+                "".join(json.dumps(r) + "\n" for r in candidates), encoding='utf-8', newline='\n'
+            )
             ready = copy.deepcopy(reviews)
             for r in ready:
                 r.update(
@@ -73,7 +77,9 @@ class GeneralizationTests(unittest.TestCase):
                 )
 
             def save():
-                (root / "reviews.jsonl").write_text("".join(json.dumps(r) + "\n" for r in ready))
+                (root / "reviews.jsonl").write_text(
+                    "".join(json.dumps(r) + "\n" for r in ready), encoding='utf-8', newline='\n'
+                )
 
             with patch.object(pilot, "FOLDER", root):
                 save()

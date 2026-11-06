@@ -11,7 +11,7 @@ spec.loader.exec_module(pipeline)
 
 
 def records(path):
-    return [json.loads(s) for s in path.read_text().splitlines() if s.strip()]
+    return [json.loads(s) for s in path.read_text(encoding='utf-8').splitlines() if s.strip()]
 
 
 class PreprocessingTests(unittest.TestCase):
@@ -32,7 +32,10 @@ class PreprocessingTests(unittest.TestCase):
         for path in src.glob('*.jsonl'):
             self.assertEqual([r['raw'] for r in records(self.out / path.name)], records(path))
         for path in src.glob('*.json'):
-            self.assertEqual(json.loads((self.out / path.name).read_text())['raw'], json.loads(path.read_text()))
+            self.assertEqual(
+                json.loads((self.out / path.name).read_text(encoding='utf-8'))['raw'],
+                json.loads(path.read_text(encoding='utf-8')),
+            )
 
     def test_unknown_species_parts_and_preparations_stay_unknown(self):
         for rid in ['T005', 'T006']:
@@ -97,7 +100,7 @@ class PreprocessingTests(unittest.TestCase):
         shutil.copytree(ROOT / 'imports', root / 'imports')
         shutil.copytree(ROOT / 'config', root / 'config')
         path = root / 'imports/dataset/data/traditional_records.jsonl'
-        path.write_text(path.read_text() + '\n')
+        path.write_text(path.read_text(encoding='utf-8') + '\n', newline='\n')
         with self.assertRaisesRegex(ValueError, 'Pinned source changed'):
             pipeline.run(root=root, output=root / 'output')
 

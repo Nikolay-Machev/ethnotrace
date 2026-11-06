@@ -22,12 +22,16 @@ def read_rows(path):
 
 def dump(path, value):
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True) + '\n', encoding='utf-8')
+    path.write_text(
+        json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True) + '\n', encoding='utf-8', newline='\n'
+    )
 
 
 def jsonl(path, rows):
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(''.join(json.dumps(r, ensure_ascii=False, sort_keys=True) + '\n' for r in rows), encoding='utf-8')
+    path.write_text(
+        ''.join(json.dumps(r, ensure_ascii=False, sort_keys=True) + '\n' for r in rows), encoding='utf-8', newline='\n'
+    )
 
 
 def text(value):

@@ -75,7 +75,7 @@ def analyze():
         'queries': comparisons,
     }
     out = ROOT / 'data/evaluation'
-    (out / 'retrieval_comparison.json').write_text(json.dumps(report, indent=2) + '\n')
+    (out / 'retrieval_comparison.json').write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8', newline='\n')
     # Never overwrite later human judgments.
     p = ROOT / 'data/review/retrieval_relevance.jsonl'
     existing = defaultdict(list)
@@ -107,7 +107,9 @@ def analyze():
                 for field in ('annotation_method', 'provisional_retrieval_relevant', 'rationale'):
                     merged[field] = prev[field]
             updated_queue.append(merged)
-    p.write_text(''.join(json.dumps(r, ensure_ascii=False) + '\n' for r in updated_queue))
+    p.write_text(
+        ''.join(json.dumps(r, ensure_ascii=False) + '\n' for r in updated_queue), encoding='utf-8', newline='\n'
+    )
     print(json.dumps({'metrics': metrics, 'relevance_candidates': len(queue)}))
 
 

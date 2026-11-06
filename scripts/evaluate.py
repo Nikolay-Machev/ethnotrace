@@ -213,9 +213,11 @@ if __name__ == '__main__':
     report, predictions = evaluate()
     args.output.mkdir(parents=True, exist_ok=True)
     (args.output / 'baseline_report.json').write_text(
-        json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + '\n'
+        json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + '\n', encoding='utf-8', newline='\n'
     )
     (args.output / 'baseline_predictions.jsonl').write_text(
-        ''.join(json.dumps(p, ensure_ascii=False, sort_keys=True) + '\n' for p in predictions)
+        ''.join(json.dumps(p, ensure_ascii=False, sort_keys=True) + '\n' for p in predictions),
+        encoding='utf-8',
+        newline='\n',
     )
     print(json.dumps(report, indent=2))

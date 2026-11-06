@@ -109,6 +109,7 @@ def build():
         + json.dumps(data, ensure_ascii=False).replace('<', '\\u003c')
         + ';\n',
         encoding='utf-8',
+        newline='\n',
     )
     return data
 

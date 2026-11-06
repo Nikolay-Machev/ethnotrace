@@ -1,7 +1,6 @@
 """Current evaluation must reconcile reviewers without changing the frozen pilot."""
 
 import copy
-import json
 import sys
 import tempfile
 import unittest
@@ -55,7 +54,7 @@ class ReconciledEvaluationTests(unittest.TestCase):
                 (folder / name).write_bytes((current.ROOT / 'data/generalization' / name).read_bytes())
             with patch.object(build_evaluation, 'ROOT', root):
                 self.assertTrue(build_evaluation.pilot_summary()['recorded_result_current'])
-                with (folder / 'reviews.jsonl').open('a') as f:
+                with (folder / 'reviews.jsonl').open('a', encoding='utf-8') as f:
                     f.write('\n')
                 result = build_evaluation.pilot_summary()
                 self.assertFalse(result['recorded_result_current'])
