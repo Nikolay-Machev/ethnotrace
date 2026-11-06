@@ -1,19 +1,9 @@
-name: Validate and rebuild data
+name: Validate committed data
 on:
   push:
-    branches:
-      - validate-rebuild-2026-11-05
-      - review-b-comparison-proposals-2026-11-05
-      - prepare-comparison-adjudication-2026-11-05
-      - audit-missing-source-fields-2026-11-05
-      - verify-tx001-tx002-2026-11-05
-      - adjudicate-assisted-consensus-2026-11-05
-      - resolve-relevance-primary-source-followup-2026-11-05
-      - approve-five-relevance-pairs-2026-11-05
-      - source-backed-traditional-parts-2026-11-05
   workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
 jobs:
   validation:
     runs-on: ubuntu-latest
@@ -25,7 +15,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Validate and rebuild
+      - name: Validate committed data without writing to GitHub
         shell: bash
         run: |
           set -euo pipefail
@@ -33,19 +23,12 @@ jobs:
           python scripts/validate_review_links.py
           python scripts/review_progress.py
           python scripts/evaluate.py
-          python scripts/rebuild.py
           python scripts/rebuild.py --check
           python -m unittest discover -s tests -v
-      - name: Report generated changes
-        if: always()
+          # Fail when checked-in generated outputs are stale.
+          # Do not commit or push using github-actions[bot].
+          git diff --exit-code
+          test -z "$(git ls-files --others --exclude-standard)"
+      - name: Show working tree changes on failure
+        if: failure()
         run: git status --short
-      - name: Commit regenerated files
-        if: success()
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          if ! git diff --cached --quiet; then
-            git commit -m "Regenerate validated reports and datasets"
-            git push
-          fi
