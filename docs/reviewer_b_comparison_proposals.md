@@ -1,15 +1,11 @@
-# Reviewer B comparison draft awaiting case-level confirmation
+# Alex Karadjov: 20 approved assisted comparison reviews
 
-The 20 entries in `data/review/reviewer_b_comparison_proposals.jsonl` are proposed comparisons prepared from the existing source-linked packets in `data/review/review_cases.jsonl`.
+All 20 case-level proposals in `data/review/reviewer_b_comparison_proposals.jsonl` were explicitly reviewed and approved by Alex Karadjov on 5 November 2026. They are now entered into the canonical `data/review/reviewer_b.jsonl` with `comparison_review_status: completed`, `status: completed`, matching `pair_label` and `claim_comparability.label`, case-specific rationales, and both source locators.
 
-Alex Karadjov has explicitly reported completing the comparison review of all 20 cases. The previously uploaded 33-record relevance-review document contains T-series retrieval judgments, not RC001–RC020 final comparison labels. The proposals therefore are **not** claimed as Alex's own selections, direct re-verification of the cited sources, a blinded review or independent adjudication.
+The resulting distribution is 6 `insufficient_evidence` and 14 `not_directly_comparable`. These labels describe the extent to which the recorded experiments address each documented traditional account. They do not establish clinical efficacy, scientific proof of the claims, or experimental-finding direction-label accuracy.
 
-Each proposal states its exact RC identifier, source locators, narrow interpretation, and a label under the project's five-label scheme. Proposed outcomes remain distinct from clinical efficacy or evidence of direct comparability.
+These are **assisted human-approved judgments**. The draft was prepared by an AI assistant from previously recorded source-linked packets, and Alex viewed the proposed judgments before approving them. All 20 entries accurately record `independent_blinded_annotation: false`; there is no claim of blinded independence or a new direct primary-source inspection in the approval event. Prior user-confirmed extraction verification remains recorded separately.
 
-The official `data/review/reviewer_b.jsonl` stays unchanged in its case-level comparison fields. It already retains Alex's source-extraction confirmation. These draft entries require explicit case-level approval or correction before entering the official reviewer file.
+Reviewer A's case-level form is unchanged and currently contains 20 pending comparisons. The adjudication file remains unchanged, with zero independent gold-standard adjudications. The separate experimental-finding label reviews also remain pending.
 
-On approval, record the actual review date and whether assistant-proposed labels were visible, maintain the compatibility fields `status`, `comparison_review_status`, `pair_label` and `claim_comparability.label`, preserve precise source locators, and set `independent_blinded_annotation` to false if proposals were inspected before the judgment. Never represent approval of these proposals as blinded independent review.
-
-Nikolay's 20 comparison form entries and the 20 adjudication forms remain pending. No review outcome has been silently credited to either reviewer.
-
-`python scripts/validate_review_links.py`, `python scripts/review_progress.py`, `python scripts/evaluate.py` and `python scripts/rebuild.py` must be rerun after approved data changes.
+The repository's review and evaluation scripts distinguish human-approved assisted comparisons from independent accuracy metrics. Validation and generated reports should be rerun following the import of these approved labels.
