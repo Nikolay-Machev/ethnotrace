@@ -12,8 +12,8 @@ The atlas compares species, plant part, preparation and outcome for each documen
 | --- | --- |
 | Traditional accounts | 12 Canadian accounts; nine identified species and two unresolved plant names |
 | Experimental evidence | 12 extracted units from six publications; 51 publications indexed |
-| Human retrieval relevance | All 33 pairs reviewed: 22 useful, eight context only, one provisionally useful, two unresolved. Provisional judgments are excluded from confirmed relevance metrics. T008, T009 and T012 have complete decisions. |
-| Ranking | Lexical, semantic and hybrid. On three completely judged accounts, macro recall@5 was 0.833 lexical, 0.833 semantic and 0.917 hybrid. Lexical remains the default. |
+| Human retrieval relevance | 33 candidate pairs with 66 named reviewer submissions. Both reviewers have completed matching judgments on 28 pairs; four remain unresolved or pending and one provisional. Matching judgments are not adjudication. T009 and T012 have complete concordant decisions. |
+| Ranking | Lexical, semantic and hybrid. On two completely judged accounts across both reviewers, macro recall@5 is 0.875 lexical, 0.875 semantic and 1.000 hybrid. These are assisted development results, not independent accuracy. Lexical remains the default. |
 
 ## Demo
 
@@ -48,7 +48,7 @@ python3 scripts/rebuild.py --check
 
 The Canadian scope applies to the accounts; experimental studies may come from anywhere. The collection is selective. Missing indexed evidence does not establish that no study exists. Preserve the original symptom descriptions, attribution and source-specific rights.
 
-The six-query benchmark measures recovery of seeded links. Ten of twelve links share a publication across the account and experiment. Human relevance metrics cover only the three fully judged accounts. The reviews were made with access to assistant screening and include abstract and secondary-source judgments. These development results establish neither general retrieval accuracy nor clinical efficacy.
+The six-query benchmark measures recovery of seeded links. Ten of twelve links share a publication across the account and experiment. Human relevance metrics cover only the two accounts with complete matching reviewer decisions, without independent adjudication. The reviews were made with access to assistant screening and include abstract and secondary-source judgments. These development results establish neither general retrieval accuracy nor clinical efficacy.
 
 [Documentation and build history](docs/README.md) · [Sources and licences](docs/rights.md) · [Hackathon provenance and AI disclosure](docs/provenance.md)
 
