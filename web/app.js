@@ -11,10 +11,8 @@ const esc = (value) =>
   );
 const text = (value) => esc(Array.isArray(value) ? value.join(', ') : value || 'Unknown');
 const human = (value) => text(value?.replaceAll('_', ' '));
-const accountUse = (account) =>
-  account.id === 'T016'
-    ? 'A Canadian ethnobotanical database record lists Arbutus menziesii as used for diabetes.'
-    : account.claim.original_use_description;
+// Curated display wording (data/curated/display_text.json) wins; the source text is never altered.
+const accountUse = (account) => account.display_use || account.claim.original_use_description;
 function coverageNote(account) {
   if (account.retrieval_status === 'unresolved_species') {
     return 'Traditional use recorded. Scientific species identification is unresolved, so species-based retrieval is blocked.';
