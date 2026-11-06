@@ -44,6 +44,10 @@ python3 scripts/rebuild.py
 python3 scripts/rebuild.py --check
 ```
 
+## Ten-paper pilot literature screening
+
+All ten frozen generalization candidates received source-based assistant research screening before rank exposure: nine assessed useful and one context only. The original human-review file stays unresolved, and frozen rankings remain withheld pending eligible human review. See [the source-screen report](docs/generalization_source_followup_2026-11-05.md). These judgments are not independent human gold labels or performance metrics.
+
 ## Additional source-supported ethnobotanical context
 
 A follow-up to the [missing-field audit](docs/missing_field_source_audit_2026-11-05.md) identifies related Cree diabetes-symptom plant parts for four records: T007 (tamarack inner bark), T009 (mountain ash inner bark, with branches separately reported), T010 (balsam poplar inner bark), and T012 (Labrador tea leaves). Original indexed claims remain unchanged. The evidence and limitations are stored in `data/curated/missing_field_source_evidence.jsonl` and exposed in the demo data as supplementary context, rather than silently changing frozen comparison labels or rankings.
