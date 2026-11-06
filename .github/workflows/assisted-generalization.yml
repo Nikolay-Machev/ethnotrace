@@ -1,8 +1,5 @@
 name: Assisted exploratory generalization scoring
 on:
-  push:
-    branches:
-      - assisted-new-paper-ranker-evaluation-2026-11-05
   workflow_dispatch:
 permissions:
   contents: read
