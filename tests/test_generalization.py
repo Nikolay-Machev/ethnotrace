@@ -5,8 +5,10 @@ import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
+
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 import evaluate_generalization as pilot
+
 
 class GeneralizationTests(unittest.TestCase):
     def test_unready_review_blocks_inference(self):
@@ -17,12 +19,16 @@ class GeneralizationTests(unittest.TestCase):
                 pilot.run(None)
 
     def test_assistant_source_research_and_assisted_approval_remain_non_blinded(self):
-        source_path = Path(__file__).resolve().parents[1] / "data/generalization/assistant_source_reviews_2026-11-05.jsonl"
+        source_path = (
+            Path(__file__).resolve().parents[1] / "data/generalization/assistant_source_reviews_2026-11-05.jsonl"
+        )
         researched = [json.loads(line) for line in source_path.read_text().splitlines() if line.strip()]
         _, candidates, reviews, ready = pilot.check()
         self.assertEqual(len(researched), 10)
-        self.assertEqual({(r["claim_id"], r["evidence_id"]) for r in researched},
-                         {(r["claim_id"], r["evidence_id"]) for r in candidates})
+        self.assertEqual(
+            {(r["claim_id"], r["evidence_id"]) for r in researched},
+            {(r["claim_id"], r["evidence_id"]) for r in candidates},
+        )
         self.assertEqual(sum(r["source_assessment"] == "useful" for r in researched), 9)
         self.assertEqual(sum(r["source_assessment"] == "context_only" for r in researched), 1)
         for r in researched:
@@ -53,18 +59,29 @@ class GeneralizationTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             root = Path(d)
             (root / "manifest.json").write_text(json.dumps({"sha256": {}}))
-            (root / "candidates.jsonl").write_text("".join(json.dumps(r)+"\n" for r in candidates))
+            (root / "candidates.jsonl").write_text("".join(json.dumps(r) + "\n" for r in candidates))
             ready = copy.deepcopy(reviews)
             for r in ready:
-                r.update(decision="context_only", reviewer="Synthetic test", reviewed_on="2026-11-04",
-                         rationale="Synthetic test only", sources_checked=[{"url":"https://example.org","depth":"test"}],
-                         saw_rankings_or_assistant_labels=False, previously_reviewed_this_pair=False)
+                r.update(
+                    decision="context_only",
+                    reviewer="Synthetic test",
+                    reviewed_on="2026-11-04",
+                    rationale="Synthetic test only",
+                    sources_checked=[{"url": "https://example.org", "depth": "test"}],
+                    saw_rankings_or_assistant_labels=False,
+                    previously_reviewed_this_pair=False,
+                )
+
             def save():
-                (root / "reviews.jsonl").write_text("".join(json.dumps(r)+"\n" for r in ready))
+                (root / "reviews.jsonl").write_text("".join(json.dumps(r) + "\n" for r in ready))
+
             with patch.object(pilot, "FOLDER", root):
-                save();self.assertTrue(pilot.check()[3])
-                ready[0]["saw_rankings_or_assistant_labels"]=True
-                save();self.assertFalse(pilot.check()[3])
-                ready[0]["saw_rankings_or_assistant_labels"]=False
-                ready[0]["decision"]="unresolved"
-                save();self.assertFalse(pilot.check()[3])
+                save()
+                self.assertTrue(pilot.check()[3])
+                ready[0]["saw_rankings_or_assistant_labels"] = True
+                save()
+                self.assertFalse(pilot.check()[3])
+                ready[0]["saw_rankings_or_assistant_labels"] = False
+                ready[0]["decision"] = "unresolved"
+                save()
+                self.assertFalse(pilot.check()[3])

@@ -1,4 +1,5 @@
 """Offline rebuild. Review files are read as inputs, never published as outputs."""
+
 import argparse
 import shutil
 import subprocess
@@ -25,8 +26,11 @@ def rebuild(check=False):
         stage = Path(directory)
         for folder in ("imports", "config", "scripts", "data/review", "data/curated", "data/generalization"):
             shutil.copytree(ROOT / folder, stage / folder, ignore=shutil.ignore_patterns("__pycache__"))
-        for file in ("web/report.js", "data/evaluation/development_expectations.jsonl",
-                     "data/evaluation/semantic_rankings.json"):
+        for file in (
+            "web/report.js",
+            "data/evaluation/development_expectations.jsonl",
+            "data/evaluation/semantic_rankings.json",
+        ):
             (stage / file).parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(ROOT / file, stage / file)
         (stage / "docs").mkdir()
@@ -36,12 +40,18 @@ def rebuild(check=False):
         # checked-in review bytes, not their temporary reserialization.
         queue = stage / "data/review/retrieval_relevance.jsonl"
         original = queue.read_bytes()
-        for script in ("preprocess", "analyze_retrieval", "prepare_relevance_review",
-                       "evaluate", "evaluate_retrieval", "build_demo", "build_evaluation"):
+        for script in (
+            "preprocess",
+            "analyze_retrieval",
+            "prepare_relevance_review",
+            "evaluate",
+            "evaluate_retrieval",
+            "build_demo",
+            "build_evaluation",
+        ):
             if script == "evaluate":
                 queue.write_bytes(original)
-            subprocess.run([sys.executable, f"scripts/{script}.py"], cwd=stage,
-                           check=True, stdout=subprocess.DEVNULL)
+            subprocess.run([sys.executable, f"scripts/{script}.py"], cwd=stage, check=True, stdout=subprocess.DEVNULL)
         subprocess.run(["node", "scripts/render_example.cjs"], cwd=stage, check=True)
         produced = {p.relative_to(stage) for p in (stage / "data/processed").iterdir()}
         existing = {p.relative_to(ROOT) for p in (ROOT / "data/processed").iterdir() if p.is_file()}

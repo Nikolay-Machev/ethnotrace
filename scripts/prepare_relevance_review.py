@@ -8,9 +8,7 @@ def prepare():
     b = Baseline()
     p = ROOT / "data/review/retrieval_relevance.jsonl"
     queue = rows(p)
-    notes = {
-        r["paper_id"]: r for r in rows(ROOT / "data/curated/targeted_extractions.jsonl")
-    }
+    notes = {r["paper_id"]: r for r in rows(ROOT / "data/curated/targeted_extractions.jsonl")}
     packet = [
         "<!-- Generated, do not edit. Run python3 scripts/rebuild.py. -->\n",
         "# Retrieval relevance review\n",
@@ -47,13 +45,8 @@ def prepare():
         if q["evidence_id"] in notes:
             note = notes[q["evidence_id"]]
             q["provisional_retrieval_relevant"] = True
-            q["rationale"] = (
-                note["gap_relevance"]
-                + " Relevance does not establish support for the traditional use."
-            )
-            q["annotation_method"] = (
-                "assistant_targeted_source_inspection_not_human_review"
-            )
+            q["rationale"] = note["gap_relevance"] + " Relevance does not establish support for the traditional use."
+            q["annotation_method"] = "assistant_targeted_source_inspection_not_human_review"
             q["targeted_extraction_id"] = note["extraction_id"]
         packet += [
             f"## {q['claim_id']} / {q['evidence_id']}\n",
