@@ -11,7 +11,7 @@
     "note": "Assisted agreement between completed reviews, not independently blinded adjudication or held-out gold.",
     "retrieval_relevance_adjudicated": 0
   },
-  "baseline_version": "1.1",
+  "baseline_version": "1.2",
   "case_count": 20,
   "development_checks": {
     "macro_recall_at_5_for_seeded_links": 0.9166666666666666,
@@ -37,7 +37,7 @@
   "input_sha256": {
     "data/review/adjudicated.jsonl": "f0ef20da24801fd6a32ce4dd341d1d63118641c853b68586395996683a874783",
     "data/review/assistant_relevance_screen.jsonl": "7061232d92f7d90b7943f5ab57eea7970e5896b4d57381b7775f3a515f7250c4",
-    "data/review/retrieval_relevance.jsonl": "52c66d33768a9c0af69b94e3e2d84d467c3d711e270c3f885b5e05d2912e3248",
+    "data/review/retrieval_relevance.jsonl": "21f991bbae7127837427a30b870714d2819b0c5b85942a91d29d8d48fbc339df",
     "data/review/retrieval_relevance_human_submissions.jsonl": "931d3323720fb6deceba2a91beca5225055db9d5025ea725b4e9d5f28206fe23",
     "data/review/retrieval_relevance_source_followup_2026-11-05.jsonl": "d3e0048930068c723d490e36312f3e47acc15bc91c434a6250469c02543c7acd",
     "data/review/review_cases.jsonl": "daf45e51eb6cf8d92b1a869509ed5316b17ed04b23c75b6e8877e3667030f938",

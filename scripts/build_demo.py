@@ -1,9 +1,9 @@
 """Export baseline results and recorded review status to a static, offline demo."""
 import json
-from retrieve import Baseline, ROOT, VERSION, rows
+from current_retrieve import Baseline, ROOT, VERSION, rows
 from atlas import summarize
 from gaps import explain
-from semantic_retrieval import load_snapshot
+from current_semantic import load_snapshot
 
 def build():
     b = Baseline()

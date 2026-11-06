@@ -1,3 +1,5 @@
+> Archived development note. See [current documentation](../README.md) for status.
+
 # Source follow-up and reviewer decisions
 
 This follow-up checked the author abstracts indexed in Europe PMC (4 November 2026). It is assistant research for the reviewer. It does not change the human judgments, the experimental index or any retrieval metric.
@@ -21,7 +23,7 @@ The primary-abstract descriptions above are assistant research, not primary sour
 
 ## Primary publication follow-up, 5 November 2026
 
-The supplemental [five-pair source assessment](../data/review/retrieval_relevance_source_followup_2026-11-05.jsonl) documents source-supported dispositions for the five pairs whose joint human reviews were unfinished or inconsistent. **These are assistant literature assessments, not new judgments authored or approved by Nikolay Machev or Alex Karadjov.** The named review submissions, unresolved/provisional states and generated human ranking metrics are preserved. Each of the 10 corresponding rows in `retrieval_relevance.jsonl` includes an `assistant_source_followup` object with evidence and status provenance.
+The supplemental [five-pair source assessment](../../data/review/retrieval_relevance_source_followup_2026-11-05.jsonl) documents source-supported dispositions for the five pairs whose joint human reviews were unfinished or inconsistent. **These are assistant literature assessments, not new judgments authored or approved by Nikolay Machev or Alex Karadjov.** The named review submissions, unresolved/provisional states and generated human ranking metrics are preserved. Each of the 10 corresponding rows in `retrieval_relevance.jsonl` includes an `assistant_source_followup` object with evidence and status provenance.
 
 | Pair | Primary-source assessment | Why |
 | --- | --- | --- |

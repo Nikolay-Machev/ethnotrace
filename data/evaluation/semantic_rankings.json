@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "input_sha256": "20ffbdee6867cd487a33aa6486b9923daac564a9e8b6872f9f6aba41f208309d",
+  "input_sha256": "f06fd4730948d223286a406ec14c7667287290caf51c9ee37c1d2898f1a78870",
   "model": "sentence-transformers/all-MiniLM-L6-v2",
   "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
   "packages": {
@@ -333,5 +333,6 @@
       "cosine": {},
       "rrf": {}
     }
-  }
+  },
+  "cache_update": "Baseline 1.2: lexical scores/refusion refreshed; query/document texts and cosine scores unchanged."
 }

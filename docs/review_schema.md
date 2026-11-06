@@ -15,3 +15,9 @@ Current state at the November 5, 2026 validation: Reviewer B (Alex Karadjov) has
 `evaluate.py` reports extraction coverage, comparison progress and assisted baseline-label agreement separately from independent metrics. It refuses independent adjudication without explicit independent annotation provenance from both reviewers. Experimental-finding accuracy remains null until a separate reference-label evaluation is implemented; the baseline currently returns source-derived directions rather than predicting them.
 
 Run `python scripts/evaluate.py` after review edits and `python scripts/build_demo.py` to refresh the demo snapshot. Do not change pending labels just to obtain metrics. The generator preserves existing reviews and creates version-2 forms only when missing.
+
+## Current relevance records and history
+
+`data/review/retrieval_relevance.jsonl` stores the current named judgment, rationale, source checks and approval provenance. `history_id` links to an exact pre-normalization record in `data/review/history/retrieval_relevance_history.jsonl`. Historical records retain their earlier nested revisions; new revisions should append a snapshot to the history file rather than nest it in the current record.
+
+Source and account snapshots can be reconstructed from the indexed data using `claim_id` and `evidence_id`. The review packet rebuild adds those contexts in staging. They are not duplicated in the current review file. A completed decision must not carry an active `unresolved_reason`. Unknown preparation or other scientific limitations remain valid in `compares` and `limitations`; completing a relevance review does not resolve them.

@@ -1,3 +1,5 @@
+> Archived development note. See [current documentation](../README.md) for status.
+
 # Alex Karadjov: 20 approved assisted comparison reviews
 
 All 20 case-level proposals in `data/review/reviewer_b_comparison_proposals.jsonl` were explicitly reviewed and approved by Alex Karadjov on 5 November 2026. They are now entered into the canonical `data/review/reviewer_b.jsonl` with `comparison_review_status: completed`, `status: completed`, matching `pair_label` and `claim_comparability.label`, case-specific rationales, and both source locators.

@@ -1,3 +1,5 @@
+> Archived development note. See [current documentation](../README.md) for status.
+
 # Remaining source reviews
 
 ## Relevance decisions finalized, 5 November 2026
@@ -8,7 +10,7 @@ These are assisted development relevance judgments, not independently blinded go
 
 ## Retrieval relevance
 
-Read [the 33-candidate packet](retrieval_review_packet.md), then enter answers in `data/review/retrieval_relevance.jsonl`. Every candidate needs a decision for a query to support a complete retrieval evaluation. Negative results and explicit mismatches may still be useful evidence. Source access problems should leave a decision unresolved, not force it to false.
+Read [the 33-candidate packet](../retrieval_review_packet.md), then enter answers in `data/review/retrieval_relevance.jsonl`. Every candidate needs a decision for a query to support a complete retrieval evaluation. Negative results and explicit mismatches may still be useful evidence. Source access problems should leave a decision unresolved, not force it to false.
 
 For a completed entry, supply all five human fields:
 
@@ -26,7 +28,7 @@ This is an example of the required shape, not a decision for any candidate. Reta
 
 ## Partner comparison review
 
-Use the existing [comparison packets](review_cases.md) and `data/review/reviewer_b.jsonl`. Check the documented use narrowly against species, part, preparation, measured outcome and setting. Enter the comparison label and rationale under the existing schema, keep its compatibility fields consistent, and record whether assistant judgments were seen. Do not claim blind independence after seeing proposed answers. Extraction agreement alone does not complete comparison review. Preserve disagreements for adjudication.
+Use the existing [comparison packets](../review_cases.md) and `data/review/reviewer_b.jsonl`. Check the documented use narrowly against species, part, preparation, measured outcome and setting. Enter the comparison label and rationale under the existing schema, keep its compatibility fields consistent, and record whether assistant judgments were seen. Do not claim blind independence after seeing proposed answers. Extraction agreement alone does not complete comparison review. Preserve disagreements for adjudication.
 
 ## Targeted extraction review
 

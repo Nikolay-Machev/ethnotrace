@@ -2,7 +2,7 @@ import sys,unittest
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
 from gaps import explain
-from retrieve import Baseline
+from current_retrieve import Baseline
 class GapTests(unittest.TestCase):
  def test_unknown_is_record_missing_not_source_absent(self):
   b=Baseline();c=b.claims['T011']['raw'];r=b.retrieve('T011',1000)

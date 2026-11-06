@@ -48,4 +48,4 @@ Only after source inspection supports a defensible decision should an entry beco
 
 Run `python scripts/review_progress.py` and the review/evaluation tests after updating review records. Regenerate reports with `python3 scripts/rebuild.py`. Do not describe provisional or unresolved entries as completed, and do not claim independent or held-out accuracy from assisted development reviews.
 
-See [the reviewer follow-up](relevance_followup.md), [remaining source reviews](next_reviews.md), and [review workflow](review_workflow.md) for case context and criteria.
+See [the reviewer follow-up](archive/relevance_followup.md), [remaining source reviews](archive/next_reviews.md), and [review workflow](review_workflow.md) for case context and criteria.

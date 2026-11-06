@@ -1,3 +1,5 @@
+> Archived development note. See [current documentation](../README.md) for status.
+
 # Human relevance review worksheet
 
 Blank worksheet retained for provenance; all listed pairs have since received reviewer submissions. For current status see [review instructions](next_reviews.md). Starting point on 4 November: 27 open candidate–account pairs in five accounts; all six T008 decisions are recorded. This is a worksheet for the 33-candidate retrieval evaluation, not a request to label all 51 publications. It contains no model ranks or proposed answers.

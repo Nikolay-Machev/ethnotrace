@@ -52,6 +52,8 @@ const root=path.resolve(__dirname,'..'),web=path.join(root,'web');
    await page.locator('[data-account="T008"][data-dimension="part"][data-bucket="different_parts"]').click();
    assert.equal(await page.locator('#results article').count(),1);
    assert.match(await page.locator('#results').innerText(),/E004/);
+   assert.match(await page.locator('#results table').first().innerText(), /Part comparison/i);
+   assert.match(await page.locator('#results table').first().innerText(), /different parts/i);
    assert.match(await page.locator('#gaps').innerText(),/Record when checked/);
    for(const mode of ['lexical','semantic','hybrid']){
     await page.locator('#ranking').selectOption(mode);

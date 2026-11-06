@@ -49,4 +49,12 @@ node tests/browser_workflow.cjs
 
 A separately installed Chromium can be selected with `BROWSER_EXECUTABLE`; `BROWSER_ARGS` accepts a JSON array of launch arguments. These dependencies are not required to view the app.
 
-The scientific limitations remain: assisted review is not independent accuracy evidence, supplementary community context does not establish an original account's missing recipe, and preclinical findings do not establish clinical efficacy. See the [retrieval comparison](human_retrieval_comparison.md) and [assisted pilot report](assisted_generalization_results_2026-11-05.md). Pitch preparation remains outside this work.
+The scientific limitations remain: assisted review is not independent accuracy evidence, supplementary community context does not establish an original account's missing recipe, and preclinical findings do not establish clinical efficacy. See the [retrieval comparison](human_retrieval_comparison.md) and [assisted pilot report](archive/assisted_generalization_results_2026-11-05.md). Pitch preparation remains outside this work.
+
+## Cleanup — 6 November 2026
+
+Python support is documented as 3.11 and 3.12, matching CI. Code and original technical documentation are MIT licensed; source-material rights are excluded. Earlier phase notes are archived under `docs/archive/`.
+
+The 66 current relevance submissions are separated from their full historical snapshots. Eight approved follow-up rows had obsolete unresolved fields; these now use the approved source checks and explanations. Decisions and rationales are unchanged. The validator rejects an active unresolved reason on a completed row while permitting genuine scientific uncertainty.
+
+Development baseline 1.2 removes the plant-part mismatch penalty. E004 increases from score 8 to 10 but remains sixth. All candidate orders, and therefore retrieval metrics, remain unchanged. The browser shows part comparison separately. Frozen pilot files and scientific inputs remain unchanged.

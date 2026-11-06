@@ -2,11 +2,11 @@
 
 # EthnoTrace evidence report: Pitcher plant (T008)
 
-Retrieval baseline: 1.1
+Retrieval baseline: 1.2
 Selected ranker: hybrid
 Semantic model: sentence-transformers/all-MiniLM-L6-v2
 Model revision: 1110a243fdf4706b3f48f1d95db1a4f5529b4d41
-Ranking input snapshot: 20ffbdee6867cd487a33aa6486b9923daac564a9e8b6872f9f6aba41f208309d
+Ranking input snapshot: f06fd4730948d223286a406ec14c7667287290caf51c9ee37c1d2898f1a78870
 Scope: all indexed candidates for this account, including literature leads. Display filters do not restrict this export.
 Research prototype. Findings and claim comparability are separate. Missing indexed evidence does not imply absence of published research. No clinical efficacy conclusion is made.
 

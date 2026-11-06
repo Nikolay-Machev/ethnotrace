@@ -24,6 +24,8 @@ def grouped_review_records(records):
             raise ValueError('Duplicate reviewer for relevance pair: ' + str(key))
         for r in submissions:
             if r.get('human_review_status') == 'completed':
+                if 'unresolved_reason' in r or 'unresolved_reason' in r.get('human_review_details', {}):
+                    raise ValueError('Completed relevance review retains unresolved_reason: ' + str(key))
                 if not (type(r.get('human_retrieval_relevant')) is bool
                         and r.get('human_rationale') and r.get('human_reviewer_id')
                         and r.get('source_checked') is True):

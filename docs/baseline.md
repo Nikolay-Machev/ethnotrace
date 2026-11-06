@@ -6,7 +6,7 @@ The offline baseline indexes 59 evidence documents: 12 extracted experimental un
 
 A query is one of the 12 traditional-use records. Candidates must overlap an explicitly recorded scientific species. Unresolved species return no candidates; common names are not silently resolved. A multi-species record with an overlap is a candidate, not proof of a single-species preparation.
 
-Candidates receive 10 points for species overlap, two for overlapping plant parts (minus two for known different parts), and one for a shared explicit solvent (minus one for different explicit solvents). Unknown fields contribute zero. A token-overlap score compares the original use description with the experimental endpoint or publication title. Ties are ordered by evidence ID. This is a transparent lexical baseline, not a semantic outcome model.
+Candidates receive 10 points for species overlap, two for overlapping plant parts (zero for known different parts), and one for a shared explicit solvent (minus one for different explicit solvents). Unknown fields contribute zero. A token-overlap score compares the original use description with the experimental endpoint or publication title. Ties are ordered by evidence ID. This is a transparent lexical baseline, not a semantic outcome model.
 
 Experimental result direction, earlier screening labels and reported result text do not influence ranking. Each output includes score components, citations, available passages and locations, evidence level and comparison limitations.
 
@@ -26,10 +26,16 @@ The generated report records review-input hashes. Predictions are saved separate
 
 ```bash
 python scripts/build_review_set.py
-python scripts/retrieve.py --claim T011 --limit 5
-python scripts/retrieve.py --claim T008 --compare E004
+python scripts/current_retrieve.py --claim T011 --limit 5
+python scripts/current_retrieve.py --claim T008 --compare E004
 python scripts/evaluate.py
 python -m unittest discover -s tests -v
 ```
 
 Outputs are `data/evaluation/baseline_report.json` and `baseline_predictions.jsonl`. The implementation uses Python's standard library and performs no network calls or model training.
+
+## Baseline 1.2
+
+The current development ranker removes the -2 penalty for different plant parts. Part overlap retains its +2 contribution. Mismatches remain visible in the comparison table and do not imply irrelevant evidence. For T008/E004, the score rises from 8 to 10, but its rank remains sixth of six; the candidate order and reported development retrieval metrics are unchanged. No extra boost is applied to this example.
+
+`retrieve.py`, `semantic_retrieval.py` and the original pilot evaluator remain frozen for pilot reproducibility. Active builds use `current_retrieve.py`, `current_semantic.py` and `evaluate_retrieval.py`. The semantic cache reuses identical text embeddings/cosine scores and refreshes only lexical inputs and rank fusion. This change was made after development review and is not a new held-out validation.

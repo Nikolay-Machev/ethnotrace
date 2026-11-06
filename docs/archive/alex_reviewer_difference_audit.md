@@ -1,3 +1,5 @@
+> Archived development note. See [current documentation](../README.md) for status.
+
 # Alex Karadjov and Nikolay Machev: retrieval-review difference audit
 
 Generated from `data/review/retrieval_relevance.jsonl`. This is a comparison of existing reviewer submissions, not an adjudicated gold standard.

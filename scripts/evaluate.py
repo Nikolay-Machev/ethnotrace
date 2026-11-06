@@ -5,7 +5,7 @@ import hashlib
 import json
 from collections import defaultdict
 from pathlib import Path
-from retrieve import ROOT, VERSION, Baseline, rows
+from current_retrieve import ROOT, VERSION, Baseline, rows
 
 LABELS = {'support', 'no_detected_effect', 'mixed_evidence', 'not_directly_comparable', 'insufficient_evidence'}
 

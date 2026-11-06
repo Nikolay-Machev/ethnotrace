@@ -1,6 +1,8 @@
+> Archived development note. See [current documentation](../README.md) for status.
+
 # Frozen ten-paper generalization pilot: source research (5 November 2026)
 
-This document summarizes an **assistant-authored, pre-ranking primary-source literature assessment** of all ten candidate pairs. Detailed individual records, accessible source sections, uncertainty and overlap notes are in [the source review ledger](../data/generalization/assistant_source_reviews_2026-11-05.jsonl). The frozen manifest and candidate files were not changed. No model predictions, lexical rankings, semantic rankings or fusion scores were opened to prepare these judgments.
+This document summarizes an **assistant-authored, pre-ranking primary-source literature assessment** of all ten candidate pairs. Detailed individual records, accessible source sections, uncertainty and overlap notes are in [the source review ledger](../../data/generalization/assistant_source_reviews_2026-11-05.jsonl). The frozen manifest and candidate files were not changed. No model predictions, lexical rankings, semantic rankings or fusion scores were opened to prepare these judgments.
 
 **Critical status**: The findings here are **not** independently reviewed human labels. `data/generalization/reviews.jsonl` is unchanged (ten unresolved reviewer rows); the scoring gate remains closed until a named human accepts or revises each finding, records their own checked-source depth and truthful exposure history. An approval after reading this assessment is assisted, not independent blinded evaluation. For an independent claim, ask a reviewer who has not seen these labels or rankings to follow the original packet.
 

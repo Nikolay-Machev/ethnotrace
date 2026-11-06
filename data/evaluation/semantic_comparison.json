@@ -1,7 +1,7 @@
 {
   "model": "sentence-transformers/all-MiniLM-L6-v2",
   "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
-  "input_sha256": "20ffbdee6867cd487a33aa6486b9923daac564a9e8b6872f9f6aba41f208309d",
+  "input_sha256": "f06fd4730948d223286a406ec14c7667287290caf51c9ee37c1d2898f1a78870",
   "scope": "Same six seeded development queries and candidate pools; not held-out; no model fitting or hyperparameter tuning.",
   "seeded_development": {
     "lexical": {
@@ -538,17 +538,9 @@
             },
             "sources_checked": [
               {
-                "url": "https://scilit.com/publications/168c25b387597e3fb2d7d9d20d324d2f",
-                "depth": "abstract summary only (third-party index; the fetch tool returned a summary, not the verbatim abstract)"
-              },
-              {
-                "url": "https://pubmed.ncbi.nlm.nih.gov/18066122/",
-                "depth": "fetched but returned no usable content"
-              },
-              {
                 "url": "https://drpatrickowen.com/wp-content/uploads/2016/09/d38d03_dde8f25c8ca74ddc87e266527a84ab01.pdf",
-                "depth": "assistant source follow-up reviewed and approved; direct independent source inspection by named reviewer not separately documented",
-                "locator": "Table 1, pp. 1202\u20131203; Plant extracts, p.1203; Results p.1206\u20131207, Figures 2\u20134"
+                "locator": "Table 1, pp. 1202\u20131203; Plant extracts, p.1203; Results p.1206\u20131207, Figures 2\u20134",
+                "depth": "Approved assistant source follow-up; direct independent primary-source inspection by the named reviewer is not separately documented."
               }
             ]
           },
@@ -1065,22 +1057,9 @@
             },
             "sources_checked": [
               {
-                "url": "https://www.thieme-connect.com/products/ejournals/html/10.1055/s-0029-1240941",
-                "depth": "fetch blocked by bot-protection page; no content read"
-              },
-              {
-                "url": "https://peeref.com/works/14808361",
-                "depth": "login page only; no content read"
-              },
-              {
-                "url": "https://www.sigmaaldrich.com/AT/de/tech-docs/paper/191238",
-                "depth": "abstract-level summary of the comp\u2026",
-                "supplied_source_text": "https://www.sigmaaldrich.com/AT/de/tech-docs/paper/191238 (abstract-level summary of the comp\u2026"
-              },
-              {
                 "url": "https://pubmed.ncbi.nlm.nih.gov/20301057/",
-                "depth": "assistant source follow-up reviewed and approved; direct independent source inspection by named reviewer not separately documented",
-                "locator": "Primary author abstract: source material, 3T3-L1 methods and Populus-specific results"
+                "locator": "Primary author abstract: source material, 3T3-L1 methods and Populus-specific results",
+                "depth": "Approved assistant source follow-up; direct independent primary-source inspection by the named reviewer is not separately documented."
               }
             ]
           },
@@ -1347,18 +1326,9 @@
             },
             "sources_checked": [
               {
-                "url": "https://scilit.com/publications/4612019c9cdcdca49152dbece5082cf5",
-                "depth": "abstract-level summary only (returned as a summary of the abstract; not the abstract text verbatim)"
-              },
-              {
-                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8808167",
-                "depth": "full text of a different, later paper (Frontiers 2022 multivariate study): used o\u2026",
-                "supplied_source_text": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8808167 (full text of a different, later paper (Frontiers 2022 multivariate study): used o\u2026"
-              },
-              {
                 "url": "https://www.neurolipidomics.com/assets/pubs/2009_harbilas_therapeutics.pdf",
-                "depth": "assistant source follow-up reviewed and approved; direct independent source inspection by named reviewer not separately documented",
-                "locator": "Table 1, p. 481; Materials and Methods, p. 482; Results, p. 486, Figures 1(B), 2(B) and Figure 4"
+                "locator": "Table 1, p. 481; Materials and Methods, p. 482; Results, p. 486, Figures 1(B), 2(B) and Figure 4",
+                "depth": "Approved assistant source follow-up; direct independent primary-source inspection by the named reviewer is not separately documented."
               }
             ]
           },

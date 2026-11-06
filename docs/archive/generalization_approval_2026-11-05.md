@@ -1,3 +1,5 @@
+> Archived development note. See [current documentation](../README.md) for status.
+
 # Generalization pilot: reviewer approval of assisted source assessments
 
 Date: 5 November 2026

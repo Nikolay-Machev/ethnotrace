@@ -2,9 +2,10 @@
 import json
 from math import fsum
 from collections import defaultdict
-from retrieve import Baseline, ROOT, rows, tokenise
+from retrieve import Baseline as FrozenBaseline, ROOT, rows, tokenise
+from current_retrieve import Baseline
 
-class LegacyBaseline(Baseline):
+class LegacyBaseline(FrozenBaseline):
     def score(self, claim, evidence):
         score = super().score(claim, evidence)
         if score is None: return None
@@ -19,14 +20,14 @@ def analyze():
     for r in rows(ROOT/'data/evaluation/development_expectations.jsonl'):
         if r['expected_retrieval_membership']: truth[r['traditional_record_id']].add(r['evidence_id'])
     metrics = {}; comparisons = []; queue = []
-    for version, b in [('1.0', old), ('1.1', new)]:
+    for version, b in [('1.0', old), ('1.1', FrozenBaseline()), ('1.2', new)]:
         recalls=[]; reciprocal=[]
         for tid, linked in truth.items():
             ranked=b.retrieve(tid,1000)['results']; ids=[r['evidence_id'] for r in ranked]
             recalls.append(len(set(ids[:5]) & linked)/len(linked))
             reciprocal.append(next((1/(i+1) for i,e in enumerate(ids) if e in linked),0))
             comparisons.append({'version':version,'claim_id':tid,'seeded_links':sorted(linked),'ranked_ids':ids,'missed_at_5':sorted(linked-set(ids[:5]))})
-            if version=='1.1':
+            if version=='1.2':
                 for rank,r in enumerate(ranked,1):
                     extracted=r['evidence_id'] in b.experiments
                     queue.append({'claim_id':tid,'evidence_id':r['evidence_id'],'rank':rank,'source':r['source'],
@@ -50,17 +51,7 @@ def analyze():
         if not prior_reviews:
             updated_queue.append(r)
             continue
-        for prev in prior_reviews:
-            merged = dict(r)
-            for field in ('human_retrieval_relevant', 'human_rationale', 'human_review_status',
-                          'human_reviewer_id', 'human_review_details', 'source_checked',
-                          'traditional_context', 'experimental_context', 'targeted_extraction_id'):
-                if field in prev:
-                    merged[field] = prev[field]
-            if prev.get('annotation_method') == 'assistant_targeted_source_inspection_not_human_review':
-                for field in ('annotation_method', 'provisional_retrieval_relevant', 'rationale'):
-                    merged[field] = prev[field]
-            updated_queue.append(merged)
+        updated_queue.extend(prior_reviews)
     p.write_text(''.join(json.dumps(r, ensure_ascii=False)+'\n' for r in updated_queue))
     print(json.dumps({'metrics':metrics,'relevance_candidates':len(queue)}))
 if __name__=='__main__':analyze()

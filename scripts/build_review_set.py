@@ -1,7 +1,7 @@
 """Build source-linked review packets and separate development expectations. No reviews are fabricated."""
 import json
 from pathlib import Path
-from retrieve import ROOT, Baseline, rows
+from current_retrieve import ROOT, Baseline, rows
 
 def save(path, records):
     path.parent.mkdir(parents=True, exist_ok=True)

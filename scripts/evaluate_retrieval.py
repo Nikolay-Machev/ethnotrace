@@ -7,8 +7,8 @@ import json
 from collections import defaultdict
 from math import fsum
 from review_progress import grouped_review_records
-from retrieve import Baseline, ROOT, rows
-from semantic_retrieval import load_snapshot
+from current_retrieve import Baseline, ROOT, rows
+from current_semantic import load_snapshot
 
 METHODS = ("lexical", "semantic", "hybrid")
 
@@ -107,6 +107,9 @@ def evaluate():
                 },
             }
         )
+    # Resolve citations from indexed sources instead of repeating full source records in every review.
+    for (tid, eid), review in reviews.items():
+        review['source'] = b.present(b.claims[tid], b.documents[eid])['source']
     judged, excluded = human_comparison(cache["rankings"], reviews)
 
     def aggregate(records):

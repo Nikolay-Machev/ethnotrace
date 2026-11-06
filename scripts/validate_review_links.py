@@ -7,7 +7,7 @@ import argparse
 import json
 from pathlib import Path
 
-from retrieve import Baseline, ROOT, rows
+from current_retrieve import Baseline, ROOT, rows
 
 PACKET_FIELDS = (
     'record_id', 'species', 'original_plant_name', 'plant_part', 'preparation',

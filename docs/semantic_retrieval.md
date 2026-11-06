@@ -10,7 +10,7 @@ This first version ranks structured record text, not full papers or arbitrary pa
 
 ## Three methods
 
-- **Lexical:** unchanged baseline 1.1, including species eligibility, part and solvent scores, and text overlap.
+- **Lexical:** current baseline 1.2, including species eligibility, part and solvent scores, and text overlap.
 - **Semantic:** normalized query/document embeddings scored by cosine similarity, among exactly the same species-eligible candidates.
 - **Hybrid:** equal-weight reciprocal-rank fusion of lexical and semantic ranks, using `1/(60 + rank)` for each. The constant was fixed before inspecting results, not tuned to these cases.
 
@@ -26,7 +26,7 @@ source .venv-semantic/bin/activate
 # Optional on Linux: install the CPU-only torch wheel first.
 # pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
 pip install -r requirements-semantic.txt
-python scripts/semantic_retrieval.py --revision 1110a243fdf4706b3f48f1d95db1a4f5529b4d41
+python scripts/current_semantic.py --revision 1110a243fdf4706b3f48f1d95db1a4f5529b4d41
 python scripts/evaluate_retrieval.py
 python scripts/build_demo.py
 python scripts/build_evaluation.py
@@ -52,3 +52,9 @@ The current evaluator reconciles all submitted reviewers for a pair before scori
 ## Verification
 
 Automated checks cover the species gate, unresolved names, exclusion of annotation fields, unchanged comparability, deterministic rank fusion, stale-snapshot rejection, empty-positive-set handling and the three-mode renderer. The actual pretrained model was run successfully on the current collection. Browser interaction, cited exports and responsive layouts passed the integration suite; see the product audit.
+
+## Baseline 1.2
+
+The current development ranker removes the -2 penalty for different plant parts. Part overlap retains its +2 contribution. Mismatches remain visible in the comparison table and do not imply irrelevant evidence. For T008/E004, the score rises from 8 to 10, but its rank remains sixth of six; the candidate order and reported development retrieval metrics are unchanged. No extra boost is applied to this example.
+
+`retrieve.py`, `semantic_retrieval.py` and the original pilot evaluator remain frozen for pilot reproducibility. Active builds use `current_retrieve.py`, `current_semantic.py` and `evaluate_retrieval.py`. The semantic cache reuses identical text embeddings/cosine scores and refreshes only lexical inputs and rank fusion. This change was made after development review and is not a new held-out validation.

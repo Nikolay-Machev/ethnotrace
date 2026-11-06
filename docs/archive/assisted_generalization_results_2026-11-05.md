@@ -1,6 +1,8 @@
+> Archived development note. See [current documentation](../README.md) for status.
+
 # Assisted exploratory new-paper ranker evaluation
 
-Source: [successful GitHub Actions scoring run](https://github.com/Nikolay-Machev/makeathon-2026-ethnotrace-traditional-knowledge-mining/actions/runs/42146625815). Structured results: [assisted_exploratory_results.json](../data/generalization/assisted_exploratory_results.json).
+Source: [successful GitHub Actions scoring run](https://github.com/Nikolay-Machev/makeathon-2026-ethnotrace-traditional-knowledge-mining/actions/runs/42146625815). Structured results: [assisted_exploratory_results.json](../../data/generalization/assisted_exploratory_results.json).
 
 The original ten-paper `new-papers-v1` frozen protocol and pinned ranking/model inputs were preserved byte-for-byte. The ten source-based relevance judgments were first prepared by an assistant and explicitly approved by Alex Karadjov before the ranker predictions were inspected. Accordingly, the reference `scripts/evaluate_generalization.py --score` gate **still rejects** these labels as non-blinded. A separate `scripts/evaluate_assisted_generalization.py` reports this result as **assisted exploratory**, not independently adjudicated generalization.
 

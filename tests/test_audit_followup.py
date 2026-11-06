@@ -3,7 +3,7 @@ from pathlib import Path
 from statistics import mean
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
 from build_evaluation import random_expectation
-from retrieve import Baseline,ROOT,rows
+from current_retrieve import Baseline,ROOT,rows
 class AuditTests(unittest.TestCase):
  def test_random_expectation_matches_exhaustive_uniform_orders(self):
   n,m=6,2

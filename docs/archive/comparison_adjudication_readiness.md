@@ -1,3 +1,5 @@
+> Archived development note. See [current documentation](../README.md) for status.
+
 # Comparison adjudication results: RC001–RC020
 
 Reviewer A: Nikolay-Machev. Reviewer B: Alex Karadjov. Updated 5 November 2026.

@@ -1,3 +1,5 @@
+> Archived development note. See [current documentation](../README.md) for status.
+
 # T008 relevance-review follow-up — 5 November 2026
 
 This addendum records a follow-up submission for T008 from reviewer **Alex Karadjov** (`Alex Karadjov`). It is kept separate from the canonical queue and the earlier human-submission ledger so the original entries and provenance are not overwritten. The reviewer reports these cases verified; the source depth is recorded as provided and should not be overstated.
@@ -9,4 +11,4 @@ This addendum records a follow-up submission for T008 from reviewer **Alex Karad
 
 The repository's earlier T008 review history records exposure to assistant-screen labels. These follow-up decisions are therefore not blind. This addendum is not itself a completed canonical retrieval evaluation; reconcile entries into the canonical queue only after checking required fields and keeping unresolved cases pending.
 
-Structured entries: [t008_relevance_followup_2026-11-05.jsonl](../data/review/t008_relevance_followup_2026-11-05.jsonl).
+Structured entries: [t008_relevance_followup_2026-11-05.jsonl](../../data/review/t008_relevance_followup_2026-11-05.jsonl).

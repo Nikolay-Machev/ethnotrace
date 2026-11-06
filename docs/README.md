@@ -1,22 +1,18 @@
 # EthnoTrace documentation
 
-| Topic | Read this |
+| Topic | Current documentation |
 | --- | --- |
-| Where the data came from | [Build phases and reproduction notes](build_history.md), [provenance and AI disclosure](provenance.md), [pinned source manifest](../imports/dataset_manifest.json), [bibliography](../imports/dataset/docs/papers.md), [references](../imports/dataset/docs/references.md), [rights and attribution](rights.md) |
-| How records are prepared | [Preprocessing](preprocessing.md), [quality findings and E005 correction](data_quality.md) |
-| What the app does | [Atlas, gaps and cited drill-down](evidence_atlas.md), [targeted source notes](../data/curated/targeted_extractions.jsonl), [example report for T008](reports/T008-evidence.md) |
-| How ranking is evaluated | [Baseline](baseline.md), [ranking errors](retrieval_error_report.md), [semantic and hybrid experiment](semantic_retrieval.md) |
-| How to review evidence | [Comparison workflow](review_workflow.md), [schema](review_schema.md), [case index](review_cases.md), [27-pair human worksheet](human_relevance_worksheet.md), [candidate review packet](retrieval_review_packet.md), [human review instructions](next_reviews.md), [assistant screening pass](retrieval_screen_notes.md) |
-| Historical plan | [Original atlas plan (archived)](archive/evidence_atlas_plan.md) |
+| Data and rights | [Provenance](provenance.md), [rights](rights.md), [preprocessing](preprocessing.md), [data quality](data_quality.md) |
+| Product | [Evidence atlas](evidence_atlas.md), [product audit](product_audit.md), [example cited report](reports/T008-evidence.md) |
+| Retrieval | [Baseline](baseline.md), [semantic retrieval](semantic_retrieval.md), [human evaluation](human_retrieval_comparison.md) |
+| Reviews | [Workflow](review_workflow.md), [schema](review_schema.md), [case index](review_cases.md), [candidate packet](retrieval_review_packet.md), [validation](review_data_validation.md) |
+| Pilot | [Frozen protocol](generalization_protocol.md), [frozen review packet](generalization_review_packet.md) |
+| Submission | [Readiness](submission_readiness.md) |
 
-[Submission readiness and remaining owner actions](submission_readiness.md)
+Earlier plans, worksheets and follow-up discussions are in [archive/](archive/). They document development history; the current status is in the product audit and generated evaluation.
 
-## Rebuilding
+## Rebuilding and validation
 
-From the repository root, run `python3 scripts/rebuild.py`. Use `--check` for a read-only byte comparison with a clean rebuild. The command stages inputs in a temporary directory, rebuilds processed records, evaluation reports, the review packet, both browser data files and the T008 example report, then copies back only changed generated outputs. Human and assistant review files, the pinned import and semantic ranking cache are inputs. They are never copied back. T008 is a worked example; the browser can export any selected account.
+Use Python 3.11 or 3.12 and Node.js. Run `python scripts/rebuild.py` to regenerate outputs, or `python scripts/rebuild.py --check` to check freshness. Reviews and source data remain inputs. The build stages them in a temporary directory and copies back only generated outputs.
 
-The cached semantic rankings are produced by a separate model run. If inputs to the model change, follow [the pinned-model reproduction instructions](semantic_retrieval.md) first. The regular rebuild checks the cache fingerprint and does not download weights.
-
-Run `python3 -m unittest discover -s tests`, `node tests/test_web.cjs` and `node tests/test_reports.cjs` for validation. The Python suite includes the generated-file freshness check.
-
-[Product verification — 5 November 2026](product_audit.md): retrieval evaluation, pilot status, actionable gaps and browser workflow checks.
+Run `python -m unittest discover -s tests`, `node tests/test_web.cjs` and `node tests/test_reports.cjs`. See [semantic setup](semantic_retrieval.md) if model input text changes; the normal rebuild uses the committed cache without downloading weights.

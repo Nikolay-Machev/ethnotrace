@@ -1,8 +1,8 @@
 import copy,json,sys,tempfile,unittest
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-from retrieve import Baseline
-from semantic_retrieval import inputs,digest,fuse,snapshot,load_snapshot
+from current_retrieve import Baseline
+from current_semantic import inputs,digest,fuse,snapshot,load_snapshot
 from evaluate_retrieval import metrics
 class FakeEncoder:
  def encode_query(self,texts,**kwargs):return [[1.0,0.0] for _ in texts]

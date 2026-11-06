@@ -8,7 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
-from retrieve import Baseline
+from current_retrieve import Baseline
 from evaluate import evaluate
 
 class BaselineTests(unittest.TestCase):

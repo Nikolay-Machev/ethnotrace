@@ -59,9 +59,7 @@ Approved source follow-up: Fraser et al. (2007) Table 1 compares L. laricina bar
 Fraser MH; Cuerrier A; Haddad PS; Arnason JT; Owen PL; Johns T. Medicinal plants of Cree communities (Québec, Canada): antioxidant activity of plants used to treat type 2 diabetes symptoms. Canadian journal of physiology and pharmacology. 2007;85(11):1200-1214. doi:10.1139/y07-108. PMID:18066122.
 https://pubmed.ncbi.nlm.nih.gov/18066122/
 
-- abstract summary only (third-party index; the fetch tool returned a summary, not the verbatim abstract): https://scilit.com/publications/168c25b387597e3fb2d7d9d20d324d2f
-- fetched but returned no usable content: https://pubmed.ncbi.nlm.nih.gov/18066122/
-- assistant source follow-up reviewed and approved; direct independent source inspection by named reviewer not separately documented: https://drpatrickowen.com/wp-content/uploads/2016/09/d38d03_dde8f25c8ca74ddc87e266527a84ab01.pdf
+- Approved assistant source follow-up; direct independent primary-source inspection by the named reviewer is not separately documented.: https://drpatrickowen.com/wp-content/uploads/2016/09/d38d03_dde8f25c8ca74ddc87e266527a84ab01.pdf
 
 ### P22542642
 
@@ -219,10 +217,7 @@ Approved source follow-up: Martineau et al. (2010) explicitly tests Populus bals
 Martineau LC; Hervé J; Muhamad A; Saleem A; Harris CS; Arnason JT; Haddad PS. Anti-adipogenic activities of Alnus incana and Populus balsamifera bark extracts, part I: sites and mechanisms of action. Planta medica. 2010;76(13):1439-1446. doi:10.1055/s-0029-1240941. PMID:20301057.
 https://pubmed.ncbi.nlm.nih.gov/20301057/
 
-- fetch blocked by bot-protection page; no content read: https://www.thieme-connect.com/products/ejournals/html/10.1055/s-0029-1240941
-- login page only; no content read: https://peeref.com/works/14808361
-- abstract-level summary of the comp…: https://www.sigmaaldrich.com/AT/de/tech-docs/paper/191238
-- assistant source follow-up reviewed and approved; direct independent source inspection by named reviewer not separately documented: https://pubmed.ncbi.nlm.nih.gov/20301057/
+- Approved assistant source follow-up; direct independent primary-source inspection by the named reviewer is not separately documented.: https://pubmed.ncbi.nlm.nih.gov/20301057/
 
 ### P22504062
 
@@ -300,9 +295,7 @@ Approved source follow-up: Harbilas et al. (2009) identifies Vaccinium vitis-ida
 Harbilas D; Martineau LC; Harris CS; Adeyiwola-Spoor DC; Saleem A; Lambert J; Caves D; Johns T; Prentki M; Cuerrier A; Arnason JT; Bennett SA; Haddad PS. Evaluation of the antidiabetic potential of selected medicinal plant extracts from the Canadian boreal forest used to treat symptoms of diabetes: part II. Canadian journal of physiology and pharmacology. 2009;87(6):479-492. doi:10.1139/y09-029. PMID:19526043.
 https://pubmed.ncbi.nlm.nih.gov/19526043/
 
-- abstract-level summary only (returned as a summary of the abstract; not the abstract text verbatim): https://scilit.com/publications/4612019c9cdcdca49152dbece5082cf5
-- full text of a different, later paper (Frontiers 2022 multivariate study): used o…: https://pmc.ncbi.nlm.nih.gov/articles/PMC8808167
-- assistant source follow-up reviewed and approved; direct independent source inspection by named reviewer not separately documented: https://www.neurolipidomics.com/assets/pubs/2009_harbilas_therapeutics.pdf
+- Approved assistant source follow-up; direct independent primary-source inspection by the named reviewer is not separately documented.: https://www.neurolipidomics.com/assets/pubs/2009_harbilas_therapeutics.pdf
 
 ### P20087853
 
@@ -383,4 +376,4 @@ Entire accounts are excluded when any candidate lacks a confirmed decision. Prov
 These results describe the frozen rankers on the existing development corpus. Small candidate pools and repeated papers across accounts limit interpretation. No significance or generalization claim is made. Lexical remains the default. Rank changes do not alter experimental findings or comparability judgments.
 
 Model: sentence-transformers/all-MiniLM-L6-v2; revision: 1110a243fdf4706b3f48f1d95db1a4f5529b4d41.
-Ranking-input SHA-256: 20ffbdee6867cd487a33aa6486b9923daac564a9e8b6872f9f6aba41f208309d.
+Ranking-input SHA-256: f06fd4730948d223286a406ec14c7667287290caf51c9ee37c1d2898f1a78870.

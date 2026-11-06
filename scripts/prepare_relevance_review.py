@@ -1,7 +1,7 @@
-"""Enrich the existing relevance queue; preserve human answers on every rerun."""
+"""Build the review packet from indexed sources without rewriting review records."""
 
 import json
-from retrieve import Baseline, ROOT, rows
+from current_retrieve import Baseline, ROOT, rows
 
 
 def prepare():
@@ -27,34 +27,6 @@ def prepare():
     for q in queue:
         c = b.cited_account(q["claim_id"])
         r = b.present(b.claims[q["claim_id"]], b.documents[q["evidence_id"]])
-        q["traditional_context"] = {
-            k: c.get(k)
-            for k in (
-                "species",
-                "plant_part",
-                "preparation",
-                "original_use_description",
-                "community_or_nation",
-                "citation",
-                "source_url",
-                "supporting_passage",
-                "passage_locator",
-            )
-        }
-        q["experimental_context"] = r["study"]
-        q.setdefault("human_reviewer_id", None)
-        q.setdefault("source_checked", False)
-        if q["evidence_id"] in notes:
-            note = notes[q["evidence_id"]]
-            q["provisional_retrieval_relevant"] = True
-            q["rationale"] = (
-                note["gap_relevance"]
-                + " Relevance does not establish support for the traditional use."
-            )
-            q["annotation_method"] = (
-                "assistant_targeted_source_inspection_not_human_review"
-            )
-            q["targeted_extraction_id"] = note["extraction_id"]
         packet += [
             f"## {q['claim_id']} / {q['evidence_id']}\n",
             f"**Documented use:** {c.get('original_use_description')}\n",
@@ -68,7 +40,6 @@ def prepare():
             f"**Recorded endpoint:** {r['study'].get('endpoint') or 'Not extracted'}\n",
             "Record useful / not useful / unresolved and a source-based reason.\n",
         ]
-    p.write_text("".join(json.dumps(q, ensure_ascii=False) + "\n" for q in queue))
     (ROOT / "docs/retrieval_review_packet.md").write_text("\n".join(packet))
     return len(queue)
 
