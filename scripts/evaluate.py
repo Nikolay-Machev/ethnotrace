@@ -38,6 +38,34 @@ def evaluate(root=ROOT):
         ranked = [x['evidence_id'] for x in b.retrieve(tid, 1000)['results']]
         hits.append(len(set(ranked[:5]) & truth) / len(truth))
         reciprocal.append(next((1 / (i + 1) for i, rid in enumerate(ranked) if rid in truth), 0))
+    # Assisted consensus is a documented agreement, not independent gold.
+    # Preserve missing retrieval judgments rather than guessing labels.
+    assisted_consensus = []
+    for r in gold:
+        if r['status'] != 'assisted_consensus':
+            continue
+        ar, cr = a.get(r['case_id'], {}), c.get(r['case_id'], {})
+        provenance = r.get('consensus_provenance') or {}
+        if not (
+            ar.get('status') == cr.get('status') == 'completed'
+            and ar.get('comparison_review_status') == cr.get('comparison_review_status') == 'completed'
+            and ar.get('reviewer_id') != cr.get('reviewer_id')
+            and r.get('reviewer_a') == ar.get('reviewer_id')
+            and r.get('reviewer_b') == cr.get('reviewer_id')
+            and ar.get('pair_label') == cr.get('pair_label') == r.get('pair_label')
+            and r['pair_label'] in LABELS
+            and r.get('disagreement') is False
+            and r.get('rationale')
+            and r.get('source_locators')
+            and ar.get('rationale') and cr.get('rationale')
+            and ar.get('source_locators') and cr.get('source_locators')
+            and all(r.get(field) == ar.get(field) == cr.get(field) for field in ('taxon', 'plant_part', 'solvent', 'outcome'))
+            and r.get('retrieval_relevant') is None
+            and provenance.get('independently_blinded') is False
+            and provenance.get('independent_gold_eligible') is False
+        ):
+            raise ValueError('Invalid assisted comparison consensus: ' + r['case_id'])
+        assisted_consensus.append(r)
     # Gold metrics require two distinct completed source reviewers plus explicit adjudication.
     accepted = []
     for r in gold:
@@ -81,6 +109,18 @@ def evaluate(root=ROOT):
             'warning': 'Reviewer agreement is not held-out accuracy; assisted confirmations are not independent gold.',
             'experimental_finding_label_reviews': sum(r.get('experimental_findings_review_status') == 'completed' for r in records)}
     report = {'review_progress': review_progress,
+              'assisted_comparison_consensus': {
+                  'completed_cases': len(assisted_consensus),
+                  'matching_labels': len(assisted_consensus),
+                  'disagreement_cases': 0 if assisted_consensus else None,
+                  'label_distribution': {
+                      label: sum(r['pair_label'] == label for r in assisted_consensus)
+                      for label in sorted(LABELS) if any(r['pair_label'] == label for r in assisted_consensus)
+                  },
+                  'independent_gold_eligible': False,
+                  'retrieval_relevance_adjudicated': 0,
+                  'note': 'Assisted agreement between completed reviews, not independently blinded adjudication or held-out gold.'
+              },
               'experimental_findings_evaluation': {'status': 'no_separate_result_direction_gold', 'accuracy': None,
                   'note': 'Extraction verification is recorded separately. Finding directions are source-derived metadata, not model predictions evaluated against independent labels.'},
               'baseline_version' : VERSION, 'case_count': len(cases), 'index_documents': len(b.documents),

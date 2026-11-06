@@ -70,11 +70,37 @@ class BaselineTests(unittest.TestCase):
                 r['pair_label'] = r['claim_comparability']['label'] = 'insufficient_evidence'
                 r['comparison_review_provenance']['independent_blinded_annotation'] = False
             path.write_text(''.join(json.dumps(r)+'\n' for r in records))
+            # This test deliberately changes all reviewer labels. Remove the
+            # previously observed consensus from this temporary scenario.
+            gold_path = root / 'data/review/adjudicated.jsonl'
+            gold = [json.loads(line) for line in gold_path.read_text().splitlines()]
+            for item in gold:
+                item['status'] = 'pending'
+            gold_path.write_text(''.join(json.dumps(item)+'\n' for item in gold))
             report, _ = evaluate(root)
         self.assertEqual(report['review_progress']['a']['comparison_completed_cases'], 20)
         self.assertEqual(report['review_progress']['a']['assisted_comparison_cases'], 20)
         self.assertIsNone(report['experimental_findings_evaluation']['accuracy'])
         self.assertIsNone(report['independent_review']['comparison_accuracy'])
+
+    def test_assisted_consensus_is_reported_separately_from_independent_gold(self):
+        report, _ = evaluate()
+        self.assertEqual(report['assisted_comparison_consensus']['completed_cases'], 20)
+        self.assertEqual(report['assisted_comparison_consensus']['disagreement_cases'], 0)
+        self.assertFalse(report['assisted_comparison_consensus']['independent_gold_eligible'])
+        self.assertEqual(report['independent_review']['adjudicated_cases'], 0)
+        self.assertIsNone(report['independent_review']['comparison_accuracy'])
+
+    def test_false_assisted_consensus_is_rejected(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            shutil.copytree(ROOT / 'data', root / 'data')
+            path = root / 'data/review/reviewer_a.jsonl'
+            rows = [json.loads(line) for line in path.read_text().splitlines()]
+            rows[0]['pair_label'] = rows[0]['claim_comparability']['label'] = 'support'
+            path.write_text(''.join(json.dumps(row)+'\n' for row in rows))
+            with self.assertRaisesRegex(ValueError, 'Invalid assisted comparison consensus'):
+                evaluate(root)
 
     def test_reviewer_files_preserve_separate_labels_and_verification(self):
         for slot in ('a', 'b'):
