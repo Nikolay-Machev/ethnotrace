@@ -44,6 +44,10 @@ python3 scripts/rebuild.py
 python3 scripts/rebuild.py --check
 ```
 
+## Exploratory frozen-ranker scores
+
+The [assisted exploratory ten-paper evaluation](docs/assisted_generalization_results_2026-11-05.md) ran the pinned lexical, semantic and hybrid rankers without changing the frozen original protocol. All methods scored Precision@5 = 0.800 and Recall@5 = 0.900. Semantic and hybrid improved Precision@3 from 0.833 to 1.000 compared with lexical. Labels were assistant-prepared and later approved by Alex, so this is **not independently blinded generalization evidence**.
+
 ## Ten-paper pilot literature screening
 
 All ten frozen generalization candidates received source-based assistant research screening before rank exposure: nine assessed useful and one context only. The original human-review file stays unresolved, and frozen rankings remain withheld pending eligible human review. See [the source-screen report](docs/generalization_source_followup_2026-11-05.md). These judgments are not independent human gold labels or performance metrics.
