@@ -1,6 +1,7 @@
 'use strict';
 const data = window.ETHNOTRACE_DATA;
 let activeEvidenceIds = null;
+let activeEvidenceSet = null;
 let activeGapDimension = null;
 const $ = (id) => document.getElementById(id);
 const esc = (value) =>
@@ -36,6 +37,13 @@ $('ranking').value = 'lexical';
 $('claim').innerHTML = data.claims
   .map((c) => `<option value="${c.id}">${esc(c.name)} · ${c.id}</option>`)
   .join('');
+// Orders results by a ranked list of evidence IDs; unlisted IDs sort first, as with indexOf.
+function sortByRanking(results, order) {
+  const position = new Map();
+  order.forEach((id, i) => position.has(id) || position.set(id, i));
+  const rank = (r) => position.get(r.evidence_id) ?? -1;
+  return [...results].sort((a, b) => rank(a) - rank(b));
+}
 function render() {
   const selected = data.claims.find((c) => c.id === $('claim').value),
     t = selected.claim;
@@ -43,9 +51,7 @@ function render() {
     `<div class="eyebrow">DOCUMENTED USE</div><h3>${text(t.species)}</h3><p>${text(t.original_use_description)}</p><p class="small"><strong>Attribution</strong><br>${text(t.community_or_nation)}</p><details><summary>Traditional source & passage</summary>${source({ citation: t.citation, url: t.source_url, supporting_passage: t.supporting_passage, locator: t.passage_locator, licence: t.licence })}</details>`;
   const mode = $('ranking').value || 'lexical';
   const order = selected.rankings?.[mode];
-  const all = order
-    ? [...selected.results].sort((a, b) => order.indexOf(a.evidence_id) - order.indexOf(b.evidence_id))
-    : selected.results;
+  const all = order ? sortByRanking(selected.results, order) : selected.results;
   $('ranking-note').textContent =
     mode === 'lexical'
       ? 'Species, plant-part, solvent and text-overlap baseline.'
@@ -53,7 +59,7 @@ function render() {
   const shown = all.filter(
     (r) =>
       (!$('extracted').checked || r.evidence_level === 'selected_full_text_experimental_unit') &&
-      (!activeEvidenceIds || activeEvidenceIds.includes(r.evidence_id)),
+      (!activeEvidenceIds || activeEvidenceSet.has(r.evidence_id)),
   );
   renderGaps(selected);
   $('count').textContent = `${shown.length} shown · ${all.length} same-species candidates`;
@@ -112,6 +118,7 @@ function reviewSummary(account) {
 }
 function resetDrilldown() {
   activeEvidenceIds = null;
+  activeEvidenceSet = null;
   activeGapDimension = null;
   $('drilldown').hidden = true;
 }
@@ -153,6 +160,7 @@ $('atlas-body').addEventListener('click', (event) => {
     const d = button.dataset.dimension,
       b = c.atlas.dimensions[d][button.dataset.bucket];
     activeEvidenceIds = b.evidence_ids;
+    activeEvidenceSet = new Set(b.evidence_ids);
     $('extracted').checked = true;
     $('drilldown-label').textContent =
       `${c.name} · ${dimensionNames[d]}: ${bucketLabel(c, d, button.dataset.bucket, b.label)} · ${b.evidence_ids.length} experimental units`;
@@ -185,24 +193,24 @@ function renderSupplementary(account) {
   return `<h3>Supplementary source evidence</h3><p class="small">Related source context, not a replacement for the original account or experiment. Automated comparisons and rankings use the original records.</p>${notes.map((n) => `<details class="supplementary-source"><summary>${esc(n.record_id)} · ${human(n.field)} · ${n.source_supported_value ? text(n.source_supported_value) : 'Account-specific value unresolved'}</summary><p><strong>Original recorded value:</strong> ${text(n.original_record_value)}</p><p><strong>Value supported in the related source:</strong> ${text(n.source_supported_value)}</p><p><strong>Source context:</strong> ${human(n.source_context_status)}</p><p>${text(n.evidence_basis)}</p>${n.other_source_context ? `<p><strong>Other context:</strong> ${text(n.other_source_context.related_value)} · ${human(n.other_source_context.status)}</p><p>${text(n.other_source_context.reason)}</p>` : ''}<p class="small">${n.assisted_research_not_independent_human_verification ? 'Assisted source research; not independent human verification.' : ''}</p>${(n.source_urls || []).map((s) => `<p>${link(s.url, 'Open supporting source ↗')}<br><strong>Locator:</strong> ${text(s.locator)}</p>`).join('') || '<p>No supporting URL recorded for this audit entry.</p>'}</details>`).join('')}`;
 }
 function renderGaps(account) {
+  const resultsById = new Map(account.results.map((r) => [r.evidence_id, r]));
   const notes = account.targeted_extractions || [];
-  $('gaps').innerHTML =
-    `<h3>Research gaps & next steps</h3><p class="small">Based on this indexed collection. Missing record fields do not establish missing information in the original source.</p>${(
-      account.gaps || []
+  const gapsHtml = `<h3>Research gaps & next steps</h3><p class="small">Based on this indexed collection. Missing record fields do not establish missing information in the original source.</p>${(
+    account.gaps || []
+  )
+    .map(
+      (g) =>
+        `<details ${({ preparation: ['traditional_preparation', 'experimental_preparation'], outcome: ['outcome_unresolved', 'outcome_difference', 'endpoint_coverage', 'source_access'], part: ['part_difference'], setting: ['setting'], species: ['identity'] }[activeGapDimension] || []).includes(g.kind) ? 'open' : ''}><summary>${esc(g.title)}</summary><p>${esc(g.reason)}</p><p><strong>Next step:</strong> ${esc(g.next_step)}</p><p><strong>Record when checked:</strong> ${esc(g.completion_criterion)}</p><p class="small">Traditional account: ${esc(account.id)} · ${link(account.claim.source_url, 'Traditional source')}</p>${g.evidence_ids
+          .map((id) => {
+            const r = resultsById.get(id);
+            return `<p class="small">${esc(id)}: ${link(r.source.url, r.source.citation)}</p>`;
+          })
+          .join('')}</details>`,
     )
-      .map(
-        (g) =>
-          `<details ${({ preparation: ['traditional_preparation', 'experimental_preparation'], outcome: ['outcome_unresolved', 'outcome_difference', 'endpoint_coverage', 'source_access'], part: ['part_difference'], setting: ['setting'], species: ['identity'] }[activeGapDimension] || []).includes(g.kind) ? 'open' : ''}><summary>${esc(g.title)}</summary><p>${esc(g.reason)}</p><p><strong>Next step:</strong> ${esc(g.next_step)}</p><p><strong>Record when checked:</strong> ${esc(g.completion_criterion)}</p><p class="small">Traditional account: ${esc(account.id)} · ${link(account.claim.source_url, 'Traditional source')}</p>${g.evidence_ids
-            .map((id) => {
-              const r = account.results.find((r) => r.evidence_id === id);
-              return `<p class="small">${esc(id)}: ${link(r.source.url, r.source.citation)}</p>`;
-            })
-            .join('')}</details>`,
-      )
-      .join(
-        '',
-      )}${notes.length ? `<h3>Targeted source extractions</h3><p class="small">Source extractions with recorded review status. Context notes are separate from the atlas experiment counts.</p>${notes.map((n) => `<details><summary>${esc(n.extraction_id)} · ${n.extraction_depth === 'partial_indexed_sections' ? 'Partial extraction' : 'Methods and table inspected'} · ${esc(n.endpoint)}</summary><p><strong>Verification:</strong> ${n.human_verified ? 'Human confirmation recorded' : 'No completed human verification recorded'} · ${text(n.human_review?.reviewer_id)} · ${human(n.human_review?.status)}</p><p class="small">${human(n.human_review?.verification_provenance?.method)}. ${n.human_review?.verification_provenance?.independent_blinded_annotation === false ? 'Assisted confirmation; not independent blinded review.' : ''}</p><p><strong>Sections checked:</strong> ${text(n.human_review?.source_and_sections_checked)}</p><p>${esc(n.gap_relevance)}</p><p>${esc(n.reported_use_or_outcome)}</p><p><strong>Preparation:</strong> ${text(n.preparation)}</p><p><strong>Setting:</strong> ${human(n.study_setting)}</p>${source({ citation: n.citation, url: n.source_url, supporting_passage: n.supporting_passage, locator: n.passage_locator, licence: n.licence })}<p><strong>Limitations:</strong> ${esc(n.limitations)}</p></details>`).join('')}` : ''}`;
-  $('gaps').innerHTML += renderSupplementary(account);
+    .join(
+      '',
+    )}${notes.length ? `<h3>Targeted source extractions</h3><p class="small">Source extractions with recorded review status. Context notes are separate from the atlas experiment counts.</p>${notes.map((n) => `<details><summary>${esc(n.extraction_id)} · ${n.extraction_depth === 'partial_indexed_sections' ? 'Partial extraction' : 'Methods and table inspected'} · ${esc(n.endpoint)}</summary><p><strong>Verification:</strong> ${n.human_verified ? 'Human confirmation recorded' : 'No completed human verification recorded'} · ${text(n.human_review?.reviewer_id)} · ${human(n.human_review?.status)}</p><p class="small">${human(n.human_review?.verification_provenance?.method)}. ${n.human_review?.verification_provenance?.independent_blinded_annotation === false ? 'Assisted confirmation; not independent blinded review.' : ''}</p><p><strong>Sections checked:</strong> ${text(n.human_review?.source_and_sections_checked)}</p><p>${esc(n.gap_relevance)}</p><p>${esc(n.reported_use_or_outcome)}</p><p><strong>Preparation:</strong> ${text(n.preparation)}</p><p><strong>Setting:</strong> ${human(n.study_setting)}</p>${source({ citation: n.citation, url: n.source_url, supporting_passage: n.supporting_passage, locator: n.passage_locator, licence: n.licence })}<p><strong>Limitations:</strong> ${esc(n.limitations)}</p></details>`).join('')}` : ''}`;
+  $('gaps').innerHTML = gapsHtml + renderSupplementary(account);
 }
 
 $('export-report').addEventListener('click', () => {

@@ -1,6 +1,13 @@
 'use strict';
 // Pure formatter: exports the whole selected account, regardless of display filters.
 function evidenceReport(account, metadata, method = 'lexical') {
+  // Orders results by a ranked list of evidence IDs; unlisted IDs sort first, as with indexOf.
+  function sortByRanking(results, order) {
+    const position = new Map();
+    order.forEach((id, i) => position.has(id) || position.set(id, i));
+    const rank = (r) => position.get(r.evidence_id) ?? -1;
+    return [...results].sort((a, b) => rank(a) - rank(b));
+  }
   const fmt = (v) =>
     v === null || v === undefined || v === '' ? 'Unknown' : Array.isArray(v) ? v.join(', ') : String(v);
   const lines = [
@@ -39,9 +46,7 @@ function evidenceReport(account, metadata, method = 'lexical') {
   cite(t);
   lines.push('## Evidence comparisons', '');
   const order = account.rankings?.[method];
-  const results = order
-    ? [...account.results].sort((a, b) => order.indexOf(a.evidence_id) - order.indexOf(b.evidence_id))
-    : account.results;
+  const results = order ? sortByRanking(account.results, order) : account.results;
   for (const r of results) {
     lines.push(`### ${r.evidence_id}: ${r.title}`, '');
     field('Record type', r.evidence_level);
