@@ -37,8 +37,9 @@
   "input_sha256": {
     "data/review/adjudicated.jsonl": "f0ef20da24801fd6a32ce4dd341d1d63118641c853b68586395996683a874783",
     "data/review/assistant_relevance_screen.jsonl": "7061232d92f7d90b7943f5ab57eea7970e5896b4d57381b7775f3a515f7250c4",
-    "data/review/retrieval_relevance.jsonl": "be6f0fbbe7f675714fdcba071a6c365d1cbdf142e05ccafa993c77d48ce1440a",
+    "data/review/retrieval_relevance.jsonl": "3399e0cc25c456a3e116ca71b1b6d7bfee29b90a4c9ec7aefcc8374d52e9f7e0",
     "data/review/retrieval_relevance_human_submissions.jsonl": "931d3323720fb6deceba2a91beca5225055db9d5025ea725b4e9d5f28206fe23",
+    "data/review/retrieval_relevance_source_followup_2026-11-05.jsonl": "b678dd17cf49c0c2b4f09968e9b32dd53f1ec002ed0f64ef1c3cc754e7dbe5fe",
     "data/review/review_cases.jsonl": "daf45e51eb6cf8d92b1a869509ed5316b17ed04b23c75b6e8877e3667030f938",
     "data/review/reviewer_a.jsonl": "c516bce59db74446a118d0f5d028bf0c7aad5ce451e7c9ddf878f09d03916175",
     "data/review/reviewer_b.jsonl": "d4aa59e74d89f594f00f6bceaf67c88b23cdaad4417cf7327b61bb92f2a16834",
