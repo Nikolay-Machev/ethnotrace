@@ -1,6 +1,6 @@
 # New-paper generalization pilot v1
 
-Status: awaiting human review. No pilot rankings or performance results have been produced.
+Status: awaiting named human review. All ten candidate publications now have an assistant-prepared [source evidence report](generalization_source_followup_2026-11-05.md) with nine useful and one context-only research assessments. These are not human labels. The ten frozen human-review rows remain unresolved, and no pilot rankings or performance results have been produced.
 
 ## Question and scope
 
