@@ -1,10 +1,10 @@
 # Remaining source reviews
 
-## Five-pair primary-source follow-up, 5 November 2026
+## Relevance decisions finalized, 5 November 2026
 
-A new [source assessment ledger](../data/review/retrieval_relevance_source_followup_2026-11-05.jsonl) includes five evidence-based dispositions: T007/P18066122 true, T008/P21186373 false, T008/P26626249 false, T010/P20301057 true and T011/P19526043 true. The full original publications were located for Fraser (2007) and Harbilas (2009); primary author abstracts support the remaining cases. The two T008 negative judgments already match Nikolay's completed reviewer submissions. Each of the 10 corresponding canonical review rows now links its assistant source assessment without changing the original named human submission.
+All 33 distinct retrieval pairs now have matching completed submissions from Nikolay Machev and Alex Karadjov (66 of 66 reviewer submissions). On 5 November, Alex directly confirmed approval of all five source-follow-up assessments and reported that Nikolay also approved them. These approvals converted eight earlier provisional/pending/unresolved submissions to completed; the two existing Nikolay safety-only decisions were already complete. The approval provenance clearly distinguishes Alex's direct confirmation from his report of Nikolay's approval, and both reviewers' exposure to assistant-prepared evidence remains disclosed. The five source decisions are documented in [the primary-source follow-up](relevance_followup.md).
 
-The remaining step for the named, two-reviewer retrieval metric is explicit human adoption or correction of any pending or provisional labels. Assistant source research must not be silently converted into human-reviewed completion. See [source follow-up evidence](relevance_followup.md).
+These are assisted development relevance judgments, not independently blinded gold. All six indexed account queries have fully judged candidate pools, so the refreshed retrieval evaluation reports development metrics for all six rather than only T009 and T012.
 
 ## Retrieval relevance
 
@@ -36,7 +36,7 @@ Earlier notes documented partial source access and an unsupported general attest
 
 ## Human retrieval submissions received 5 November 2026
 
-The 27 case-level decisions supplied by Nikolay Machev are preserved in `data/review/retrieval_relevance_human_submissions.jsonl`, including rationale, checked-source notes, and assistant-screen exposure declarations. This is a submission ledger, not yet imported into the canonical 33-candidate queue: entries based only on summaries/secondary sources retain those access limitations, and three cases remain unresolved (T007/P18066122, T010/P20301057, T011/P19526043). Do not use the ledger as a completed retrieval evaluation until its decisions are reconciled into the canonical review file and validation is rerun. Reviews were not blind because assistant-screen exposure was reported for many cases.
+The 27 original case-level decisions supplied by Nikolay Machev are preserved in `data/review/retrieval_relevance_human_submissions.jsonl`, including rationale, checked-source notes, and assistant-screen exposure declarations. This is a submission ledger, not yet imported into the canonical 33-candidate queue: entries based only on summaries/secondary sources retain those access limitations, and three cases remain unresolved (T007/P18066122, T010/P20301057, T011/P19526043). Do not use the ledger as a completed retrieval evaluation until its decisions are reconciled into the canonical review file and validation is rerun. Reviews were not blind because assistant-screen exposure was reported for many cases.
 
 Run:
 
@@ -57,3 +57,7 @@ Nikolay Machev source-checked all six candidates after seeing the assistant scre
 ## Remaining batch, 4 November 2026
 
 All 27 remaining pairs have reviewer submissions. T010/P20301057 is provisionally useful under the reviewer’s adipogenesis scope reading, based on assistant-reported primary findings and a reviewer’s acknowledged prior pair review. T011/P19927274 remains unresolved pending accessible source text. T012/P26707751 remains unresolved pending inspection of adipogenic results. T008/P33144625, P38943782, P27174081 and P35807620 remain unreviewed after direct access failed. No source result was copied from an assistant screen into the human fields. See [source follow-up and reviewer decisions](relevance_followup.md) for source depths and remaining questions. Experimental extractions and claim-comparability labels are unchanged.
+
+## Historical review instructions
+
+Some older sections describe earlier pending labels and verification steps. Those entries are retained as review history; use the finalized canonical review file and generated comparison report for the latest counts.

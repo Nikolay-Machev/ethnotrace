@@ -11,7 +11,7 @@ The original product audit covered retrieval evaluation, the generalization pilo
 
 ## Review state
 
-The current inputs contain 66 named retrieval-review submissions across 33 distinct pairs, with Alex Karadjov and Nikolay Machev each represented. Both reviewers have matching completed decisions on 28 pairs. Four pairs remain unresolved or pending, and one pair is provisional. The two fully judged accounts are T009 and T012. Concordant submissions are counted for assisted development reporting, not represented as independently adjudicated gold. Individual reviewer records remain intact. No final retrieval-relevance adjudication is inferred.
+The current inputs contain 66 named completed retrieval-review submissions across 33 distinct pairs. All 33 have matching reviewer decisions. On 5 November, Alex Karadjov approved all five primary-source follow-up assessments and reported Nikolay Machev's approval. Eight unfinished records were finalized, with past review limitations and assistant preparation retained in provenance. All six queried accounts have complete human-approved development judgments. These are not independently blinded or gold-standard adjudicated retrieval labels, and any resulting metric is a development evaluation.
 
 Reviewer A (Nikolay-Machev) and Reviewer B (Alex Karadjov) have each completed 20 RC001–RC020 comparison judgments. All 20 submitted labels agree: 6 insufficient evidence and 14 not directly comparable. The records in `data/review/adjudicated.jsonl` now carry 20 `assisted_consensus` decisions with both rationales and source locators, without asserting blinded independence. See [the comparison consensus report](comparison_adjudication_readiness.md). Reviewer B also has 20 recorded extraction-verification confirmations. Reviewer A has zero extraction-verification confirmations in the current reviewer form. No comparison case qualifies as an independently blinded gold adjudication, and experimental-finding direction labels have not received a separate completed review. Both reviewers' submitted comparison provenance is non-blinded. The 20 matching labels are assisted consensus, not independent accuracy evidence. Retrieval relevance, comparison judgments, extraction verification and adjudication are distinct review tasks.
 
@@ -19,7 +19,7 @@ TX001 and TX002 now carry Alex Karadjov's confirmed source-specific verification
 
 ## Checks performed
 
-- In the latest GitHub Actions validation-and-rebuild run, 55 Python tests, review-link checks, evaluation scripts and the generated-file freshness check passed. The prior product audit separately reported passing both JavaScript suites and browser checks. These were not rerun as part of the latest Python validation workflow.
+- In the latest GitHub Actions validation-and-rebuild run, 57 Python tests, review-link checks, evaluation scripts and the generated-file freshness check passed. The prior product audit separately reported passing both JavaScript suites and browser checks. These were not rerun as part of the latest Python validation workflow.
 - Review-link validation passed. This validates identifiers and relationships, not source accuracy.
 - The browser suite exercised all accounts and rankers at widths of 1280, 768 and 375 pixels, account search, empty results, gap drill-down, clearing the drill-down and the evaluation page.
 - Nine downloaded reports retained their citations. Switching rankers preserved the E004 part mismatch and its source.
@@ -51,6 +51,8 @@ node tests/browser_workflow.cjs
 
 A separately installed Chromium can be selected with `BROWSER_EXECUTABLE`; `BROWSER_ARGS` accepts a JSON array of launch arguments. Browser dependencies are only needed for this test, not for running the app.
 
-Remaining research tasks include any independent blinded adjudication needed for accuracy measurement, four unresolved or pending relevance pairs, one provisional relevance pair, and source review of the ten pilot candidates. Unreachable sources should remain unresolved. Reviewers should follow the frozen pilot protocol without seeing ranking positions or assistant labels.
+Remaining research tasks include any independent blinded adjudication needed for accuracy measurement and source review of the ten pilot candidates. Unreachable sources should remain unresolved. Reviewers should follow the frozen pilot protocol without seeing ranking positions or assistant labels.
+
+Following completion of the 33 matched retrieval pairs, the assisted six-query development evaluation reports macro recall@5 of 0.828 lexical, 0.889 semantic, and 0.903 hybrid, and precision@5 of 0.667 lexical and 0.733 for semantic and hybrid. These results are not independent held-out accuracy.
 
 Current evaluation figures are maintained in [the generated human retrieval comparison](human_retrieval_comparison.md) and `data/evaluation/baseline_report.json`. The README summarizes those results. When review inputs change, rerun `python3 scripts/rebuild.py` and update this audit.

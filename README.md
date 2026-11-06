@@ -12,8 +12,8 @@ The atlas compares species, plant part, preparation and outcome for each documen
 | --- | --- |
 | Traditional accounts | 12 Canadian accounts; nine identified species and two unresolved plant names |
 | Experimental evidence | 12 extracted units from six publications; 51 publications indexed |
-| Human retrieval relevance | 33 candidate pairs with 66 named reviewer submissions. Both reviewers have completed matching judgments on 28 pairs; four remain unresolved or pending and one provisional. Matching judgments are not adjudication. T009 and T012 have complete concordant decisions. |
-| Ranking | Lexical, semantic and hybrid. On two fully judged accounts across both reviewers (T009 and T012), macro recall@5 is 0.875 lexical, 0.875 semantic and 1.000 hybrid. These are assisted development results, not independent accuracy. Lexical remains the default. |
+| Human retrieval relevance | 33 candidate pairs with 66 completed named reviewer submissions. All 33 pairs have matching human-approved assisted decisions, with documented assistant exposure and partner-reported approval. These are not independent blinded adjudication. |
+| Ranking | Lexical, semantic and hybrid. All six indexed account queries now have complete assisted relevance judgments. Macro recall@5: lexical 0.828, semantic 0.889, hybrid 0.903. Precision@5: lexical 0.667, semantic and hybrid 0.733. These are assisted development results, not independent accuracy. Lexical remains the default. |
 
 ## Demo
 
@@ -48,11 +48,11 @@ python3 scripts/rebuild.py --check
 
 The Canadian scope applies to the accounts; experimental studies may come from anywhere. The collection is selective. Missing indexed evidence does not establish that no study exists. Preserve the original symptom descriptions, attribution and source-specific rights.
 
-The six-query benchmark measures recovery of seeded links. Ten of twelve links share a publication across the account and experiment. Human relevance metrics cover only the two accounts with complete matching reviewer decisions, without independent adjudication. Reviewer A (Nikolay-Machev) and Reviewer B (Alex Karadjov) have 20 completed comparison judgments each and agree on all 20 labels (6 insufficient evidence, 14 not directly comparable). Their decisions are recorded as assisted consensus with disclosed non-blinded provenance, not independent gold. Independent comparison accuracy is unavailable. Reviewer B has 20 recorded extraction-verification confirmations, while Reviewer A has none in the current files. The reviews were made with access to assistant screening and include abstract and secondary-source judgments. These development results establish neither general retrieval accuracy nor clinical efficacy.
+The six-query benchmark measures recovery of seeded links. Ten of twelve links share a publication across the account and experiment. Human relevance metrics cover six account queries with matching assisted reviewer decisions, without independent adjudication. Reviewer A (Nikolay-Machev) and Reviewer B (Alex Karadjov) have 20 completed comparison judgments each and agree on all 20 labels (6 insufficient evidence, 14 not directly comparable). Their decisions are recorded as assisted consensus with disclosed non-blinded provenance, not independent gold. Independent comparison accuracy is unavailable. Reviewer B has 20 recorded extraction-verification confirmations, while Reviewer A has none in the current files. The reviews were made with access to assistant screening and include abstract and secondary-source judgments. These development results establish neither general retrieval accuracy nor clinical efficacy.
 
 [Documentation and build history](docs/README.md) · [Sources and licences](docs/rights.md) · [Hackathon provenance and AI disclosure](docs/provenance.md)
 
-Human-reviewed lexical, semantic and hybrid results: [retrieval comparison](docs/human_retrieval_comparison.md). Only accounts with complete confirmed judgments enter these development metrics.
+Human-reviewed lexical, semantic and hybrid results: [retrieval comparison](docs/human_retrieval_comparison.md). All six queried accounts now have complete confirmed assisted judgments and enter the development metrics.
 
 Next experiment: [new-paper review packet](docs/generalization_review_packet.md) and [frozen pilot protocol](docs/generalization_protocol.md). All ten new candidates currently have unresolved reviews; no generalization result is claimed. The atlas now gives a checkable completion criterion for each research gap.
 
