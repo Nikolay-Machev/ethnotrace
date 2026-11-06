@@ -10,9 +10,9 @@ class ReviewProgressTests(unittest.TestCase):
     def fixture(self, root, entry):
         p = root / 'data/review'
         p.mkdir(parents=True)
-        (p / 'retrieval_relevance.jsonl').write_text(json.dumps(entry) + '\n')
+        (p / 'retrieval_relevance.jsonl').write_text(json.dumps(entry) + '\n', encoding='utf-8', newline='\n')
         for k in ('a', 'b'):
-            (p / f'reviewer_{k}.jsonl').write_text('')
+            (p / f'reviewer_{k}.jsonl').write_text('', encoding='utf-8', newline='\n')
 
     def test_assistant_relevance_does_not_count_as_human_review(self):
         with tempfile.TemporaryDirectory() as d:
@@ -77,7 +77,7 @@ class ReviewProgressTests(unittest.TestCase):
                 source_checked=True,
             )
             self.fixture(root, entry)
-            with (root / 'data/review/retrieval_relevance.jsonl').open('a') as f:
+            with (root / 'data/review/retrieval_relevance.jsonl').open('a', encoding='utf-8') as f:
                 f.write(
                     json.dumps({**entry, 'human_review_status': 'unresolved', 'human_reviewer_id': 'second'}) + '\n'
                 )
@@ -100,7 +100,7 @@ class ReviewProgressTests(unittest.TestCase):
                 human_rationale='Checked',
             )
             self.fixture(root, entry)
-            with (root / 'data/review/retrieval_relevance.jsonl').open('a') as f:
+            with (root / 'data/review/retrieval_relevance.jsonl').open('a', encoding='utf-8') as f:
                 f.write(json.dumps({**entry, 'human_retrieval_relevant': False, 'human_reviewer_id': 'second'}) + '\n')
             with patch.object(review_progress, 'ROOT', root):
                 with self.assertRaisesRegex(ValueError, 'require adjudication'):

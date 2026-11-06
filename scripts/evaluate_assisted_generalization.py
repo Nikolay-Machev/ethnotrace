@@ -7,7 +7,6 @@ assistant-exposed review labels as blinded human adjudication.
 import argparse
 import hashlib
 import json
-from pathlib import Path
 
 import evaluate_generalization as frozen
 from semantic_retrieval import snapshot
@@ -120,7 +119,7 @@ def main():
     )
     encoder.max_seq_length = 256
     result = evaluate(encoder)
-    OUTPUT.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
+    OUTPUT.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding='utf-8', newline='\n')
     print(json.dumps(result, ensure_ascii=False))
 
 

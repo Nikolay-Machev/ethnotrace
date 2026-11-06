@@ -1,13 +1,16 @@
 """Build source-linked review packets and separate development expectations. No reviews are fabricated."""
 
 import json
-from pathlib import Path
 from retrieve import ROOT, Baseline, rows
 
 
 def save(path, records):
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(''.join(json.dumps(r, ensure_ascii=False, sort_keys=True) + '\n' for r in records))
+    path.write_text(
+        ''.join(json.dumps(r, ensure_ascii=False, sort_keys=True) + '\n' for r in records),
+        encoding='utf-8',
+        newline='\n',
+    )
 
 
 def packet(raw):

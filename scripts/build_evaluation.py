@@ -45,7 +45,7 @@ def pilot_summary():
 
     manifest, candidates, reviews, eligible = check()
     path = ROOT / 'data/generalization/assisted_exploratory_results.json'
-    recorded = json.loads(path.read_text()) if path.exists() else None
+    recorded = json.loads(path.read_text(encoding='utf-8')) if path.exists() else None
     matches = bool(
         recorded
         and recorded.get('reviews_sha256')
@@ -65,7 +65,7 @@ def pilot_summary():
 
 def build():
     current, _ = evaluate()
-    historical = json.loads((ROOT / 'data/evaluation/retrieval_comparison.json').read_text())
+    historical = json.loads((ROOT / 'data/evaluation/retrieval_comparison.json').read_text(encoding='utf-8'))
     sem = semantic_evaluation()
     value = {
         'assisted_pilot': pilot_summary(),
@@ -86,7 +86,9 @@ def build():
     (ROOT / 'web/evaluation-data.js').write_text(
         '// Generated, do not edit. Run python3 scripts/rebuild.py.\nwindow.ETHNOTRACE_EVALUATION = '
         + json.dumps(value, ensure_ascii=False).replace('<', '\\u003c')
-        + ';\n'
+        + ';\n',
+        encoding='utf-8',
+        newline='\n',
     )
     return value
 

@@ -61,8 +61,8 @@ def prepare():
             f"**Recorded endpoint:** {r['study'].get('endpoint') or 'Not extracted'}\n",
             "Record useful / not useful / unresolved and a source-based reason.\n",
         ]
-    p.write_text("".join(json.dumps(q, ensure_ascii=False) + "\n" for q in queue))
-    (ROOT / "docs/retrieval_review_packet.md").write_text("\n".join(packet))
+    p.write_text("".join(json.dumps(q, ensure_ascii=False) + "\n" for q in queue), encoding='utf-8', newline='\n')
+    (ROOT / "docs/retrieval_review_packet.md").write_text("\n".join(packet), encoding='utf-8', newline='\n')
     return len(queue)
 
 
