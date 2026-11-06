@@ -10,7 +10,7 @@ Both reviewer files use the same fields. The original extraction packets, source
 - `comparison_review_provenance` records whether judgments were made after seeing assistant labels. Unknown independence remains null; it must not be inferred from two reviewer IDs.
 - `retrieval_relevant` is a separate relevance judgment and remains null until explicitly reviewed.
 
-Current state at the November 5, 2026 validation: Reviewer B (Alex Karadjov) has 20 user-confirmed extraction verification entries. Reviewer A has zero extraction confirmations in the current reviewer form. Both comparison forms contain 20 pending case judgments. No independently adjudicated comparison cases exist.
+Current state at the November 5, 2026 validation: Reviewer B (Alex Karadjov) has 20 user-confirmed extraction verification entries. Reviewer A has zero extraction confirmations in the current reviewer form. Reviewer A has 20 pending case judgments; Reviewer B (Alex Karadjov) has 20 completed assisted, human-approved case judgments (6 insufficient evidence, 14 not directly comparable), with assistant-label exposure disclosed. No independently adjudicated comparison cases exist.
 
 `evaluate.py` reports extraction coverage, comparison progress and assisted baseline-label agreement separately from independent metrics. It refuses independent adjudication without explicit independent annotation provenance from both reviewers. Experimental-finding accuracy remains null until a separate reference-label evaluation is implemented; the baseline currently returns source-derived directions rather than predicting them.
 
