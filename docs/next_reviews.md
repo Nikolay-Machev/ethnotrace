@@ -1,5 +1,11 @@
 # Remaining source reviews
 
+## Five-pair primary-source follow-up, 5 November 2026
+
+A new [source assessment ledger](../data/review/retrieval_relevance_source_followup_2026-11-05.jsonl) includes five evidence-based dispositions: T007/P18066122 true, T008/P21186373 false, T008/P26626249 false, T010/P20301057 true and T011/P19526043 true. The full original publications were located for Fraser (2007) and Harbilas (2009); primary author abstracts support the remaining cases. The two T008 negative judgments already match Nikolay's completed reviewer submissions. Each of the 10 corresponding canonical review rows now links its assistant source assessment without changing the original named human submission.
+
+The remaining step for the named, two-reviewer retrieval metric is explicit human adoption or correction of any pending or provisional labels. Assistant source research must not be silently converted into human-reviewed completion. See [source follow-up evidence](relevance_followup.md).
+
 ## Retrieval relevance
 
 Read [the 33-candidate packet](retrieval_review_packet.md), then enter answers in `data/review/retrieval_relevance.jsonl`. Every candidate needs a decision for a query to support a complete retrieval evaluation. Negative results and explicit mismatches may still be useful evidence. Source access problems should leave a decision unresolved, not force it to false.
