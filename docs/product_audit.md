@@ -5,7 +5,7 @@ The original product audit covered retrieval evaluation, the generalization pilo
 | Area | Status |
 | --- | --- |
 | Retrieval comparison | Lexical, semantic and hybrid rankings are compared on the same two fully judged accounts, T009 and T012, using concordant completed submissions from both reviewers. These are assisted development metrics, not independently adjudicated or held-out scores. See the [current comparison report](human_retrieval_comparison.md). |
-| Generalization | The new-paper pilot and ranking rules are frozen. All ten submitted decisions are unresolved. The evaluator withholds rankings and metrics until complete human review; no generalization result is available. |
+| Generalization | The new-paper pilot and ranking rules are frozen. All ten submitted named human-review decisions remain unresolved. Separate assistant primary-publication research has produced nine useful and one context-only assessments, documented with source depth in the [generalization source follow-up](generalization_source_followup_2026-11-05.md). Those are not independent human labels. The evaluator withholds rankings and metrics until eligible human review; no scored generalization result is available. |
 | Atlas gaps | Gaps describe missing information, a next research step and a completion criterion. Sources and underlying comparisons remain accessible. Downloaded evidence reports include the completion criteria. |
 | Research workflow | Browser checks passed for all twelve accounts, three rankers and desktop, tablet and phone widths. |
 
