@@ -102,6 +102,18 @@ class BaselineTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'Invalid assisted comparison consensus'):
                 evaluate(root)
 
+    def test_supplemental_community_parts_do_not_change_original_claims(self):
+        rows = [json.loads(line) for line in (ROOT / 'data/curated/missing_field_source_evidence.jsonl').read_text().splitlines()]
+        self.assertEqual(len(rows), 18)
+        supported = [r for r in rows if r['source_supported_value'] is not None]
+        self.assertEqual({r['record_id'] for r in supported}, {'T007', 'T009', 'T010', 'T012'})
+        for r in supported:
+            self.assertEqual(r['field'], 'plant_part')
+            self.assertEqual(r['source_context_status'], 'community_survey_supported')
+            self.assertTrue(r['source_urls'])
+            self.assertIsNone(self.b.claims[r['record_id']]['raw']['plant_part'])
+            self.assertIsNone(self.b.claims[r['record_id']]['features']['plant_parts'])
+
     def test_reviewer_files_preserve_separate_labels_and_verification(self):
         for slot in ('a', 'b'):
             records = [json.loads(line) for line in (ROOT / f'data/review/reviewer_{slot}.jsonl').read_text().splitlines()]
