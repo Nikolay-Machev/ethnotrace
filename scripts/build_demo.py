@@ -11,6 +11,7 @@ def build():
     reviews = {key: {r['case_id']: r for r in rows(ROOT / f'data/review/reviewer_{key}.jsonl')} for key in ('a', 'b')}
     cases = {(r['traditional_record_id'], r['evidence_id']): r['case_id'] for r in rows(ROOT / 'data/review/review_cases.jsonl')}
     targeted = rows(ROOT / "data/curated/targeted_extractions.jsonl")
+    missing_field_evidence = rows(ROOT / "data/curated/missing_field_source_evidence.jsonl")
     relevance_reviews = rows(ROOT / "data/review/retrieval_relevance.jsonl")
     claims = []
     names = {'T011': 'Lingonberry', 'T007': 'Tamarack', 'T008': 'Pitcher plant'}
@@ -26,7 +27,7 @@ def build():
             result['human_judgments'] = [{'reviewer':key, 'label':reviews[key].get(cid, {}).get('pair_label'), 'provenance':reviews[key].get(cid, {}).get('comparison_review_provenance')} for key in reviews if reviews[key].get(cid, {}).get('comparison_review_status') == 'completed']
             raw = b.documents[result['evidence_id']]['raw']
             result['title'] = raw.get('title') or result['study'].get('endpoint') or result['evidence_id']
-        claims.append({'id': tid, 'name': name, 'claim': b.cited_account(tid), 'results': results, 'retrieval_status': retrieved['status'], 'atlas': summarize(results), 'gaps': explain(b.claims[tid]['raw'], results, retrieved['status'], [r for r in relevance_reviews if r['claim_id']==tid]), 'targeted_extractions': [r for r in targeted if r['claim_id']==tid], 'rankings': semantic['rankings'][tid] if semantic else None})
+        claims.append({'id': tid, 'name': name, 'claim': b.cited_account(tid), 'results': results, 'retrieval_status': retrieved['status'], 'atlas': summarize(results), 'gaps': explain(b.claims[tid]['raw'], results, retrieved['status'], [r for r in relevance_reviews if r['claim_id']==tid]), 'targeted_extractions': [r for r in targeted if r['claim_id']==tid], 'supplemental_missing_field_evidence': [r for r in missing_field_evidence if r['record_type'] == 'traditional' and r['record_id'] == tid], 'rankings': semantic['rankings'][tid] if semantic else None})
     data = {'retrieval_provider': {'id':'lexical_baseline', 'version':VERSION, 'semantic_enabled':bool(semantic), 'semantic_model':semantic['model'] if semantic else None, 'semantic_revision':semantic['revision'] if semantic else None, 'input_sha256':semantic['input_sha256'] if semantic else None}, 'baseline_version': VERSION, 'claims': claims, 'review_note': '; '.join(f"Reviewer {key.upper()}: {sum(r.get('comparison_review_status') == 'completed' for r in records.values())} completed comparison reviews, {sum(r.get('extraction_verified') is True for r in records.values())} extraction verifications" for key, records in reviews.items())}
     target = ROOT / 'web/data.js'
     target.parent.mkdir(exist_ok=True)
