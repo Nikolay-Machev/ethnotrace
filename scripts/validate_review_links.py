@@ -3,6 +3,7 @@
 These checks validate links and copied packet fields. They do not determine whether
 source extractions or human scientific judgments are factually correct.
 """
+
 import argparse
 import json
 from pathlib import Path
@@ -10,10 +11,24 @@ from pathlib import Path
 from current_retrieve import Baseline, ROOT, rows
 
 PACKET_FIELDS = (
-    'record_id', 'species', 'original_plant_name', 'plant_part', 'preparation',
-    'original_use_description', 'reported_use_or_outcome', 'study_setting', 'model',
-    'endpoint', 'comparator', 'community_or_nation', 'source_url', 'source_id',
-    'supporting_passage', 'passage_locator', 'licence', 'citation',
+    'record_id',
+    'species',
+    'original_plant_name',
+    'plant_part',
+    'preparation',
+    'original_use_description',
+    'reported_use_or_outcome',
+    'study_setting',
+    'model',
+    'endpoint',
+    'comparator',
+    'community_or_nation',
+    'source_url',
+    'source_id',
+    'supporting_passage',
+    'passage_locator',
+    'licence',
+    'citation',
 )
 REVIEW_SLOTS = ('a', 'b')
 
@@ -68,9 +83,7 @@ def validate(root=ROOT):
         if not isinstance(traditional, dict) or not isinstance(experiment, dict):
             raise ValueError(f'{case_id} is missing its source packets')
         expected_traditional = _packet(baseline.claims[tid]['raw'])
-        expected_traditional['citation'] = baseline.sources[
-            baseline.claims[tid]['raw']['source_key']
-        ]['attribution']
+        expected_traditional['citation'] = baseline.sources[baseline.claims[tid]['raw']['source_key']]['attribution']
         expected_experiment = _packet(baseline.experiments[eid]['raw'])
         if traditional != expected_traditional:
             raise ValueError(f'{case_id} traditional packet does not match record {tid}')
@@ -100,10 +113,7 @@ def validate(root=ROOT):
         expected_taxon = 'overlap_in_reported_species' if claim_species & evidence_species else 'different_species'
         if expected.get('expected_taxon') != expected_taxon:
             raise ValueError(f'{case_id} has an incorrect structural taxon expectation')
-        retrieved_ids = {
-            result['evidence_id']
-            for result in baseline.retrieve(tid, 1000)['results']
-        }
+        retrieved_ids = {result['evidence_id'] for result in baseline.retrieve(tid, 1000)['results']}
         if expected.get('expected_retrieval_membership') is not (eid in retrieved_ids):
             raise ValueError(f'{case_id} has an incorrect retrieval-membership expectation')
 
@@ -129,7 +139,9 @@ def validate(root=ROOT):
     return {
         'review_cases': len(cases),
         'extracted_links': sum(c.get('construction') == 'existing_extracted_link' for c in cases),
-        'constructed_species_mismatches': sum(c.get('construction') == 'constructed_species_mismatch_comparison' for c in cases),
+        'constructed_species_mismatches': sum(
+            c.get('construction') == 'constructed_species_mismatch_comparison' for c in cases
+        ),
         'reviewer_records': {slot: len(reviewers[slot]) for slot in REVIEW_SLOTS},
         'adjudications': len(adjudications),
         'scope_note': 'Link consistency only; source accuracy and judgment correctness require human source review.',

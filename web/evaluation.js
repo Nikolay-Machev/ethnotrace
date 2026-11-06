@@ -1,59 +1,155 @@
 'use strict';
-const ev=window.ETHNOTRACE_EVALUATION;
-const escapeValue=v=>String(v??'Not available').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const number=v=>v===null||v===undefined?'Not available':v.toFixed(3);
-const current=ev.current,rank=ev.ranking_comparison;
-document.getElementById('evaluation').innerHTML=`
+const ev = window.ETHNOTRACE_EVALUATION;
+const escapeValue = (v) =>
+  String(v ?? 'Not available').replace(
+    /[&<>"']/g,
+    (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c],
+  );
+const number = (v) => (v === null || v === undefined ? 'Not available' : v.toFixed(3));
+const current = ev.current,
+  rank = ev.ranking_comparison;
+document.getElementById('evaluation').innerHTML = `
 <section class="card"><h2>How to read these results</h2>
 <p><strong>Known links:</strong> Across ${current.development_checks.query_count} accounts, we check whether the rankers recover experiments already linked in the dataset. Small candidate pools make top-five recovery likely even under random ordering.</p>
-<p><strong>Human relevance:</strong> ${ev.semantic_comparison?.human_reviewed_development.complete_query_count??0} of those accounts have decisions for every candidate (completed accounts: ${(ev.semantic_comparison?.human_reviewed_development.queries||[]).map(q=>escapeValue(q.claim_id)).join(', ')||'none'}). This check asks whether each result helps assess the documented use, including informative mismatches. The reviewer had access to the assistant screen. Source depth varies, including full texts, summaries and secondary sources; these decisions are assisted development evidence.</p></section>
+<p><strong>Human relevance:</strong> ${ev.semantic_comparison?.human_reviewed_development.complete_query_count ?? 0} of those accounts have decisions for every candidate (completed accounts: ${(ev.semantic_comparison?.human_reviewed_development.queries || []).map((q) => escapeValue(q.claim_id)).join(', ') || 'none'}). This check asks whether each result helps assess the documented use, including informative mismatches. The reviewer had access to the assistant screen. Source depth varies, including full texts, summaries and secondary sources; these decisions are assisted development evidence.</p></section>
 <section class="card"><h2>Current baseline ${escapeValue(current.baseline_version)}</h2><p>${current.development_checks.query_count} development queries · ${current.case_count} comparison cases · ${current.index_documents} indexed documents</p><table><thead><tr><th>Measure</th><th>Result</th><th>Meaning</th></tr></thead><tbody>
 <tr><td>Seeded-link recall@5</td><td>${number(current.development_checks.macro_recall_at_5_for_seeded_links)}</td><td>Mean fraction of known linked experiments retrieved in the first five candidates per query.</td></tr>
 <tr><td>Seeded-link MRR</td><td>${number(current.development_checks.mean_reciprocal_rank_for_seeded_links)}</td><td>Mean reciprocal rank of the first known linked experiment.</td></tr>
 <tr><td>Independent comparison accuracy</td><td>${number(current.independent_review.comparison_accuracy)}</td><td>Requires independently reviewed comparison judgments.</td></tr>
 <tr><td>Independent retrieval recall@5</td><td>${number(current.independent_review.macro_recall_at_5)}</td><td>Requires complete independently reviewed relevance judgments.</td></tr></tbody></table></section>
-<section class="card"><h2>Recorded baseline development comparison</h2><p>Same six seeded development queries. Version 1.1 adds parent-paper title overlap to endpoint overlap. These are development gains, not evidence of generalization.</p><table><thead><tr><th>Version</th><th>Recall@5</th><th>MRR</th></tr></thead><tbody>${Object.entries(rank.metrics).map(([v,m])=>`<tr><td>${escapeValue(v)}</td><td>${number(m.macro_recall_at_5)}</td><td>${number(m.mrr)}</td></tr>`).join('')}</tbody></table></section>
-<section class="card"><h2>Review coverage</h2><p>Human relevance judgments: ${ev.review.human_relevance_completed} / ${ev.review.relevance_candidates} candidates. ${ev.review.human_relevance_provisional ?? 0} provisional decision(s), excluded from confirmed relevance metrics. ${ev.review.source_checked_unresolved} further candidates were reviewed and left unresolved.</p>${Object.entries(current.review_progress).map(([k,r])=>`<p>Reviewer ${escapeValue(k.toUpperCase())}: ${r.comparison_completed_cases} / ${current.case_count} comparison decisions recorded; ${r.extraction_verified_cases} extraction verifications; ${r.assisted_comparison_cases} assisted comparisons.</p>`).join('')}<p>Independently adjudicated comparisons: ${current.independent_review.adjudicated_cases}.</p><a href="https://github.com/Nikolay-Machev/makeathon-2026-ethnotrace-traditional-knowledge-mining/blob/main/docs/next_reviews.md">Review instructions</a></section>
-<section class="card"><h2>Ranking misses in the recorded development run</h2>${rank.queries.filter(q=>q.missed_at_5.length).map(q=>`<details><summary>Baseline ${escapeValue(q.version)} · ${escapeValue(q.claim_id)} · missed: ${q.missed_at_5.map(escapeValue).join(', ')}</summary><p>Top five: ${q.ranked_ids.slice(0,5).map(escapeValue).join(', ')}</p><p>Known linked experiments: ${q.seeded_links.map(escapeValue).join(', ')}</p></details>`).join('')}<p>The remaining version 1.1 miss, E004, uses roots whereas the paired account describes leaves. The part-mismatch penalty lowers its rank even though the mismatch is useful evidence.</p><a href="https://github.com/Nikolay-Machev/makeathon-2026-ethnotrace-traditional-knowledge-mining/blob/main/docs/retrieval_error_report.md">Error analysis and scoring rationale</a></section>
-<section class="card"><h2>Limits and next experiment</h2><ul>${ev.limitations.map(s=>`<li>${escapeValue(s)}</li>`).join('')}</ul><p>The semantic challenger compares lexical, semantic and combined rankings with unchanged comparison rules. It has not been adopted as the default.</p><p class="small">Rebuild: python scripts/build_evaluation.py<br>Snapshot identifier: ${escapeValue(ev.snapshot_sha256)}</p></section>`;
+<section class="card"><h2>Recorded baseline development comparison</h2><p>Same six seeded development queries. Version 1.1 adds parent-paper title overlap to endpoint overlap. These are development gains, not evidence of generalization.</p><table><thead><tr><th>Version</th><th>Recall@5</th><th>MRR</th></tr></thead><tbody>${Object.entries(
+  rank.metrics,
+)
+  .map(
+    ([v, m]) =>
+      `<tr><td>${escapeValue(v)}</td><td>${number(m.macro_recall_at_5)}</td><td>${number(m.mrr)}</td></tr>`,
+  )
+  .join('')}</tbody></table></section>
+<section class="card"><h2>Review coverage</h2><p>Human relevance judgments: ${ev.review.human_relevance_completed} / ${ev.review.relevance_candidates} candidates. ${ev.review.human_relevance_provisional ?? 0} provisional decision(s), excluded from confirmed relevance metrics. ${ev.review.source_checked_unresolved} further candidates were reviewed and left unresolved.</p>${Object.entries(
+  current.review_progress,
+)
+  .map(
+    ([k, r]) =>
+      `<p>Reviewer ${escapeValue(k.toUpperCase())}: ${r.comparison_completed_cases} / ${current.case_count} comparison decisions recorded; ${r.extraction_verified_cases} extraction verifications; ${r.assisted_comparison_cases} assisted comparisons.</p>`,
+  )
+  .join(
+    '',
+  )}<p>Independently adjudicated comparisons: ${current.independent_review.adjudicated_cases}.</p><a href="https://github.com/Nikolay-Machev/makeathon-2026-ethnotrace-traditional-knowledge-mining/blob/main/docs/next_reviews.md">Review instructions</a></section>
+<section class="card"><h2>Ranking misses in the recorded development run</h2>${rank.queries
+  .filter((q) => q.missed_at_5.length)
+  .map(
+    (q) =>
+      `<details><summary>Baseline ${escapeValue(q.version)} · ${escapeValue(q.claim_id)} · missed: ${q.missed_at_5.map(escapeValue).join(', ')}</summary><p>Top five: ${q.ranked_ids.slice(0, 5).map(escapeValue).join(', ')}</p><p>Known linked experiments: ${q.seeded_links.map(escapeValue).join(', ')}</p></details>`,
+  )
+  .join(
+    '',
+  )}<p>The remaining version 1.1 miss, E004, uses roots whereas the paired account describes leaves. The part-mismatch penalty lowers its rank even though the mismatch is useful evidence.</p><a href="https://github.com/Nikolay-Machev/makeathon-2026-ethnotrace-traditional-knowledge-mining/blob/main/docs/retrieval_error_report.md">Error analysis and scoring rationale</a></section>
+<section class="card"><h2>Limits and next experiment</h2><ul>${ev.limitations.map((s) => `<li>${escapeValue(s)}</li>`).join('')}</ul><p>The semantic challenger compares lexical, semantic and combined rankings with unchanged comparison rules. It has not been adopted as the default.</p><p class="small">Rebuild: python scripts/build_evaluation.py<br>Snapshot identifier: ${escapeValue(ev.snapshot_sha256)}</p></section>`;
 
-if(ev.semantic_comparison){
- const s=ev.semantic_comparison,b=ev.random_benchmark;
- document.getElementById('evaluation').innerHTML+=`<section class="card"><h2>Semantic retrieval experiment</h2><p>${escapeValue(s.scope)}</p><p>Local pretrained model: ${escapeValue(s.model)}. No fine-tuning. Exact model revision: ${escapeValue(s.revision)}.</p><table><thead><tr><th>Method</th><th>Seeded recall@5</th><th>Seeded MRR</th></tr></thead><tbody><tr><td>Uniform random order (expected)</td><td>${number(b.recall_at_5)}</td><td>${number(b.mrr)}</td></tr>${Object.entries(s.seeded_development).map(([method,m])=>`<tr><td>${escapeValue(method)}</td><td>${number(m.recall_at_5)}</td><td>${number(m.reciprocal_rank)}</td></tr>`).join('')}</tbody></table><p>The six pools contain four to seven candidates. When a pool has at most five, any ordering recovers every seeded link at five. ${b.same_paper} of ${b.total_links} seeded links use the same publication for the traditional account and experiment. These scores do not establish an advantage over chance on new queries.</p><p>Queries with complete human relevance judgments: ${s.human_reviewed_development.complete_query_count}. This is development review, not held-out evaluation.</p><table><thead><tr><th>Method</th><th>Human-reviewed recall@5</th><th>Human-reviewed MRR</th></tr></thead><tbody>${Object.entries(s.human_reviewed_development.metrics).map(([method,m])=>`<tr><td>${escapeValue(method)}</td><td>${number(m.recall_at_5)}</td><td>${number(m.reciprocal_rank)}</td></tr>`).join('')}</tbody></table>${s.queries.map(q=>`<details><summary>${escapeValue(q.claim_id)} · compare full candidate rankings</summary>${Object.entries(q.methods).map(([method,m])=>`<p><strong>${escapeValue(method)}</strong>: ${m.ranked_ids.map(escapeValue).join(' → ')}<br>Missed seeded links at five: ${m.missed_at_5.map(escapeValue).join(', ')||'None'}</p>`).join('')}</details>`).join('')}<ul>${s.notes.map(n=>`<li>${escapeValue(n)}</li>`).join('')}</ul></section>`;
+if (ev.semantic_comparison) {
+  const s = ev.semantic_comparison,
+    b = ev.random_benchmark;
+  document.getElementById('evaluation').innerHTML +=
+    `<section class="card"><h2>Semantic retrieval experiment</h2><p>${escapeValue(s.scope)}</p><p>Local pretrained model: ${escapeValue(s.model)}. No fine-tuning. Exact model revision: ${escapeValue(s.revision)}.</p><table><thead><tr><th>Method</th><th>Seeded recall@5</th><th>Seeded MRR</th></tr></thead><tbody><tr><td>Uniform random order (expected)</td><td>${number(b.recall_at_5)}</td><td>${number(b.mrr)}</td></tr>${Object.entries(
+      s.seeded_development,
+    )
+      .map(
+        ([method, m]) =>
+          `<tr><td>${escapeValue(method)}</td><td>${number(m.recall_at_5)}</td><td>${number(m.reciprocal_rank)}</td></tr>`,
+      )
+      .join(
+        '',
+      )}</tbody></table><p>The six pools contain four to seven candidates. When a pool has at most five, any ordering recovers every seeded link at five. ${b.same_paper} of ${b.total_links} seeded links use the same publication for the traditional account and experiment. These scores do not establish an advantage over chance on new queries.</p><p>Queries with complete human relevance judgments: ${s.human_reviewed_development.complete_query_count}. This is development review, not held-out evaluation.</p><table><thead><tr><th>Method</th><th>Human-reviewed recall@5</th><th>Human-reviewed MRR</th></tr></thead><tbody>${Object.entries(
+      s.human_reviewed_development.metrics,
+    )
+      .map(
+        ([method, m]) =>
+          `<tr><td>${escapeValue(method)}</td><td>${number(m.recall_at_5)}</td><td>${number(m.reciprocal_rank)}</td></tr>`,
+      )
+      .join('')}</tbody></table>${s.queries
+      .map(
+        (q) =>
+          `<details><summary>${escapeValue(q.claim_id)} · compare full candidate rankings</summary>${Object.entries(
+            q.methods,
+          )
+            .map(
+              ([method, m]) =>
+                `<p><strong>${escapeValue(method)}</strong>: ${m.ranked_ids.map(escapeValue).join(' → ')}<br>Missed seeded links at five: ${m.missed_at_5.map(escapeValue).join(', ') || 'None'}</p>`,
+            )
+            .join('')}</details>`,
+      )
+      .join('')}<ul>${s.notes.map((n) => `<li>${escapeValue(n)}</li>`).join('')}</ul></section>`;
 }
 
 if (ev.semantic_comparison) {
- const human = ev.semantic_comparison.human_reviewed_development;
- const rows = human.queries || [];
- const movement = value => value > 0 ? 'Up ' + value : value < 0 ? 'Down ' + Math.abs(value) : 'Unchanged';
- document.getElementById('evaluation').innerHTML += `
+  const human = ev.semantic_comparison.human_reviewed_development;
+  const rows = human.queries || [];
+  const movement = (value) =>
+    value > 0 ? 'Up ' + value : value < 0 ? 'Down ' + Math.abs(value) : 'Unchanged';
+  document.getElementById('evaluation').innerHTML += `
 <section class="card"><h2>Human-reviewed ranking comparison</h2>
 <p>${human.complete_query_count} complete accounts · ${human.candidate_count} account–candidate pairs · ${human.useful_count} judged useful. These are assisted development judgments, not an independent test set. Relevance means useful for assessing the account, including informative mismatches.</p>
 <p>Precision@5 divides useful results by five, including empty slots when fewer than five candidates exist. Recall@5 divides useful results by all judged-useful candidates in that account’s indexed pool. Averages give each complete account equal weight.</p>
 <table><thead><tr><th>Method</th><th>Precision@5</th><th>Recall@5</th><th>MRR</th></tr></thead><tbody>
-${Object.entries(human.metrics).map(([method, m]) => `<tr><td>${escapeValue(method)}</td><td>${number(m.precision_at_5)}</td><td>${number(m.recall_at_5)}</td><td>${number(m.reciprocal_rank)}</td></tr>`).join('')}
+${Object.entries(human.metrics)
+  .map(
+    ([method, m]) =>
+      `<tr><td>${escapeValue(method)}</td><td>${number(m.precision_at_5)}</td><td>${number(m.recall_at_5)}</td><td>${number(m.reciprocal_rank)}</td></tr>`,
+  )
+  .join('')}
 </tbody></table>
 <p>Small pools make top-five recall insensitive to ordering. Inspect the useful studies that enter or leave the top five below. The lexical default is unchanged; these results do not establish generalization.</p>
-${rows.map(q => `<details><summary>${escapeValue(q.claim_id)} · ${q.useful_count} useful of ${q.candidate_count} candidates</summary>
+${rows
+  .map(
+    (
+      q,
+    ) => `<details><summary>${escapeValue(q.claim_id)} · ${q.useful_count} useful of ${q.candidate_count} candidates</summary>
 <table><thead><tr><th>Method</th><th>Useful in top five</th><th>Precision@5</th><th>Recall@5</th><th>Useful results missed</th></tr></thead><tbody>
-${Object.entries(q.methods).map(([method, m]) => `<tr><td>${escapeValue(method)}</td><td>${m.hits_at_5}</td><td>${number(m.precision_at_5)}</td><td>${number(m.recall_at_5)}</td><td>${m.missed_at_5.map(escapeValue).join(', ') || 'None'}</td></tr>`).join('')}
+${Object.entries(q.methods)
+  .map(
+    ([method, m]) =>
+      `<tr><td>${escapeValue(method)}</td><td>${m.hits_at_5}</td><td>${number(m.precision_at_5)}</td><td>${number(m.recall_at_5)}</td><td>${m.missed_at_5.map(escapeValue).join(', ') || 'None'}</td></tr>`,
+  )
+  .join('')}
 </tbody></table>
 <h3>Useful candidate movements</h3>
-${q.useful_movements.map(item => `<details><summary>${escapeValue(item.evidence_id)} · lexical #${item.ranks.lexical} → semantic #${item.ranks.semantic} → hybrid #${item.ranks.hybrid}</summary>
+${q.useful_movements
+  .map(
+    (
+      item,
+    ) => `<details><summary>${escapeValue(item.evidence_id)} · lexical #${item.ranks.lexical} → semantic #${item.ranks.semantic} → hybrid #${item.ranks.hybrid}</summary>
 <p>Semantic: ${movement(item.movement_vs_lexical.semantic)}; ${item.top_five.semantic ? 'inside' : 'outside'} top five. Hybrid: ${movement(item.movement_vs_lexical.hybrid)}; ${item.top_five.hybrid ? 'inside' : 'outside'} top five.</p>
 <p><strong>Reviewer’s reason:</strong> ${escapeValue(item.human_rationale)}</p>
 <p>${escapeValue(item.source.citation)} · ${escapeValue(item.source.url)}</p>
-<ul>${item.sources_checked.map(source => `<li>${escapeValue(source.depth)} — ${escapeValue(source.url)}</li>`).join('')}</ul>
-</details>`).join('')}</details>`).join('')}
+<ul>${item.sources_checked.map((source) => `<li>${escapeValue(source.depth)} — ${escapeValue(source.url)}</li>`).join('')}</ul>
+</details>`,
+  )
+  .join('')}</details>`,
+  )
+  .join('')}
 <details><summary>Excluded accounts and unresolved judgments</summary>
 <p>An account is excluded if any candidate lacks a confirmed relevance decision; remaining candidates are not scored as a reduced pool.</p>
-<ul>${human.excluded_queries.map(q => `<li>${escapeValue(q.claim_id)}: ${q.blocking_candidates.map(r => escapeValue(r.evidence_id) + ' (' + escapeValue(r.status) + ')').join(', ')}</li>`).join('')}</ul>
+<ul>${human.excluded_queries.map((q) => `<li>${escapeValue(q.claim_id)}: ${q.blocking_candidates.map((r) => escapeValue(r.evidence_id) + ' (' + escapeValue(r.status) + ')').join(', ')}</li>`).join('')}</ul>
 </details>
 </section>`;
 }
 
-
-if(ev.assisted_pilot){
- const p=ev.assisted_pilot,result=p.result;
- document.getElementById('evaluation').innerHTML += `<section class="card"><h2>Assisted exploratory new-paper pilot</h2><p>${p.assisted_completed} of ${p.candidate_count} reviews completed with assistant-label exposure. These approvals are not eligible for the original blinded evaluation. Independent generalization performance remains unavailable.</p>${result?`<p>${escapeValue(result.scope)} No ranker changes or fine-tuning were made.</p><table><thead><tr><th>Method</th><th>Precision@5</th><th>Recall@5</th><th>MRR</th><th>Precision@3</th><th>Recall@3</th></tr></thead><tbody>${Object.entries(result.aggregates_macro).map(([method,m])=>`<tr><td>${escapeValue(method)}</td><td>${number(m.precision_at_5)}</td><td>${number(m.recall_at_5)}</td><td>${number(m.reciprocal_rank)}</td><td>${number(m.precision_at_3)}</td><td>${number(m.recall_at_3)}</td></tr>`).join('')}</tbody></table><p>Nine of ten candidates were judged useful. All four pitcher-plant candidates were useful, so their order cannot distinguish the rankers by these metrics. The small, selected pools limit the conclusions.</p><p>Metrics use macro averages across two accounts. Precision uses five or three slots; recall uses all useful candidates in the account pool. These assisted results are separate from development and blinded evaluation.</p>`:'<p>No current, input-matched exploratory result is available. Recompute the assisted evaluation before displaying scores.</p>'}<p><a href="https://github.com/Nikolay-Machev/makeathon-2026-ethnotrace-traditional-knowledge-mining/blob/main/docs/assisted_generalization_results_2026-11-05.md">Pilot methods and recorded results</a> · <a href="https://github.com/Nikolay-Machev/makeathon-2026-ethnotrace-traditional-knowledge-mining/blob/main/docs/generalization_protocol.md">Original frozen protocol</a></p></section>`;
+if (ev.assisted_pilot) {
+  const p = ev.assisted_pilot,
+    result = p.result;
+  document.getElementById('evaluation').innerHTML +=
+    `<section class="card"><h2>Assisted exploratory new-paper pilot</h2><p>${p.assisted_completed} of ${p.candidate_count} reviews completed with assistant-label exposure. These approvals are not eligible for the original blinded evaluation. Independent generalization performance remains unavailable.</p>${
+      result
+        ? `<p>${escapeValue(result.scope)} No ranker changes or fine-tuning were made.</p><table><thead><tr><th>Method</th><th>Precision@5</th><th>Recall@5</th><th>MRR</th><th>Precision@3</th><th>Recall@3</th></tr></thead><tbody>${Object.entries(
+            result.aggregates_macro,
+          )
+            .map(
+              ([method, m]) =>
+                `<tr><td>${escapeValue(method)}</td><td>${number(m.precision_at_5)}</td><td>${number(m.recall_at_5)}</td><td>${number(m.reciprocal_rank)}</td><td>${number(m.precision_at_3)}</td><td>${number(m.recall_at_3)}</td></tr>`,
+            )
+            .join(
+              '',
+            )}</tbody></table><p>Nine of ten candidates were judged useful. All four pitcher-plant candidates were useful, so their order cannot distinguish the rankers by these metrics. The small, selected pools limit the conclusions.</p><p>Metrics use macro averages across two accounts. Precision uses five or three slots; recall uses all useful candidates in the account pool. These assisted results are separate from development and blinded evaluation.</p>`
+        : '<p>No current, input-matched exploratory result is available. Recompute the assisted evaluation before displaying scores.</p>'
+    }<p><a href="https://github.com/Nikolay-Machev/makeathon-2026-ethnotrace-traditional-knowledge-mining/blob/main/docs/assisted_generalization_results_2026-11-05.md">Pilot methods and recorded results</a> · <a href="https://github.com/Nikolay-Machev/makeathon-2026-ethnotrace-traditional-knowledge-mining/blob/main/docs/generalization_protocol.md">Original frozen protocol</a></p></section>`;
 }

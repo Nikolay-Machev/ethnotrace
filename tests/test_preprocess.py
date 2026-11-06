@@ -9,8 +9,10 @@ spec = importlib.util.spec_from_file_location('preprocess', ROOT / 'scripts/prep
 pipeline = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(pipeline)
 
+
 def records(path):
-    return [json.loads(s) for s in path.read_text().splitlines() if s.strip()]
+    return [json.loads(s) for s in path.read_text(encoding='utf-8').splitlines() if s.strip()]
+
 
 class PreprocessingTests(unittest.TestCase):
     @classmethod
@@ -22,14 +24,18 @@ class PreprocessingTests(unittest.TestCase):
         cls.exp = {r['id']: r for r in records(cls.out / 'experimental_records.jsonl')}
 
     @classmethod
-    def tearDownClass(cls): cls.tmp.cleanup()
+    def tearDownClass(cls):
+        cls.tmp.cleanup()
 
     def test_all_active_rows_and_documents_preserved(self):
         src = ROOT / 'imports/dataset/data'
         for path in src.glob('*.jsonl'):
             self.assertEqual([r['raw'] for r in records(self.out / path.name)], records(path))
         for path in src.glob('*.json'):
-            self.assertEqual(json.loads((self.out / path.name).read_text())['raw'], json.loads(path.read_text()))
+            self.assertEqual(
+                json.loads((self.out / path.name).read_text(encoding='utf-8'))['raw'],
+                json.loads(path.read_text(encoding='utf-8')),
+            )
 
     def test_unknown_species_parts_and_preparations_stay_unknown(self):
         for rid in ['T005', 'T006']:
@@ -63,17 +69,23 @@ class PreprocessingTests(unittest.TestCase):
         self.assertEqual(b['features']['preparation_context_inherited_from'], 'E006')
         for r in records(self.out / 'extracted_claim_study_pairs.jsonl'):
             raw = r['raw']
-            self.assertEqual(self.trad[raw['traditional_record_id']]['evaluation_group_id'], self.exp[raw['experimental_record_id']]['evaluation_group_id'])
+            self.assertEqual(
+                self.trad[raw['traditional_record_id']]['evaluation_group_id'],
+                self.exp[raw['experimental_record_id']]['evaluation_group_id'],
+            )
 
     def test_all_citations_resolve_and_source_language_survives(self):
         refs = {r['reference_id'] for r in records(self.out / 'references.jsonl')}
         self.assertEqual(len(refs), self.report['reference_entries'])
         for path in self.out.glob('*.jsonl'):
-            if path.name in ('references.jsonl', 'evaluation_groups.jsonl', 'grouping_edges.jsonl'): continue
+            if path.name in ('references.jsonl', 'evaluation_groups.jsonl', 'grouping_edges.jsonl'):
+                continue
             for r in records(path):
                 self.assertTrue(set(r['provenance']['citation_refs']) <= refs)
         self.assertIn('sqw', self.trad['T015']['raw']['original_plant_name'][0])
-        self.assertEqual(self.trad['T005']['raw']['supporting_passage'], self.trad['T005']['normalized']['supporting_passage'])
+        self.assertEqual(
+            self.trad['T005']['raw']['supporting_passage'], self.trad['T005']['normalized']['supporting_passage']
+        )
 
     def test_deterministic_rerun(self):
         second = Path(self.tmp.name) / 'second'
@@ -83,12 +95,15 @@ class PreprocessingTests(unittest.TestCase):
 
     def test_source_tampering_is_rejected(self):
         import shutil
+
         root = Path(self.tmp.name) / 'tampered'
         shutil.copytree(ROOT / 'imports', root / 'imports')
         shutil.copytree(ROOT / 'config', root / 'config')
         path = root / 'imports/dataset/data/traditional_records.jsonl'
-        path.write_text(path.read_text() + '\n')
+        path.write_text(path.read_text(encoding='utf-8') + '\n', newline='\n')
         with self.assertRaisesRegex(ValueError, 'Pinned source changed'):
             pipeline.run(root=root, output=root / 'output')
 
-if __name__ == '__main__': unittest.main()
+
+if __name__ == '__main__':
+    unittest.main()
