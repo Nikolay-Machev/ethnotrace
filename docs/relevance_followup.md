@@ -17,3 +17,28 @@ This follow-up checked the author abstracts indexed in Europe PMC (4 November 20
 **T011/P19526043: unresolved.** Scilit summary names lingonberry but does not map assays to species. Part, preparation and assay results remain unverified. Do not import berries or 80% ethanol from later studies. A glucose-uptake endpoint would be diabetes-related, not a direct test of frequent urination.
 
 The primary-abstract descriptions above are assistant research, not primary sources independently read by the human reviewer. No full-text verification is claimed. Earlier judgments are preserved in review history. Confirmed evaluation remains 30 of 33 decisions; one provisional and two unresolved cases are excluded.
+
+
+## Primary publication follow-up, 5 November 2026
+
+The supplemental [five-pair source assessment](../data/review/retrieval_relevance_source_followup_2026-11-05.jsonl) documents source-supported dispositions for the five pairs whose joint human reviews were unfinished or inconsistent. **These are assistant literature assessments, not new judgments authored or approved by Nikolay Machev or Alex Karadjov.** The named review submissions, unresolved/provisional states and generated human ranking metrics are preserved. Each of the 10 corresponding rows in `retrieval_relevance.jsonl` includes an `assistant_source_followup` object with evidence and status provenance.
+
+| Pair | Primary-source assessment | Why |
+| --- | --- | --- |
+| T007 / P18066122 | Useful source evidence (true, pending reviewer confirmation) | Fraser et al. (2007), Table 1, reports *Larix laricina* bark from Mistissini and cambium from Whapmagoostui, with different antioxidant rankings. Methods reports 80% ethanol extraction. Useful within-species material/collection context. Differences in part and collection site are confounded, and antioxidant activity is not blood-glucose evidence. |
+| T008 / P21186373 | Not comparison-relevant (false, already confirmed by Nikolay) | Tam et al. (2011), PubMed abstract: CYP3A4 drug-interaction/safety findings, not infection-healing outcome or a direct plant-part/preparation comparison. The prior safety-context scope rule applies. Alex's original unresolved submission remains intact. |
+| T008 / P26626249 | Not comparison-relevant (false, already confirmed by Nikolay) | Cieniak et al. (2015), Abstract and Methods: intestinal-cell microarray and CYP transcript safety, not infection healing or comparative preparations. Alex's original unresolved submission remains intact. |
+| T010 / P20301057 | Useful source evidence (true, pending reviewer confirmation) | Martineau et al. (2010), primary abstract: *Populus balsamifera* inner-bark extract inhibits 3T3-L1 adipogenesis and antagonizes PPAR-γ. This supports the project's mechanistic-relevance scope, not the traditional preparation or a clinical effect. |
+| T011 / P19526043 | Useful source evidence (true, pending reviewer confirmation) | Harbilas et al. (2009), Table 1, Plant Materials, and Results: *Vaccinium vitis-idaea* berries, 80% ethanol laboratory extraction, increased basal and insulin-stimulated glucose uptake in C2C12 and 3T3-L1 cells. This is diabetes-related mechanism evidence but not a direct test of frequent urination. |
+
+Original paper access:
+
+- Fraser et al. (2007), [full manuscript](https://drpatrickowen.com/wp-content/uploads/2016/09/d38d03_dde8f25c8ca74ddc87e266527a84ab01.pdf), journal pp. 1202–1207.
+- Tam et al. (2011), [author abstract](https://pubmed.ncbi.nlm.nih.gov/21186373/).
+- Cieniak et al. (2015), [author abstract](https://pubmed.ncbi.nlm.nih.gov/26626249/), [full paper](https://neurolipidomics.com/assets/pubs/2015_cieniak_therapeutics.pdf).
+- Martineau et al. (2010), [author abstract](https://pubmed.ncbi.nlm.nih.gov/20301057/).
+- Harbilas et al. (2009), [full manuscript](https://www.neurolipidomics.com/assets/pubs/2009_harbilas_therapeutics.pdf), journal pp. 481–486.
+
+PDF text and document structure were accessible for the two complete manuscript follow-ups, but the remote PDF screenshot service returned cache-miss errors. The reported numerical results were checked against the primary text extraction, not visual inspection of figures. The original reviewer submissions remain separate because an assistant research pass does not independently establish the reviewers' final decisions.
+
+To finalize the **two-reviewer human-relevance benchmark**, each reviewer must explicitly adopt or correct the source-backed assessments for any originally pending/provisional cases. Then update the `human_*` fields, retain original review history and assistant exposure disclosures, and rebuild. The source-based recommendations alone must never be silently counted as finalized named human judgments.
