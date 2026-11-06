@@ -41,7 +41,7 @@
     "data/review/retrieval_relevance_human_submissions.jsonl": "931d3323720fb6deceba2a91beca5225055db9d5025ea725b4e9d5f28206fe23",
     "data/review/retrieval_relevance_source_followup_2026-11-05.jsonl": "d3e0048930068c723d490e36312f3e47acc15bc91c434a6250469c02543c7acd",
     "data/review/review_cases.jsonl": "daf45e51eb6cf8d92b1a869509ed5316b17ed04b23c75b6e8877e3667030f938",
-    "data/review/reviewer_a.jsonl": "c516bce59db74446a118d0f5d028bf0c7aad5ce451e7c9ddf878f09d03916175",
+    "data/review/reviewer_a.jsonl": "cd2c84b3a8f89d679b03690d4952045ddb04b6bad4ba319b4924b909bb08d15a",
     "data/review/reviewer_b.jsonl": "d4aa59e74d89f594f00f6bceaf67c88b23cdaad4417cf7327b61bb92f2a16834",
     "data/review/reviewer_b_comparison_proposals.jsonl": "16cf134e0985699d972a7deaf234636828c9d1bab6fe44d1bf54eff7885384d7",
     "data/review/t008_relevance_followup_2026-11-05.jsonl": "a9d8416af87a4f426b1b10066cd4d2ab5481f807473f4ee093c2a3374322de4e"
