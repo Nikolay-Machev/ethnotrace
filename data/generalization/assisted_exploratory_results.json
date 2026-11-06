@@ -1,0 +1,148 @@
+{
+  "pilot_id": "new-papers-v1",
+  "evaluation_track": "assisted_exploratory_not_independent_blinded",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "rrf_k": 60,
+  "reference_evaluator_unchanged": true,
+  "frozen_manifest_sha256": "3f9a4b46edc11e53c8de965859d4d387569028c95ecd7b1c40a181980dd4e2ff",
+  "reviews_sha256": "59bac2bd0835123119936de70a17b4eafc132c2f5f67516ce2b2cda7478865d0",
+  "reviewer": "Alex Karadjov",
+  "assistant_prepared_labels_approved": true,
+  "assistant_label_exposure": true,
+  "independent_blinded_reviews": false,
+  "no_fine_tuning_or_ranker_changes": true,
+  "scope": "Two existing plant accounts, ten assistant-selected new papers; not new plant, new Nation, or population-wide generalization.",
+  "limitations": [
+    "Assistant-selected convenience sample; related programmes and study groups may overlap.",
+    "Two accounts, ten papers; no population-level generalization claim.",
+    "No ranks or labels supplied to reviewer; exposure declaration required.",
+    "Title-only bibliographic features; no tuning after review.",
+    "Assistant-authored labels approved by named reviewer; not independent gold.",
+    "Model rankings were not shown before the label approvals, but assistant relevance decisions were.",
+    "Candidate pool is purposive and has nine of ten labelled useful; metrics are sensitive to class prevalence and top-k pool size."
+  ],
+  "aggregates_macro": {
+    "lexical": {
+      "precision_at_5": 0.8,
+      "recall_at_5": 0.9,
+      "reciprocal_rank": 1,
+      "precision_at_3": 0.8333333333333333,
+      "recall_at_3": 0.575
+    },
+    "semantic": {
+      "precision_at_5": 0.8,
+      "recall_at_5": 0.9,
+      "reciprocal_rank": 1,
+      "precision_at_3": 1,
+      "recall_at_3": 0.675
+    },
+    "hybrid": {
+      "precision_at_5": 0.8,
+      "recall_at_5": 0.9,
+      "reciprocal_rank": 1,
+      "precision_at_3": 1,
+      "recall_at_3": 0.675
+    }
+  },
+  "queries": [
+    {
+      "claim_id": "T008",
+      "candidate_count": 4,
+      "useful_count": 4,
+      "methods": {
+        "lexical": {
+          "precision_at_5": 0.8,
+          "recall_at_5": 1,
+          "reciprocal_rank": 1,
+          "precision_at_3": 1,
+          "recall_at_3": 0.75,
+          "ranked_ids": [
+            "P27174081",
+            "P33144625",
+            "P35807620",
+            "P38943782"
+          ]
+        },
+        "semantic": {
+          "precision_at_5": 0.8,
+          "recall_at_5": 1,
+          "reciprocal_rank": 1,
+          "precision_at_3": 1,
+          "recall_at_3": 0.75,
+          "ranked_ids": [
+            "P35807620",
+            "P27174081",
+            "P38943782",
+            "P33144625"
+          ]
+        },
+        "hybrid": {
+          "precision_at_5": 0.8,
+          "recall_at_5": 1,
+          "reciprocal_rank": 1,
+          "precision_at_3": 1,
+          "recall_at_3": 0.75,
+          "ranked_ids": [
+            "P27174081",
+            "P35807620",
+            "P33144625",
+            "P38943782"
+          ]
+        }
+      }
+    },
+    {
+      "claim_id": "T011",
+      "candidate_count": 6,
+      "useful_count": 5,
+      "methods": {
+        "lexical": {
+          "precision_at_5": 0.8,
+          "recall_at_5": 0.8,
+          "reciprocal_rank": 1,
+          "precision_at_3": 0.6666666666666666,
+          "recall_at_3": 0.4,
+          "ranked_ids": [
+            "P23365108",
+            "P36599454",
+            "DOI2107",
+            "P22901554",
+            "P22854401",
+            "P28620479"
+          ]
+        },
+        "semantic": {
+          "precision_at_5": 0.8,
+          "recall_at_5": 0.8,
+          "reciprocal_rank": 1,
+          "precision_at_3": 1,
+          "recall_at_3": 0.6,
+          "ranked_ids": [
+            "P22901554",
+            "DOI2107",
+            "P22854401",
+            "P23365108",
+            "P36599454",
+            "P28620479"
+          ]
+        },
+        "hybrid": {
+          "precision_at_5": 0.8,
+          "recall_at_5": 0.8,
+          "reciprocal_rank": 1,
+          "precision_at_3": 1,
+          "recall_at_3": 0.6,
+          "ranked_ids": [
+            "P22901554",
+            "P23365108",
+            "DOI2107",
+            "P36599454",
+            "P22854401",
+            "P28620479"
+          ]
+        }
+      }
+    }
+  ]
+}

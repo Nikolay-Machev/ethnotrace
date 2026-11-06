@@ -9,6 +9,10 @@ The original product audit covered retrieval evaluation, the generalization pilo
 | Atlas gaps | Gaps describe missing information, a next research step and a completion criterion. Sources and underlying comparisons remain accessible. Downloaded evidence reports include the completion criteria. |
 | Research workflow | Browser checks passed for all twelve accounts, three rankers and desktop, tablet and phone widths. |
 
+## Subsequent new-paper pilot evaluation
+
+After the original audit, Alex approved all ten assistant-prepared source judgments. The unchanged frozen rankers were evaluated in a **separate assisted exploratory track** with the original blind-review gate preserved. All rankers scored macro P@5 0.800 and R@5 0.900 across the two accounts; semantic and hybrid P@3 1.000 exceeded lexical P@3 0.833. Full per-account results and limitations: [assisted generalization report](assisted_generalization_results_2026-11-05.md). These are not independently blinded held-out scores. Earlier table and prose about the pilot being unresolved refer to the earlier audit snapshot.
+
 ## Review state
 
 The current inputs contain 66 named completed retrieval-review submissions across 33 distinct pairs. All 33 have matching reviewer decisions. On 5 November, Alex Karadjov approved all five primary-source follow-up assessments and reported Nikolay Machev's approval. Eight unfinished records were finalized, with past review limitations and assistant preparation retained in provenance. All six queried accounts have complete human-approved development judgments. These are not independently blinded or gold-standard adjudicated retrieval labels, and any resulting metric is a development evaluation.
