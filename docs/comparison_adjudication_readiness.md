@@ -1,40 +1,42 @@
-# Comparison adjudication readiness: RC001–RC020
+# Comparison adjudication results: RC001–RC020
 
-Reviewer A: Nikolay-Machev. Reviewer B: Alex Karadjov.
+Reviewer A: Nikolay-Machev. Reviewer B: Alex Karadjov. Updated 5 November 2026.
 
-Reviewer B explicitly approved 20 AI-prepared case-level draft judgments. Each was imported as a completed assisted review, with independent blinded annotation explicitly false. Reviewer A's 20 current case records have no completed labels, rationales or source-locator decisions.
+Both reviewers now have 20 completed comparison decisions. Their case-level comparability labels and structural review dimensions match on all 20 cases, so there are zero recorded comparison-label disagreements. The repository records 20 `assisted_consensus` outcomes in `data/review/adjudicated.jsonl`: 6 `insufficient_evidence`, 14 `not_directly_comparable`. Every entry retains both reviewer IDs, their rationales, source locators, matching dimensions, and the provenance of the agreement.
 
-Formal adjudication is blocked for all 20 cases because no completed Reviewer A comparison decisions are present. There is no evidence of case-level agreement, disagreement, or consensus. The adjudication records now identify both reviewers but retain pending status, null labels, null disagreement flags and null rationales.
+These are **assisted consensus outcomes**, not independently blinded gold. Nikolay's review form says `independent_blinded_annotation: false`, and Alex approved assistant-prepared proposals. No additional source review or separate joint adjudicator attestation was documented here. The canonical independent accuracy metric remains unavailable by design.
 
-| Case | Reviewer A label | Alex Karadjov label | Adjudication |
+The `retrieval_relevant` field in the consensus records remains `null` because Nikolay's RC-level retrieval-relevance values are not recorded. The separate 33-pair retrieval relevance review ledger is a distinct task. The matching comparison labels must not be presented as a jointly adjudicated relevance set.
+
+| Case | Reviewer A label | Alex Karadjov label | Consensus |
 | --- | --- | --- | --- |
-| RC001 | pending | insufficient_evidence (assisted) | pending |
-| RC002 | pending | insufficient_evidence (assisted) | pending |
-| RC003 | pending | not_directly_comparable (assisted) | pending |
-| RC004 | pending | not_directly_comparable (assisted) | pending |
-| RC005 | pending | insufficient_evidence (assisted) | pending |
-| RC006 | pending | insufficient_evidence (assisted) | pending |
-| RC007 | pending | insufficient_evidence (assisted) | pending |
-| RC008 | pending | not_directly_comparable (assisted) | pending |
-| RC009 | pending | not_directly_comparable (assisted) | pending |
-| RC010 | pending | insufficient_evidence (assisted) | pending |
-| RC011 | pending | not_directly_comparable (assisted) | pending |
-| RC012 | pending | not_directly_comparable (assisted) | pending |
-| RC013 | pending | not_directly_comparable (assisted) | pending |
-| RC014 | pending | not_directly_comparable (assisted) | pending |
-| RC015 | pending | not_directly_comparable (assisted) | pending |
-| RC016 | pending | not_directly_comparable (assisted) | pending |
-| RC017 | pending | not_directly_comparable (assisted) | pending |
-| RC018 | pending | not_directly_comparable (assisted) | pending |
-| RC019 | pending | not_directly_comparable (assisted) | pending |
-| RC020 | pending | not_directly_comparable (assisted) | pending |
+| RC001 | insufficient_evidence | insufficient_evidence | assisted_consensus |
+| RC002 | insufficient_evidence | insufficient_evidence | assisted_consensus |
+| RC003 | not_directly_comparable | not_directly_comparable | assisted_consensus |
+| RC004 | not_directly_comparable | not_directly_comparable | assisted_consensus |
+| RC005 | insufficient_evidence | insufficient_evidence | assisted_consensus |
+| RC006 | insufficient_evidence | insufficient_evidence | assisted_consensus |
+| RC007 | insufficient_evidence | insufficient_evidence | assisted_consensus |
+| RC008 | not_directly_comparable | not_directly_comparable | assisted_consensus |
+| RC009 | not_directly_comparable | not_directly_comparable | assisted_consensus |
+| RC010 | insufficient_evidence | insufficient_evidence | assisted_consensus |
+| RC011 | not_directly_comparable | not_directly_comparable | assisted_consensus |
+| RC012 | not_directly_comparable | not_directly_comparable | assisted_consensus |
+| RC013 | not_directly_comparable | not_directly_comparable | assisted_consensus |
+| RC014 | not_directly_comparable | not_directly_comparable | assisted_consensus |
+| RC015 | not_directly_comparable | not_directly_comparable | assisted_consensus |
+| RC016 | not_directly_comparable | not_directly_comparable | assisted_consensus |
+| RC017 | not_directly_comparable | not_directly_comparable | assisted_consensus |
+| RC018 | not_directly_comparable | not_directly_comparable | assisted_consensus |
+| RC019 | not_directly_comparable | not_directly_comparable | assisted_consensus |
+| RC020 | not_directly_comparable | not_directly_comparable | assisted_consensus |
 
-## What must happen before final adjudication
+## Interpretation
 
-1. Nikolay completes the case-level Reviewer A entries using checked source evidence, the supported five-label scheme, rationales, locators, and truthful review provenance. If the Reviewer A decision is assisted or not blinded, record this explicitly.
-2. Compare each A and B judgment, determine whether the labels differ, and document why. Consensus should be based on evidence rather than copying a prior proposed answer.
-3. Fill the existing `data/review/adjudicated.jsonl` with the supported final label, retrieval relevance, rationale, agreement or disagreement indicator, matched source locators, and other adjudicated dimensions. Leave unresolved items pending.
-4. `scripts/evaluate.py` requires both reviewers to have documented independently blinded source annotations before accepting a case into its independent gold accuracy metric. The currently approved Reviewer B judgments do **not** meet this criterion. If the team wants assisted consensus labels, store and report them separately, or revise the evaluation protocol transparently without describing them as independent gold.
-5. Regenerate and validate reports following any review changes.
+- 20 of 20 comparison labels agree. This indicates agreement on the submitted development judgments; it is not an independent accuracy score.
+- No comparison-label conflicts need reconciliation. The recorded `disagreement: false` applies only to comparison labels and matching structural dimensions, not to unfilled retrieval-relevance fields.
+- The comparison review set contains 12 existing source links and 8 constructed mismatched-species challenge pairs. It is a nonrepresentative development set.
+- Separate experimental-finding direction label reviews have not been finalized.
+- Additional independent, blinded reviews would be needed to produce the project's existing `independent_review.comparison_accuracy` metric, if desired.
 
-This document summarizes source-repository records. It is not an additional scientific source review.
+Reproduce with `python scripts/validate_review_links.py`, `python scripts/evaluate.py` and `python scripts/rebuild.py --check`.
