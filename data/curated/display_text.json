@@ -1,0 +1,7 @@
+{
+  "_note": "Display-only wording for the web atlas. Source records are never modified; the original text stays in the claim and in exported reports.",
+  "T016": {
+    "use": "A Canadian ethnobotanical database record lists Arbutus menziesii as used for diabetes.",
+    "reason": "The indexed source row is a terse database string ('COUNTRY=Canada(Salish)') with no use description."
+  }
+}

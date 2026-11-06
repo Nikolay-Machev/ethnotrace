@@ -24,6 +24,7 @@ def build():
         (r['traditional_record_id'], r['evidence_id']): r['case_id']
         for r in rows(ROOT / 'data/review/review_cases.jsonl')
     }
+    display = json.loads((ROOT / "data/curated/display_text.json").read_text(encoding='utf-8'))
     targeted = group_by(rows(ROOT / "data/curated/targeted_extractions.jsonl"), 'claim_id')
     missing_field_evidence = rows(ROOT / "data/curated/missing_field_source_evidence.jsonl")
     relevance_reviews = group_by(rows(ROOT / "data/review/retrieval_relevance.jsonl"), 'claim_id')
@@ -64,6 +65,7 @@ def build():
                 'id': tid,
                 'name': name,
                 'claim': b.cited_account(tid),
+                'display_use': display.get(tid, {}).get('use'),
                 'results': results,
                 'retrieval_status': retrieved['status'],
                 'atlas': summarize(results),
