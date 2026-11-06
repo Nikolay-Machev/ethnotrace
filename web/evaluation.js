@@ -34,7 +34,7 @@ document.getElementById('evaluation').innerHTML = `
   )
   .join(
     '',
-  )}<p>Independently adjudicated comparisons: ${current.independent_review.adjudicated_cases}.</p><a href="https://github.com/Nikolay-Machev/makeathon-2026-ethnotrace-traditional-knowledge-mining/blob/main/docs/next_reviews.md">Review instructions</a></section>
+  )}<p>Independently adjudicated comparisons: ${current.independent_review.adjudicated_cases}.</p><a href="https://github.com/Nikolay-Machev/makeathon-2026-ethnotrace-traditional-knowledge-mining/blob/main/docs/archive/next_reviews.md">Review instructions</a></section>
 <section class="card"><h2>Ranking misses in the recorded development run</h2>${rank.queries
   .filter((q) => q.missed_at_5.length)
   .map(
@@ -43,7 +43,7 @@ document.getElementById('evaluation').innerHTML = `
   )
   .join(
     '',
-  )}<p>The remaining version 1.1 miss, E004, uses roots whereas the paired account describes leaves. The part-mismatch penalty lowers its rank even though the mismatch is useful evidence.</p><a href="https://github.com/Nikolay-Machev/makeathon-2026-ethnotrace-traditional-knowledge-mining/blob/main/docs/retrieval_error_report.md">Error analysis and scoring rationale</a></section>
+  )}<p>E004 is the one seeded link still missed at rank five in versions 1.1 and 1.2. It uses roots whereas the paired account describes leaves. Version 1.1 penalised that part mismatch; version 1.2 removes the penalty, and E004 still ranks sixth, by 0.05 points, because it has no endpoint or title word overlap. The mismatch is useful evidence, not a retrieval error.</p><a href="https://github.com/Nikolay-Machev/makeathon-2026-ethnotrace-traditional-knowledge-mining/blob/main/docs/retrieval_error_report.md">Error analysis and scoring rationale</a></section>
 <section class="card"><h2>Limits and next experiment</h2><ul>${ev.limitations.map((s) => `<li>${escapeValue(s)}</li>`).join('')}</ul><p>The semantic challenger compares lexical, semantic and combined rankings with unchanged comparison rules. It has not been adopted as the default.</p><p class="small">Rebuild: python scripts/build_evaluation.py<br>Snapshot identifier: ${escapeValue(ev.snapshot_sha256)}</p></section>`;
 
 if (ev.semantic_comparison) {
@@ -151,5 +151,5 @@ if (ev.assisted_pilot) {
               '',
             )}</tbody></table><p>Nine of ten candidates were judged useful. All four pitcher-plant candidates were useful, so their order cannot distinguish the rankers by these metrics. The small, selected pools limit the conclusions.</p><p>Metrics use macro averages across two accounts. Precision uses five or three slots; recall uses all useful candidates in the account pool. These assisted results are separate from development and blinded evaluation.</p>`
         : '<p>No current, input-matched exploratory result is available. Recompute the assisted evaluation before displaying scores.</p>'
-    }<p><a href="https://github.com/Nikolay-Machev/makeathon-2026-ethnotrace-traditional-knowledge-mining/blob/main/docs/assisted_generalization_results_2026-11-05.md">Pilot methods and recorded results</a> · <a href="https://github.com/Nikolay-Machev/makeathon-2026-ethnotrace-traditional-knowledge-mining/blob/main/docs/generalization_protocol.md">Original frozen protocol</a></p></section>`;
+    }<p><a href="https://github.com/Nikolay-Machev/makeathon-2026-ethnotrace-traditional-knowledge-mining/blob/main/docs/archive/assisted_generalization_results_2026-11-05.md">Pilot methods and recorded results</a> · <a href="https://github.com/Nikolay-Machev/makeathon-2026-ethnotrace-traditional-knowledge-mining/blob/main/docs/generalization_protocol.md">Original frozen protocol</a></p></section>`;
 }

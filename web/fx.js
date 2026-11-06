@@ -26,17 +26,25 @@
   }
   const data = window.ETHNOTRACE_DATA;
   if (data?.claims) {
-    const species = [...new Set(data.claims.map((c) => c.claim?.species).filter(Boolean))];
-    const units = data.claims.reduce((n, c) => n + (c.results?.length || 0), 0);
+    const names = (c) => [].concat(c.claim?.species || []).map(String);
+    const species = [...new Set(data.claims.flatMap(names))];
+    const extracted = new Set();
+    const papers = new Set();
+    for (const c of data.claims)
+      for (const r of c.results || []) {
+        if (r.evidence_level === 'selected_full_text_experimental_unit') extracted.add(r.evidence_id);
+        if (r.paper_id) papers.add(r.paper_id);
+      }
     const stats = [
       [data.claims.length, 'traditional accounts'],
-      [species.length, 'plant species'],
-      [units, 'evidence records'],
+      [species.length, 'identified species'],
+      [extracted.size, 'extracted experiments'],
+      [papers.size, 'candidate publications'],
     ];
     const box = $('hero-stats');
     if (box) {
       box.innerHTML = stats
-        .map(([n, l]) => `<div><dd data-n="${n}">${reduce ? n : 0}</dd><dt>${l}</dt></div>`)
+        .map(([n, l]) => `<div><dt>${l}</dt><dd data-n="${n}">${reduce ? n : 0}</dd></div>`)
         .join('');
       if (!reduce)
         box.querySelectorAll('dd').forEach((el) => {
@@ -52,8 +60,7 @@
     }
     const track = $('ticker');
     if (track && species.length) {
-      const names = species.map((s) => String(s).replace(/<[^>]*>/g, '')).filter(Boolean);
-      const run = names.map((n) => `<span>${n.replace(/[&<>"']/g, '')}</span>`).join('');
+      const run = species.map((n) => `<span>${n.replace(/[&<>"']/g, '')}</span>`).join('');
       track.innerHTML = run + run;
     }
   }
