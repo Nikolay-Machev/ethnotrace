@@ -1,10 +1,19 @@
 """Export baseline results and recorded review status to a static, offline demo."""
 
 import json
+from collections import defaultdict
 from retrieve import Baseline, ROOT, VERSION, rows
 from atlas import summarize
 from gaps import explain
 from semantic_retrieval import load_snapshot
+
+
+def group_by(records, key):
+    """Group records by a field, keeping the original order within each group."""
+    grouped = defaultdict(list)
+    for record in records:
+        grouped[record[key]].append(record)
+    return grouped
 
 
 def build():
@@ -15,9 +24,9 @@ def build():
         (r['traditional_record_id'], r['evidence_id']): r['case_id']
         for r in rows(ROOT / 'data/review/review_cases.jsonl')
     }
-    targeted = rows(ROOT / "data/curated/targeted_extractions.jsonl")
+    targeted = group_by(rows(ROOT / "data/curated/targeted_extractions.jsonl"), 'claim_id')
     missing_field_evidence = rows(ROOT / "data/curated/missing_field_source_evidence.jsonl")
-    relevance_reviews = rows(ROOT / "data/review/retrieval_relevance.jsonl")
+    relevance_reviews = group_by(rows(ROOT / "data/review/retrieval_relevance.jsonl"), 'claim_id')
     claims = []
     names = {'T011': 'Lingonberry', 'T007': 'Tamarack', 'T008': 'Pitcher plant'}
     names.update(
@@ -62,9 +71,9 @@ def build():
                     b.claims[tid]['raw'],
                     results,
                     retrieved['status'],
-                    [r for r in relevance_reviews if r['claim_id'] == tid],
+                    relevance_reviews[tid],
                 ),
-                'targeted_extractions': [r for r in targeted if r['claim_id'] == tid],
+                'targeted_extractions': targeted[tid],
                 'supplemental_missing_field_evidence': [
                     r
                     for r in missing_field_evidence
