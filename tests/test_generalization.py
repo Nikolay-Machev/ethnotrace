@@ -16,7 +16,7 @@ class GeneralizationTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "Rankings withheld"):
                 pilot.run(None)
 
-    def test_assistant_source_research_is_complete_but_not_human_review(self):
+    def test_assistant_source_research_and_assisted_approval_remain_non_blinded(self):
         source_path = Path(__file__).resolve().parents[1] / "data/generalization/assistant_source_reviews_2026-11-05.jsonl"
         researched = [json.loads(line) for line in source_path.read_text().splitlines() if line.strip()]
         _, candidates, reviews, ready = pilot.check()
@@ -32,7 +32,12 @@ class GeneralizationTests(unittest.TestCase):
             self.assertFalse(r["research_provenance"]["rankings_or_model_labels_consulted"])
             self.assertTrue(r["original_human_review_not_overwritten"])
         self.assertFalse(ready)
-        self.assertTrue(all(r["decision"] == "unresolved" for r in reviews))
+        self.assertEqual(sum(r["decision"] == "useful" for r in reviews), 9)
+        self.assertEqual(sum(r["decision"] == "context_only" for r in reviews), 1)
+        self.assertTrue(all(r["reviewer"] == "Alex Karadjov" for r in reviews))
+        self.assertTrue(all(r["saw_rankings_or_assistant_labels"] is True for r in reviews))
+        self.assertTrue(all(r["review_status"] == "completed_assisted_not_blinded" for r in reviews))
+        self.assertTrue(all(r["review_provenance"]["prior_review"]["decision"] == "unresolved" for r in reviews))
 
     def test_freeze_detects_changed_input(self):
         with tempfile.TemporaryDirectory() as d:
