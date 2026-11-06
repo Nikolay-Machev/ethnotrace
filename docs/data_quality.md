@@ -28,6 +28,8 @@ The pipeline also processed 6 JSON metadata documents and assembled 74 reference
 | traditional_records.preparation: not_established | 8 |
 | traditional_records.species: not_established | 2 |
 
+A [source-by-source audit of the 18 missing species, plant-part and preparation fields](missing_field_source_audit_2026-11-05.md) checked the cited accounts and related source publications on 5 November 2026. None of the missing values was supported strongly enough for a source-specific overwrite. Original values remain null; related laboratory plant parts and recipes were not transferred into traditional-use records.
+
 No exact duplicate candidates were found under the documented record fingerprint. This does not establish absence of repeated testimony, overlapping cohorts or paraphrased duplication.
 
 The two unidentified settler species remain null. Eight traditional preparation fields remain null, six traditional plant-part fields remain null, and one plant-part description remains unmapped. No missing values have been imputed.
