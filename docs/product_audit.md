@@ -15,7 +15,7 @@ The current inputs contain 66 named retrieval-review submissions across 33 disti
 
 Reviewer A's 20 RC001–RC020 comparison cases remain pending. Reviewer B, Alex Karadjov, has 20 completed assisted comparison judgments following explicit review and approval of the AI-prepared drafts: 6 insufficient evidence and 14 not directly comparable. Reviewer B also has 20 recorded extraction-verification confirmations. Reviewer A has zero extraction-verification confirmations in the current reviewer form. No comparison case has a final independent adjudication, and experimental-finding direction labels have not received a separate completed review. The 20 approved Reviewer B labels explicitly record assistant-proposal exposure and do not qualify as blinded independent labels. Retrieval relevance, comparison judgments, extraction verification and adjudication are distinct review tasks.
 
-TX001 and TX002 carry Alex Karadjov's reviewer-reported verification attestations, but their source-level `human_verified` flags remain false pending the specific page, method and figure checks documented in [remaining source reviews](next_reviews.md). All ten new-paper pilot reviews remain unresolved.
+TX001 and TX002 now carry Alex Karadjov's confirmed source-specific verification packet, reviewed Methods, results, tables and figures, documented corrections, and `human_verified: true`. The provenance explicitly discloses assistant preparation of the source packet. Both remain outside the 12-unit experimental index with `training_eligible: false`; TX002's plant part and the T008 historical recipe remain unknown. See [the targeted-extraction review notes](next_reviews.md). All ten new-paper pilot reviews remain unresolved.
 
 ## Checks performed
 
@@ -51,6 +51,6 @@ node tests/browser_workflow.cjs
 
 A separately installed Chromium can be selected with `BROWSER_EXECUTABLE`; `BROWSER_ARGS` accepts a JSON array of launch arguments. Browser dependencies are only needed for this test, not for running the app.
 
-Remaining research tasks include Reviewer A's 20 case-level comparison judgments, formal adjudication, four unresolved or pending relevance pairs, one provisional relevance pair, the source-specific TX001/TX002 checks, and source review of the ten pilot candidates. Unreachable sources should remain unresolved. Reviewers should follow the frozen pilot protocol without seeing ranking positions or assistant labels.
+Remaining research tasks include Reviewer A's 20 case-level comparison judgments, formal adjudication, four unresolved or pending relevance pairs, one provisional relevance pair, and source review of the ten pilot candidates. Unreachable sources should remain unresolved. Reviewers should follow the frozen pilot protocol without seeing ranking positions or assistant labels.
 
 Current evaluation figures are maintained in [the generated human retrieval comparison](human_retrieval_comparison.md) and `data/evaluation/baseline_report.json`. The README summarizes those results. When review inputs change, rerun `python3 scripts/rebuild.py` and update this audit.
