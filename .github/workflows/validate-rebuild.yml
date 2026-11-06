@@ -9,6 +9,7 @@ on:
       - verify-tx001-tx002-2026-11-05
       - adjudicate-assisted-consensus-2026-11-05
       - resolve-relevance-primary-source-followup-2026-11-05
+      - approve-five-relevance-pairs-2026-11-05
   workflow_dispatch:
 permissions:
   contents: write
