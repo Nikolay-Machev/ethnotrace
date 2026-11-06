@@ -108,4 +108,7 @@ nodes.claim.value = 'T016';
 vm.runInContext('render()', ctx);
 assert.match(nodes.account.innerHTML, /A Canadian ethnobotanical database record lists/);
 assert.match(nodes.account.innerHTML, /specific Nation not established/);
-assert.match(vm.runInContext("data.claims.find(c => c.id === 'T016').claim.original_use_description", ctx), /COUNTRY=Canada/);
+assert.match(
+  vm.runInContext("data.claims.find(c => c.id === 'T016').claim.original_use_description", ctx),
+  /COUNTRY=Canada/,
+);
