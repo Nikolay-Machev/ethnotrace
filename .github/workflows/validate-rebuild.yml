@@ -4,6 +4,7 @@ on:
     branches:
       - validate-rebuild-2026-11-05
       - review-b-comparison-proposals-2026-11-05
+      - prepare-comparison-adjudication-2026-11-05
   workflow_dispatch:
 permissions:
   contents: write
