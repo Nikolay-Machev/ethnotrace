@@ -1,5 +1,38 @@
 # Primary-source audit of missing species, plant parts and preparations
 
+## Follow-up with additional source evidence, 5 November 2026
+
+The earlier 18-slot audit below describes the state of the original pinned source records. A new research pass located additional original community/ethnobotanical publications supporting **four plant-part values at the level of the related Cree diabetes-use survey**, without proving the organ for every particular earlier paper or laboratory extract. These findings now appear in [a 18-slot machine-readable source evidence ledger](../data/curated/missing_field_source_evidence.jsonl) and in exported demo data as `supplemental_missing_field_evidence`. Source-context values do **not** silently override pinned claim raw fields or ranking features.
+
+| Account | Additional source-supported part | Scope and source |
+| --- | --- | --- |
+| T007, *Larix laricina* | inner bark | Grandi (2006), diabetes-use survey Table 5.3.3.1; Cree Health (2008), p. 5, identifies bark |
+| T009, *Sorbus decora* | inner bark; branches also separately recorded | Grandi (2006) reports 13 users of inner bark and two of branches for diabetes-associated symptoms; the 2008 Cree Health list identifies bark |
+| T010, *Populus balsamifera* | inner bark | Grandi (2006), Table 5.3.3.1, lists inner bark; Cree Health lists bark |
+| T012, *Rhododendron groenlandicum* | leaves | Grandi (2006), Table 5.3.3.1, and Cree Health (2008) both identify leaves |
+
+**Provenance of the four supported fields**
+
+- Sonia Grandi, [*Social and Health Implications of Plant Remedies of the James Bay Cree for Symptoms of Type 2 Diabetes Mellitus*](https://www.collectionscanada.ca/obj/s4/f2/dsk3/QMM/TC-QMM-18294.pdf) (McGill thesis, 2006), Chapter 5 §5.3.3, Table 5.3.3.1, printed pp. 41–43. Its study is principally Mistissini; the observations are community-level and not a claimed per-informant match to T007/T009/T010/T012.
+- Cree Board of Health and Social Services of James Bay, [Harris et al., *Reducing bad effects from diabetes: The healing plants and AGEs*](https://www.creehealth.org/sites/default/files/FRP-009-5-03-XY%20Harris%202008-10-03%20%28PlainLanguage%29.pdf), 3 October 2008, Table 1 on printed p. 5.
+- Hall et al., [*A Multivariate Approach to Ethnopharmacology: Antidiabetic Plants of Eeyou Istchee*](https://www.frontiersin.org/journals/pharmacology/articles/10.3389/fphar.2021.511078/full) (2022), Table 1, independently summarizes the linked research program's plant-part associations.
+
+**Related preparations, not promoted to a specific T-record recipe**
+
+- T007: [Cree Health's tamarack traditional-medicine page](https://creehealth.org/bush-camp-safety/traditional-medicine) identifies boughs, bark and bare branches for tea, without tying a definite recipe to the specific diabetes claim.
+- T012: Grandi (2006), Chapter 5 §5.3.4, states Labrador tea is frequently consumed as herbal tea. It does not give a diabetes-specific brewing method.
+- T016: [Washington Native Plant Society](https://www.wnps.org/native-plant-directory/40-arbutus-menziesii) lists bark infusion as a diabetes-related use for *Arbutus menziesii*, but the original Duke database entry ETHNO=15976 has not been traced to that exact account or community, so T016's fields remain null.
+- T006: the folk name *vinaigrier* resembles the name for staghorn sumac; no plant voucher identifies the exact species in the Franco-Ontarian document.
+- T008: an experimental boiling-water preparation documented in TX001 is not proof of the original slow-healing-infection recipe.
+
+The original six traditional missing plant-part slots now have four source-associated values in the supplemental evidence ledger, but all six **original** fields remain null. The other two lack direct diabetes-specific part attribution. All eight original missing preparation fields, both original unknown species fields, and the two experimental *Larix* plant-part fields remain null. A future decision to promote community-associated values into the active comparison features would need documented per-account provenance and a re-evaluation of previously reviewed case comparisons and frozen rankings. No traditional knowledge is represented as experimentally validated efficacy.
+
+The earlier 'no source-supported change' conclusion below refers to the original specific-account standard and preceded the additional evidence. It should not be read as a claim that no source documents these plant parts in related Cree diabetes use.
+
+---
+
+
+
 Audited 5 November 2026. Scope: the 12 traditional accounts and 12 experimental units in `data/processed/`, focusing on **18 missing field slots**: two traditional species, six traditional plant parts, eight traditional preparations and two experimental plant parts. A field slot is not an independent source or a unique case.
 
 **Result:** No source-supported change to the 18 missing fields was justified. Current `null` values are preserved. This is a source-evidence outcome, not a failed data validation. No existing traditional account is silently combined with a different tradition, a laboratory extraction, or another study.
