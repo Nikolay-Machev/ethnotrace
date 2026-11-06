@@ -28,9 +28,9 @@ class ReviewLinkValidationTests(unittest.TestCase):
         temporary, root = self.copied_data()
         with temporary:
             path = root / 'data/review/review_cases.jsonl'
-            records = [json.loads(line) for line in path.read_text().splitlines()]
+            records = [json.loads(line) for line in path.read_text(encoding='utf-8').splitlines()]
             records[0]['experiment']['record_id'] = 'E002'
-            path.write_text(''.join(json.dumps(record) + '\n' for record in records))
+            path.write_text(''.join(json.dumps(record) + '\n' for record in records), encoding='utf-8', newline='\n')
             with self.assertRaisesRegex(ValueError, 'experimental packet does not match'):
                 validate(root)
 
@@ -38,9 +38,9 @@ class ReviewLinkValidationTests(unittest.TestCase):
         temporary, root = self.copied_data()
         with temporary:
             path = root / 'data/evaluation/development_expectations.jsonl'
-            records = [json.loads(line) for line in path.read_text().splitlines()]
+            records = [json.loads(line) for line in path.read_text(encoding='utf-8').splitlines()]
             records[0]['evidence_id'] = 'E002'
-            path.write_text(''.join(json.dumps(record) + '\n' for record in records))
+            path.write_text(''.join(json.dumps(record) + '\n' for record in records), encoding='utf-8', newline='\n')
             with self.assertRaisesRegex(ValueError, 'expectation points to a different record pair'):
                 validate(root)
 
@@ -48,9 +48,9 @@ class ReviewLinkValidationTests(unittest.TestCase):
         temporary, root = self.copied_data()
         with temporary:
             path = root / 'data/review/reviewer_b.jsonl'
-            records = [json.loads(line) for line in path.read_text().splitlines()]
+            records = [json.loads(line) for line in path.read_text(encoding='utf-8').splitlines()]
             records[1]['case_id'] = records[0]['case_id']
-            path.write_text(''.join(json.dumps(record) + '\n' for record in records))
+            path.write_text(''.join(json.dumps(record) + '\n' for record in records), encoding='utf-8', newline='\n')
             with self.assertRaisesRegex(ValueError, 'Duplicate reviewer b case_id'):
                 validate(root)
 

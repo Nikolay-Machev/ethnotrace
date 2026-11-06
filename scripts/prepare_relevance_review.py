@@ -8,9 +8,7 @@ def prepare():
     b = Baseline()
     p = ROOT / "data/review/retrieval_relevance.jsonl"
     queue = rows(p)
-    notes = {
-        r["paper_id"]: r for r in rows(ROOT / "data/curated/targeted_extractions.jsonl")
-    }
+    notes = {r["paper_id"]: r for r in rows(ROOT / "data/curated/targeted_extractions.jsonl")}
     packet = [
         "<!-- Generated, do not edit. Run python3 scripts/rebuild.py. -->\n",
         "# Retrieval relevance review\n",

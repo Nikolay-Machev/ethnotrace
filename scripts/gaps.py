@@ -2,24 +2,20 @@
 
 
 def explain(claim, results, retrieval_status, relevance_reviews=None):
-    extracted = [
-        r
-        for r in results
-        if r["evidence_level"] == "selected_full_text_experimental_unit"
-    ]
+    extracted = [r for r in results if r["evidence_level"] == "selected_full_text_experimental_unit"]
     leads = [r for r in results if r not in extracted]
     gaps = []
 
     def add(kind, title, reason, next_step, evidence, missingness=None):
         gaps.append(
-            dict(
-                kind=kind,
-                title=title,
-                reason=reason,
-                next_step=next_step,
-                evidence_ids=[r["evidence_id"] for r in evidence],
-                missingness=missingness,
-            )
+            {
+                "kind": kind,
+                "title": title,
+                "reason": reason,
+                "next_step": next_step,
+                "evidence_ids": [r["evidence_id"] for r in evidence],
+                "missingness": missingness,
+            }
         )
 
     if retrieval_status == "unresolved_species":
@@ -63,9 +59,7 @@ def explain(claim, results, retrieval_status, relevance_reviews=None):
             unknown,
             "not_recorded_source_status_unresolved",
         )
-    unresolved = [
-        r for r in extracted if r["comparison"]["outcome"] == "not_established"
-    ]
+    unresolved = [r for r in extracted if r["comparison"]["outcome"] == "not_established"]
     if unresolved:
         add(
             "outcome_unresolved",
@@ -75,9 +69,7 @@ def explain(claim, results, retrieval_status, relevance_reviews=None):
             unresolved,
             "relationship_not_established",
         )
-    different = [
-        r for r in extracted if r["comparison"]["outcome"] == "different_endpoint"
-    ]
+    different = [r for r in extracted if r["comparison"]["outcome"] == "different_endpoint"]
     if different:
         add(
             "outcome_difference",
@@ -95,10 +87,7 @@ def explain(claim, results, retrieval_status, relevance_reviews=None):
             "Keep these results separate; check for evidence using the documented plant part.",
             parts,
         )
-    if extracted and all(
-        r["study"].get("study_setting") in ("in_vitro", "animal_in_vivo")
-        for r in extracted
-    ):
+    if extracted and all(r["study"].get("study_setting") in ("in_vitro", "animal_in_vivo") for r in extracted):
         add(
             "setting",
             "Indexed extracted evidence is preclinical",
@@ -116,20 +105,28 @@ def explain(claim, results, retrieval_status, relevance_reviews=None):
             "not_yet_extracted",
         )
     if extracted and all(r["comparison"]["outcome"] == "different_endpoint" for r in extracted):
-        add("endpoint_coverage", "No extracted endpoint directly tests the documented use",
+        add(
+            "endpoint_coverage",
+            "No extracted endpoint directly tests the documented use",
             "Every extracted comparison in this collection identifies a different endpoint. Unextracted leads and other published work remain outside this conclusion.",
             "Search the verified species with the original symptom wording, then check the measured endpoint in the methods. Record the search and retain null results.",
-            extracted, "all_extracted_endpoints_differ")
+            extracted,
+            "all_extracted_endpoints_differ",
+        )
     by_id = {r["evidence_id"]: r for r in results}
     for review in relevance_reviews or []:
         if review.get("human_review_status") not in ("pending", "unresolved"):
             continue
         eid = review["evidence_id"]
         if eid in by_id and review.get("source_checked") and review.get("human_rationale"):
-            add("source_access", "Species-specific results still need verification",
+            add(
+                "source_access",
+                "Species-specific results still need verification",
                 review["human_rationale"],
                 "Open the cited paper through an available publisher, repository or library copy. Record the species-specific part, preparation and assay row with its table or page locator. Keep the decision unresolved if these remain inaccessible.",
-                [by_id[eid]], "source_checked_but_decision_unresolved")
+                [by_id[eid]],
+                "source_checked_but_decision_unresolved",
+            )
     for gap in gaps:
         gap["completion_criterion"] = {
             "traditional_preparation": "A source-located preparation entry, or a note listing sections checked where preparation was not found.",

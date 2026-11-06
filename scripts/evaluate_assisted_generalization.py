@@ -3,10 +3,10 @@
 Preserves the frozen blinded protocol and input checks; never represents
 assistant-exposed review labels as blinded human adjudication.
 """
+
 import argparse
 import hashlib
 import json
-from pathlib import Path
 
 import evaluate_generalization as frozen
 from semantic_retrieval import snapshot
@@ -79,7 +79,8 @@ def evaluate(encoder):
         "independent_blinded_reviews": False,
         "no_fine_tuning_or_ranker_changes": True,
         "scope": "Two existing plant accounts, ten assistant-selected new papers; not new plant, new Nation, or population-wide generalization.",
-        "limitations": manifest["limitations"] + [
+        "limitations": manifest["limitations"]
+        + [
             "Assistant-authored labels approved by named reviewer; not independent gold.",
             "Model rankings were not shown before the label approvals, but assistant relevance decisions were.",
             "Candidate pool is purposive and has nine of ten labelled useful; metrics are sensitive to class prevalence and top-k pool size.",
@@ -91,21 +92,34 @@ def evaluate(encoder):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--check", action="store_true", help="Validate metadata and disclosed exposure without inference.")
+    parser.add_argument(
+        "--check", action="store_true", help="Validate metadata and disclosed exposure without inference."
+    )
     args = parser.parse_args()
     manifest, candidates, reviews = check_assisted_reviews()
     if args.check:
-        print(json.dumps({"ready_for_assisted_exploratory_scoring": True, "eligible_for_independent_blinded_scoring": False,
-                          "candidates": len(candidates), "useful": sum(r["decision"] == "useful" for r in reviews)}))
+        print(
+            json.dumps(
+                {
+                    "ready_for_assisted_exploratory_scoring": True,
+                    "eligible_for_independent_blinded_scoring": False,
+                    "candidates": len(candidates),
+                    "useful": sum(r["decision"] == "useful" for r in reviews),
+                }
+            )
+        )
         return
     from sentence_transformers import SentenceTransformer
     import torch
+
     torch.set_num_threads(2)
     torch.manual_seed(0)
-    encoder = SentenceTransformer(manifest["model"], revision=manifest["model_revision"], device="cpu", trust_remote_code=False)
+    encoder = SentenceTransformer(
+        manifest["model"], revision=manifest["model_revision"], device="cpu", trust_remote_code=False
+    )
     encoder.max_seq_length = 256
     result = evaluate(encoder)
-    OUTPUT.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
+    OUTPUT.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding='utf-8', newline='\n')
     print(json.dumps(result, ensure_ascii=False))
 
 

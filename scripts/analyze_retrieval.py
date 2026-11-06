@@ -1,4 +1,5 @@
 """Compare ranking versions on seeded development links and prepare a relevance queue."""
+
 import json
 from math import fsum
 from collections import defaultdict
@@ -8,11 +9,13 @@ from current_retrieve import Baseline
 class LegacyBaseline(FrozenBaseline):
     def score(self, claim, evidence):
         score = super().score(claim, evidence)
-        if score is None: return None
+        if score is None:
+            return None
         query = tokenise(claim['raw'].get('original_use_description'))
         target = tokenise(evidence['raw'].get('endpoint') or evidence['raw'].get('title'))
         lexical = len(query & target) / len(query | target) if query | target else 0
         return {**score, 'lexical': lexical, 'total': score['total'] - score['lexical'] + lexical}
+
 
 def analyze():
     old, new = LegacyBaseline(), Baseline()
@@ -40,7 +43,7 @@ def analyze():
     report={'scope':'six development queries; seeded links, not independent relevance gold','metrics':metrics,'queries':comparisons}
     out=ROOT/'data/evaluation';(out/'retrieval_comparison.json').write_text(json.dumps(report,indent=2)+'\n')
     # Never overwrite later human judgments.
-    p=ROOT/'data/review/retrieval_relevance.jsonl'
+    p = ROOT / 'data/review/retrieval_relevance.jsonl'
     existing = defaultdict(list)
     if p.exists():
         for record in rows(p):

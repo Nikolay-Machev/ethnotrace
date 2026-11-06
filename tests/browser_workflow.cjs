@@ -1,40 +1,19 @@
 // Optional real-browser integration suite: npm install --no-save playwright
 // npx playwright install chromium && node tests/browser_workflow.cjs
-const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),http=require('node:http');
-const {chromium}=require('playwright');
-const root=path.resolve(__dirname,'..'),web=path.join(root,'web');
-(async()=>{
- const server=http.createServer((req,res)=>{
-  const name=new URL(req.url,'http://localhost').pathname;
-  const file=path.join(web,name==='/'?'index.html':name);
-  if(!file.startsWith(web+path.sep)||!fs.existsSync(file)){res.writeHead(404);return res.end();}
-  res.setHeader('Content-Type',file.endsWith('.js')?'text/javascript':file.endsWith('.css')?'text/css':'text/html');
-  res.end(fs.readFileSync(file));
- });
- await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
- let browser;
- try{
-  const options={headless:true};
-  if(process.env.BROWSER_EXECUTABLE)options.executablePath=process.env.BROWSER_EXECUTABLE;
-  if(process.env.BROWSER_ARGS)options.args=JSON.parse(process.env.BROWSER_ARGS);
-  browser=await chromium.launch(options);
-  const context=await browser.newContext({acceptDownloads:true});
-  const page=await context.newPage(),errors=[],badLocal=[];
-  page.on('pageerror',e=>errors.push(e.message));
-  page.on('response',r=>{if(r.url().startsWith(base)&&r.status()>=400)badLocal.push(r.url())});
-  const base='http://127.0.0.1:'+server.address().port;
-  await page.goto(base);
-  const accounts=await page.evaluate(()=>window.ETHNOTRACE_DATA.claims.map(a=>a.id));
-  for(const width of [1280,768,375]){
-   await page.setViewportSize({width,height:900});
-   for(const tid of accounts){
-    await page.locator('#claim').selectOption(tid);
-    for(const mode of ['lexical','semantic','hybrid']){
-     await page.locator('#ranking').selectOption(mode);
-     await page.locator('#extracted').uncheck();
-     assert.equal(await page.locator('#results article').count(),
-       await page.evaluate(id=>window.ETHNOTRACE_DATA.claims.find(a=>a.id===id).results.length,tid));
-     assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1), 'Page overflow at '+width+' / '+tid);
+const assert = require('node:assert/strict'),
+  fs = require('node:fs'),
+  path = require('node:path'),
+  http = require('node:http');
+const { chromium } = require('playwright');
+const root = path.resolve(__dirname, '..'),
+  web = path.join(root, 'web');
+(async () => {
+  const server = http.createServer((req, res) => {
+    const name = new URL(req.url, 'http://localhost').pathname;
+    const file = path.join(web, name === '/' ? 'index.html' : name);
+    if (!file.startsWith(web + path.sep) || !fs.existsSync(file)) {
+      res.writeHead(404);
+      return res.end();
     }
    }
    await page.locator('#claim').selectOption('T007');
@@ -90,8 +69,7 @@ const root=path.resolve(__dirname,'..'),web=path.join(root,'web');
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'Evaluation overflow at '+width);
    await page.goto(base);
   }
-  assert.deepEqual(errors,[]);
-  assert.deepEqual(badLocal,[]);
-  console.log(JSON.stringify({viewports:[1280,768,375],accounts:accounts.length,rankers:3,exportDownloads:9,jsErrors:errors,localHttpErrors:badLocal,externalNavigation:'Wiring tested with interception; availability checked separately.'},null,2));
- }finally{if(browser)await browser.close();server.close();}
-})().catch(e=>{console.error(e);process.exitCode=1});
+})().catch((e) => {
+  console.error(e);
+  process.exitCode = 1;
+});

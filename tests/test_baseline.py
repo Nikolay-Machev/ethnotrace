@@ -11,8 +11,10 @@ sys.path.insert(0, str(ROOT / 'scripts'))
 from current_retrieve import Baseline
 from evaluate import evaluate
 
+
 class BaselineTests(unittest.TestCase):
-    def setUp(self): self.b = Baseline()
+    def setUp(self):
+        self.b = Baseline()
 
     def test_unknown_species_abstains_instead_of_guessing_common_name(self):
         for rid in ('T005', 'T006'):
@@ -50,7 +52,10 @@ class BaselineTests(unittest.TestCase):
             self.assertIsNone(e['comparison']['medical_efficacy_conclusion'])
         self.assertNotIn('P25013446', self.b.documents)  # extracted units, not duplicate paper
         self.assertIn('E008', self.b.documents)
-        self.assertEqual(self.b.retrieve('T013', 10)['results'][0]['evidence_level'], 'bibliographic_or_abstract_lead_not_extracted_experiment')
+        self.assertEqual(
+            self.b.retrieve('T013', 10)['results'][0]['evidence_level'],
+            'bibliographic_or_abstract_lead_not_extracted_experiment',
+        )
 
     def test_pending_review_does_not_produce_scientific_accuracy(self):
         report, predictions = evaluate()
@@ -64,19 +69,19 @@ class BaselineTests(unittest.TestCase):
             root = Path(tmp)
             shutil.copytree(ROOT / 'data', root / 'data')
             path = root / 'data/review/reviewer_a.jsonl'
-            records = [json.loads(line) for line in path.read_text().splitlines()]
+            records = [json.loads(line) for line in path.read_text(encoding='utf-8').splitlines()]
             for r in records:
                 r['comparison_review_status'] = 'completed'
                 r['pair_label'] = r['claim_comparability']['label'] = 'insufficient_evidence'
                 r['comparison_review_provenance']['independent_blinded_annotation'] = False
-            path.write_text(''.join(json.dumps(r)+'\n' for r in records))
+            path.write_text(''.join(json.dumps(r) + '\n' for r in records), encoding='utf-8', newline='\n')
             # This test deliberately changes all reviewer labels. Remove the
             # previously observed consensus from this temporary scenario.
             gold_path = root / 'data/review/adjudicated.jsonl'
-            gold = [json.loads(line) for line in gold_path.read_text().splitlines()]
+            gold = [json.loads(line) for line in gold_path.read_text(encoding='utf-8').splitlines()]
             for item in gold:
                 item['status'] = 'pending'
-            gold_path.write_text(''.join(json.dumps(item)+'\n' for item in gold))
+            gold_path.write_text(''.join(json.dumps(item) + '\n' for item in gold), encoding='utf-8', newline='\n')
             report, _ = evaluate(root)
         self.assertEqual(report['review_progress']['a']['comparison_completed_cases'], 20)
         self.assertEqual(report['review_progress']['a']['assisted_comparison_cases'], 20)
@@ -96,14 +101,19 @@ class BaselineTests(unittest.TestCase):
             root = Path(tmp)
             shutil.copytree(ROOT / 'data', root / 'data')
             path = root / 'data/review/reviewer_a.jsonl'
-            rows = [json.loads(line) for line in path.read_text().splitlines()]
+            rows = [json.loads(line) for line in path.read_text(encoding='utf-8').splitlines()]
             rows[0]['pair_label'] = rows[0]['claim_comparability']['label'] = 'support'
-            path.write_text(''.join(json.dumps(row)+'\n' for row in rows))
+            path.write_text(''.join(json.dumps(row) + '\n' for row in rows), encoding='utf-8', newline='\n')
             with self.assertRaisesRegex(ValueError, 'Invalid assisted comparison consensus'):
                 evaluate(root)
 
     def test_supplemental_community_parts_do_not_change_original_claims(self):
-        rows = [json.loads(line) for line in (ROOT / 'data/curated/missing_field_source_evidence.jsonl').read_text().splitlines()]
+        rows = [
+            json.loads(line)
+            for line in (ROOT / 'data/curated/missing_field_source_evidence.jsonl')
+            .read_text(encoding='utf-8')
+            .splitlines()
+        ]
         self.assertEqual(len(rows), 18)
         supported = [r for r in rows if r['source_supported_value'] is not None]
         self.assertEqual({r['record_id'] for r in supported}, {'T007', 'T009', 'T010', 'T012'})
@@ -116,7 +126,10 @@ class BaselineTests(unittest.TestCase):
 
     def test_reviewer_files_preserve_separate_labels_and_verification(self):
         for slot in ('a', 'b'):
-            records = [json.loads(line) for line in (ROOT / f'data/review/reviewer_{slot}.jsonl').read_text().splitlines()]
+            records = [
+                json.loads(line)
+                for line in (ROOT / f'data/review/reviewer_{slot}.jsonl').read_text(encoding='utf-8').splitlines()
+            ]
             self.assertEqual(len({r['case_id'] for r in records}), 20)
             for record in records:
                 self.assertEqual(record['schema_version'], 2)
@@ -128,14 +141,16 @@ class BaselineTests(unittest.TestCase):
             root = Path(tmp)
             shutil.copytree(ROOT / 'data', root / 'data')
             path = root / 'data/review/adjudicated.jsonl'
-            rs = [json.loads(s) for s in path.read_text().splitlines()]
+            rs = [json.loads(s) for s in path.read_text(encoding='utf-8').splitlines()]
             rs[0]['status'] = 'adjudicated'
-            path.write_text(''.join(json.dumps(r) + '\n' for r in rs))
+            path.write_text(''.join(json.dumps(r) + '\n' for r in rs), encoding='utf-8', newline='\n')
             with self.assertRaisesRegex(ValueError, 'independent review provenance'):
                 evaluate(root)
 
     def test_review_packets_do_not_include_old_labels_or_expected_answers(self):
-        packets = [json.loads(s) for s in (ROOT / 'data/review/review_cases.jsonl').read_text().splitlines()]
+        packets = [
+            json.loads(s) for s in (ROOT / 'data/review/review_cases.jsonl').read_text(encoding='utf-8').splitlines()
+        ]
         self.assertEqual(len({p['case_id'] for p in packets}), 20)
         for p in packets:
             for key in ('traditional', 'experiment'):
@@ -153,7 +168,11 @@ class BaselineTests(unittest.TestCase):
 
     def test_deterministic_ranking_and_invalid_input(self):
         self.assertEqual(self.b.retrieve('T011'), self.b.retrieve('T011'))
-        with self.assertRaises(ValueError): self.b.retrieve('unknown')
-        with self.assertRaises(ValueError): self.b.retrieve('T011', 0)
+        with self.assertRaises(ValueError):
+            self.b.retrieve('unknown')
+        with self.assertRaises(ValueError):
+            self.b.retrieve('T011', 0)
 
-if __name__ == '__main__': unittest.main()
+
+if __name__ == '__main__':
+    unittest.main()
