@@ -29,7 +29,8 @@
     "data/review/retrieval_relevance_human_submissions.jsonl": "931d3323720fb6deceba2a91beca5225055db9d5025ea725b4e9d5f28206fe23",
     "data/review/review_cases.jsonl": "daf45e51eb6cf8d92b1a869509ed5316b17ed04b23c75b6e8877e3667030f938",
     "data/review/reviewer_a.jsonl": "0e5d590824a3c2f6983b699fc4e61fad90ed7a480d0feaac9fa068eb962492c3",
-    "data/review/reviewer_b.jsonl": "2fe8da30a4a9fee51271a30c87380d59e398c3fc99229a86098b40ed14f2d2dd",
+    "data/review/reviewer_b.jsonl": "d4aa59e74d89f594f00f6bceaf67c88b23cdaad4417cf7327b61bb92f2a16834",
+    "data/review/reviewer_b_comparison_proposals.jsonl": "16cf134e0985699d972a7deaf234636828c9d1bab6fe44d1bf54eff7885384d7",
     "data/review/t008_relevance_followup_2026-11-05.jsonl": "a9d8416af87a4f426b1b10066cd4d2ab5481f807473f4ee093c2a3374322de4e"
   },
   "review_progress": {
@@ -43,10 +44,10 @@
       "warning": "Reviewer agreement is not held-out accuracy; assisted confirmations are not independent gold."
     },
     "b": {
-      "assisted_comparison_cases": 0,
-      "baseline_label_agreement": null,
-      "comparison_completed_cases": 0,
-      "comparison_pending_cases": 20,
+      "assisted_comparison_cases": 20,
+      "baseline_label_agreement": 0.8,
+      "comparison_completed_cases": 20,
+      "comparison_pending_cases": 0,
       "experimental_finding_label_reviews": 0,
       "extraction_verified_cases": 20,
       "warning": "Reviewer agreement is not held-out accuracy; assisted confirmations are not independent gold."

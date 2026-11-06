@@ -194,9 +194,11 @@ Research prototype. Findings and claim comparability are separate. Missing index
 
 **Reasons:** Preparation equivalence is not established by this baseline., Neuronal-cell survival does not test the reported slow-healing infection use., Preclinical results do not establish clinical efficacy in people.
 
-**Human comparison review count:** 0
+**Human comparison review count:** 1
 
 **Extraction verification count:** 1
+
+**Reviewer b:** not_directly_comparable; assistant_proposed_labels_reviewed_and_approved_by_human
 
 **Citation:** Harris CS; Asim M; Saleem A; Haddad PS; Arnason JT; Bennett SA. Characterizing the cytoprotective activity of Sarracenia purpurea L., a medicinal plant that inhibits glucotoxicity in PC12 cells. BMC complementary and alternative medicine. 2012;12:245. doi:10.1186/1472-6882-12-245. PMID:23216659.
 
@@ -278,9 +280,11 @@ Research prototype. Findings and claim comparability are separate. Missing index
 
 **Reasons:** The mapped plant parts do not overlap., Preparation equivalence is not established by this baseline., Neuronal-cell survival does not test the reported slow-healing infection use., Preclinical results do not establish clinical efficacy in people.
 
-**Human comparison review count:** 0
+**Human comparison review count:** 1
 
 **Extraction verification count:** 1
+
+**Reviewer b:** not_directly_comparable; assistant_proposed_labels_reviewed_and_approved_by_human
 
 **Citation:** Harris CS; Asim M; Saleem A; Haddad PS; Arnason JT; Bennett SA. Characterizing the cytoprotective activity of Sarracenia purpurea L., a medicinal plant that inhibits glucotoxicity in PC12 cells. BMC complementary and alternative medicine. 2012;12:245. doi:10.1186/1472-6882-12-245. PMID:23216659.
 
