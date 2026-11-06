@@ -11,6 +11,20 @@ const esc = (value) =>
   );
 const text = (value) => esc(Array.isArray(value) ? value.join(', ') : value || 'Unknown');
 const human = (value) => text(value?.replaceAll('_', ' '));
+const accountUse = (account) =>
+  account.id === 'T016'
+    ? 'A Canadian ethnobotanical database record lists Arbutus menziesii as used for diabetes.'
+    : account.claim.original_use_description;
+function coverageNote(account) {
+  if (account.retrieval_status === 'unresolved_species') {
+    return 'Traditional use recorded. Scientific species identification is unresolved, so species-based retrieval is blocked.';
+  }
+  if (account.atlas.experimental_units > 0) return '';
+  return account.atlas.literature_leads > 0
+    ? 'Traditional use recorded. Literature leads are available, but no experiments have been extracted for comparison.'
+    : 'Traditional use recorded. No experimental candidates are indexed in this collection; research may exist elsewhere.';
+}
+
 // Display explanations only; source records retain their original terminology.
 const settingLabel = (value) => (value === 'animal_in_vivo' ? 'Animal study' : value);
 const endpointLabel = (value) =>
@@ -41,7 +55,7 @@ function render() {
   const selected = data.claims.find((c) => c.id === $('claim').value),
     t = selected.claim;
   $('account').innerHTML =
-    `<div class="eyebrow">DOCUMENTED USE</div><h3>${text(t.species)}</h3><p>${text(t.original_use_description)}</p><p class="small"><strong>Attribution</strong><br>${text(t.community_or_nation)}</p><details><summary>Traditional source & passage</summary>${source({ citation: t.citation, url: t.source_url, supporting_passage: t.supporting_passage, locator: t.passage_locator, licence: t.licence })}</details>`;
+    `<div class="eyebrow">DOCUMENTED USE</div><h3>${text(t.species)}</h3><p>${text(accountUse(selected))}</p><p class="small"><strong>Attribution</strong><br>${text(t.community_or_nation)}</p><details><summary>Traditional source & passage</summary>${source({ citation: t.citation, url: t.source_url, supporting_passage: t.supporting_passage, locator: t.passage_locator, licence: t.licence })}</details>`;
   const mode = $('ranking').value || 'lexical';
   const order = selected.rankings?.[mode];
   const all = order
@@ -66,7 +80,7 @@ function render() {
       ['Species', t.species, s.species],
       ['Plant part', t.plant_part, s.plant_part],
       ['Preparation', t.preparation, s.preparation],
-      ['Use / outcome', t.original_use_description, endpointLabel(s.endpoint)],
+      ['Use / outcome', accountUse(selected), endpointLabel(s.endpoint)],
       ['Setting', 'Documented traditional account', settingLabel(s.study_setting)],
     ];
     return `<article class="card"><span class="badge">${esc(r.evidence_id)}</span><span class="badge ${isExtracted ? '' : 'warning'}">${isExtracted ? 'Extracted experiment' : 'Literature lead · not fully extracted'}</span><h3>${text(endpointLabel(r.title))}</h3><p class="small">${r.case_id ? `${esc(r.case_id)} · ${r.human_comparison_reviews} human comparison review(s) · ${r.extraction_verifications} reported extraction verifications` : 'Outside the 20-case review set · unreviewed'}</p>${r.human_judgments?.length ? `<p class="small">Recorded human pair judgment: ${r.human_judgments.map((j) => `Reviewer ${esc(j.reviewer.toUpperCase())}: ${human(j.label)} (${human(j.provenance?.method)})`).join('; ')}. Dimension cells remain automated.</p>` : ''}<table><thead><tr><th>Field</th><th>Traditional account</th><th>Experimental study</th><th>Part comparison</th></tr></thead><tbody>${pairs.map(([key, a, b]) => `<tr><td>${key}</td><td>${text(a)}</td><td>${text(b)}</td><td>${key === 'Plant part' ? human(c.plant_part) : '—'}</td></tr>`).join('')}</tbody></table><div class="outputs"><section class="output"><h4>Experimental finding</h4><strong>${isExtracted ? human(c.experimental_result_direction) : 'Not extracted'}</strong><p>${isExtracted ? text(s.reported_use_or_outcome) : 'This entry is a literature lead. Consult the original paper before assigning an experimental finding.'}</p><p class="small">Model: ${text(s.model)}</p></section><section class="output compare"><h4>Claim comparability · baseline</h4><strong>${human(c.status)}</strong><ul>${c.reasons.map((reason) => `<li>${esc(reason)}</li>`).join('')}</ul></section></div><details><summary>Experimental source, passage & limitations</summary>${source(r.source)}<p>${text(s.notes)}</p><p class="small">Lexical baseline score: ${r.score.total.toFixed(3)} · species ${r.score.taxon}, part ${r.score.parts}, solvent ${r.score.solvent}, text overlap ${r.score.lexical.toFixed(3)}. This is not a confidence score.</p>${selected.rankings ? `<p class="small">Semantic cosine: ${selected.rankings.cosine[r.evidence_id].toFixed(3)} · Hybrid rank-fusion score: ${selected.rankings.rrf[r.evidence_id].toFixed(5)}. These scores only order candidates.</p>` : ''}</details></article>`;
@@ -137,10 +151,10 @@ function renderAtlas() {
         const cells = Object.keys(dimensionNames)
           .map((d) => {
             const buckets = Object.entries(a.dimensions[d]);
-            return `<td>${buckets.length ? buckets.map(([key, b]) => `<button class="atlas-cell" data-account="${esc(c.id)}" data-dimension="${d}" data-bucket="${esc(key)}">${esc(bucketLabel(c, d, key, b.label))} <strong>${b.evidence_ids.length}</strong></button>`).join('') : `<span class="small">${c.retrieval_status === 'unresolved_species' ? 'Species unresolved' : 'No indexed extracted experiment'}</span>`}</td>`;
+            return `<td>${buckets.length ? buckets.map(([key, b]) => `<button class="atlas-cell" data-account="${esc(c.id)}" data-dimension="${d}" data-bucket="${esc(key)}">${esc(bucketLabel(c, d, key, b.label))} <strong>${b.evidence_ids.length}</strong></button>`).join('') : `<span class="small">${c.retrieval_status === 'unresolved_species' ? 'Species identification needed' : 'No extracted experiment in collection'}</span>`}</td>`;
           })
           .join('');
-        return `<tr><td><button class="account-link" data-account="${esc(c.id)}">${esc(c.name)} · ${esc(c.id)}</button><p class="small">${text(c.claim.original_use_description)}</p><p class="small">${text(c.claim.community_or_nation)}</p><span class="small">${a.experimental_units} units · ${a.unique_publications} ${a.unique_publications === 1 ? 'paper' : 'papers'} · ${a.literature_leads} leads<br>${esc(reviewSummary(c))}</span></td>${cells}</tr>`;
+        return `<tr><td><button class="account-link" data-account="${esc(c.id)}">${esc(c.name)} · ${esc(c.id)}</button><p class="small">${text(accountUse(c))}</p><p class="small">${text(c.claim.community_or_nation)}</p><span class="small">${a.experimental_units} extracted experimental units · ${a.unique_publications} experimental publications extracted · ${a.literature_leads} literature leads<br>${esc(reviewSummary(c))}</span>${coverageNote(c) ? `<p class="small">${esc(coverageNote(c))}</p>` : ''}</td>${cells}</tr>`;
       })
       .join('') || '<tr><td colspan="7">No accounts match these filters.</td></tr>';
 }

@@ -93,3 +93,19 @@ for (const mode of ['semantic', 'hybrid', 'lexical']) {
   assert.ok(positions.every((p, i) => p >= 0 && (i === 0 || p > positions[i - 1])));
   assert.match(nodes.results.innerHTML, /insufficient evidence/);
 }
+
+// Empty coverage distinguishes a recorded use from missing experimental extraction.
+nodes['atlas-search'].value = '';
+nodes['atlas-setting'].value = '';
+nodes['atlas-missing'].checked = false;
+vm.runInContext('renderAtlas()', ctx);
+assert.match(nodes['atlas-body'].innerHTML, /experimental publications extracted/);
+assert.match(nodes['atlas-body'].innerHTML, /species-based retrieval is blocked/);
+assert.match(nodes['atlas-body'].innerHTML, /Literature leads are available/);
+assert.match(nodes['atlas-body'].innerHTML, /research may exist elsewhere/);
+assert.doesNotMatch(nodes['atlas-body'].innerHTML, /COUNTRY=Canada/);
+nodes.claim.value = 'T016';
+vm.runInContext('render()', ctx);
+assert.match(nodes.account.innerHTML, /A Canadian ethnobotanical database record lists/);
+assert.match(nodes.account.innerHTML, /specific Nation not established/);
+assert.match(vm.runInContext("data.claims.find(c => c.id === 'T016').claim.original_use_description", ctx), /COUNTRY=Canada/);
