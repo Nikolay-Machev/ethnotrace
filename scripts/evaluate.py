@@ -1,5 +1,6 @@
 """Report development checks separately from metrics on independently adjudicated cases."""
 import argparse
+from math import fsum
 import hashlib
 import json
 from collections import defaultdict
@@ -127,13 +128,13 @@ def evaluate(root=ROOT):
               'scope': 'development set, not held-out; known source/programme blocks retained',
               'development_checks': {'scientific_name_taxon_agreement': sum(structural_taxon) / len(structural_taxon),
                                      'species_gate_membership_agreement': sum(membership) / len(membership),
-                                     'macro_recall_at_5_for_seeded_links': sum(hits) / len(hits),
-                                     'mean_reciprocal_rank_for_seeded_links': sum(reciprocal) / len(reciprocal),
+                                     'macro_recall_at_5_for_seeded_links': fsum(hits) / len(hits),
+                                     'mean_reciprocal_rank_for_seeded_links': fsum(reciprocal) / len(reciprocal),
                                      'query_count': len(relevant),
                                      'warning': 'Seeded expectations use curated names/links and test implemented structure. These are not independently reviewed relevance or scientific accuracy scores.'},
               'independent_review': {'adjudicated_cases': len(accepted), 'comparison_accuracy': accuracy,
                                      'complete_retrieval_query_count': len(gold_recall),
-                                     'macro_recall_at_5': sum(gold_recall) / len(gold_recall) if gold_recall else None,
+                                     'macro_recall_at_5': fsum(gold_recall) / len(gold_recall) if gold_recall else None,
                                      'status': 'no_independent_gold_available' if not accepted else 'development_gold_only'},
               'input_sha256': {str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted((root / 'data/review').glob('*.jsonl'))}}
     return report, predictions

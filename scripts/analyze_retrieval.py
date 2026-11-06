@@ -1,5 +1,6 @@
 """Compare ranking versions on seeded development links and prepare a relevance queue."""
 import json
+from math import fsum
 from collections import defaultdict
 from retrieve import Baseline, ROOT, rows, tokenise
 
@@ -34,7 +35,7 @@ def analyze():
                         'rationale':('An extracted same-species experiment provides evidence or a documented mismatch useful for assessing this account. This does not imply claim support.' if extracted else 'Same-species title-screened literature lead. Full source assessment is needed before a relevance judgment.'),
                         'annotation_method':'assistant_prepared_from_existing_extraction_and_metadata',
                         'human_retrieval_relevant':None,'human_rationale':None,'human_review_status':'pending'})
-        metrics[version]={'macro_recall_at_5':sum(recalls)/len(recalls),'mrr':sum(reciprocal)/len(reciprocal)}
+        metrics[version]={'macro_recall_at_5':fsum(recalls)/len(recalls),'mrr':fsum(reciprocal)/len(reciprocal)}
     report={'scope':'six development queries; seeded links, not independent relevance gold','metrics':metrics,'queries':comparisons}
     out=ROOT/'data/evaluation';(out/'retrieval_comparison.json').write_text(json.dumps(report,indent=2)+'\n')
     # Never overwrite later human judgments.

@@ -21,7 +21,7 @@ The atlas summarizes the collection; the explorer explains individual comparison
 
 Counts are experimental units, not independent studies. Unique publication counts are shown separately per account; neither should be summed across accounts as independent evidence. Conflicting or different results retain separate buckets. A missing indexed experiment means none in this collection. An unresolved plant name blocks species retrieval and is shown explicitly.
 
-Dimension summaries are automated. Recorded human judgments apply to the overall pair and are displayed separately with provenance. A human pair review does not verify every matrix cell. Reviewer A's existing confirmation was assisted; Alex Karadjov's comparison review remains pending. This change does not alter review decisions or source records.
+Dimension summaries are automated. Recorded human judgments apply to the overall pair and are displayed separately with provenance. A human pair review does not verify every matrix cell. Both reviewers have 20 completed assisted comparison judgments with matching labels. These are not independent blinded annotations. This change does not alter review decisions or source records.
 
 ## Interaction
 
@@ -39,7 +39,7 @@ Evaluate candidate relevance separately from comparability and result direction.
 
 ## Verification
 
-Python tests pass, including atlas checks for preserving part differences, excluding leads from finding counts, retaining unresolved accounts, separating units from publications, and keeping comparison summaries independent of ranking scores. JavaScript syntax validation and `node tests/test_web.cjs` pass. The latter checks the renderer and event handlers with a mock DOM, including filtering, drill-down, clearing and empty states; it is not a browser layout check. In a subsequent live check, “Different part” opened E004 under all three rankers and its citation opened the intended PMC URL. The browser download event remains unconfirmed.
+Python tests pass, including atlas checks for preserving part differences, excluding leads from finding counts, retaining unresolved accounts, separating units from publications, and keeping comparison summaries independent of ranking scores. JavaScript syntax validation and `node tests/test_web.cjs` pass. The latter checks the renderer and event handlers with a mock DOM, including filtering, drill-down, clearing and empty states; it is not a browser layout check. In a subsequent live check, “Different part” opened E004 under all three rankers and its citation opened the intended PMC URL. The integration browser suite subsequently confirmed nine cited-report downloads across three viewport widths and all three rankers.
 
 ## Display wording and navigation
 
@@ -50,3 +50,9 @@ The account column stays visible during horizontal scrolling, with a visible scr
 `scripts/gaps.py` derives explanations and next actions from the same indexed results. Empty preparation fields are labelled `not_recorded_source_status_unresolved`; they are never automatically labelled absent from the source. Literature leads use `not_yet_extracted`. Outcome relationships are distinct from missing extraction fields. Every evidence ID in an explanation resolves to a candidate with a source citation. Selecting a preparation, outcome, part or setting bucket expands related explanations.
 
 Source notes from `data/curated/targeted_extractions.jsonl` are displayed separately, with extraction depth, citations, locators, rights and limitations. The complete methods/table inspection of TX001 and partial indexed-section inspection of TX002 are not human verification, new clinical findings, or automatically validated traditional recipes. They are excluded from atlas experimental counts and the frozen development comparisons.
+
+## Supplementary source evidence
+
+Each account's gaps section displays its supplementary missing-field audit entries, including related experimental entries where indexed. Values from related sources, the original recorded value, source context, supporting URLs and locators, and limits remain distinct. Null original fields remain null. The same notes appear in downloaded evidence reports. These display changes do not alter comparison rules, frozen ranking inputs, or human decisions.
+
+Targeted extraction cards and reports show the recorded verification status, reviewer, inspected sections and assisted provenance. A confirmed source packet is not labelled as an independent blinded review.

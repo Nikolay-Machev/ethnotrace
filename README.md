@@ -50,7 +50,7 @@ The [assisted exploratory ten-paper evaluation](docs/assisted_generalization_res
 
 ## Ten-paper pilot literature screening
 
-All ten frozen generalization candidates received source-based assistant research screening before rank exposure: nine assessed useful and one context only. The original human-review file stays unresolved, and frozen rankings remain withheld pending eligible human review. See [the source-screen report](docs/generalization_source_followup_2026-11-05.md). These judgments are not independent human gold labels or performance metrics.
+All ten frozen generalization candidates received source-based assistant research screening before rank exposure: nine assessed useful and one context only. Alex approved all ten source judgments with assistant-label exposure disclosed. The separate assisted exploratory evaluation is complete; the original blinded evaluator still rejects these exposed reviews. See [the source-screen report](docs/generalization_source_followup_2026-11-05.md). These judgments are not independent human gold labels or performance metrics.
 
 ## Additional source-supported ethnobotanical context
 
@@ -66,6 +66,14 @@ The six-query benchmark measures recovery of seeded links. Ten of twelve links s
 
 Human-reviewed lexical, semantic and hybrid results: [retrieval comparison](docs/human_retrieval_comparison.md). All six queried accounts now have complete confirmed assisted judgments and enter the development metrics.
 
-Next experiment: [new-paper review packet](docs/generalization_review_packet.md) and [frozen pilot protocol](docs/generalization_protocol.md). All ten new candidates currently have unresolved reviews; no generalization result is claimed. The atlas now gives a checkable completion criterion for each research gap.
+Next experiment: [new-paper review packet](docs/generalization_review_packet.md) and [frozen pilot protocol](docs/generalization_protocol.md). All ten new candidates have completed assisted approvals. The separate exploratory evaluation is shown on the evaluation page; independent blinded generalization performance remains unavailable. The atlas now gives a checkable completion criterion for each research gap.
 
-[Product verification and remaining review work](docs/product_audit.md) distinguishes prior browser and JavaScript checks from the latest validated review counts, and lists the outstanding comparison, adjudication, targeted-extraction and pilot review work.
+[Product verification and remaining review work](docs/product_audit.md) distinguishes prior browser and JavaScript checks from the latest validated review counts, and records review provenance and verification limits.
+
+## Validation and reproducibility
+
+Run `python3 scripts/rebuild.py --check`, `python3 -m unittest discover -s tests`, `node tests/test_web.cjs` and `node tests/test_reports.cjs`. CI runs these checks with Python 3.11 and 3.12. Current aggregate metrics use `math.fsum` to avoid version-dependent floating-point summation differences.
+
+Current retrieval evaluation runs through `scripts/evaluate_retrieval.py`, which reconciles all submitted reviewers per pair. A pending or provisional submission blocks scoring that account; conflicting final decisions stop evaluation for adjudication. `scripts/evaluate_semantic.py` remains the unchanged historical evaluator referenced by the frozen pilot manifest. The rebuild and evaluation page use the current evaluator.
+
+Supplementary source evidence is visible below each account's gaps and in its downloaded report. These cited context notes do not replace original recorded values or change rankings and judgments. Targeted extractions show their recorded verification status and assisted provenance.

@@ -34,7 +34,7 @@ def grouped_review_records(records):
             counts['discordant_completed_pairs'] += 1
             raise ValueError('Multiple conflicting final relevance judgments require adjudication: ' + str(key))
         if finals and len(finals) == len(submissions):
-            chosen = dict(finals[0])
+            chosen = dict(min(finals, key=lambda r: r['human_reviewer_id']))
             counts['concordant_completed_pairs'] += 1
         else:
             chosen = dict(next((r for r in submissions if r.get('human_review_status') == 'provisional'),

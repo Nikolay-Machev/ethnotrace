@@ -14,7 +14,7 @@ const element={innerHTML:''};const evalctx=vm.createContext({window:{},document:
 vm.runInContext(fs.readFileSync(path.join(root,'web/evaluation-data.js'),'utf8'),evalctx);
 vm.runInContext(fs.readFileSync(path.join(root,'web/evaluation.js'),'utf8'),evalctx);
 assert.match(element.innerHTML,/Independent comparison accuracy<\/td><td>Not available/);
-assert.match(element.innerHTML,/Human relevance judgments: 30 \/ 33/);
+assert.match(element.innerHTML,/Human relevance judgments: 33 \/ 33/);
 assert.match(element.innerHTML,/E004/);
 assert.match(element.innerHTML,/0.917/);
 console.log('All 12 account reports retain citations; evaluation preserves unavailable metrics and ranking misses.');
@@ -30,8 +30,34 @@ assert.match(evidenceReport(sorbus,data),/Blood glucose trended lower over seven
 assert.match(element.innerHTML,/Uniform random order \(expected\)<\/td><td>0\.869<\/td><td>0\.595/);
 assert.match(element.innerHTML,/10 of 12 seeded links use the same publication/);
 assert.match(element.innerHTML,/Human-reviewed ranking comparison/);
-assert.match(element.innerHTML,/3 complete accounts · 16 account–candidate pairs · 10 judged useful/);
+assert.match(element.innerHTML,/6 complete accounts · 33 account–candidate pairs · 25 judged useful/);
 assert.match(element.innerHTML,/Precision@5/);
-assert.match(element.innerHTML,/P20301057 \(provisional\)/);
+assert.doesNotMatch(element.innerHTML,/P20301057 \(provisional\)/);
 assert.match(element.innerHTML,/E003 · lexical #3 → semantic #6 → hybrid #4/);
-assert.match(element.innerHTML,/hybrid<\/td><td>0\.600<\/td><td>0\.917<\/td><td>1\.000/);
+assert.match(element.innerHTML,/hybrid<\/td><td>0\.733<\/td><td>0\.903<\/td><td>1\.000/);
+
+assert.match(element.innerHTML,/Assisted exploratory new-paper pilot/);
+assert.match(element.innerHTML,/10 of 10 reviews completed with assistant-label exposure/);
+assert.match(element.innerHTML,/Independent generalization performance remains unavailable/);
+assert.doesNotMatch(element.innerHTML,/Rankings are withheld until source-based review is complete/);
+for(const account of data.claims){
+ const report=evidenceReport(account,data);
+ for(const note of account.supplemental_missing_field_evidence||[]){
+  assert.ok(report.includes(note.evidence_basis ?? 'Unknown'));
+  for(const source of note.source_urls||[]){assert.ok(report.includes(source.url));assert.ok(report.includes(source.locator));}
+ }
+ for(const n of account.targeted_extractions||[]){
+  assert.ok(report.includes(n.human_review.status));
+  assert.ok(report.includes(n.human_review.reviewer_id));
+ }
+}
+const tamarack=data.claims.find(a=>a.id==='T007');
+assert.ok(!tamarack.claim.plant_part); // Supplementary inner bark evidence must not overwrite the indexed account.
+assert.match(evidenceReport(tamarack,data),/inner bark/);
+assert.match(evidenceReport(tamarack,data),/Related source context only/);
+const stale=JSON.parse(JSON.stringify(evalctx.window.ETHNOTRACE_EVALUATION));
+stale.assisted_pilot.result=null;stale.assisted_pilot.recorded_result_current=false;
+const staleElement={innerHTML:''};
+vm.runInNewContext(fs.readFileSync(path.join(root,'web/evaluation.js'),'utf8'),{window:{ETHNOTRACE_EVALUATION:stale},document:{getElementById:()=>staleElement}});
+assert.match(staleElement.innerHTML,/No current, input-matched exploratory result/);
+console.log('Current review counts, assisted pilot, supplementary citations and verification provenance passed.');

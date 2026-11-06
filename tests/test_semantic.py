@@ -3,7 +3,7 @@ from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
 from retrieve import Baseline
 from semantic_retrieval import inputs,digest,fuse,snapshot,load_snapshot
-from evaluate_semantic import metrics
+from evaluate_retrieval import metrics
 class FakeEncoder:
  def encode_query(self,texts,**kwargs):return [[1.0,0.0] for _ in texts]
  def encode_document(self,texts,**kwargs):return [[0.0,1.0] for _ in texts]
@@ -45,7 +45,7 @@ class HumanRankingEvaluationTests(unittest.TestCase):
   self.assertEqual(metrics(['a'],{'a'})['precision_at_5'],0.2)
   self.assertEqual(metrics(['a'],set())['precision_at_5'],0)
  def test_incomplete_account_is_excluded_without_shrinking_pool(self):
-  from evaluate_semantic import human_comparison
+  from evaluate_retrieval import human_comparison
   ranking={'T1':{m:['a','b'] for m in ('lexical','semantic','hybrid')}}
   good=dict(human_review_status='completed',human_retrieval_relevant=True,
             human_reviewer_id='reviewer',human_rationale='Useful',source_checked=True)
@@ -55,7 +55,7 @@ class HumanRankingEvaluationTests(unittest.TestCase):
    self.assertEqual(judged,[])
    self.assertEqual(excluded[0]['blocking_candidates'][0]['status'],status)
  def test_movements_preserve_useful_mismatch_and_top_five_tradeoff(self):
-  from evaluate_semantic import human_comparison
+  from evaluate_retrieval import human_comparison
   ranking={'T1':dict(lexical=['a','b','c','d','e','f'],
                      semantic=['b','c','d','e','f','a'],
                      hybrid=['a','b','c','d','f','e'])}

@@ -23,19 +23,21 @@ OUTPUTS = (
 def rebuild(check=False):
     with tempfile.TemporaryDirectory() as directory:
         stage = Path(directory)
-        for folder in ("imports", "config", "scripts", "data/review", "data/curated"):
+        for folder in ("imports", "config", "scripts", "data/review", "data/curated", "data/generalization"):
             shutil.copytree(ROOT / folder, stage / folder, ignore=shutil.ignore_patterns("__pycache__"))
         for file in ("web/report.js", "data/evaluation/development_expectations.jsonl",
                      "data/evaluation/semantic_rankings.json"):
             (stage / file).parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(ROOT / file, stage / file)
         (stage / "docs").mkdir()
+        for name in ("generalization_protocol.md", "generalization_review_packet.md"):
+            shutil.copyfile(ROOT / "docs" / name, stage / "docs" / name)
         # Both packet and ranking builders can enrich the queue. Evaluate the
         # checked-in review bytes, not their temporary reserialization.
         queue = stage / "data/review/retrieval_relevance.jsonl"
         original = queue.read_bytes()
         for script in ("preprocess", "analyze_retrieval", "prepare_relevance_review",
-                       "evaluate", "evaluate_semantic", "build_demo", "build_evaluation"):
+                       "evaluate", "evaluate_retrieval", "build_demo", "build_evaluation"):
             if script == "evaluate":
                 queue.write_bytes(original)
             subprocess.run([sys.executable, f"scripts/{script}.py"], cwd=stage,

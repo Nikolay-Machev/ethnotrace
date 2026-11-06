@@ -37,6 +37,15 @@ const root=path.resolve(__dirname,'..'),web=path.join(root,'web');
      assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1), 'Page overflow at '+width+' / '+tid);
     }
    }
+   await page.locator('#claim').selectOption('T007');
+   const supplement=page.locator('.supplementary-source').filter({hasText:'T007 · plant part'});
+   await supplement.locator('summary').click();
+   assert.match(await supplement.innerText(),/inner bark/);
+   assert.ok(await supplement.locator('a').count()>0);
+   assert.match(await supplement.innerText(),/Locator:/);
+   await page.locator('#claim').selectOption('T008');
+   assert.match(await page.locator('#gaps').textContent(),/Human confirmation recorded/);
+   assert.doesNotMatch(await page.locator('#gaps').textContent(),/awaiting human verification/);
    await page.locator('#atlas-search').fill('no-such-account-xyz');
    assert.match(await page.locator('#atlas-body').innerText(),/No accounts match/);
    await page.locator('#atlas-search').fill('T008');
@@ -75,6 +84,7 @@ const root=path.resolve(__dirname,'..'),web=path.join(root,'web');
    assert.match(await page.locator('#results').innerText(),/does not establish that no research exists/);
    await page.goto(base+'/evaluation.html');
    assert.match(await page.locator('#evaluation').innerText(),/Human-reviewed ranking comparison/);
+   assert.match(await page.locator('#evaluation').innerText(),/10 of 10 reviews completed with assistant-label exposure/);
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'Evaluation overflow at '+width);
    await page.goto(base);
   }

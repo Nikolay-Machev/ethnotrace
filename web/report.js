@@ -28,8 +28,18 @@ function evidenceReport(account,metadata,method='lexical'){
  if(!account.results.length)lines.push('No indexed candidates. Retrieval status: '+account.retrieval_status,'');
  lines.push('## Gaps and next steps','');
  for(const g of account.gaps||[]){lines.push(`### ${g.title}`,'',g.reason,'',`Next step: ${g.next_step}`,'',`Record when checked: ${g.completion_criterion || "Record a cited finding and any remaining uncertainty."}`,'',`Evidence IDs: ${g.evidence_ids.join(', ')||'None'}`,'');}
- lines.push('## Targeted extraction notes','Assistant notes, separate from experimental counts; human verification is not inferred.','');
- for(const n of account.targeted_extractions||[]){lines.push(`### ${n.extraction_id}`,'');field('Extraction depth',n.extraction_depth);field('Finding',n.reported_use_or_outcome);field('Preparation',n.preparation);field('Limitations',n.limitations);cite(n);}
+ lines.push('## Targeted extraction notes','Source notes, separate from experimental counts; recorded verification and its provenance are reported below.','');
+ for(const n of account.targeted_extractions||[]){lines.push(`### ${n.extraction_id}`,'');field('Extraction depth',n.extraction_depth);field('Human verification recorded',n.human_verified);field('Reviewer',n.human_review?.reviewer_id);field('Review status',n.human_review?.status);field('Sections checked',n.human_review?.source_and_sections_checked);field('Verification method',n.human_review?.verification_provenance?.method);field('Independent blinded annotation',n.human_review?.verification_provenance?.independent_blinded_annotation);field('Finding',n.reported_use_or_outcome);field('Preparation',n.preparation);field('Limitations',n.limitations);cite(n);}
+ const supplementary=account.supplemental_missing_field_evidence||[];
+ if(supplementary.length)lines.push('## Supplementary source evidence','','Related source context only. Original records, automated comparisons and rankings are unchanged.','');
+ for(const n of supplementary){
+  lines.push(`### ${n.record_id}: ${n.field}`,'');
+  field('Original recorded value',n.original_record_value);field('Value supported in related source',n.source_supported_value);
+  field('Source context status',n.source_context_status);field('Evidence and limits',n.evidence_basis);
+  field('Assisted research not independent human verification',n.assisted_research_not_independent_human_verification);
+  if(n.other_source_context){field('Related context',n.other_source_context.related_value);field('Context status',n.other_source_context.status);field('Context limitation',n.other_source_context.reason);}
+  for(const src of n.source_urls||[]){field('Source URL',src.url);field('Locator',src.locator);}
+ }
  return lines.join('\n');
 }
 if(typeof module!=='undefined')module.exports={evidenceReport};

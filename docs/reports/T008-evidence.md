@@ -363,11 +363,23 @@ Record when checked: A cited research note addressing this gap; retain any remai
 Evidence IDs: E003, E004
 
 ## Targeted extraction notes
-Assistant notes, separate from experimental counts; human verification is not inferred.
+Source notes, separate from experimental counts; recorded verification and its provenance are reported below.
 
 ### TX001
 
 **Extraction depth:** full_text_methods_and_table
+
+**Human verification recorded:** true
+
+**Reviewer:** Alex Karadjov
+
+**Review status:** completed_source_packet_confirmed
+
+**Sections checked:** Methods: Plant extracts, printed p. 486 / PDF p. 3, Results and Table 2, printed p. 488 / PDF p. 5, Discussion, printed pp. 488–490
+
+**Verification method:** assistant_prepared_source_evidence_reviewed_and_confirmed_by_user
+
+**Independent blinded annotation:** false
 
 **Finding:** Composition varied by compound: ethanol-to-water concentration ratios were 107.21 for betulinic acid, 93.11 for ursolic acid, 0.83 for morroniside and 1.67 for quercetin-3-O-galactoside.
 
@@ -384,3 +396,29 @@ Assistant notes, separate from experimental counts; human verification is not in
 **Locator:** Plant extracts, printed p. 486 / PDF p. 3; Results and Table 2, printed p. 488 / PDF p. 5; Discussion pp. 488–490
 
 **Source rights:** Journal page describes Attribution-ShareAlike for non-commercial uses; exact version unresolved. No PDF redistributed.
+
+## Supplementary source evidence
+
+Related source context only. Original records, automated comparisons and rankings are unchanged.
+
+### T008: preparation
+
+**Original recorded value:** Unknown
+
+**Value supported in related source:** Unknown
+
+**Source context status:** unresolved_no_account_specific_source
+
+**Evidence and limits:** TX001 gives a boiling-water procedure mimicking a healer's preparation, not the verified original recipe for the individual slow-healing-infection account.
+
+**Assisted research not independent human verification:** true
+
+**Related context:** boiled-water leaf extract in later laboratory replication
+
+**Context status:** laboratory_protocol_only
+
+**Context limitation:** TX001 gives a boiling-water procedure mimicking a healer's preparation, not the verified original recipe for the individual slow-healing-infection account.
+
+**Source URL:** https://journals.library.ualberta.ca/jpps/index.php/JPPS/article/download/25093/18946/65399
+
+**Locator:** Plant extracts, journal p.486

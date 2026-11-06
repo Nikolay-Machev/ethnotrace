@@ -27,7 +27,7 @@ source .venv-semantic/bin/activate
 # pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
 pip install -r requirements-semantic.txt
 python scripts/semantic_retrieval.py --revision 1110a243fdf4706b3f48f1d95db1a4f5529b4d41
-python scripts/evaluate_semantic.py
+python scripts/evaluate_retrieval.py
 python scripts/build_demo.py
 python scripts/build_evaluation.py
 ```
@@ -45,8 +45,10 @@ The first inference run downloads model weights. Dataset text stays local. No AP
 
 Ten of the twelve links share a publication across the account and experimental record. Short pools give high recall even under random ordering. These are six existing development queries with twelve seeded links, not held-out test results or complete relevance judgments. Per-query rankings and missed links are retained in `data/evaluation/semantic_comparison.json` and shown on the evaluation page. For pitcher plant (T008), semantic retrieves E004 within five but drops E003 below five; lexical and hybrid miss E004 instead. Equal aggregate recall therefore hides a different error. The improvement in first-relevant rank is descriptive; we make no statistical superiority claim and leave lexical as the default.
 
-T008 was the first complete human-reviewed query (assisted, not blinded). All three methods retrieve three of four useful candidates in their top five. Lexical and hybrid rank a useful candidate first; semantic ranks one second. The updated human-reviewed evaluation also includes T009 and T012. Across these three accounts, macro recall@5 is 0.833 lexical, 0.833 semantic and 0.917 hybrid; MRR is 0.667, 0.833 and 1.000 respectively. T007, T010 and T011 each have one unresolved candidate and are excluded. This still does not create an independent test set. Related sources and experiments must remain grouped for any future held-out study. Repeated experiments from the same publication are not independent samples; model pretraining overlap with literature is not known.
+All six development accounts now have complete matching assisted relevance judgments across 33 pairs. Macro precision@5 is 0.667 lexical and 0.733 semantic/hybrid; recall@5 is 0.828, 0.889 and 0.903 respectively. These are development results, not independent test accuracy. Related sources and experiments must remain grouped for any future held-out study. Repeated experiments from the same publication are not independent samples; model pretraining overlap with literature is not known.
+
+The current evaluator reconciles all submitted reviewers for a pair before scoring. Pending or provisional companion reviews exclude the whole account; conflicting completed labels raise an adjudication error. The historical `evaluate_semantic.py` remains unchanged for the frozen pilot, while current builds use `evaluate_retrieval.py`.
 
 ## Verification
 
-Automated checks cover the species gate, unresolved names, exclusion of annotation fields, unchanged comparability, deterministic rank fusion, stale-snapshot rejection, empty-positive-set handling and the three-mode renderer. The actual pretrained model was run successfully on the current collection. Live browser interaction with the new selector remains to be checked locally.
+Automated checks cover the species gate, unresolved names, exclusion of annotation fields, unchanged comparability, deterministic rank fusion, stale-snapshot rejection, empty-positive-set handling and the three-mode renderer. The actual pretrained model was run successfully on the current collection. Browser interaction, cited exports and responsive layouts passed the integration suite; see the product audit.
