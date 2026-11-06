@@ -15,6 +15,10 @@ The atlas compares species, plant part, preparation and outcome for each documen
 | Human retrieval relevance | 33 candidate pairs with 66 completed named reviewer submissions. All 33 pairs have matching human-approved assisted decisions, with documented assistant exposure and partner-reported approval. These are not independent blinded adjudication. |
 | Ranking | Lexical, semantic and hybrid. All six indexed account queries now have complete assisted relevance judgments. Macro recall@5: lexical 0.828, semantic 0.889, hybrid 0.903. Precision@5: lexical 0.667, semantic and hybrid 0.733. These are assisted development results, not independent accuracy. Lexical remains the default. |
 
+## Experimental finding-direction source check
+
+All 12 extracted experimental endpoints have source-based direction assessments in [the verification packet](docs/experimental_finding_direction_verification_2026-11-06.md): 5 favourable, 5 no detected effect on the specific endpoint, 1 condition-dependent, and 1 statistically inconclusive. These are assistant-checked research notes, not new independent human-review confirmations. Original result directions and frozen evaluations remain unchanged.
+
 ## Demo
 
 ![Evidence atlas showing separate lingonberry and tamarack accounts and clickable counts by comparison dimension](docs/images/atlas-preview.png)
