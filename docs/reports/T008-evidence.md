@@ -387,16 +387,16 @@ Assistant notes, separate from experimental counts; human verification is not in
 
 **Finding:** Composition varied by compound: ethanol-to-water concentration ratios were 107.21 for betulinic acid, 93.11 for ursolic acid, 0.83 for morroniside and 1.67 for quercetin-3-O-galactoside.
 
-**Preparation:** Water: gentle boiling for 1 hour, 10 mL/g dry material. Ethanol: 80%, 10 mL/g, overnight at room temperature; repeated twice.
+**Preparation:** Water: gently boil dry ground leaves in distilled water for 1 hour, 10 mL/g; ethanol: 80%, 10 mL/g, overnight agitation at room temperature and two further extractions.
 
 **Limitations:** Three injections describe instrumental replication, not three independent plant collections. Chemical composition does not test slow-healing infections or demonstrate clinical or whole-extract equivalence. The study describes its water method as approximating healer preparation; do not overwrite the recipe of T008 from this separate source.
 
 **Citation:** Cieniak C; Walshe-Roussel B; Liu R; Muhammad A; Saleem A; Haddad PS; Cuerrier A; Foster BC; Arnason JT. Phytochemical Comparison of the Water and Ethanol Leaf Extracts of the Cree medicinal plant, Sarracenia purpurea L. (Sarraceniaceae). Journal of pharmacy & pharmaceutical sciences : a publication of the Canadian Society for Pharmaceutical Sciences, Societe canadienne des sciences pharmaceutiques. 2015;18(4):484-493. doi:10.18433/j35w27. PMID:26626246.
 
-**Source URL:** https://journals.library.ualberta.ca/jpps/index.php/JPPS/article/download/25093/18946
+**Source URL:** https://journals.library.ualberta.ca/jpps/index.php/JPPS/article/download/25093/18946/65399
 
 **Supporting passage:** Means of three injections and SEM (in brackets) are presented.
 
-**Locator:** Plant extracts, p.486; Results and Table 2, p.488 (PDF pages 3 and 5)
+**Locator:** Plant extracts, printed p. 486 / PDF p. 3; Results and Table 2, printed p. 488 / PDF p. 5; Discussion pp. 488–490
 
 **Source rights:** Journal page describes Attribution-ShareAlike for non-commercial uses; exact version unresolved. No PDF redistributed.

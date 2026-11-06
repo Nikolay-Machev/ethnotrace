@@ -6,6 +6,7 @@ on:
       - review-b-comparison-proposals-2026-11-05
       - prepare-comparison-adjudication-2026-11-05
       - audit-missing-source-fields-2026-11-05
+      - verify-tx001-tx002-2026-11-05
   workflow_dispatch:
 permissions:
   contents: write
