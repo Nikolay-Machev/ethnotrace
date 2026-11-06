@@ -31,10 +31,16 @@ def grouped_review_records(records):
             if r.get('human_review_status') == 'completed':
                 if 'unresolved_reason' in r or 'unresolved_reason' in r.get('human_review_details', {}):
                     raise ValueError('Completed relevance review retains unresolved_reason: ' + str(key))
-                if not (type(r.get('human_retrieval_relevant')) is bool
-                        and r.get('human_rationale') and r.get('human_reviewer_id')
-                        and r.get('source_checked') is True):
-                    raise ValueError('Completed relevance review requires decision, rationale, reviewer and source check: ' + str(key))
+                if not (
+                    type(r.get('human_retrieval_relevant')) is bool
+                    and r.get('human_rationale')
+                    and r.get('human_reviewer_id')
+                    and r.get('source_checked') is True
+                ):
+                    raise ValueError(
+                        'Completed relevance review requires decision, rationale, reviewer and source check: '
+                        + str(key)
+                    )
         finals = [r for r in submissions if r.get('human_review_status') == 'completed']
         values = {r['human_retrieval_relevant'] for r in finals}
         if len(values) > 1:

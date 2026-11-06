@@ -2,19 +2,29 @@ import copy
 import sys
 import unittest
 from pathlib import Path
+
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 from retrieve import Baseline as FrozenBaseline, ROOT, rows
 from current_retrieve import Baseline
 from review_progress import grouped_review_records
 
+
 class CleanupTests(unittest.TestCase):
     def test_current_reviews_preserve_decisions_and_resolve_history(self):
-        history = {r['history_id']: r['record'] for r in rows(ROOT / 'data/review/history/retrieval_relevance_history.jsonl')}
+        history = {
+            r['history_id']: r['record'] for r in rows(ROOT / 'data/review/history/retrieval_relevance_history.jsonl')
+        }
         current = rows(ROOT / 'data/review/retrieval_relevance.jsonl')
         self.assertEqual(len(current), len(history))
         for record in current:
             prior = history[record['history_id']]
-            for field in ('claim_id', 'evidence_id', 'human_reviewer_id', 'human_rationale', 'human_retrieval_relevant'):
+            for field in (
+                'claim_id',
+                'evidence_id',
+                'human_reviewer_id',
+                'human_rationale',
+                'human_retrieval_relevant',
+            ):
                 self.assertEqual(record[field], prior[field])
             self.assertFalse(any(k.endswith('_history') for k in record))
         grouped_review_records(current)

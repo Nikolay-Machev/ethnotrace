@@ -1,6 +1,7 @@
 """Export baseline results and recorded review status to a static, offline demo."""
 
 import json
+from collections import defaultdict
 from current_retrieve import Baseline, ROOT, VERSION, rows
 from atlas import summarize
 from gaps import explain

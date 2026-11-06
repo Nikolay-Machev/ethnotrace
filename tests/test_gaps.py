@@ -5,6 +5,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 from gaps import explain
 from current_retrieve import Baseline
+
+
 class GapTests(unittest.TestCase):
     def test_unknown_is_record_missing_not_source_absent(self):
         b = Baseline()

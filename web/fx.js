@@ -35,7 +35,9 @@
     ];
     const box = $('hero-stats');
     if (box) {
-      box.innerHTML = stats.map(([n, l]) => `<div><dd data-n="${n}">${reduce ? n : 0}</dd><dt>${l}</dt></div>`).join('');
+      box.innerHTML = stats
+        .map(([n, l]) => `<div><dd data-n="${n}">${reduce ? n : 0}</dd><dt>${l}</dt></div>`)
+        .join('');
       if (!reduce)
         box.querySelectorAll('dd').forEach((el) => {
           const end = +el.dataset.n,

@@ -33,8 +33,7 @@ header a:not(.brand){color:var(--lime);text-decoration:none;font-weight:650;font
 header a:not(.brand):hover{background:var(--lime);color:var(--bg0);box-shadow:0 0 24px var(--glow)}
 main{max-width:none;padding:0}
 main>*:not(.hero){max-width:1440px;margin-left:auto;margin-right:auto;padding-left:5%;padding-right:5%}
-.review{margin-left:5%;margin-right:5%;max-width:1340px}
-@media(min-width:1500px){.review{margin-left:auto;margin-right:auto}}
+main>.review{width:90%;max-width:1340px;margin-left:auto;margin-right:auto;padding-left:20px;padding-right:20px}
 
 /* hero */
 .hero{position:relative;overflow:hidden;color:#eaf5ee;background:linear-gradient(160deg,var(--bg0),var(--bg1) 60%,#0f3324);padding:clamp(56px,9vw,120px) 5% 0;isolation:isolate}
